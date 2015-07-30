@@ -1,19 +1,21 @@
 package controller;
 
 import model.Beverage;
-import model.Coke;
-import model.Juice;
 
 public class BeverageFactory {
 	
 	public Beverage createItem(String name){
-		if (name=="coke"){
-			return new Coke();
+		Beverage beverage = null;
+		
+		try {
+			beverage = (Beverage) Class.forName(name).newInstance();
+			
 		}
-		else if (name=="juice"){
-			return new Juice();
+		catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
-		return null;
+
+		return beverage;
 	}
 	
 }

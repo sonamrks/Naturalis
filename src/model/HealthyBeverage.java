@@ -1,10 +1,9 @@
-package controller;
+package model;
 
-import model.Beverage;
-import model.Item;
+import java.util.ArrayList;
 
-
-public class HealthyBeverage extends Beverage {
+public class HealthyBeverage implements Beverage {
+	ArrayList<Beverage> beverages = new ArrayList<Beverage>();
 	String names = null;
 	double calorieCount = 0;
 	
@@ -36,9 +35,8 @@ public class HealthyBeverage extends Beverage {
 	public  void addBeverage(Beverage beverage){
 		beverages.add(beverage);
 	}
-	public  void removeBeverage(Item beverage){
+	public  void removeBeverage(Beverage beverage){
 		beverages.remove(beverage);
-	}
-	
+	}	
 
 }

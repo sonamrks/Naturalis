@@ -1,7 +1,7 @@
 package model;
 
 
-public class Coke extends Beverage {
+public class Coke implements Beverage {
 	
 	private String name ="coke";
 	private double price = 3.0;
