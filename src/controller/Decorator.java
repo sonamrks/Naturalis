@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import model.Beverage;
 import model.Item;
 
-public class Decorator extends Beverage{
+public class Decorator extends Beverage{{
 	
 	Beverage beverage;
 	public ArrayList<Beverage> lowCalorieBeverages = new ArrayList<Beverage>();
