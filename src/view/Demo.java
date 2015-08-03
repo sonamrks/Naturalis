@@ -3,12 +3,13 @@ import java.sql.*;
 import model.BeverageComponent;
 import model.HealthyBeverage;
 import controller.BeverageFactory;
+import controller.ItemFactory;
 
 public class Demo {
 	
             
 static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-static final String DB_URL = "jdbc:mysql://localhost/test";
+static final String DB_URL = "jdbc:mysql://localhost/designPatternsDB";
 //specify the user name and password; 
 // we use user "root" with password "mysql1"
 static final String USER = "root";
@@ -23,7 +24,7 @@ public static void main(String[] args) {
        System.out.println("Connecting to database");
        connection = DriverManager.getConnection(DB_URL,USER,PASS);
        
-       BeverageFactory factory1 = new BeverageFactory(connection);
+       ItemFactory factory1 = new BeverageFactory(connection);
        BeverageComponent item1 = factory1.createItem("model.Coke");
        System.out.println(item1.getCalories());
        
@@ -53,20 +54,7 @@ public static void main(String[] args) {
            se.printStackTrace();
        }
    }
-   System.out.println("Closed connection");
-
-    
-    
-    /*Beverage item2 = factory1.createItem("model.Coke");
-    System.out.println("item1: " + item1.getName());
-    System.out.println("item2: " + item2.getName());
-
-    Beverage healthyBeverages = new HealthyBeverage();
-    healthyBeverages.addBeverage(item1);
-    healthyBeverages.addBeverage(item2);
-
-    System.out.println(healthyBeverages.getName());
-    System.out.println(healthyBeverages.getCalories());*/
+  
    }
 
 		

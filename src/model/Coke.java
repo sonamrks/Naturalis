@@ -1,8 +1,6 @@
 package model;
 
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Coke implements BeverageComponent {
 	
@@ -38,7 +36,7 @@ public class Coke implements BeverageComponent {
                 statement.close();
                 
             } catch (SQLException ex) {
-                Logger.getLogger(Coke.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
             }
 	}
 	public String getName(){

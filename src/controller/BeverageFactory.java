@@ -3,6 +3,7 @@ package controller;
 import java.sql.Connection;
 import model.BeverageComponent;
 import java.lang.reflect.Constructor;
+import model.Coke;
 
 public class BeverageFactory implements ItemFactory{
     Connection connection;
@@ -15,7 +16,9 @@ public class BeverageFactory implements ItemFactory{
 		
 		try {
 			Constructor c = Class.forName(name).getConstructor(Connection.class);
+                        beverage = new Coke(connection);
                         beverage = (BeverageComponent) c.newInstance(connection);
+                         
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
