@@ -176,22 +176,6 @@
             <Container class="javax.swing.JPanel" name="itemsPanel">
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
-              <SubComponents>
-                <Component class="NaturalisGUI.BeveragePanel" name="beveragePanel">
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                      <CardConstraints cardName="beverage"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
-                <Component class="NaturalisGUI.SnackPanel" name="snackPanel">
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                      <CardConstraints cardName="snacks"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
-              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="dispenserPanel">
               <Properties>
@@ -533,18 +517,8 @@
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="insertCoinLabel">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Ashita\COEN 359 Design Patterns\Project\images\insertCoin.jpg"/>
-                        </Property>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="insertNoteLabel">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Ashita\COEN 359 Design Patterns\Project\images\insertNote.png"/>
-                        </Property>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="cent10Button">
                       <Properties>
@@ -624,11 +598,6 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="buyCardLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Ashita\COEN 359 Design Patterns\Project\images\card.jpg"/>
-                    </Property>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="dollar10Button">
                   <Properties>

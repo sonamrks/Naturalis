@@ -3,9 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package NaturalisGUI;
+package view;
 
+import controller.BeverageFactory;
+import controller.ItemFactory;
 import java.awt.CardLayout;
+import java.sql.Connection;
+import java.sql.SQLException;
+import model.BeverageComponent;
+import model.DatabaseConnection;
 
 /**
  *
@@ -35,8 +41,6 @@ public class CustomerUI extends javax.swing.JFrame {
         selectBeverageButton = new javax.swing.JButton();
         selectSnackButton = new javax.swing.JButton();
         itemsPanel = new javax.swing.JPanel();
-        beveragePanel = new NaturalisGUI.BeveragePanel();
-        snackPanel = new NaturalisGUI.SnackPanel();
         dispenserPanel = new javax.swing.JPanel();
         changeSlotPanel = new javax.swing.JPanel();
         middlePanel = new javax.swing.JPanel();
@@ -111,8 +115,6 @@ public class CustomerUI extends javax.swing.JFrame {
         );
 
         itemsPanel.setLayout(new java.awt.CardLayout());
-        itemsPanel.add(beveragePanel, "beverage");
-        itemsPanel.add(snackPanel, "snacks");
 
         dispenserPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -289,10 +291,6 @@ public class CustomerUI extends javax.swing.JFrame {
 
         rightPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        insertCoinLabel.setIcon(new javax.swing.ImageIcon("C:\\Ashita\\COEN 359 Design Patterns\\Project\\images\\insertCoin.jpg")); // NOI18N
-
-        insertNoteLabel.setIcon(new javax.swing.ImageIcon("C:\\Ashita\\COEN 359 Design Patterns\\Project\\images\\insertNote.png")); // NOI18N
-
         cent10Button.setText("10c");
         cent10Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,8 +364,6 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addComponent(insertCoinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        buyCardLabel.setIcon(new javax.swing.ImageIcon("C:\\Ashita\\COEN 359 Design Patterns\\Project\\images\\card.jpg")); // NOI18N
 
         dollar10Button.setText("$10");
 
@@ -505,6 +501,30 @@ public class CustomerUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+           try{
+     DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
+     Connection connection = dbConnection.getConnection();   
+       
+       ItemFactory factory1 = new BeverageFactory(connection);
+       BeverageComponent item1 = factory1.createItem("model.Coke");
+       System.out.println(item1.getCalories());
+       
+              /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CustomerUI().setVisible(true);
+            }
+        });
+     
+       connection.close();
+   }
+   catch(SQLException se){
+       System.out.println("JDBC errors");
+       se.printStackTrace();
+   }catch(Exception err){
+       System.out.println("Errors in Class.forName");
+       err.printStackTrace();
+  }
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -528,16 +548,10 @@ public class CustomerUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CustomerUI().setVisible(true);
-            }
-        });
+ 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private NaturalisGUI.BeveragePanel beveragePanel;
     private javax.swing.JButton buyButton;
     private javax.swing.JLabel buyCardLabel;
     private javax.swing.JPanel buyCardPanel;
@@ -575,6 +589,5 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton selectBeverageButton;
     private javax.swing.JPanel selectButtonPanel;
     private javax.swing.JButton selectSnackButton;
-    private NaturalisGUI.SnackPanel snackPanel;
     // End of variables declaration//GEN-END:variables
 }
