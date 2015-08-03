@@ -6,14 +6,6 @@ import controller.BeverageFactory;
 import controller.ItemFactory;
 
 public class Demo {
-	
-            
-static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-static final String DB_URL = "jdbc:mysql://localhost/designPatternsDB";
-//specify the user name and password; 
-// we use user "root" with password "mysql1"
-static final String USER = "root";
-static final String PASS = "password";
 
 public static void main(String[] args) {
     
@@ -39,13 +31,13 @@ public static void main(String[] args) {
    }catch(Exception err){
        System.out.println("Errors in Class.forName");
        err.printStackTrace();
-  }finally{
+  }/*finally{
        try{
            if(connection!=null)
            connection.close();
        }catch(SQLException se){
            se.printStackTrace();
-       }
+       }*/
    }
   
    }
