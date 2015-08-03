@@ -1,14 +1,45 @@
 package model;
 
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Coke implements BeverageComponent {
 	
-	private String name ="coke";
-	private double price = 3.0;
-	private double calories = 120;
+	private String name;
+        private int protein;
+        private int sugars;
+        private int carbohydrates;
+        private int calories;
+	private double price;
+	private int count;
+        
+        Statement statement;
+        String query;
+        ResultSet result;
 	
-	public Item createItem(){
-		return new Coke();
+	public Coke(Connection connection){
+            try {
+                statement = connection.createStatement();
+                query = "SELECT * FROM item WHERE code = 101";
+                result = statement.executeQuery(query);
+                
+                while(result.next()){
+                     name = result.getString("name");
+                     protein = result.getInt("protein");
+                     sugars = result.getInt("sugars");
+                    carbohydrates = result.getInt("carbohydrates");
+                    calories= result.getInt("calories");
+                    price = result.getInt("price");
+                    count = result.getInt("count");
+                }
+                
+                result.close();
+                statement.close();
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Coke.class.getName()).log(Level.SEVERE, null, ex);
+            }
 	}
 	public String getName(){
 		return name;
@@ -22,10 +53,10 @@ public class Coke implements BeverageComponent {
 	public void setPrice(double price){
 		this.price = price;
 	}
-	public double getCalories(){
+	public int getCalories(){
 		return calories;
 	}
-	public void setCalories(double calories){
+	public void setCalories(int calories){
 		this.calories = calories;
 	}
 	public  void addBeverage(BeverageComponent beverage){

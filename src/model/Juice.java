@@ -5,11 +5,9 @@ public class Juice implements BeverageComponent{
 
 	private String name ="juice";
 	private double price = 4;
-	private double calories = 50;
+	private int calories = 50;
 	
-	public Item createItem(){
-		return new Coke();
-	}
+	
 	public String getName(){
 		return name;
 	}
@@ -22,10 +20,10 @@ public class Juice implements BeverageComponent{
 	public void setPrice(double price){
 		this.price = price;
 	}
-	public double getCalories(){
+	public int getCalories(){
 		return calories;
 	}
-	public void setCalories(double calories){
+	public void setCalories(int calories){
 		this.calories = calories;
 	}
 	public  void addBeverage(BeverageComponent beverage){

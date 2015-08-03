@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class HealthyBeverage implements BeverageComponent {
 	ArrayList<BeverageComponent> beverages = new ArrayList<BeverageComponent>();
 	String names = null;
-	double calorieCount = 0;
+	int calorieCount = 0;
 	
 	public Item createItem(){
 		return null;
@@ -23,7 +23,7 @@ public class HealthyBeverage implements BeverageComponent {
 	public double getPrice(){
 		return 0;
 	}
-	public double getCalories(){
+	public int getCalories(){
 		
 		for (Item beverage : beverages) {
 			calorieCount+= beverage.getCalories();

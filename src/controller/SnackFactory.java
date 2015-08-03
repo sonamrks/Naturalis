@@ -5,6 +5,7 @@
  */
 package controller;
 
+import model.BeverageComponent;
 import model.SnackComponent;
 
 /**
@@ -23,7 +24,6 @@ public class SnackFactory implements ItemFactory {
 		}
 
 		return snack;
-	}
-
+    }
     
 }
