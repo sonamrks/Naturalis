@@ -1,6 +1,6 @@
 package view;
 import java.sql.*;
-import model.BeverageComponent;
+import model.*;
 import model.HealthyBeverage;
 import controller.BeverageFactory;
 import controller.ItemFactory;
@@ -14,15 +14,14 @@ static final String DB_URL = "jdbc:mysql://localhost/designPatternsDB";
 // we use user "root" with password "mysql1"
 static final String USER = "root";
 static final String PASS = "password";
+
 public static void main(String[] args) {
     
-   Connection connection = null;
-   Statement statement = null;
+   
    try{
 
-       Class.forName("com.mysql.jdbc.Driver");
-       System.out.println("Connecting to database");
-       connection = DriverManager.getConnection(DB_URL,USER,PASS);
+     DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
+     Connection connection = dbConnection.getConnection();   
        
        ItemFactory factory1 = new BeverageFactory(connection);
        BeverageComponent item1 = factory1.createItem("model.Coke");
@@ -41,12 +40,6 @@ public static void main(String[] args) {
        System.out.println("Errors in Class.forName");
        err.printStackTrace();
   }finally{
-       try{
-           if(statement!=null)
-           statement.close();
-       }
-       catch(SQLException se2){
-       }
        try{
            if(connection!=null)
            connection.close();
