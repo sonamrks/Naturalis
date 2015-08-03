@@ -1,15 +1,14 @@
 package controller;
 
-import model.Beverage;
+import model.BeverageComponent;
 
-public class BeverageFactory {
+public class BeverageFactory implements ItemFactory{
 	
-	public Beverage createItem(String name){
-		Beverage beverage = null;
+	public BeverageComponent createItem(String name){
+		BeverageComponent beverage = null;
 		
 		try {
-			beverage = (Beverage) Class.forName(name).newInstance();
-			
+			beverage = (BeverageComponent) Class.forName(name).newInstance();
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());

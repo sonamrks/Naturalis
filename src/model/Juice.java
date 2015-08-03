@@ -1,7 +1,7 @@
 package model;
 
 
-public class Juice implements Beverage{
+public class Juice implements BeverageComponent{
 
 	private String name ="juice";
 	private double price = 4;
@@ -28,10 +28,10 @@ public class Juice implements Beverage{
 	public void setCalories(double calories){
 		this.calories = calories;
 	}
-	public  void addBeverage(Beverage beverage){
+	public  void addBeverage(BeverageComponent beverage){
 		
 	}
-	public  void removeBeverage(Beverage beverage){
+	public  void removeBeverage(BeverageComponent beverage){
 		
 	}
 }

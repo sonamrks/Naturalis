@@ -2,13 +2,13 @@ package controller;
 
 import java.util.ArrayList;
 
-import model.Beverage;
+import model.BeverageComponent;
 import model.Item;
 
-public class Decorator extends Beverage{{
+public class Decorator extends BeverageComponent{{
 	
-	Beverage beverage;
-	public ArrayList<Beverage> lowCalorieBeverages = new ArrayList<Beverage>();
+	BeverageComponent beverage;
+	public ArrayList<BeverageComponent> lowCalorieBeverages = new ArrayList<BeverageComponent>();
 	
 	public Item createItem(){
 		return null;

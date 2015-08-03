@@ -2,8 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
-public class HealthyBeverage implements Beverage {
-	ArrayList<Beverage> beverages = new ArrayList<Beverage>();
+public class HealthyBeverage implements BeverageComponent {
+	ArrayList<BeverageComponent> beverages = new ArrayList<BeverageComponent>();
 	String names = null;
 	double calorieCount = 0;
 	
@@ -32,10 +32,10 @@ public class HealthyBeverage implements Beverage {
 		//return 0;
 	}
 	
-	public  void addBeverage(Beverage beverage){
+	public  void addBeverage(BeverageComponent beverage){
 		beverages.add(beverage);
 	}
-	public  void removeBeverage(Beverage beverage){
+	public  void removeBeverage(BeverageComponent beverage){
 		beverages.remove(beverage);
 	}	
 
