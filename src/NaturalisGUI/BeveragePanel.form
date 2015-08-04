@@ -58,10 +58,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cokePanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="orangePanel" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="lemonadePanel" min="-2" max="-2" attributes="0"/>
-                  <Component id="orangePanel" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="397" max="32767" attributes="0"/>
+              <EmptySpace pref="383" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -196,7 +196,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="orangeImage" min="-2" pref="100" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
