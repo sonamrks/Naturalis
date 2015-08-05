@@ -574,7 +574,10 @@ public class CustomerUI extends javax.swing.JFrame {
     
        ItemFactory factory1 = new BeverageFactory();
        BeverageComponent item1 = factory1.createItem("model.Coke");
-       System.out.println(item1.getCalories());
+       System.out.println("Coke calories: " + item1.getCalories());
+       
+       BeverageComponent item2 = factory1.createItem("model.Juice");
+       System.out.println("Juice calories: " + item2.getCalories());
        
               /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
