@@ -15,7 +15,6 @@ import javax.swing.event.TableModelListener;
 import view.CustomerUI;
 import javax.swing.table.TableModel;
 import javax.swing.event.*;
-import javax.swing.ListSelectionModel;
 
 public class ItemsCartController implements ListSelectionListener, TableModelListener {
     private ItemsCartTableModel itemsCartTableModel;
@@ -52,11 +51,11 @@ public class ItemsCartController implements ListSelectionListener, TableModelLis
         itemsCartTableModel.addRow(Integer.valueOf(ID));	
     }
 
-    public void deleteItem(String ID, String name){
-        if (ID.equals("") || name.equals("")) {
+    public void removeItem(String ID){
+        if (ID.equals("")) {
             JOptionPane.showMessageDialog(null,"Please select an item to delete","No items selected",JOptionPane.ERROR_MESSAGE);
         } else {
-            itemsCartTableModel.deleteRow(Integer.valueOf(ID), name);
+            itemsCartTableModel.deleteRow(Integer.valueOf(ID));
         }
     }	
 }

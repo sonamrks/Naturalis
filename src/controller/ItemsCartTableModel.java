@@ -16,8 +16,6 @@ import javax.swing.table.AbstractTableModel;
 public class ItemsCartTableModel extends AbstractTableModel {
     private List<Integer> itemCodes;
     private List<String> itemNames;
-    private Integer itemCode;
-    private String itemName;
     private int numcols, numrows;
     
     public ItemsCartTableModel() {
@@ -47,7 +45,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
             else if (col == 1)
                 return itemNames.get(row);
             else
-		   throw new Exception("Error: invalid column index in playerlist table");
+		   throw new Exception("Error: invalid column index in itemlist table");
         } catch (Exception e) {
             e.getMessage();
             return null;
@@ -72,7 +70,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
             else if (col == 1)
             	   colName = "Name";
             else 
-                throw new Exception("Access to invalid column number in courselist table");
+                throw new Exception("Access to invalid column number in itemlist table");
         }
         catch (Exception err) {
            return err.toString();
@@ -108,9 +106,9 @@ public class ItemsCartTableModel extends AbstractTableModel {
         }
     }
         
-    public void deleteRow(Integer ID, String name) {
+    public void deleteRow(Integer ID) {
             itemCodes.remove(ID);
-            itemNames.remove(name);
+            itemNames.remove("name");
             fireTableRowsDeleted(itemCodes.size(), numcols-1);   
         }
 }

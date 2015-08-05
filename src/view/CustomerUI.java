@@ -711,7 +711,7 @@ public class CustomerUI extends javax.swing.JFrame {
     }//GEN-LAST:event_selectBeverageButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-        // TODO add your handling code here:
+        itemsCartController.removeItem(itemCodeTextField.getText());
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void addButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton1ActionPerformed
