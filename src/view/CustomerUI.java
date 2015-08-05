@@ -8,10 +8,7 @@ package view;
 import controller.BeverageFactory;
 import controller.ItemFactory;
 import java.awt.CardLayout;
-import java.sql.Connection;
-import java.sql.SQLException;
 import model.BeverageComponent;
-import model.DatabaseConnection;
 
 /**
  *
