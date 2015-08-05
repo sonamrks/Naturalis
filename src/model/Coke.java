@@ -1,7 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package model;
 
 import java.sql.*;
 
+/**
+ *
+ * @author Sonam
+ */
 public class Coke implements BeverageComponent {
 	
 	private String name;
@@ -11,13 +20,15 @@ public class Coke implements BeverageComponent {
         private int calories;
 	private double price;
 	private int count;
-        
+          
         Statement statement;
         String query;
         ResultSet result;
 	
-	public Coke(Connection connection){
+	public Coke(){
             try {
+                DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
+                Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
                 query = "SELECT * FROM item WHERE code = 101";
                 result = statement.executeQuery(query);
@@ -35,32 +46,69 @@ public class Coke implements BeverageComponent {
                 result.close();
                 statement.close();
                 
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
+            } 
+            catch(SQLException se){
+       System.out.println("JDBC errors");
+       se.printStackTrace();
+   }catch(Exception err){
+       System.out.println("Errors in Class.forName");
+       err.printStackTrace();
+  }
+            
 	}
+        @Override
 	public String getName(){
 		return name;
 	}
 	public void setName(String name){
 		this.name = name;
 	}
+	public int getProtein(){
+		return protein;
+	}
+	public void setProtein(int protein){
+		this.protein = protein;
+	}
+        public int getSugars(){
+		return sugars;
+	}
+	public void setSugars(int sugars){
+		this.sugars = sugars;
+	}
+        public int getCarbohydrates(){
+		return carbohydrates;
+	}
+	public void setCarbohydrates(int carbohydrates){
+		this.carbohydrates = carbohydrates;
+	}
+        @Override
+	public int getCalories(){
+        //    System.out.println("hello");
+		return calories;
+	}
+	public void setCalories(int calories){
+		this.calories = calories;
+	}
+        @Override
 	public double getPrice(){
 		return price;
 	}
 	public void setPrice(double price){
 		this.price = price;
 	}
-	public int getCalories(){
-		return calories;
+        public int getCount(){
+		return count;
 	}
-	public void setCalories(int calories){
-		this.calories = calories;
+	public void setCount(int count){
+		this.count = count;
 	}
+        @Override
 	public  void addBeverage(BeverageComponent beverage){
 		
 	}
+        @Override
 	public  void removeBeverage(BeverageComponent beverage){
 		
 	}
 }
+
