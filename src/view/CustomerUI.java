@@ -34,7 +34,6 @@ public class CustomerUI extends javax.swing.JFrame {
     
     public void addJTable1() {
     jTable1 = new JTable(itemsCartController.getTableModel());
-    jTable1.setSize(20,20);
     jTable1.getSelectionModel().addListSelectionListener(itemsCartController);
     JScrollPane scrollpane1 = new JScrollPane(jTable1);
     cartItemsPanel.setLayout(new BorderLayout());
@@ -253,6 +252,11 @@ public class CustomerUI extends javax.swing.JFrame {
         });
 
         addButton1.setLabel("Add");
+        addButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout infoPanelLayout = new javax.swing.GroupLayout(infoPanel);
         infoPanel.setLayout(infoPanelLayout);
@@ -373,13 +377,13 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cartPanelLayout.createSequentialGroup()
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(cartPanelLayout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(buyButton))
-                        .addGroup(cartPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(52, 52, 52)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cartPanelLayout.createSequentialGroup()
+                        .addGroup(cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cartPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(buyButton))
+                            .addComponent(jLabel5))
+                        .addGap(52, 52, 52))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cartPanelLayout.createSequentialGroup()
                         .addComponent(removeButton)
                         .addGap(41, 41, 41))))
@@ -709,6 +713,10 @@ public class CustomerUI extends javax.swing.JFrame {
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_removeButtonActionPerformed
+
+    private void addButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton1ActionPerformed
+        itemsCartController.addItem(itemCodeTextField.getText());
+    }//GEN-LAST:event_addButton1ActionPerformed
 
     /**
      * @param args the command line arguments
