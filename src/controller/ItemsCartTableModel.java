@@ -99,10 +99,10 @@ public class ItemsCartTableModel extends AbstractTableModel {
         numcols = 2;     
      }
     
-    public void addRow(Integer ID, String name) {
+    public void addRow(Integer ID) {
         if(!itemCodes.contains(ID)) {
             itemCodes.add(ID);
-            itemNames.add(name);
+            itemNames.add("name");
             fireTableRowsInserted(itemCodes.size()-1, numcols-1);
             numrows++;
         }
