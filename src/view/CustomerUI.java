@@ -7,7 +7,11 @@ package view;
 
 import controller.BeverageFactory;
 import controller.ItemFactory;
+import controller.ItemsCartController;
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import model.BeverageComponent;
 
 /**
@@ -16,11 +20,28 @@ import model.BeverageComponent;
  */
 public class CustomerUI extends javax.swing.JFrame {
 
+    private JTable jTable1; 
+    private static ItemsCartController itemsCartController;
     /**
      * Creates new form CustomerUI
      */
     public CustomerUI() {
         initComponents();
+        
+        itemsCartController = new ItemsCartController(this);
+        addJTable1();
+    }
+    
+    public void addJTable1() {
+    jTable1 = new JTable(itemsCartController.getTableModel());
+    jTable1.getSelectionModel().addListSelectionListener(itemsCartController);
+    JScrollPane scrollpane1 = new JScrollPane(jTable1);
+    cartItemsPanel.setLayout(new BorderLayout());
+    cartItemsPanel.add(scrollpane1, BorderLayout.CENTER);       
+    }
+    
+    public void updateTable1() {
+        jTable1.setModel(itemsCartController.getTableModel());
     }
 
     /**
@@ -58,10 +79,9 @@ public class CustomerUI extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         cartPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        ItemsToBuyList = new javax.swing.JTable();
         removeButton = new javax.swing.JButton();
         buyButton = new javax.swing.JButton();
+        cartItemsPanel = new javax.swing.JPanel();
         rightPanel = new javax.swing.JPanel();
         paymentPanel = new javax.swing.JPanel();
         insertCoinPanel = new javax.swing.JPanel();
@@ -318,22 +338,6 @@ public class CustomerUI extends javax.swing.JFrame {
 
         jLabel5.setText("Items to Buy");
 
-        ItemsToBuyList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Code", "Name"
-            }
-        ));
-        ItemsToBuyList.setIntercellSpacing(new java.awt.Dimension(2, 2));
-        ItemsToBuyList.setMinimumSize(new java.awt.Dimension(50, 64));
-        ItemsToBuyList.setPreferredSize(new java.awt.Dimension(350, 64));
-        jScrollPane2.setViewportView(ItemsToBuyList);
-
         removeButton.setText("Remove");
         removeButton.setActionCommand("Delete");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -344,34 +348,47 @@ public class CustomerUI extends javax.swing.JFrame {
 
         buyButton.setText("Buy");
 
+        javax.swing.GroupLayout cartItemsPanelLayout = new javax.swing.GroupLayout(cartItemsPanel);
+        cartItemsPanel.setLayout(cartItemsPanelLayout);
+        cartItemsPanelLayout.setHorizontalGroup(
+            cartItemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 153, Short.MAX_VALUE)
+        );
+        cartItemsPanelLayout.setVerticalGroup(
+            cartItemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 129, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout cartPanelLayout = new javax.swing.GroupLayout(cartPanel);
         cartPanel.setLayout(cartPanelLayout);
         cartPanelLayout.setHorizontalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cartPanelLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(buyButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cartPanelLayout.createSequentialGroup()
-                .addGap(0, 35, Short.MAX_VALUE)
-                .addGroup(cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cartPanelLayout.createSequentialGroup()
-                        .addComponent(removeButton)
-                        .addGap(62, 62, 62))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 76, Short.MAX_VALUE)
+                .addComponent(removeButton)
+                .addGap(62, 62, 62))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cartPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(66, 66, 66))
+            .addGroup(cartPanelLayout.createSequentialGroup()
+                .addGroup(cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cartPanelLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(buyButton))
+                    .addGroup(cartPanelLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(cartItemsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cartPanelLayout.setVerticalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cartPanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
+                .addComponent(cartItemsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(removeButton)
                 .addGap(18, 18, 18)
                 .addComponent(buyButton)
@@ -711,13 +728,13 @@ public class CustomerUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable ItemsToBuyList;
     private javax.swing.JButton addButton1;
     private javax.swing.JPanel amoutPanel;
     private javax.swing.JButton buyButton;
     private javax.swing.JLabel buyCardLabel;
     private javax.swing.JPanel buyCardPanel;
     private javax.swing.JTextField calorieRangeTextField;
+    private javax.swing.JPanel cartItemsPanel;
     private javax.swing.JPanel cartPanel;
     private javax.swing.JButton cent10Button;
     private javax.swing.JButton cent25Button;
@@ -752,7 +769,6 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel middlePanel;
