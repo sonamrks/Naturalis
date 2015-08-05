@@ -9,9 +9,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author me
- */
-
+ * @author Sonam
+*/
     public class CircularList<E> extends ArrayList<E> {
 
         @Override
