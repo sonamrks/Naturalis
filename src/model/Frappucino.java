@@ -30,7 +30,7 @@ public class Frappucino implements BeverageComponent {
                 DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
                 Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
-                query = "SELECT * FROM item WHERE code = 104";
+                query = "SELECT * FROM item WHERE code = 105";
                 result = statement.executeQuery(query);
                 
                 while(result.next()){
@@ -39,7 +39,7 @@ public class Frappucino implements BeverageComponent {
                      sugars = result.getInt("sugars");
                     carbohydrates = result.getInt("carbohydrates");
                     calories= result.getInt("calories");
-                    price = result.getInt("price");
+                    price = result.getDouble("price");
                     count = result.getInt("count");
                 }
                 
