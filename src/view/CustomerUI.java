@@ -13,7 +13,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import model.BeverageComponent;
+import model.Item;
 
 /**
  *
@@ -748,12 +748,12 @@ public class CustomerUI extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
     
-       ItemFactory factory1 = new BeverageFactory();
-       BeverageComponent item1 = factory1.createItem("model.Coke");
-       System.out.println("Coke calories: " + item1.getCalories());
+  //     ItemFactory factory1 = new BeverageFactory();
+  //     Item item1 = factory1.createItem("model.Coke");
+  //     System.out.println("Coke calories: " + item1.getCalories());
        
-       BeverageComponent item2 = factory1.createItem("model.Juice");
-       System.out.println("Juice calories: " + item2.getCalories());
+   //    Item item2 = factory1.createItem("model.Juice");
+   //    System.out.println("Juice calories: " + item2.getCalories());
        
               /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -8,10 +8,10 @@ package controller;
 /**
  *
  * @author Sonam
- */
+ */import java.sql.ResultSet;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.DatabaseConnection;
@@ -24,7 +24,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
     private List<String> itemNames;
     private int numcols, numrows;
     String name;
-    BeverageFactory beverageFactory = new BeverageFactory();
+    ItemFactory beverageFactory = new ItemFactory();
     
     public ItemsCartTableModel() {
      itemCodes = new CircularList<Integer>();
@@ -127,7 +127,11 @@ public class ItemsCartTableModel extends AbstractTableModel {
                 }
 
                 itemNames.add(name);
-                cartItems.add(beverageFactory.createItem(name));
+                
+                String s = "model." + name;
+                Item beverage = beverageFactory.createItem(s);
+                System.out.println("price" + beverage.getPrice());
+                cartItems.add(beverage);
                 fireTableRowsInserted(itemCodes.size()-1, numcols-1);
                 numrows++;
             }catch(Exception err){
