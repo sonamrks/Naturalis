@@ -19,7 +19,7 @@ import model.Item;
 
 
 public class ItemsCartTableModel extends AbstractTableModel {
-    private List<Item> cartItems;
+    private Map<Integer,Item> cartItems;
     private List<Integer> itemCodes;
     private List<String> itemNames;
     private int numcols, numrows;
@@ -27,7 +27,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
     ItemFactory beverageFactory = new ItemFactory();
     
     public ItemsCartTableModel() {
-     cartItems = new ArrayList<Item>();
+     cartItems = new HashMap<Integer,Item>();
      itemCodes = new CircularList<Integer>();
      itemNames = new CircularList<String>();
      numrows = itemCodes.size();
@@ -99,7 +99,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
 	return itemNames;
     }
 
-    public List<Item> getCartItems() {
+    public Map<Integer,Item> getCartItems() {
         return cartItems;
     }
     
@@ -130,14 +130,15 @@ public class ItemsCartTableModel extends AbstractTableModel {
                 itemNames.add(name);
                 
                 String s = "model." + name;
-                System.out.println("name: " + s);
-                Item beverage = beverageFactory.createItem(s);
-                System.out.println("name " + name+ "price " + beverage.getPrice());
-                cartItems.add(beverage);
+                Item beverage;
+                beverage = beverageFactory.createItem(s);
+            //    System.out.println("ID " + ID + ", name " + name+ ", price " + beverage.getPrice());
+                cartItems.put(ID,beverage);
+                System.out.println("price here: " + cartItems.get(ID).getPrice());
                 fireTableRowsInserted(itemCodes.size()-1, numcols-1);
                 numrows++;
             }catch(Exception err){
-                System.out.println("Errors in Class.forName");
+                System.out.println(err.getMessage());
                 err.printStackTrace();
             }
         }

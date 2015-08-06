@@ -5,7 +5,7 @@
  */
 package controller;
 
-import java.util.List;
+import java.util.*;
 import model.Item;
 import view.CustomerUI;
 
@@ -16,15 +16,13 @@ import view.CustomerUI;
 public class PaymentController {
     private ItemsCartTableModel itemsCartTableModel;
     private CustomerUI customerUI;
-    private List<Item> items;
+    private Map<Integer,Item> items;
     private double totalPrice;
     
-    public void getItems() {
-        items = itemsCartTableModel.getCartItems();
-    }
-    
     public double calculateTotalPrice() {
-        for(Item item: items) {
+        items = itemsCartTableModel.getCartItems();
+        for(Item item: items.values()) {
+            System.out.println("price value: " + item.getPrice());
             totalPrice += item.getPrice();
         }
         return totalPrice;
