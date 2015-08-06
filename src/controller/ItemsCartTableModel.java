@@ -12,7 +12,7 @@ package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.List;
+import java.util.*;
 import javax.swing.table.AbstractTableModel;
 import model.DatabaseConnection;
 import model.Item;
@@ -27,6 +27,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
     ItemFactory beverageFactory = new ItemFactory();
     
     public ItemsCartTableModel() {
+     cartItems = new ArrayList<Item>();
      itemCodes = new CircularList<Integer>();
      itemNames = new CircularList<String>();
      numrows = itemCodes.size();
