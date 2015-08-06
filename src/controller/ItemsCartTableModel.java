@@ -12,19 +12,19 @@ package controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import model.DatabaseConnection;
+import model.Item;
 
 
 public class ItemsCartTableModel extends AbstractTableModel {
+    private List<Item> cartItems;
     private List<Integer> itemCodes;
     private List<String> itemNames;
     private int numcols, numrows;
     String name;
+    BeverageFactory beverageFactory = new BeverageFactory();
     
     public ItemsCartTableModel() {
      itemCodes = new CircularList<Integer>();
@@ -97,6 +97,10 @@ public class ItemsCartTableModel extends AbstractTableModel {
     public List getItemNames() {
 	return itemNames;
     }
+
+    public List<Item> getCartItems() {
+        return cartItems;
+    }
     
     public ItemsCartTableModel(List list1, List list2)  {
         itemCodes = list1;
@@ -121,10 +125,9 @@ public class ItemsCartTableModel extends AbstractTableModel {
                 while(result.next()){
                     name = result.getString("name");
                 }
-                
-                //String name = result.getString("name");
-                
+
                 itemNames.add(name);
+                cartItems.add(beverageFactory.createItem(name));
                 fireTableRowsInserted(itemCodes.size()-1, numcols-1);
                 numrows++;
             }catch(Exception err){
