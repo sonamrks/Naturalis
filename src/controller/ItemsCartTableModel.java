@@ -130,6 +130,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
                 itemNames.add(name);
                 
                 String s = "model." + name;
+                System.out.println("name: " + s);
                 Item beverage = beverageFactory.createItem(s);
                 System.out.println("price" + beverage.getPrice());
                 cartItems.add(beverage);

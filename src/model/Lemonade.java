@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author Sonam
  */
-public class Juice implements BeverageComponent {
+public class Lemonade implements BeverageComponent {
 	
 	private String name;
         private int protein;
@@ -25,12 +25,12 @@ public class Juice implements BeverageComponent {
         String query;
         ResultSet result;
 	
-	public Juice(){
+	public Lemonade(){
             try {
                 DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
                 Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
-                query = "SELECT * FROM item WHERE code = 102";
+                query = "SELECT * FROM item WHERE code = 103";
                 result = statement.executeQuery(query);
                 
                 while(result.next()){
