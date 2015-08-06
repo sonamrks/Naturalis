@@ -30,7 +30,7 @@ public class Gatorade implements BeverageComponent {
                 DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
                 Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
-                query = "SELECT * FROM item WHERE code = 105";
+                query = "SELECT * FROM item WHERE code = 104";
                 result = statement.executeQuery(query);
                 
                 while(result.next()){

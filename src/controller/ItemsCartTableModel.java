@@ -132,7 +132,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
                 String s = "model." + name;
                 System.out.println("name: " + s);
                 Item beverage = beverageFactory.createItem(s);
-                System.out.println("price" + beverage.getPrice());
+                System.out.println("name " + name+ "price " + beverage.getPrice());
                 cartItems.add(beverage);
                 fireTableRowsInserted(itemCodes.size()-1, numcols-1);
                 numrows++;
