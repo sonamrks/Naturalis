@@ -9,14 +9,22 @@ package controller;
  *
  * @author Sonam
  */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
+import model.DatabaseConnection;
 
 
 public class ItemsCartTableModel extends AbstractTableModel {
     private List<Integer> itemCodes;
     private List<String> itemNames;
     private int numcols, numrows;
+    String name;
     
     public ItemsCartTableModel() {
      itemCodes = new CircularList<Integer>();
@@ -99,13 +107,32 @@ public class ItemsCartTableModel extends AbstractTableModel {
     
     public void addRow(Integer ID) {
         if(!itemCodes.contains(ID)) {
-            itemCodes.add(ID);
-            itemNames.add("name");
-            fireTableRowsInserted(itemCodes.size()-1, numcols-1);
-            numrows++;
+            try {
+                itemCodes.add(ID);
+                
+                DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+                Connection connection = dbConnection.getConnection();
+                String getName = "SELECT name FROM item WHERE code=?";
+                
+                PreparedStatement statement = connection.prepareStatement(getName);
+                statement.setInt(1,ID);
+                ResultSet result = statement.executeQuery();
+                
+                while(result.next()){
+                    name = result.getString("name");
+                }
+                
+                //String name = result.getString("name");
+                
+                itemNames.add(name);
+                fireTableRowsInserted(itemCodes.size()-1, numcols-1);
+                numrows++;
+            }catch(Exception err){
+                System.out.println("Errors in Class.forName");
+                err.printStackTrace();
+            }
         }
-    }
-        
+    }   
     public void deleteRow(Integer ID) {
             itemCodes.remove(ID);
             itemNames.remove("name");

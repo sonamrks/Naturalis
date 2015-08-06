@@ -102,6 +102,11 @@ public class BeveragePanel extends javax.swing.JPanel {
         jLabel3.setText("Price");
 
         cokeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coke.jpg"))); // NOI18N
+        cokeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cokeButtonActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("101");
 
@@ -582,6 +587,10 @@ public class BeveragePanel extends javax.swing.JPanel {
     private void proteinShakeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_proteinShakeButtonActionPerformed
+
+    private void cokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cokeButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
