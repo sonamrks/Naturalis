@@ -39,7 +39,7 @@ public class Chips implements SnackComponent {
                      sugars = result.getInt("sugars");
                     carbohydrates = result.getInt("carbohydrates");
                     calories= result.getInt("calories");
-                    price = result.getInt("price");
+                    price = result.getDouble("price");
                     count = result.getInt("count");
                 }
                 
