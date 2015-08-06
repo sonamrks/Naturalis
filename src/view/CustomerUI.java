@@ -8,6 +8,7 @@ package view;
 import controller.BeverageFactory;
 import controller.ItemFactory;
 import controller.ItemsCartController;
+import controller.PaymentController;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import javax.swing.JScrollPane;
@@ -22,6 +23,7 @@ public class CustomerUI extends javax.swing.JFrame {
 
     private JTable jTable1; 
     private static ItemsCartController itemsCartController;
+    private static PaymentController paymentController;
     /**
      * Creates new form CustomerUI
      */
@@ -42,6 +44,10 @@ public class CustomerUI extends javax.swing.JFrame {
     
     public void updateTable1() {
         jTable1.setModel(itemsCartController.getTableModel());
+    }
+    
+     public void updatePrice() {
+        priceTextField.setText(Double.toString(paymentController.calculateTotalPrice()));
     }
 
     /**
@@ -99,6 +105,8 @@ public class CustomerUI extends javax.swing.JFrame {
         insertCardPanel = new javax.swing.JPanel();
         insertCardLabel = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
+        priceTextField = new javax.swing.JFormattedTextField();
         buyCardPanel = new javax.swing.JPanel();
         buyCardLabel = new javax.swing.JLabel();
         dollar10Button = new javax.swing.JButton();
@@ -516,7 +524,7 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(insertCoinPanelLayout.createSequentialGroup()
                 .addGroup(insertCoinPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(insertCoinPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(49, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(insertNoteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -554,8 +562,10 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(insertCardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
+
+        priceLabel.setText("Total Price");
 
         javax.swing.GroupLayout paymentPanelLayout = new javax.swing.GroupLayout(paymentPanel);
         paymentPanel.setLayout(paymentPanelLayout);
@@ -565,20 +575,28 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paymentPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(insertCoinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(insertCoinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(insertCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(paymentPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(insertCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         paymentPanelLayout.setVerticalGroup(
             paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paymentPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(insertCoinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(insertCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         buyCardLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card.jpg"))); // NOI18N
@@ -610,9 +628,9 @@ public class CustomerUI extends javax.swing.JFrame {
         buyCardPanelLayout.setVerticalGroup(
             buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buyCardPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(buyCardPanelLayout.createSequentialGroup()
                         .addComponent(dollar10Button)
@@ -639,7 +657,7 @@ public class CustomerUI extends javax.swing.JFrame {
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rightPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buyCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -656,7 +674,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addComponent(middlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -792,6 +810,8 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel middlePanel;
     private javax.swing.JPanel paymentPanel;
+    private javax.swing.JLabel priceLabel;
+    private javax.swing.JFormattedTextField priceTextField;
     private javax.swing.JButton removeButton;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JButton selectBeverageButton;
