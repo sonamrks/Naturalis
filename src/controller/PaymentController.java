@@ -23,10 +23,11 @@ public class PaymentController {
         items = itemsCartTableModel.getCartItems();
     }
     
-    public void calculateTotalPrice() {
+    public double calculateTotalPrice() {
         for(Item item: items) {
             totalPrice += item.getPrice();
         }
+        return totalPrice;
     }
     
 }
