@@ -69,8 +69,8 @@ public class CustomerUI extends javax.swing.JFrame {
         changeSlotPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         itemsPanel = new javax.swing.JPanel();
-        snackPanel = new view.SnackPanel();
         beveragePanel = new view.BeveragePanel();
+        snackPanel = new view.SnackPanel();
         middlePanel = new javax.swing.JPanel();
         infoPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -198,8 +198,8 @@ public class CustomerUI extends javax.swing.JFrame {
         );
 
         itemsPanel.setLayout(new java.awt.CardLayout());
-        itemsPanel.add(snackPanel, "snacks");
         itemsPanel.add(beveragePanel, "beverage");
+        itemsPanel.add(snackPanel, "snacks");
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
