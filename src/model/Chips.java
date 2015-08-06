@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author Sonam
  */
-public class Chips implements BeverageComponent {
+public class Chips implements SnackComponent {
 	
 	private String name;
         private int protein;
@@ -103,11 +103,11 @@ public class Chips implements BeverageComponent {
 		this.count = count;
 	}
         @Override
-	public  void addBeverage(BeverageComponent beverage){
+	public  void addSnack(SnackComponent beverage){
 		
 	}
         @Override
-	public  void removeBeverage(BeverageComponent beverage){
+	public  void removeSnack(SnackComponent beverage){
 		
 	}
 }

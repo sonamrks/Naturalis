@@ -5,15 +5,18 @@
  */
 package model;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
- * @author Sonam
+ * @author AshitaRaghu
  */
-public class Granola implements SnackComponent {
-	
-	private String name;
+public class Cookie implements SnackComponent {
+    
+    private String name;
         private int protein;
         private int sugars;
         private int carbohydrates;
@@ -25,12 +28,12 @@ public class Granola implements SnackComponent {
         String query;
         ResultSet result;
 	
-	public Granola(){
+	public Cookie(){
             try {
                 DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
                 Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
-                query = "SELECT * FROM item WHERE code = 201";
+                query = "SELECT * FROM item WHERE code = 204";
                 result = statement.executeQuery(query);
                 
                 while(result.next()){
@@ -110,5 +113,5 @@ public class Granola implements SnackComponent {
 	public  void removeSnack(SnackComponent beverage){
 		
 	}
+    
 }
-
