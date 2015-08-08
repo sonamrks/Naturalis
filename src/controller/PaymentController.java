@@ -28,4 +28,9 @@ public class PaymentController {
         return totalPrice;
     }
     
+    public double deductPrice(double price, double deductable){
+        double remainingPrice = price - deductable;
+        return remainingPrice;
+    }
+    
 }

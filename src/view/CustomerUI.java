@@ -34,6 +34,7 @@ public class CustomerUI extends javax.swing.JFrame {
         
         itemsCartController = new ItemsCartController(this);
         nutritionalFactsController = new NutritionalFactsController(this);
+        paymentController = new PaymentController();
         addJTable1();
     }
     
@@ -50,6 +51,7 @@ public class CustomerUI extends javax.swing.JFrame {
     }
     
      public void updatePrice() {
+         //System.out.println(Double.toString(paymentController.calculateTotalPrice()));
         priceTextField.setText(Double.toString(paymentController.calculateTotalPrice()));
     }
 
@@ -462,19 +464,15 @@ public class CustomerUI extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(50, 50, 50)
                         .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel15)
                             .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(infoPanelLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(getInfoButton))
-                                    .addGroup(infoPanelLayout.createSequentialGroup()
-                                        .addComponent(itemCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(addButton1)))
-                                .addContainerGap(57, Short.MAX_VALUE))))
+                                .addGap(10, 10, 10)
+                                .addComponent(getInfoButton))
+                            .addGroup(infoPanelLayout.createSequentialGroup()
+                                .addComponent(itemCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addButton1)))
+                        .addContainerGap(57, Short.MAX_VALUE))
                     .addGroup(infoPanelLayout.createSequentialGroup()
                         .addComponent(nutritionFactsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -540,12 +538,32 @@ public class CustomerUI extends javax.swing.JFrame {
         });
 
         cent25Button.setText("25c");
+        cent25Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cent25ButtonActionPerformed(evt);
+            }
+        });
 
         cent50Button.setText("50c");
+        cent50Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cent50ButtonActionPerformed(evt);
+            }
+        });
 
         dollar1Button.setText("$1");
+        dollar1Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dollar1ButtonActionPerformed(evt);
+            }
+        });
 
         dollar5Button.setText("$5");
+        dollar5Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dollar5ButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout amoutPanelLayout = new javax.swing.GroupLayout(amoutPanel);
         amoutPanel.setLayout(amoutPanelLayout);
@@ -804,6 +822,8 @@ public class CustomerUI extends javax.swing.JFrame {
 
     private void cent10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent10ButtonActionPerformed
          // TODO add your handling code here:
+        double price = Double.parseDouble(priceTextField.getText());
+        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 0.10)));
     }//GEN-LAST:event_cent10ButtonActionPerformed
 
     private void selectBeverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBeverageButtonActionPerformed
@@ -842,6 +862,30 @@ public class CustomerUI extends javax.swing.JFrame {
         caloriesTextField.setEditable(false);
         
     }//GEN-LAST:event_getInfoButtonActionPerformed
+
+    private void cent25ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent25ButtonActionPerformed
+        // TODO add your handling code here:
+        double price = Double.parseDouble(priceTextField.getText());
+        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 0.25)));
+    }//GEN-LAST:event_cent25ButtonActionPerformed
+
+    private void cent50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent50ButtonActionPerformed
+        // TODO add your handling code here:
+        double price = Double.parseDouble(priceTextField.getText());
+        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 0.50)));
+    }//GEN-LAST:event_cent50ButtonActionPerformed
+
+    private void dollar1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar1ButtonActionPerformed
+        // TODO add your handling code here:
+        double price = Double.parseDouble(priceTextField.getText());
+        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 1)));
+    }//GEN-LAST:event_dollar1ButtonActionPerformed
+
+    private void dollar5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar5ButtonActionPerformed
+        // TODO add your handling code here:
+        double price = Double.parseDouble(priceTextField.getText());
+        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 5)));
+    }//GEN-LAST:event_dollar5ButtonActionPerformed
 
     /**
      * @param args the command line arguments
