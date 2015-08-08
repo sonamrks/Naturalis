@@ -14,7 +14,7 @@ import view.CustomerUI;
  * @author Sonam
  */
 public class PaymentController {
-    private ItemsCartTableModel itemsCartTableModel;
+    private ItemsCartTableModel itemsCartTableModel = new ItemsCartTableModel();
     private CustomerUI customerUI;
     private Map<Integer,Item> items;
     private double totalPrice;
