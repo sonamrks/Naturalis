@@ -76,6 +76,7 @@ public class CustomerUI extends javax.swing.JFrame {
         changeSlotPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         itemsPanel = new javax.swing.JPanel();
+        welcomePanel = new view.WelcomePanel();
         beveragePanel = new view.BeveragePanel();
         snackPanel = new view.SnackPanel();
         middlePanel = new javax.swing.JPanel();
@@ -218,6 +219,7 @@ public class CustomerUI extends javax.swing.JFrame {
         );
 
         itemsPanel.setLayout(new java.awt.CardLayout());
+        itemsPanel.add(welcomePanel, "welcome");
         itemsPanel.add(beveragePanel, "beverage");
         itemsPanel.add(snackPanel, "snacks");
 
@@ -1098,5 +1100,6 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton selectSnackButton;
     private view.SnackPanel snackPanel;
     private javax.swing.JTextField sugarsTextField;
+    private view.WelcomePanel welcomePanel;
     // End of variables declaration//GEN-END:variables
 }
