@@ -118,8 +118,11 @@ public class CustomerUI extends javax.swing.JFrame {
         dollar5Button = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         insertCardPanel = new javax.swing.JPanel();
-        insertCardLabel = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        payCardButton = new javax.swing.JButton();
+        insertCardMessageTextField = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        cardNumberTextField = new javax.swing.JTextField();
         priceLabel = new javax.swing.JLabel();
         priceTextField = new javax.swing.JFormattedTextField();
         buyCardPanel = new javax.swing.JPanel();
@@ -640,32 +643,62 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        insertCardLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/insertCard.png"))); // NOI18N
-
         jLabel10.setText("Pay using card");
+
+        payCardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/insertCard.png"))); // NOI18N
+        payCardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payCardButtonActionPerformed(evt);
+            }
+        });
+
+        insertCardMessageTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertCardMessageTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Enter Card Number : ");
+
+        cardNumberTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cardNumberTextFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout insertCardPanelLayout = new javax.swing.GroupLayout(insertCardPanel);
         insertCardPanel.setLayout(insertCardPanelLayout);
         insertCardPanelLayout.setHorizontalGroup(
             insertCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(insertCardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cardNumberTextField))
+            .addGroup(insertCardPanelLayout.createSequentialGroup()
                 .addGroup(insertCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(insertCardPanelLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(insertCardLabel))
-                    .addGroup(insertCardPanelLayout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(jLabel10)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                        .addComponent(jLabel10))
+                    .addGroup(insertCardPanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(payCardButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(insertCardMessageTextField)
         );
         insertCardPanelLayout.setVerticalGroup(
             insertCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(insertCardPanelLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(7, 7, 7)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(insertCardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(insertCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(payCardButton)
+                .addGap(18, 18, 18)
+                .addComponent(insertCardMessageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         priceLabel.setText("Total Price");
@@ -678,20 +711,20 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paymentPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(insertCoinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(insertCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(insertCoinPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(insertCardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(paymentPanelLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(priceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         paymentPanelLayout.setVerticalGroup(
             paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paymentPanelLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(priceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -786,14 +819,14 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buyCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         rightPanelLayout.setVerticalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rightPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buyCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -807,8 +840,8 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(middlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -936,7 +969,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar20ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar20ButtonActionPerformed
         // TODO add your handling code here:
         String name = buyCardMessageTextField.getText();
-        int cardNumber = paymentController.addNewCard(name,10);
+        int cardNumber = paymentController.addNewCard(name,20);
         String text = "Your card has been generated. Your card number is "+cardNumber+". Your current balance is $20";
         JOptionPane.showMessageDialog(buyCardPanel, text);
 
@@ -945,7 +978,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar50ButtonActionPerformed
         // TODO add your handling code here:
         String name = buyCardMessageTextField.getText();
-        int cardNumber = paymentController.addNewCard(name,10);
+        int cardNumber = paymentController.addNewCard(name,50);
         String text = "Your card has been generated. Your card number is "+cardNumber+". Your current balance is $50";
         JOptionPane.showMessageDialog(buyCardPanel, text);
     }//GEN-LAST:event_dollar50ButtonActionPerformed
@@ -953,6 +986,29 @@ public class CustomerUI extends javax.swing.JFrame {
     private void buyCardMessageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyCardMessageTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buyCardMessageTextFieldActionPerformed
+
+    private void insertCardMessageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertCardMessageTextFieldActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_insertCardMessageTextFieldActionPerformed
+
+    private void payCardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payCardButtonActionPerformed
+        // TODO add your handling code here:
+        insertCardMessageTextField.setEditable(false);
+        double price = Double.valueOf(priceTextField.getText());
+        int cardNumber = Integer.valueOf(cardNumberTextField.getText());
+        double remainingBalance = paymentController.payUsingCard(price,cardNumber);
+        if(remainingBalance>=0)
+            insertCardMessageTextField.setText("Your remaining balance is : "+Double.toString(remainingBalance));
+        else
+            insertCardMessageTextField.setText("Sorry! you do not have enough balance");
+
+    }//GEN-LAST:event_payCardButtonActionPerformed
+
+    private void cardNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cardNumberTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -984,6 +1040,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JTextField calorieRangeTextField;
     private javax.swing.JTextField caloriesTextField;
     private javax.swing.JTextField carbohydratesTextField;
+    private javax.swing.JTextField cardNumberTextField;
     private javax.swing.JPanel cartItemsPanel;
     private javax.swing.JPanel cartPanel;
     private javax.swing.JButton cent10Button;
@@ -1001,7 +1058,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton getInfoButton;
     private javax.swing.JComboBox healthySpecificComboBox;
     private javax.swing.JPanel infoPanel;
-    private javax.swing.JLabel insertCardLabel;
+    private javax.swing.JTextField insertCardMessageTextField;
     private javax.swing.JPanel insertCardPanel;
     private javax.swing.JLabel insertCoinLabel;
     private javax.swing.JPanel insertCoinPanel;
@@ -1021,6 +1078,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel leftPanel;
@@ -1028,6 +1086,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JPanel middlePanel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JPanel nutritionFactsPanel;
+    private javax.swing.JButton payCardButton;
     private javax.swing.JPanel paymentPanel;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JFormattedTextField priceTextField;

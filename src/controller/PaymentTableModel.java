@@ -19,6 +19,7 @@ import model.DatabaseConnection;
  */
 public class PaymentTableModel {
     int cardNumber;
+    double balance=0;
     
     public int addNewCard(String name,int cost){
         try {
@@ -49,6 +50,44 @@ public class PaymentTableModel {
             System.out.println(ex.getMessage());
         }
         return cardNumber;
+    }
+    
+    public double payUsingCard(double price, int cardNumber){
+        boolean balance_ok=false;
+        try {
+            DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+            Connection connection = dbConnection.getConnection();
+            
+            String getBalance = "SELECT balance FROM card where number=?";
+            
+            PreparedStatement statement = connection.prepareStatement(getBalance);
+            statement.setInt(1, cardNumber);
+            
+            ResultSet result = statement.executeQuery();
+            while(result.next()){
+                balance = result.getDouble("balance");
+            }
+            
+            if(balance>=price){
+                balance_ok = true;
+                balance-= price;
+            }
+            
+            if(balance_ok==true){
+                String updateBalance = "UPDATE card SET balance=? where number=?";
+                statement = connection.prepareStatement(updateBalance);
+                statement.setDouble(1,balance);
+                statement.setInt(2,cardNumber);
+                statement.executeUpdate();
+                
+            }
+            else 
+                balance = -1;
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return balance;
     }
     
     

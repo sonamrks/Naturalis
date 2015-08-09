@@ -37,8 +37,10 @@ public class PaymentController {
         return remainingPrice;
     }
     public int addNewCard(String name, int cost){
-        System.out.println("in controller");
         return(paymentTableModel.addNewCard(name,cost));
+    }
+    public double payUsingCard(double price, int cardNumber){
+        return(paymentTableModel.payUsingCard(price,cardNumber));
     }
     
 }
