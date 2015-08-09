@@ -970,18 +970,24 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="buyCardLabel" min="-2" pref="111" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="dollar20Button" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dollar10Button" min="-2" max="-2" attributes="0"/>
-                                      <Component id="dollar50Button" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="buyCardLabel" min="-2" pref="111" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="dollar20Button" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dollar10Button" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dollar50Button" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="buyCardMessageTextField" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1003,7 +1009,9 @@
                               </Group>
                               <Component id="buyCardLabel" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="buyCardMessageTextField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1044,6 +1052,11 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Buy SmartCal Card"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="buyCardMessageTextField">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyCardMessageTextFieldActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

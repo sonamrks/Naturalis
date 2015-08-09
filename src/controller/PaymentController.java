@@ -36,9 +36,9 @@ public class PaymentController {
         double remainingPrice = price - deductable;
         return remainingPrice;
     }
-    public void addNewCard(String name, int cost){
+    public int addNewCard(String name, int cost){
         System.out.println("in controller");
-        paymentTableModel.addNewCard(name,cost);
+        return(paymentTableModel.addNewCard(name,cost));
     }
     
 }

@@ -18,8 +18,9 @@ import model.DatabaseConnection;
  * @author AshitaRaghu
  */
 public class PaymentTableModel {
+    int cardNumber;
     
-    public void addNewCard(String name,int cost){
+    public int addNewCard(String name,int cost){
         try {
             DatabaseConnection dbConnection = DatabaseConnection.getInstance();
             Connection connection = dbConnection.getConnection();
@@ -31,11 +32,24 @@ public class PaymentTableModel {
             statement.setInt(3, cost);
             
             statement.executeUpdate(); 
+            
+            String getCardNumber = "SELECT number FROM card where name=?";
+            statement = connection.prepareStatement(getCardNumber);
+            statement.setString(1, name);
+            
+            ResultSet result = statement.executeQuery();
+                
+                while(result.next()){
+                     cardNumber = result.getInt("number");
+                }
+            
 
            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+        return cardNumber;
     }
+    
     
 }
