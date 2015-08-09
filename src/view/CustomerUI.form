@@ -728,7 +728,7 @@
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="priceLabel" min="-2" pref="61" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="priceTextField" min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Component id="priceTextField" min="-2" pref="88" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="174" max="32767" attributes="0"/>
