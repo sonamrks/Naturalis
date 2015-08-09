@@ -12,6 +12,7 @@ import controller.NutritionalFactsController;
 import controller.PaymentController;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -73,6 +74,7 @@ public class CustomerUI extends javax.swing.JFrame {
         selectSnackButton = new javax.swing.JButton();
         dispenserPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        itemDispesedLabel = new javax.swing.JLabel();
         changeSlotPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         changeTextField = new javax.swing.JTextField();
@@ -189,7 +191,9 @@ public class CustomerUI extends javax.swing.JFrame {
             dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dispenserPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel6)
+                .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(itemDispesedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         dispenserPanelLayout.setVerticalGroup(
@@ -197,6 +201,8 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(dispenserPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
+                .addGap(32, 32, 32)
+                .addComponent(itemDispesedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -731,6 +737,12 @@ public class CustomerUI extends javax.swing.JFrame {
 
         priceLabel.setText("Total Price");
 
+        priceTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout paymentPanelLayout = new javax.swing.GroupLayout(paymentPanel);
         paymentPanel.setLayout(paymentPanelLayout);
         paymentPanelLayout.setHorizontalGroup(
@@ -1018,6 +1030,8 @@ public class CustomerUI extends javax.swing.JFrame {
         else{
             priceTextField.setText("0");
             changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            
+        itemDispesedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
         }
              
 
@@ -1081,6 +1095,12 @@ public class CustomerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_changeTextFieldActionPerformed
 
+    private void priceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextFieldActionPerformed
+        // TODO add your handling code here:
+        if(priceTextField.getText()=="0.0")
+        itemDispesedLabel.setIcon(new ImageIcon("file:/C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
+    }//GEN-LAST:event_priceTextFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1137,6 +1157,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JPanel insertCoinPanel;
     private javax.swing.JLabel insertNoteLabel;
     private javax.swing.JTextField itemCodeTextField;
+    private javax.swing.JLabel itemDispesedLabel;
     private javax.swing.JPanel itemsPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
