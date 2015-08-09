@@ -75,6 +75,7 @@ public class CustomerUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         changeSlotPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        changeTextField = new javax.swing.JTextField();
         itemsPanel = new javax.swing.JPanel();
         welcomePanel = new view.WelcomePanel();
         beveragePanel = new view.BeveragePanel();
@@ -201,13 +202,21 @@ public class CustomerUI extends javax.swing.JFrame {
 
         jLabel7.setText("Change Slot");
 
+        changeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout changeSlotPanelLayout = new javax.swing.GroupLayout(changeSlotPanel);
         changeSlotPanel.setLayout(changeSlotPanelLayout);
         changeSlotPanelLayout.setHorizontalGroup(
             changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(changeSlotPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel7)
+                .addGap(21, 21, 21)
+                .addGroup(changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(changeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         changeSlotPanelLayout.setVerticalGroup(
@@ -215,7 +224,9 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(changeSlotPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(changeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         itemsPanel.setLayout(new java.awt.CardLayout());
@@ -955,7 +966,15 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar5ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 5)));
+        double remainingPrice = paymentController.deductPrice(price, 5);
+        if(remainingPrice>=0)
+            priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+        }
+             
+
     }//GEN-LAST:event_dollar5ButtonActionPerformed
 
     private void dollar10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar10ButtonActionPerformed
@@ -1012,6 +1031,10 @@ public class CustomerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cardNumberTextFieldActionPerformed
 
+    private void changeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changeTextFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1049,6 +1072,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton cent25Button;
     private javax.swing.JButton cent50Button;
     private javax.swing.JPanel changeSlotPanel;
+    private javax.swing.JTextField changeTextField;
     private javax.swing.JPanel dispenserPanel;
     private javax.swing.JPanel displayPanel;
     private javax.swing.JTextArea displayTextArea;
