@@ -140,14 +140,14 @@ public class CustomerUI extends javax.swing.JFrame {
 
         selectButtonPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        selectBeverageButton.setText("Beverages");
+        selectBeverageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/beverageLogo_burned.jpg"))); // NOI18N
         selectBeverageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectBeverageButtonActionPerformed(evt);
             }
         });
 
-        selectSnackButton.setText("Snacks");
+        selectSnackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/snacksLogo_burned.jpg"))); // NOI18N
         selectSnackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectSnackButtonActionPerformed(evt);
@@ -172,7 +172,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGroup(selectButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(selectBeverageButton)
                     .addComponent(selectSnackButton))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         dispenserPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -233,10 +233,10 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGap(65, 65, 65))
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(itemsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(itemsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGap(121, 121, 121)
+                .addGap(60, 60, 60)
                 .addComponent(selectButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -246,15 +246,15 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(selectButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
-                        .addGap(411, 411, 411)
+                    .addGroup(leftPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(leftPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(itemsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                         .addComponent(dispenserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(2102, Short.MAX_VALUE))
         );
 
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
