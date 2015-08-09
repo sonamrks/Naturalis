@@ -12,6 +12,7 @@ import controller.NutritionalFactsController;
 import controller.PaymentController;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import model.Item;
@@ -701,10 +702,25 @@ public class CustomerUI extends javax.swing.JFrame {
         buyCardLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card.jpg"))); // NOI18N
 
         dollar10Button.setText("$10");
+        dollar10Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dollar10ButtonActionPerformed(evt);
+            }
+        });
 
         dollar20Button.setText("$20");
+        dollar20Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dollar20ButtonActionPerformed(evt);
+            }
+        });
 
         dollar50Button.setText("$50");
+        dollar50Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dollar50ButtonActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Buy SmartCal Card");
 
@@ -886,6 +902,27 @@ public class CustomerUI extends javax.swing.JFrame {
         double price = Double.parseDouble(priceTextField.getText());
         priceTextField.setText(Double.toString(paymentController.deductPrice(price, 5)));
     }//GEN-LAST:event_dollar5ButtonActionPerformed
+
+    private void dollar10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar10ButtonActionPerformed
+        // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog(buyCardPanel,
+                        "Enter your name : ", null);
+        paymentController.addNewCard(name,10);
+    }//GEN-LAST:event_dollar10ButtonActionPerformed
+
+    private void dollar20ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar20ButtonActionPerformed
+        // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog(buyCardPanel,
+                        "Enter your name : ", null);
+        paymentController.addNewCard(name,20);
+    }//GEN-LAST:event_dollar20ButtonActionPerformed
+
+    private void dollar50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar50ButtonActionPerformed
+        // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog(buyCardPanel,
+                        "Enter your name : ", null);
+        paymentController.addNewCard(name,50);
+    }//GEN-LAST:event_dollar50ButtonActionPerformed
 
     /**
      * @param args the command line arguments

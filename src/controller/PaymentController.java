@@ -14,8 +14,12 @@ import view.CustomerUI;
  * @author Sonam
  */
 public class PaymentController {
+    
     private ItemsCartTableModel itemsCartTableModel = new ItemsCartTableModel();
+    private PaymentTableModel paymentTableModel = new PaymentTableModel();
     private CustomerUI customerUI;
+    
+    
     private Map<Integer,Item> items;
     private double totalPrice;
     
@@ -31,6 +35,10 @@ public class PaymentController {
     public double deductPrice(double price, double deductable){
         double remainingPrice = price - deductable;
         return remainingPrice;
+    }
+    public void addNewCard(String name, int cost){
+        System.out.println("in controller");
+        paymentTableModel.addNewCard(name,cost);
     }
     
 }
