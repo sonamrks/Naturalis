@@ -76,6 +76,8 @@ public class CustomerUI extends javax.swing.JFrame {
         changeSlotPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         changeTextField = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        coinsImageLabel = new javax.swing.JLabel();
         itemsPanel = new javax.swing.JPanel();
         welcomePanel = new view.WelcomePanel();
         beveragePanel = new view.BeveragePanel();
@@ -188,14 +190,14 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(dispenserPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel6)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         dispenserPanelLayout.setVerticalGroup(
             dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dispenserPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         changeSlotPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -208,25 +210,42 @@ public class CustomerUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel16.setText("Your change :");
+
+        coinsImageLabel.setIcon(new javax.swing.ImageIcon("C:\\Ashita\\COEN 359 Design Patterns\\Project\\thumbnail images\\coins.png")); // NOI18N
+
         javax.swing.GroupLayout changeSlotPanelLayout = new javax.swing.GroupLayout(changeSlotPanel);
         changeSlotPanel.setLayout(changeSlotPanelLayout);
         changeSlotPanelLayout.setHorizontalGroup(
             changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(changeSlotPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(changeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, changeSlotPanelLayout.createSequentialGroup()
+                        .addComponent(coinsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(changeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12))
+                    .addGroup(changeSlotPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         changeSlotPanelLayout.setVerticalGroup(
             changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(changeSlotPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(changeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(changeSlotPanelLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(changeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(coinsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
 
         itemsPanel.setLayout(new java.awt.CardLayout());
@@ -239,11 +258,11 @@ public class CustomerUI extends javax.swing.JFrame {
         leftPanelLayout.setHorizontalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(dispenserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addGap(18, 18, 18)
+                .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(itemsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
@@ -256,18 +275,14 @@ public class CustomerUI extends javax.swing.JFrame {
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(selectButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(itemsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                        .addComponent(dispenserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(2102, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(itemsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dispenserPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -788,9 +803,6 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(buyCardPanelLayout.createSequentialGroup()
                 .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buyCardPanelLayout.createSequentialGroup()
-                        .addComponent(buyCardMessageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(nameLabel)
                         .addComponent(jLabel4)
@@ -800,27 +812,33 @@ public class CustomerUI extends javax.swing.JFrame {
                             .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(dollar20Button)
                                 .addComponent(dollar10Button)
-                                .addComponent(dollar50Button))))))
+                                .addComponent(dollar50Button))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buyCardPanelLayout.createSequentialGroup()
+                        .addComponent(buyCardMessageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         buyCardPanelLayout.setVerticalGroup(
             buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buyCardPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(buyCardMessageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(buyCardPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(buyCardLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(buyCardPanelLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addComponent(dollar10Button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dollar20Button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addComponent(dollar50Button))
-                    .addComponent(buyCardLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dollar50Button)
+                        .addGap(0, 12, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
@@ -859,13 +877,13 @@ public class CustomerUI extends javax.swing.JFrame {
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(middlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(middlePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -905,7 +923,14 @@ public class CustomerUI extends javax.swing.JFrame {
     private void cent10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent10ButtonActionPerformed
          // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 0.10)));
+        double remainingPrice = paymentController.deductPrice(price, 0.10);
+        priceTextField.setText(Double.toString(remainingPrice));
+        if(remainingPrice>=0)
+            priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+        }
     }//GEN-LAST:event_cent10ButtonActionPerformed
 
     private void selectBeverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBeverageButtonActionPerformed
@@ -948,19 +973,40 @@ public class CustomerUI extends javax.swing.JFrame {
     private void cent25ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent25ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 0.25)));
+       double remainingPrice = paymentController.deductPrice(price, 0.25);
+        priceTextField.setText(Double.toString(remainingPrice));
+        if(remainingPrice>=0)
+            priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+        }
     }//GEN-LAST:event_cent25ButtonActionPerformed
 
     private void cent50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent50ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 0.50)));
+        double remainingPrice = paymentController.deductPrice(price, 0.50);
+        priceTextField.setText(Double.toString(remainingPrice));
+        if(remainingPrice>=0)
+            priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+        }
     }//GEN-LAST:event_cent50ButtonActionPerformed
 
     private void dollar1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar1ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        priceTextField.setText(Double.toString(paymentController.deductPrice(price, 1)));
+        double remainingPrice = paymentController.deductPrice(price, 1);
+        priceTextField.setText(Double.toString(remainingPrice));
+        if(remainingPrice>=0)
+            priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+        }
     }//GEN-LAST:event_dollar1ButtonActionPerformed
 
     private void dollar5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar5ButtonActionPerformed
@@ -1073,6 +1119,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton cent50Button;
     private javax.swing.JPanel changeSlotPanel;
     private javax.swing.JTextField changeTextField;
+    private javax.swing.JLabel coinsImageLabel;
     private javax.swing.JPanel dispenserPanel;
     private javax.swing.JPanel displayPanel;
     private javax.swing.JTextArea displayTextArea;
@@ -1098,6 +1145,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
