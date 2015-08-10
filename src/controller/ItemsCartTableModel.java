@@ -24,7 +24,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
     private List<String> itemNames;
     private int numcols, numrows;
     private double totalPrice;
-    private String name, s;
+    private String name, s, price;
     private Item item;
     
     ItemFactory beverageFactory = new ItemFactory();
@@ -158,7 +158,23 @@ public class ItemsCartTableModel extends AbstractTableModel {
             itemNames.remove("name");
             cartItems.remove(code);
             
-//            subtractPrice(item.getPrice());
+            try {
+                String getPrice = "SELECT price FROM item WHERE code=?";
+
+                PreparedStatement statement = connection.prepareStatement(getPrice);
+                statement.setInt(1,code);
+                ResultSet result = statement.executeQuery();
+
+                while(result.next()){
+                    price = result.getString("price");
+                }
+            }
+            catch(Exception err){
+                System.out.println(err.getMessage());
+                err.printStackTrace();
+            }
+            
+            subtractPrice(Double.valueOf(price));
             fireTableRowsDeleted(itemCodes.size(), numcols-1);   
         }
     
