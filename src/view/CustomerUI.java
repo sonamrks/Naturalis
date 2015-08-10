@@ -56,6 +56,10 @@ public class CustomerUI extends javax.swing.JFrame {
          //System.out.println(Double.toString(paymentController.calculateTotalPrice()));
         priceTextField.setText(Double.toString(paymentController.calculateTotalPrice()));
     }
+     
+     public static ItemsCartController getItemsCartController() {
+         return itemsCartController;
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.

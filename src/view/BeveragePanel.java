@@ -634,8 +634,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_proteinShakeButtonActionPerformed
 
     private void cokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeButtonActionPerformed
-        // TODO add your handling code here:
-        
+        CustomerUI.getItemsCartController().addItem(cokeCodeLabel.getText());        
     }//GEN-LAST:event_cokeButtonActionPerformed
 
 
