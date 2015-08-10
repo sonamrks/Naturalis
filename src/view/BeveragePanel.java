@@ -618,19 +618,19 @@ public class BeveragePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void orangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeButtonActionPerformed
-        // TODO add your handling code here:
+        CustomerUI.getItemsCartController().addItem(orangeJuiceCodeLabel.getText());
     }//GEN-LAST:event_orangeButtonActionPerformed
 
     private void gatoradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeButtonActionPerformed
-        // TODO add your handling code here:
+        CustomerUI.getItemsCartController().addItem(gatoradeCodeLabel.getText());
     }//GEN-LAST:event_gatoradeButtonActionPerformed
 
     private void sparklingWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterButtonActionPerformed
-        // TODO add your handling code here:
+        CustomerUI.getItemsCartController().addItem(sparklingWaterCodeLabel.getText());
     }//GEN-LAST:event_sparklingWaterButtonActionPerformed
 
     private void proteinShakeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeButtonActionPerformed
-        // TODO add your handling code here:
+        CustomerUI.getItemsCartController().addItem(proteinShakeCodeLabel.getText());   
     }//GEN-LAST:event_proteinShakeButtonActionPerformed
 
     private void cokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeButtonActionPerformed

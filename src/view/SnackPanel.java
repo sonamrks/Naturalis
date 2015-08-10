@@ -589,23 +589,22 @@ public class SnackPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void granolaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaButtonActionPerformed
-        // TODO add your handling code here:
+        CustomerUI.getItemsCartController().addItem(granolaCodeLabel.getText());   
     }//GEN-LAST:event_granolaButtonActionPerformed
 
     private void chipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chipsButtonActionPerformed
+        CustomerUI.getItemsCartController().addItem(chipsCodeLabel.getText());       }//GEN-LAST:event_chipsButtonActionPerformed
 
     private void cookieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieButtonActionPerformed
-        // TODO add your handling code here:
+        CustomerUI.getItemsCartController().addItem(cookieCodeLabel.getText());   
     }//GEN-LAST:event_cookieButtonActionPerformed
 
     private void veggieStrawsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsButtonActionPerformed
-        // TODO add your handling code here:
+        CustomerUI.getItemsCartController().addItem(veggieStrawsCodeLabel.getText());   
     }//GEN-LAST:event_veggieStrawsButtonActionPerformed
 
     private void greekYogurtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtButtonActionPerformed
-        // TODO add your handling code here:
+        CustomerUI.getItemsCartController().addItem(greekYogurtCodeLabel.getText());   
     }//GEN-LAST:event_greekYogurtButtonActionPerformed
 
 
