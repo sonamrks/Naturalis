@@ -92,15 +92,15 @@ public class ItemsCartTableModel extends AbstractTableModel {
     }
     
     public List getItemCodes() {
-	return itemCodes;
+	return this.itemCodes;
     }
     
     public List getItemNames() {
-	return itemNames;
+	return this.itemNames;
     }
 
     public Map<Integer,Item> getCartItems() {
-        return cartItems;
+        return this.cartItems;
     }
     
     public ItemsCartTableModel(List list1, List list2, Map map)  {

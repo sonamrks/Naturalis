@@ -35,7 +35,7 @@ public class CustomerUI extends javax.swing.JFrame {
         
         itemsCartController = new ItemsCartController(this);
         nutritionalFactsController = new NutritionalFactsController(this);
-        paymentController = new PaymentController();
+        paymentController = new PaymentController(this);
         
         addJTable1();
     }
@@ -50,10 +50,11 @@ public class CustomerUI extends javax.swing.JFrame {
     
     public void updateTable1() {
         jTable1.setModel(itemsCartController.getTableModel());
+        System.out.println(paymentController.calculateTotalPrice());
     }
     
      public void updatePrice() {
-         //System.out.println(Double.toString(paymentController.calculateTotalPrice()));
+         System.out.println("payment " + paymentController.calculateTotalPrice());
         priceTextField.setText(Double.toString(paymentController.calculateTotalPrice()));
     }
      
