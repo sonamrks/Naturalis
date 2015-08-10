@@ -123,8 +123,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
 	return this.totalPrice;
     }
     
-    public void addRow(String ID) {
-        int code = Integer.valueOf(ID);
+    public void addRow(Integer code) {
         s = "";
         if(!itemCodes.contains(code)) {
             try {
@@ -154,13 +153,12 @@ public class ItemsCartTableModel extends AbstractTableModel {
             }
         }
     }   
-    public void deleteRow(Integer ID) {
-            int code = Integer.valueOf(ID);
+    public void deleteRow(Integer code) {
             itemCodes.remove(code);
             itemNames.remove("name");
             cartItems.remove(code);
             
-            subtractPrice(item.getPrice());
+//            subtractPrice(item.getPrice());
             fireTableRowsDeleted(itemCodes.size(), numcols-1);   
         }
     

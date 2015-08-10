@@ -60,6 +60,10 @@ public class CustomerUI extends javax.swing.JFrame {
      public static ItemsCartController getItemsCartController() {
          return itemsCartController;
      }
+     
+     public void setItemCodeTextField(String code) {
+         itemCodeTextField.setText(code);
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.

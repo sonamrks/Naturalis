@@ -12,6 +12,7 @@ package controller;
 import java.util.Map;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import view.CustomerUI;
@@ -38,6 +39,10 @@ public class ItemsCartController implements ListSelectionListener, TableModelLis
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
+        ListSelectionModel selectModel = (ListSelectionModel) e.getSource();
+        int firstIndex = selectModel.getMinSelectionIndex();
+		
+        customerUI.setItemCodeTextField((String) itemsCartTableModel.getValueAt(firstIndex, 0));
     }   
 
     @Override
@@ -56,7 +61,7 @@ public class ItemsCartController implements ListSelectionListener, TableModelLis
     }
 
     public void addItem(String ID){
-        itemsCartTableModel.addRow(ID);	
+        itemsCartTableModel.addRow(Integer.valueOf(ID));	
     }
 
     public void removeItem(String ID){
