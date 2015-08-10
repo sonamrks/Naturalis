@@ -16,7 +16,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import model.Item;
 
 /**
  *
@@ -1100,26 +1099,6 @@ public class CustomerUI extends javax.swing.JFrame {
         if(priceTextField.getText()=="0.0")
         itemDispesedLabel.setIcon(new ImageIcon("file:/C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
     }//GEN-LAST:event_priceTextFieldActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-    
-  //     ItemFactory factory1 = new BeverageFactory();
-  //     Item item1 = factory1.createItem("model.Coke");
-  //     System.out.println("Coke calories: " + item1.getCalories());
-       
-   //    Item item2 = factory1.createItem("model.Juice");
-   //    System.out.println("Juice calories: " + item2.getCalories());
-       
-              /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CustomerUI().setVisible(true);
-            }
-        }); 
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton1;

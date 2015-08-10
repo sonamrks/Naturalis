@@ -23,13 +23,13 @@ public class ItemsCartTableModel extends AbstractTableModel {
     private List<Integer> itemCodes;
     private List<String> itemNames;
     private int numcols, numrows;
-    String name;
+    String name, s;
     ItemFactory beverageFactory = new ItemFactory();
     
     public ItemsCartTableModel() {
      cartItems = new HashMap<Integer,Item>();
-     itemCodes = new CircularList<Integer>();
-     itemNames = new CircularList<String>();
+     itemCodes = new ArrayList<Integer>();
+     itemNames = new ArrayList<String>();
      numrows = itemCodes.size();
      numcols = 2;    
     }
@@ -103,24 +103,27 @@ public class ItemsCartTableModel extends AbstractTableModel {
         return cartItems;
     }
     
-    public ItemsCartTableModel(List list1, List list2)  {
+    public ItemsCartTableModel(List list1, List list2, Map map)  {
         itemCodes = list1;
         itemNames = list2;
+        cartItems = map;
         numrows = itemCodes.size();
         numcols = 2;     
      }
     
-    public void addRow(Integer ID) {
-        if(!itemCodes.contains(ID)) {
+    public void addRow(String ID) {
+        int code = Integer.valueOf(ID);
+        s = "";
+        if(!itemCodes.contains(code)) {
             try {
-                itemCodes.add(ID);
+                itemCodes.add(code);
                 
                 DatabaseConnection dbConnection = DatabaseConnection.getInstance();
                 Connection connection = dbConnection.getConnection();
                 String getName = "SELECT name FROM item WHERE code=?";
                 
                 PreparedStatement statement = connection.prepareStatement(getName);
-                statement.setInt(1,ID);
+                statement.setInt(1,code);
                 ResultSet result = statement.executeQuery();
                 
                 while(result.next()){
@@ -129,12 +132,8 @@ public class ItemsCartTableModel extends AbstractTableModel {
 
                 itemNames.add(name);
                 
-                String s = "model." + name;
-                Item beverage;
-                beverage = beverageFactory.createItem(s);
-            //    System.out.println("ID " + ID + ", name " + name+ ", price " + beverage.getPrice());
-                cartItems.put(ID,beverage);
-                System.out.println("price here: " + cartItems.get(ID).getPrice());
+                s = "model." + name;
+                cartItems.put(code,beverageFactory.createItem(s));
                 fireTableRowsInserted(itemCodes.size()-1, numcols-1);
                 numrows++;
             }catch(Exception err){

@@ -37,7 +37,7 @@ public class ItemsCartController implements ListSelectionListener, TableModelLis
     public void tableChanged(TableModelEvent e) {
        try {
             // create a new table model with the new data
-            itemsCartTableModel = new ItemsCartTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames());
+            itemsCartTableModel = new ItemsCartTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
             customerUI.updateTable1();	 
@@ -49,7 +49,7 @@ public class ItemsCartController implements ListSelectionListener, TableModelLis
     }
 
     public void addItem(String ID){
-        itemsCartTableModel.addRow(Integer.valueOf(ID));	
+        itemsCartTableModel.addRow(ID);	
     }
 
     public void removeItem(String ID){
