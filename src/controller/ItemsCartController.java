@@ -9,16 +9,23 @@ package controller;
  *
  * @author Sonam
  */
+import java.util.Map;
+import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import view.CustomerUI;
 import javax.swing.table.TableModel;
 import javax.swing.event.*;
+import model.Item;
 
 public class ItemsCartController implements ListSelectionListener, TableModelListener {
     private ItemsCartTableModel itemsCartTableModel;
     private CustomerUI customerUI;
+    private Map<Integer,Item> items;
+    private Set<Integer> keys;
+
+    
     public ItemsCartController(CustomerUI customerUI) {
         this.customerUI = customerUI;
         itemsCartTableModel = new ItemsCartTableModel();
@@ -37,7 +44,7 @@ public class ItemsCartController implements ListSelectionListener, TableModelLis
     public void tableChanged(TableModelEvent e) {
        try {
             // create a new table model with the new data
-            itemsCartTableModel = new ItemsCartTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems());
+            itemsCartTableModel = new ItemsCartTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
             customerUI.updateTable1();	 
@@ -59,4 +66,8 @@ public class ItemsCartController implements ListSelectionListener, TableModelLis
             itemsCartTableModel.deleteRow(Integer.valueOf(ID));
         }
     }	
+    
+    public double getTotalPrice() {
+        return itemsCartTableModel.getTotalPrice();
+    }
 }

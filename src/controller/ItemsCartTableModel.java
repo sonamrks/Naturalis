@@ -23,8 +23,14 @@ public class ItemsCartTableModel extends AbstractTableModel {
     private List<Integer> itemCodes;
     private List<String> itemNames;
     private int numcols, numrows;
-    String name, s;
+    private double totalPrice;
+    private String name, s;
+    private Item item;
+    
     ItemFactory beverageFactory = new ItemFactory();
+
+    DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+    Connection connection = dbConnection.getConnection();
     
     public ItemsCartTableModel() {
      cartItems = new HashMap<Integer,Item>();
@@ -32,6 +38,15 @@ public class ItemsCartTableModel extends AbstractTableModel {
      itemNames = new ArrayList<String>();
      numrows = itemCodes.size();
      numcols = 2;    
+    }
+    
+    public ItemsCartTableModel(List list1, List list2, Map map, double price)  {
+        itemCodes = list1;
+        itemNames = list2;
+        cartItems = map;
+        totalPrice = price;
+        numrows = itemCodes.size();
+        numcols = 2;     
     }
     
     @Override
@@ -103,13 +118,10 @@ public class ItemsCartTableModel extends AbstractTableModel {
         return this.cartItems;
     }
     
-    public ItemsCartTableModel(List list1, List list2, Map map)  {
-        itemCodes = list1;
-        itemNames = list2;
-        cartItems = map;
-        numrows = itemCodes.size();
-        numcols = 2;     
-     }
+    public double getTotalPrice() {
+        System.out.println("price inside model:" + totalPrice);
+	return this.totalPrice;
+    }
     
     public void addRow(String ID) {
         int code = Integer.valueOf(ID);
@@ -117,9 +129,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
         if(!itemCodes.contains(code)) {
             try {
                 itemCodes.add(code);
-                
-                DatabaseConnection dbConnection = DatabaseConnection.getInstance();
-                Connection connection = dbConnection.getConnection();
+               
                 String getName = "SELECT name FROM item WHERE code=?";
                 
                 PreparedStatement statement = connection.prepareStatement(getName);
@@ -133,7 +143,9 @@ public class ItemsCartTableModel extends AbstractTableModel {
                 itemNames.add(name);
                 
                 s = "model." + name;
-                cartItems.put(code,beverageFactory.createItem(s));
+                item = beverageFactory.createItem(s);
+                addPrice(item.getPrice());
+                cartItems.put(code,item);
                 fireTableRowsInserted(itemCodes.size()-1, numcols-1);
                 numrows++;
             }catch(Exception err){
@@ -143,8 +155,22 @@ public class ItemsCartTableModel extends AbstractTableModel {
         }
     }   
     public void deleteRow(Integer ID) {
-            itemCodes.remove(ID);
+            int code = Integer.valueOf(ID);
+            itemCodes.remove(code);
             itemNames.remove("name");
+            cartItems.remove(code);
+            
+            subtractPrice(item.getPrice());
             fireTableRowsDeleted(itemCodes.size(), numcols-1);   
         }
+    
+    public void addPrice(double price) {
+        
+        this.totalPrice += price;
+        System.out.println("Price inside addprice:" + totalPrice);
+    }
+    
+    public void subtractPrice(double price) {
+        this.totalPrice -= price;
+    }
 }

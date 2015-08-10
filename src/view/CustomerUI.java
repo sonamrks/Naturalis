@@ -50,12 +50,11 @@ public class CustomerUI extends javax.swing.JFrame {
     
     public void updateTable1() {
         jTable1.setModel(itemsCartController.getTableModel());
-        System.out.println(paymentController.calculateTotalPrice());
     }
     
      public void updatePrice() {
-         System.out.println("payment " + paymentController.calculateTotalPrice());
-        priceTextField.setText(Double.toString(paymentController.calculateTotalPrice()));
+         System.out.println("payment " + itemsCartController.getTotalPrice());
+        priceTextField.setValue(itemsCartController.getTotalPrice());
     }
      
      public static ItemsCartController getItemsCartController() {
