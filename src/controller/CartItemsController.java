@@ -9,7 +9,6 @@ package controller;
  *
  * @author Sonam
  */
-import java.util.Map;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -18,22 +17,20 @@ import javax.swing.event.TableModelListener;
 import view.CustomerUI;
 import javax.swing.table.TableModel;
 import javax.swing.event.*;
-import java.util.Iterator;
-import model.Item;
 
-public class ItemsCartController implements ListSelectionListener, TableModelListener {
-    private ItemsCartTableModel itemsCartTableModel;
+public class CartItemsController implements ListSelectionListener, TableModelListener {
+    private CartItemsTableModel itemsCartTableModel;
     private CustomerUI customerUI;
-    Iterator<Item> iterator;
+    Iterator iterator;
   //  private Map<Integer,Item> items;
     private Set<Integer> keys;
 
     
-    public ItemsCartController(CustomerUI customerUI) {
+    public CartItemsController(CustomerUI customerUI) {
         this.customerUI = customerUI;
-        itemsCartTableModel = new ItemsCartTableModel();
+        itemsCartTableModel = new CartItemsTableModel();
         itemsCartTableModel.addTableModelListener(this);
-        iterator = itemsCartTableModel.iterator();
+        iterator = itemsCartTableModel.createIterator();
     }
         
     public TableModel getTableModel() {
@@ -52,7 +49,7 @@ public class ItemsCartController implements ListSelectionListener, TableModelLis
     public void tableChanged(TableModelEvent e) {
        try {
             // create a new table model with the new data
-            itemsCartTableModel = new ItemsCartTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
+            itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
             customerUI.updateTable1();	 

@@ -7,7 +7,7 @@ package view;
 
 import controller.BeverageFactory;
 import controller.ItemFactory;
-import controller.ItemsCartController;
+import controller.CartItemsController;
 import controller.NutritionalFactsController;
 import controller.PaymentController;
 import java.awt.BorderLayout;
@@ -24,7 +24,7 @@ import javax.swing.JTable;
 public class CustomerUI extends javax.swing.JFrame {
 
     private JTable jTable1; 
-    private static ItemsCartController itemsCartController;
+    private static CartItemsController itemsCartController;
     private static NutritionalFactsController nutritionalFactsController;
     private static PaymentController paymentController;
     /**
@@ -33,7 +33,7 @@ public class CustomerUI extends javax.swing.JFrame {
     public CustomerUI() {
         initComponents();
         
-        itemsCartController = new ItemsCartController(this);
+        itemsCartController = new CartItemsController(this);
         nutritionalFactsController = new NutritionalFactsController(this);
         paymentController = new PaymentController(this);
         
@@ -57,7 +57,7 @@ public class CustomerUI extends javax.swing.JFrame {
         priceTextField.setValue(itemsCartController.getTotalPrice());
     }
      
-     public static ItemsCartController getItemsCartController() {
+     public static CartItemsController getItemsCartController() {
          return itemsCartController;
      }
      

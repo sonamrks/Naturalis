@@ -18,7 +18,7 @@ import model.DatabaseConnection;
 import model.Item;
 
 
-public class ItemsCartTableModel extends AbstractTableModel {
+public class CartItemsTableModel extends AbstractTableModel implements AbstractList {
  //   private Map<Integer,Item> cartItems;
     private List<Item> cartItems;
     private List<Integer> itemCodes;
@@ -34,7 +34,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
     DatabaseConnection dbConnection = DatabaseConnection.getInstance();
     Connection connection = dbConnection.getConnection();
     
-    public ItemsCartTableModel() {
+    public CartItemsTableModel() {
   //   cartItems = new HashMap<Integer,Item>();
      cartItems = new ArrayList<Item>();
      itemCodes = new ArrayList<Integer>();
@@ -43,7 +43,7 @@ public class ItemsCartTableModel extends AbstractTableModel {
      numcols = 2;    
     }
     
-    public ItemsCartTableModel(List list1, List list2, List list3, double price)  {
+    public CartItemsTableModel(List list1, List list2, List list3, double price)  {
         itemCodes = list1;
         itemNames = list2;
         cartItems = list3;
@@ -83,11 +83,12 @@ public class ItemsCartTableModel extends AbstractTableModel {
         }
     }
 
-    public Iterator<Item> iterator() {
-            return new CartIterator();
+    @Override
+    public Iterator createIterator() {
+      return new CartIterator();
     }
 
-    class CartIterator implements Iterator<Item> {
+    class CartIterator implements Iterator {
             int currentIndex = 0;
 
             @Override
@@ -103,15 +104,11 @@ public class ItemsCartTableModel extends AbstractTableModel {
             public Item next() {
                     return cartItems.get(currentIndex++);
             }
-
-            @Override
-            public void remove() {
-            }
             
+            @Override
             public void removeItem(Integer code) {
                 itemCodes.remove(code);
                 itemNames.remove("name");
-                //cartItems.remove(code);
                 
                 while(hasNext()) {
                     if(next().getCode()== code) {
@@ -120,9 +117,10 @@ public class ItemsCartTableModel extends AbstractTableModel {
                         break;
                     }
                 }
+                currentIndex = 0;
            
-            subtractPrice(price);
-            fireTableRowsDeleted(itemCodes.size(), numcols-1);   
+                subtractPrice(price);
+                fireTableRowsDeleted(itemCodes.size(), numcols-1);   
             }
     }
     

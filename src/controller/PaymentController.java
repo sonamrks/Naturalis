@@ -20,7 +20,7 @@ import view.CustomerUI;
  */
 public class PaymentController implements ListSelectionListener, TableModelListener {
     
-    private ItemsCartTableModel itemsCartTableModel;
+    private CartItemsTableModel itemsCartTableModel;
     private PaymentTableModel paymentTableModel;
     private CustomerUI customerUI;
     private Map<Integer,Item> items;
@@ -28,7 +28,7 @@ public class PaymentController implements ListSelectionListener, TableModelListe
     private double totalPrice;
     
     public PaymentController(CustomerUI customerUI) { 
-        itemsCartTableModel = new ItemsCartTableModel();
+        itemsCartTableModel = new CartItemsTableModel();
         itemsCartTableModel.addTableModelListener(this);
         paymentTableModel = new PaymentTableModel();
     }
@@ -45,7 +45,7 @@ public class PaymentController implements ListSelectionListener, TableModelListe
     public void tableChanged(TableModelEvent e) {
        try {
             // create a new table model with the new data
-            itemsCartTableModel = new ItemsCartTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems());
+            itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
             System.out.println("inside table model listener");

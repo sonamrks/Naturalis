@@ -5,7 +5,7 @@
  */
 package view;
 
-import controller.ItemsCartController;
+import controller.CartItemsController;
 import controller.ItemsController;
 import java.util.ArrayList;
 
