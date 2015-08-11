@@ -15,7 +15,9 @@ import java.sql.Statement;
  * @author AshitaRaghu
  */
 public class DriedFruits implements SnackComponent{
-    private String name;
+        
+        private int code;
+        private String name;
         private int protein;
         private int sugars;
         private int carbohydrates;
@@ -57,6 +59,12 @@ public class DriedFruits implements SnackComponent{
        err.printStackTrace();
   }
             
+	}
+        public int getCode(){
+		return code;
+	}
+	public void setCode(int code){
+		this.code = code;
 	}
         @Override
 	public String getName(){

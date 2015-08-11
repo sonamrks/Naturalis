@@ -15,6 +15,8 @@ import java.sql.Statement;
  * @author AshitaRaghu
  */
 public class VeggieStraws implements SnackComponent {
+    
+        private int code;
     	private String name;
         private int protein;
         private int sugars;
@@ -59,6 +61,12 @@ public class VeggieStraws implements SnackComponent {
             
 	}
         @Override
+        public int getCode(){
+		return code;
+	}
+	public void setCode(int code){
+		this.code = code;
+	}
 	public String getName(){
 		return name;
 	}

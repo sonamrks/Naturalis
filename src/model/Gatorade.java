@@ -13,6 +13,7 @@ import java.sql.*;
  */
 public class Gatorade implements BeverageComponent {
 	
+        private int code;
 	private String name;
         private int protein;
         private int sugars;
@@ -55,6 +56,12 @@ public class Gatorade implements BeverageComponent {
        err.printStackTrace();
   }
             
+	}
+        public int getCode(){
+		return code;
+	}
+	public void setCode(int code){
+		this.code = code;
 	}
         @Override
 	public String getName(){
