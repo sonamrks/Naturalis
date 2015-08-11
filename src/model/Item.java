@@ -5,6 +5,7 @@ package model;
 
 public interface Item {
 	
+        public int getCode();
 	public String getName();
 	public void setName(String name);
 	public int getProtein();

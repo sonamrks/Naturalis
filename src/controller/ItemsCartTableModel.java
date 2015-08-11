@@ -19,12 +19,14 @@ import model.Item;
 
 
 public class ItemsCartTableModel extends AbstractTableModel {
-    private Map<Integer,Item> cartItems;
+ //   private Map<Integer,Item> cartItems;
+    private List<Item> cartItems;
     private List<Integer> itemCodes;
     private List<String> itemNames;
     private int numcols, numrows;
     private double totalPrice;
-    private String name, s, price;
+    private String name, s;
+    private double price;
     private Item item;
     
     ItemFactory beverageFactory = new ItemFactory();
@@ -33,20 +35,95 @@ public class ItemsCartTableModel extends AbstractTableModel {
     Connection connection = dbConnection.getConnection();
     
     public ItemsCartTableModel() {
-     cartItems = new HashMap<Integer,Item>();
+  //   cartItems = new HashMap<Integer,Item>();
+     cartItems = new ArrayList<Item>();
      itemCodes = new ArrayList<Integer>();
      itemNames = new ArrayList<String>();
      numrows = itemCodes.size();
      numcols = 2;    
     }
     
-    public ItemsCartTableModel(List list1, List list2, Map map, double price)  {
+    public ItemsCartTableModel(List list1, List list2, List list3, double price)  {
         itemCodes = list1;
         itemNames = list2;
-        cartItems = map;
+        cartItems = list3;
         totalPrice = price;
         numrows = itemCodes.size();
         numcols = 2;     
+    }
+    
+    public void addItem(Integer code) {
+        try {
+            itemCodes.add(code);
+
+            String getName = "SELECT name FROM item WHERE code=?";
+
+            PreparedStatement statement = connection.prepareStatement(getName);
+            statement.setInt(1,code);
+            ResultSet result = statement.executeQuery();
+
+            while(result.next()){
+                name = result.getString("name");
+            }
+
+            itemNames.add(name);
+
+            s = "model." + name;
+            item = beverageFactory.createItem(s);
+            addPrice(item.getPrice());
+    //                cartItems.put(code,item);
+            cartItems.add(item);
+            fireTableRowsInserted(itemCodes.size()-1, numcols-1);
+            numrows++;
+        }
+        catch(Exception err)
+        {
+         System.out.println(err.getMessage());
+         err.printStackTrace();
+        }
+    }
+
+    public Iterator<Item> iterator() {
+            return new CartIterator();
+    }
+
+    class CartIterator implements Iterator<Item> {
+            int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                    if (currentIndex >= cartItems.size()) {
+                            return false;
+                    } else {
+                            return true;
+                    }
+            }
+
+            @Override
+            public Item next() {
+                    return cartItems.get(currentIndex++);
+            }
+
+            @Override
+            public void remove() {
+            }
+            
+            public void removeItem(Integer code) {
+                itemCodes.remove(code);
+                itemNames.remove("name");
+                //cartItems.remove(code);
+                
+                while(hasNext()) {
+                    if(next().getCode()== code) {
+                        price = cartItems.get(currentIndex).getPrice();
+                        cartItems.remove(--currentIndex);
+                        break;
+                    }
+                }
+           
+            subtractPrice(price);
+            fireTableRowsDeleted(itemCodes.size(), numcols-1);   
+            }
     }
     
     @Override
@@ -114,7 +191,11 @@ public class ItemsCartTableModel extends AbstractTableModel {
 	return this.itemNames;
     }
 
-    public Map<Integer,Item> getCartItems() {
+  //  public Map<Integer,Item> getCartItems() {
+  //      return this.cartItems;
+  //  }
+    
+    public List<Item> getCartItems() {
         return this.cartItems;
     }
     
@@ -144,7 +225,8 @@ public class ItemsCartTableModel extends AbstractTableModel {
                 s = "model." + name;
                 item = beverageFactory.createItem(s);
                 addPrice(item.getPrice());
-                cartItems.put(code,item);
+//                cartItems.put(code,item);
+                cartItems.add(item);
                 fireTableRowsInserted(itemCodes.size()-1, numcols-1);
                 numrows++;
             }catch(Exception err){
@@ -153,30 +235,6 @@ public class ItemsCartTableModel extends AbstractTableModel {
             }
         }
     }   
-    public void deleteRow(Integer code) {
-            itemCodes.remove(code);
-            itemNames.remove("name");
-            cartItems.remove(code);
-            
-            try {
-                String getPrice = "SELECT price FROM item WHERE code=?";
-
-                PreparedStatement statement = connection.prepareStatement(getPrice);
-                statement.setInt(1,code);
-                ResultSet result = statement.executeQuery();
-
-                while(result.next()){
-                    price = result.getString("price");
-                }
-            }
-            catch(Exception err){
-                System.out.println(err.getMessage());
-                err.printStackTrace();
-            }
-            
-            subtractPrice(Double.valueOf(price));
-            fireTableRowsDeleted(itemCodes.size(), numcols-1);   
-        }
     
     public void addPrice(double price) {
         
