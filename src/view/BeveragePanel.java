@@ -5,17 +5,57 @@
  */
 package view;
 
+import controller.ItemsCartController;
+import controller.ItemsController;
+import java.util.ArrayList;
+
 /**
  *
  * @author AshitaRaghu
  */
 public class BeveragePanel extends javax.swing.JPanel {
+    
+    private static ItemsController itemsController;
 
     /**
      * Creates new form BeveragePanel
      */
     public BeveragePanel() {
         initComponents();
+        itemsController = new ItemsController();
+        setCodeLabel();
+        setPriceLabel();
+        //itemsController = new ItemsController(this);
+    }
+    public void setCodeLabel(){
+        
+        ArrayList<Integer> codeList = itemsController.getCode();
+        
+        cokeCodeLabel.setText(Integer.toString(codeList.get(0)));
+        orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
+        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
+        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
+        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
+        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
+        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
+        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
+        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));
+        
+        
+    }
+    public void setPriceLabel(){
+    
+        ArrayList<Double> priceList = itemsController.getPrice();
+        
+        cokePriceLabel.setText(Double.toString(priceList.get(0)));
+        orangeJuicePriceLabel.setText(Double.toString(priceList.get(1)));
+        lemonadePriceLabel.setText(Double.toString(priceList.get(2)));
+        gatoradePriceLabel.setText(Double.toString(priceList.get(3)));
+        frappuccinoPriceLabel.setText(Double.toString(priceList.get(4)));
+        coconutWaterPriceLabel.setText(Double.toString(priceList.get(5)));
+        sparklingWaterPriceLabel.setText(Double.toString(priceList.get(6)));
+        proteinSmoothiePriceLabel.setText(Double.toString(priceList.get(7)));
+        proteinShakePriceLabel.setText(Double.toString(priceList.get(8)));
     }
 
     /**
@@ -36,55 +76,55 @@ public class BeveragePanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         orangeButton = new javax.swing.JButton();
         orangeJuiceCodeLabel = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        orangeJuicePriceLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         cokeButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         cokeCodeLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        cokePriceLabel = new javax.swing.JLabel();
         lemonadePanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lemonadeButton = new javax.swing.JButton();
         lemonadeCodeLabel = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lemonadePriceLabel = new javax.swing.JLabel();
         gatoradePanel = new javax.swing.JPanel();
         gatoradeButton = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         gatoradeCodeLabel = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        gatoradePriceLabel = new javax.swing.JLabel();
         frappuccinoPanel = new javax.swing.JPanel();
         frappuccinoButton = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         frappuccinoCodeLabel = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        frappuccinoPriceLabel = new javax.swing.JLabel();
         coconutWaterPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         coconutWaterCodeLabel = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        coconutWaterPriceLabel = new javax.swing.JLabel();
         sparklingWaterPanel = new javax.swing.JPanel();
         sparklingWaterButton = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         sparklingWaterCodeLabel = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
+        sparklingWaterPriceLabel = new javax.swing.JLabel();
         proteinSmoothiePanel = new javax.swing.JPanel();
         proteinSmoothieButton = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         proteinSmoothieCodeLabel = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
+        proteinSmoothiePriceLabel = new javax.swing.JLabel();
         proteinShakePanel = new javax.swing.JPanel();
         proteinShakeButton = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         proteinShakeCodeLabel = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
+        proteinShakePriceLabel = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,7 +161,7 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         orangeJuiceCodeLabel.setText("102");
 
-        jLabel11.setText("$3");
+        orangeJuicePriceLabel.setText("$3");
 
         javax.swing.GroupLayout orangePanelLayout = new javax.swing.GroupLayout(orangePanel);
         orangePanel.setLayout(orangePanelLayout);
@@ -137,7 +177,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                     .addGroup(orangePanelLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel11)))
+                        .addComponent(orangeJuicePriceLabel)))
                 .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orangePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -156,7 +196,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(orangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel11)))
+                    .addComponent(orangeJuicePriceLabel)))
         );
 
         cokeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coke.jpg"))); // NOI18N
@@ -172,7 +212,7 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         jLabel3.setText("Price");
 
-        jLabel9.setText("$5");
+        cokePriceLabel.setText("$5");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -188,7 +228,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel9)))
+                        .addComponent(cokePriceLabel)))
                 .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -206,7 +246,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
+                    .addComponent(cokePriceLabel)
                     .addComponent(jLabel3)))
         );
 
@@ -218,7 +258,7 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         lemonadeCodeLabel.setText("103");
 
-        jLabel13.setText("$3");
+        lemonadePriceLabel.setText("$3");
 
         javax.swing.GroupLayout lemonadePanelLayout = new javax.swing.GroupLayout(lemonadePanel);
         lemonadePanel.setLayout(lemonadePanelLayout);
@@ -237,7 +277,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                             .addGroup(lemonadePanelLayout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel13))))
+                                .addComponent(lemonadePriceLabel))))
                     .addComponent(lemonadeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
         lemonadePanelLayout.setVerticalGroup(
@@ -252,7 +292,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(lemonadePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel13)))
+                    .addComponent(lemonadePriceLabel)))
         );
 
         gatoradeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gatorade.jpg"))); // NOI18N
@@ -268,7 +308,7 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         gatoradeCodeLabel.setText("104");
 
-        jLabel17.setText("$3");
+        gatoradePriceLabel.setText("$3");
 
         javax.swing.GroupLayout gatoradePanelLayout = new javax.swing.GroupLayout(gatoradePanel);
         gatoradePanel.setLayout(gatoradePanelLayout);
@@ -285,7 +325,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                     .addGroup(gatoradePanelLayout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel17))))
+                        .addComponent(gatoradePriceLabel))))
         );
         gatoradePanelLayout.setVerticalGroup(
             gatoradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,7 +339,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(gatoradePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jLabel17))
+                    .addComponent(gatoradePriceLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -311,7 +351,7 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         frappuccinoCodeLabel.setText("105");
 
-        jLabel21.setText("$2.5");
+        frappuccinoPriceLabel.setText("$2.5");
 
         javax.swing.GroupLayout frappuccinoPanelLayout = new javax.swing.GroupLayout(frappuccinoPanel);
         frappuccinoPanel.setLayout(frappuccinoPanelLayout);
@@ -327,7 +367,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                     .addGroup(frappuccinoPanelLayout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel21)))
+                        .addComponent(frappuccinoPriceLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, frappuccinoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -346,7 +386,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(frappuccinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jLabel21))
+                    .addComponent(frappuccinoPriceLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -358,7 +398,7 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         coconutWaterCodeLabel.setText("106");
 
-        jLabel25.setText("$ 1.5");
+        coconutWaterPriceLabel.setText("$ 1.5");
 
         javax.swing.GroupLayout coconutWaterPanelLayout = new javax.swing.GroupLayout(coconutWaterPanel);
         coconutWaterPanel.setLayout(coconutWaterPanelLayout);
@@ -370,7 +410,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                     .addGroup(coconutWaterPanelLayout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel25))
+                        .addComponent(coconutWaterPriceLabel))
                     .addGroup(coconutWaterPanelLayout.createSequentialGroup()
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -393,7 +433,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(coconutWaterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jLabel25))
+                    .addComponent(coconutWaterPriceLabel))
                 .addContainerGap())
         );
 
@@ -410,7 +450,7 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         sparklingWaterCodeLabel.setText("107");
 
-        jLabel29.setText("$1.5");
+        sparklingWaterPriceLabel.setText("$1.5");
 
         javax.swing.GroupLayout sparklingWaterPanelLayout = new javax.swing.GroupLayout(sparklingWaterPanel);
         sparklingWaterPanel.setLayout(sparklingWaterPanelLayout);
@@ -428,7 +468,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                             .addGroup(sparklingWaterPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel29))))
+                                .addComponent(sparklingWaterPriceLabel))))
                     .addGroup(sparklingWaterPanelLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(sparklingWaterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -446,7 +486,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(sparklingWaterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27)
-                    .addComponent(jLabel29))
+                    .addComponent(sparklingWaterPriceLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -458,7 +498,7 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         proteinSmoothieCodeLabel.setText("108");
 
-        jLabel33.setText("$4.5");
+        proteinSmoothiePriceLabel.setText("$4.5");
 
         javax.swing.GroupLayout proteinSmoothiePanelLayout = new javax.swing.GroupLayout(proteinSmoothiePanel);
         proteinSmoothiePanel.setLayout(proteinSmoothiePanelLayout);
@@ -474,7 +514,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                     .addGroup(proteinSmoothiePanelLayout.createSequentialGroup()
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel33)))
+                        .addComponent(proteinSmoothiePriceLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, proteinSmoothiePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -493,7 +533,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(jLabel33))
+                    .addComponent(proteinSmoothiePriceLabel))
                 .addContainerGap())
         );
 
@@ -510,7 +550,7 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         proteinShakeCodeLabel.setText("109");
 
-        jLabel37.setText("$5");
+        proteinShakePriceLabel.setText("$5");
 
         javax.swing.GroupLayout proteinShakePanelLayout = new javax.swing.GroupLayout(proteinShakePanel);
         proteinShakePanel.setLayout(proteinShakePanelLayout);
@@ -522,7 +562,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                     .addGroup(proteinShakePanelLayout.createSequentialGroup()
                         .addComponent(jLabel35)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel37))
+                        .addComponent(proteinShakePriceLabel))
                     .addGroup(proteinShakePanelLayout.createSequentialGroup()
                         .addComponent(jLabel34)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -545,7 +585,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(proteinShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
-                    .addComponent(jLabel37))
+                    .addComponent(proteinShakePriceLabel))
                 .addContainerGap())
         );
 
@@ -609,11 +649,17 @@ public class BeveragePanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -642,42 +688,37 @@ public class BeveragePanel extends javax.swing.JPanel {
     private javax.swing.JPanel BeveragePanel;
     private javax.swing.JLabel coconutWaterCodeLabel;
     private javax.swing.JPanel coconutWaterPanel;
+    private javax.swing.JLabel coconutWaterPriceLabel;
     private javax.swing.JButton cokeButton;
     private javax.swing.JLabel cokeCodeLabel;
+    private javax.swing.JLabel cokePriceLabel;
     private javax.swing.JButton frappuccinoButton;
     private javax.swing.JLabel frappuccinoCodeLabel;
     private javax.swing.JPanel frappuccinoPanel;
+    private javax.swing.JLabel frappuccinoPriceLabel;
     private javax.swing.JButton gatoradeButton;
     private javax.swing.JLabel gatoradeCodeLabel;
     private javax.swing.JPanel gatoradePanel;
+    private javax.swing.JLabel gatoradePriceLabel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -685,17 +726,22 @@ public class BeveragePanel extends javax.swing.JPanel {
     private javax.swing.JButton lemonadeButton;
     private javax.swing.JLabel lemonadeCodeLabel;
     private javax.swing.JPanel lemonadePanel;
+    private javax.swing.JLabel lemonadePriceLabel;
     private javax.swing.JButton orangeButton;
     private javax.swing.JLabel orangeJuiceCodeLabel;
+    private javax.swing.JLabel orangeJuicePriceLabel;
     private javax.swing.JPanel orangePanel;
     private javax.swing.JButton proteinShakeButton;
     private javax.swing.JLabel proteinShakeCodeLabel;
     private javax.swing.JPanel proteinShakePanel;
+    private javax.swing.JLabel proteinShakePriceLabel;
     private javax.swing.JButton proteinSmoothieButton;
     private javax.swing.JLabel proteinSmoothieCodeLabel;
     private javax.swing.JPanel proteinSmoothiePanel;
+    private javax.swing.JLabel proteinSmoothiePriceLabel;
     private javax.swing.JButton sparklingWaterButton;
     private javax.swing.JLabel sparklingWaterCodeLabel;
     private javax.swing.JPanel sparklingWaterPanel;
+    private javax.swing.JLabel sparklingWaterPriceLabel;
     // End of variables declaration//GEN-END:variables
 }

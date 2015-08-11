@@ -81,7 +81,10 @@ public class CustomerUI extends javax.swing.JFrame {
         selectSnackButton = new javax.swing.JButton();
         dispenserPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        itemDispesedLabel = new javax.swing.JLabel();
+        item1DispensedLabel = new javax.swing.JLabel();
+        item2DispensedLabel = new javax.swing.JLabel();
+        item3DispensedLabel = new javax.swing.JLabel();
+        item4DispensedLabel = new javax.swing.JLabel();
         changeSlotPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         changeTextField = new javax.swing.JTextField();
@@ -197,19 +200,34 @@ public class CustomerUI extends javax.swing.JFrame {
         dispenserPanelLayout.setHorizontalGroup(
             dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dispenserPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemDispesedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dispenserPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel6))
+                    .addGroup(dispenserPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(item1DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
+                            .addComponent(item3DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(item2DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                            .addComponent(item4DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         dispenserPanelLayout.setVerticalGroup(
             dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dispenserPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addGap(32, 32, 32)
-                .addComponent(itemDispesedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(item1DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(item2DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(item3DispensedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(item4DispensedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -225,7 +243,7 @@ public class CustomerUI extends javax.swing.JFrame {
 
         jLabel16.setText("Your change :");
 
-        coinsImageLabel.setIcon(new javax.swing.ImageIcon("C:\\Ashita\\COEN 359 Design Patterns\\Project\\thumbnail images\\coins.png")); // NOI18N
+        coinsImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coins.png"))); // NOI18N
 
         javax.swing.GroupLayout changeSlotPanelLayout = new javax.swing.GroupLayout(changeSlotPanel);
         changeSlotPanel.setLayout(changeSlotPanelLayout);
@@ -248,7 +266,7 @@ public class CustomerUI extends javax.swing.JFrame {
         changeSlotPanelLayout.setVerticalGroup(
             changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(changeSlotPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -274,7 +292,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(dispenserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81))
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addContainerGap()
@@ -294,7 +312,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addComponent(itemsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dispenserPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -898,7 +916,7 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(middlePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1038,7 +1056,7 @@ public class CustomerUI extends javax.swing.JFrame {
             priceTextField.setText("0");
             changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             
-        itemDispesedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
+        item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
         }
              
 
@@ -1105,7 +1123,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void priceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextFieldActionPerformed
         // TODO add your handling code here:
         if(priceTextField.getText()=="0.0")
-        itemDispesedLabel.setIcon(new ImageIcon("file:/C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
+        item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
     }//GEN-LAST:event_priceTextFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1143,8 +1161,11 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel insertCoinLabel;
     private javax.swing.JPanel insertCoinPanel;
     private javax.swing.JLabel insertNoteLabel;
+    private javax.swing.JLabel item1DispensedLabel;
+    private javax.swing.JLabel item2DispensedLabel;
+    private javax.swing.JLabel item3DispensedLabel;
+    private javax.swing.JLabel item4DispensedLabel;
     private javax.swing.JTextField itemCodeTextField;
-    private javax.swing.JLabel itemDispesedLabel;
     private javax.swing.JPanel itemsPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
