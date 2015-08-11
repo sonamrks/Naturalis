@@ -121,6 +121,11 @@ public class SnackPanel extends javax.swing.JPanel {
         greekYogurtPriceLabel = new javax.swing.JLabel();
 
         nutsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nuts.jpg"))); // NOI18N
+        nutsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nutsButtonActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Code :");
 
@@ -316,6 +321,11 @@ public class SnackPanel extends javax.swing.JPanel {
         );
 
         driedFruitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driedFruits.jpg"))); // NOI18N
+        driedFruitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                driedFruitButtonActionPerformed(evt);
+            }
+        });
 
         jLabel17.setText("Code :");
 
@@ -359,6 +369,11 @@ public class SnackPanel extends javax.swing.JPanel {
         );
 
         popcornButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/popcorn.jpg"))); // NOI18N
+        popcornButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popcornButtonActionPerformed(evt);
+            }
+        });
 
         jLabel21.setText("Code :");
 
@@ -405,6 +420,11 @@ public class SnackPanel extends javax.swing.JPanel {
         );
 
         crackersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/crackers.jpg"))); // NOI18N
+        crackersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crackersButtonActionPerformed(evt);
+            }
+        });
 
         jLabel25.setText("Code :");
 
@@ -641,6 +661,22 @@ public class SnackPanel extends javax.swing.JPanel {
     private void greekYogurtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtButtonActionPerformed
         CustomerUI.getItemsCartController().addItem(greekYogurtCodeLabel.getText());   
     }//GEN-LAST:event_greekYogurtButtonActionPerformed
+
+    private void nutsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsButtonActionPerformed
+        CustomerUI.getItemsCartController().addItem(nutsCodeLabel.getText());
+    }//GEN-LAST:event_nutsButtonActionPerformed
+
+    private void driedFruitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitButtonActionPerformed
+        CustomerUI.getItemsCartController().addItem(driedFruitsCodeLabel.getText());
+    }//GEN-LAST:event_driedFruitButtonActionPerformed
+
+    private void popcornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornButtonActionPerformed
+        CustomerUI.getItemsCartController().addItem(popcornCodeLabel.getText());
+    }//GEN-LAST:event_popcornButtonActionPerformed
+
+    private void crackersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersButtonActionPerformed
+        CustomerUI.getItemsCartController().addItem(crackersCodeLabel.getText());
+    }//GEN-LAST:event_crackersButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

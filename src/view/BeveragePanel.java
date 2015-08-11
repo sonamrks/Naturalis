@@ -102,7 +102,7 @@ public class BeveragePanel extends javax.swing.JPanel {
         frappuccinoCodeLabel = new javax.swing.JLabel();
         frappuccinoPriceLabel = new javax.swing.JLabel();
         coconutWaterPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        coconutWaterButton = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         coconutWaterCodeLabel = new javax.swing.JLabel();
@@ -255,6 +255,11 @@ public class BeveragePanel extends javax.swing.JPanel {
         jLabel7.setText("Price :");
 
         lemonadeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lemonade.jpg"))); // NOI18N
+        lemonadeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lemonadeButtonActionPerformed(evt);
+            }
+        });
 
         lemonadeCodeLabel.setText("103");
 
@@ -344,6 +349,11 @@ public class BeveragePanel extends javax.swing.JPanel {
         );
 
         frappuccinoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/frappuccino.jpg"))); // NOI18N
+        frappuccinoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frappuccinoButtonActionPerformed(evt);
+            }
+        });
 
         jLabel18.setText("Code :");
 
@@ -390,7 +400,12 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coconutWater.jpg"))); // NOI18N
+        coconutWaterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coconutWater.jpg"))); // NOI18N
+        coconutWaterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coconutWaterButtonActionPerformed(evt);
+            }
+        });
 
         jLabel22.setText("Code :");
 
@@ -418,14 +433,14 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, coconutWaterPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(coconutWaterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         coconutWaterPanelLayout.setVerticalGroup(
             coconutWaterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(coconutWaterPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(coconutWaterButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(coconutWaterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
@@ -491,6 +506,11 @@ public class BeveragePanel extends javax.swing.JPanel {
         );
 
         proteinSmoothieButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/proteinSmoothie.jpg"))); // NOI18N
+        proteinSmoothieButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proteinSmoothieButtonActionPerformed(evt);
+            }
+        });
 
         jLabel30.setText("Code :");
 
@@ -651,15 +671,14 @@ public class BeveragePanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -683,9 +702,26 @@ public class BeveragePanel extends javax.swing.JPanel {
         CustomerUI.getItemsCartController().addItem(cokeCodeLabel.getText());        
     }//GEN-LAST:event_cokeButtonActionPerformed
 
+    private void lemonadeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeButtonActionPerformed
+        CustomerUI.getItemsCartController().addItem(lemonadeCodeLabel.getText());
+    }//GEN-LAST:event_lemonadeButtonActionPerformed
+
+    private void frappuccinoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoButtonActionPerformed
+        CustomerUI.getItemsCartController().addItem(frappuccinoCodeLabel.getText());
+    }//GEN-LAST:event_frappuccinoButtonActionPerformed
+
+    private void coconutWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterButtonActionPerformed
+        CustomerUI.getItemsCartController().addItem(coconutWaterCodeLabel.getText());
+    }//GEN-LAST:event_coconutWaterButtonActionPerformed
+
+    private void proteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothieButtonActionPerformed
+       CustomerUI.getItemsCartController().addItem(proteinSmoothieCodeLabel.getText());
+    }//GEN-LAST:event_proteinSmoothieButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BeveragePanel;
+    private javax.swing.JButton coconutWaterButton;
     private javax.swing.JLabel coconutWaterCodeLabel;
     private javax.swing.JPanel coconutWaterPanel;
     private javax.swing.JLabel coconutWaterPriceLabel;
@@ -700,7 +736,6 @@ public class BeveragePanel extends javax.swing.JPanel {
     private javax.swing.JLabel gatoradeCodeLabel;
     private javax.swing.JPanel gatoradePanel;
     private javax.swing.JLabel gatoradePriceLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
