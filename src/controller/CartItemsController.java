@@ -52,7 +52,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
             itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
-            customerUI.updateTable1();	 
+            customerUI.updateCartTable();	 
             customerUI.updatePrice();
     } catch(Exception exp) {
             exp.getMessage();

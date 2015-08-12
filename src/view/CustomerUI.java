@@ -8,6 +8,7 @@ package view;
 import controller.BeverageFactory;
 import controller.ItemFactory;
 import controller.CartItemsController;
+import controller.ItemController;
 import controller.NutritionalFactsController;
 import controller.PaymentController;
 import java.awt.BorderLayout;
@@ -23,8 +24,9 @@ import javax.swing.JTable;
  */
 public class CustomerUI extends javax.swing.JFrame {
 
-    private JTable jTable1; 
+    private JTable cartTable; 
     private static CartItemsController itemsCartController;
+    private static ItemController itemController;
     private static NutritionalFactsController nutritionalFactsController;
     private static PaymentController paymentController;
     /**
@@ -34,22 +36,23 @@ public class CustomerUI extends javax.swing.JFrame {
         initComponents();
         
         itemsCartController = new CartItemsController(this);
+        itemController = new ItemController();
         nutritionalFactsController = new NutritionalFactsController(this);
         paymentController = new PaymentController(this);
         
-        addJTable1();
+        addCartTable();
     }
     
-    public void addJTable1() {
-    jTable1 = new JTable(itemsCartController.getTableModel());
-    jTable1.getSelectionModel().addListSelectionListener(itemsCartController);
-    JScrollPane scrollpane1 = new JScrollPane(jTable1);
+    public void addCartTable() {
+    cartTable = new JTable(itemsCartController.getTableModel());
+    cartTable.getSelectionModel().addListSelectionListener(itemsCartController);
+    JScrollPane cartScrollPane = new JScrollPane(cartTable);
     cartItemsPanel.setLayout(new BorderLayout());
-    cartItemsPanel.add(scrollpane1, BorderLayout.CENTER);       
+    cartItemsPanel.add(cartScrollPane, BorderLayout.CENTER);       
     }
     
-    public void updateTable1() {
-        jTable1.setModel(itemsCartController.getTableModel());
+    public void updateCartTable() {
+        cartTable.setModel(itemsCartController.getTableModel());
     }
     
      public void updatePrice() {
