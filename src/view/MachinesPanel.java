@@ -9,12 +9,12 @@ package view;
  *
  * @author Sonam
  */
-public class machinesListPanel extends javax.swing.JPanel {
+public class MachinesPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form machinesListPanel
      */
-    public machinesListPanel() {
+    public MachinesPanel() {
         initComponents();
     }
 
@@ -31,8 +31,18 @@ public class machinesListPanel extends javax.swing.JPanel {
         machine2Button = new javax.swing.JButton();
 
         machine1Button.setText("Machine 1");
+        machine1Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine1ButtonActionPerformed(evt);
+            }
+        });
 
         machine2Button.setText("Machine 2");
+        machine2Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine2ButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -55,6 +65,14 @@ public class machinesListPanel extends javax.swing.JPanel {
                 .addContainerGap(113, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void machine1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1ButtonActionPerformed
+        Main.getCardLayout().show(Main.getCards(),"Admin");
+    }//GEN-LAST:event_machine1ButtonActionPerformed
+
+    private void machine2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2ButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_machine2ButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

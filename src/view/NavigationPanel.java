@@ -61,15 +61,11 @@ public class NavigationPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
-        // TODO add your handling code here:
+        Main.getCardLayout().show(Main.getCards(),"Machines");
     }//GEN-LAST:event_adminButtonActionPerformed
 
     private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CustomerUI().setVisible(true);
-            }
-        }); 
+        Main.getCardLayout().show(Main.getCards(),"Customer");
     }//GEN-LAST:event_customerButtonActionPerformed
 
 
