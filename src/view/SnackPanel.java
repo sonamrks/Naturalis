@@ -5,7 +5,7 @@
  */
 package view;
 
-import controller.ItemsController;
+import controller.ItemController;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class SnackPanel extends javax.swing.JPanel {
 
-       private static ItemsController itemsController;
+       private static ItemController itemsController;
     /**
      * Creates new form SnackPanel
      */

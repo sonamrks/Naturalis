@@ -15,13 +15,13 @@ import view.CustomerUI;
  *
  * @author AshitaRaghu
  */
-public class ItemsController {
+public class ItemController {
     
     private ItemsTableModel itemsTableModel;
    // private CustomerUI customerUI;
     
     
-    public ItemsController() {
+    public ItemController() {
        
         itemsTableModel = new ItemsTableModel();
        
