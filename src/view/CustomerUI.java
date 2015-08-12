@@ -25,6 +25,7 @@ import javax.swing.JTable;
 public class CustomerUI extends javax.swing.JFrame {
 
     private JTable cartTable; 
+    private JTable suggestionsTable;
     private static CartItemsController itemsCartController;
     private static ItemController itemController;
     private static NutritionalFactsController nutritionalFactsController;
@@ -99,12 +100,11 @@ public class CustomerUI extends javax.swing.JFrame {
         snackPanel = new view.SnackPanel();
         middlePanel = new javax.swing.JPanel();
         displayPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        displayTextArea = new javax.swing.JTextArea();
         healthySpecificComboBox = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         calorieRangeTextField = new javax.swing.JTextField();
+        suggestionsPanel = new javax.swing.JPanel();
         cartPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
@@ -321,12 +321,6 @@ public class CustomerUI extends javax.swing.JFrame {
 
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        displayTextArea.setEditable(false);
-        displayTextArea.setColumns(20);
-        displayTextArea.setRows(5);
-        displayTextArea.setText("klo");
-        jScrollPane1.setViewportView(displayTextArea);
-
         healthySpecificComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Low Sugar", "Low Carbs", " " }));
         healthySpecificComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,6 +338,17 @@ public class CustomerUI extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout suggestionsPanelLayout = new javax.swing.GroupLayout(suggestionsPanel);
+        suggestionsPanel.setLayout(suggestionsPanelLayout);
+        suggestionsPanelLayout.setHorizontalGroup(
+            suggestionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 258, Short.MAX_VALUE)
+        );
+        suggestionsPanelLayout.setVerticalGroup(
+            suggestionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 124, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout displayPanelLayout = new javax.swing.GroupLayout(displayPanel);
         displayPanel.setLayout(displayPanelLayout);
         displayPanelLayout.setHorizontalGroup(
@@ -352,7 +357,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(displayPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(suggestionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(displayPanelLayout.createSequentialGroup()
                         .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,9 +380,9 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(healthySpecificComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(18, 18, 18)
+                .addComponent(suggestionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         jLabel5.setText("Items to Buy");
@@ -1150,7 +1155,6 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel coinsImageLabel;
     private javax.swing.JPanel dispenserPanel;
     private javax.swing.JPanel displayPanel;
-    private javax.swing.JTextArea displayTextArea;
     private javax.swing.JButton dollar10Button;
     private javax.swing.JButton dollar1Button;
     private javax.swing.JButton dollar20Button;
@@ -1186,7 +1190,6 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel middlePanel;
@@ -1204,6 +1207,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton selectSnackButton;
     private view.SnackPanel snackPanel;
     private javax.swing.JTextField sugarsTextField;
+    private javax.swing.JPanel suggestionsPanel;
     private view.WelcomePanel welcomePanel;
     // End of variables declaration//GEN-END:variables
 }
