@@ -65,7 +65,11 @@ public class NavigationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_adminButtonActionPerformed
 
     private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
-        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CustomerUI().setVisible(true);
+            }
+        }); 
     }//GEN-LAST:event_customerButtonActionPerformed
 
 
