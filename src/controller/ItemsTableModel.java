@@ -21,6 +21,7 @@ import model.DatabaseConnection;
 public class ItemsTableModel {
     
     ArrayList<Integer> codeList = new ArrayList<Integer>();
+    ArrayList<String> nameList = new ArrayList<String>();
     ArrayList<Double> priceList = new ArrayList<Double>();
     ArrayList<Integer> proteinList = new ArrayList<Integer>();
     ArrayList<Integer> sugarsList = new ArrayList<Integer>();
@@ -30,6 +31,26 @@ public class ItemsTableModel {
     
     DatabaseConnection dbConnection = DatabaseConnection.getInstance();
     Connection connection = dbConnection.getConnection();
+    
+    public void getItemInfo(){
+        try {
+            String getInfo = "SELECT code,name,protein,sugars,calories FROM item";
+            PreparedStatement statement = connection.prepareStatement(getInfo);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next())
+            {
+                codeList.add(result.getInt("code"));
+                nameList.add(result.getString("name"));
+                proteinList.add(result.getInt("protein"));
+                sugarsList.add(result.getInt("sugars"));
+                caloriesList.add(result.getInt("calories"));
+            }
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+    }
+    
     
     public ArrayList<Integer> getCode(){
         
