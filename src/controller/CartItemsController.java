@@ -77,4 +77,11 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     public double getTotalPrice() {
         return itemsCartTableModel.getTotalPrice();
     }
+    
+    public double deductPrice(double price, double deductable){
+        double remainingPrice = price - deductable;
+        return remainingPrice;
+    }
+    
+
 }

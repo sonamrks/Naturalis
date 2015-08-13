@@ -10,7 +10,8 @@ import controller.ItemFactory;
 import controller.CartItemsController;
 import controller.ItemController;
 import controller.NutritionalFactsController;
-import controller.PaymentController;
+import controller.SmartCardController;
+//import controller.PaymentController;
 import controller.SuggestionsComponent;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -28,9 +29,10 @@ public class CustomerUI extends javax.swing.JFrame {
     private JTable cartTable; 
     private JTable suggestionsTable;
     private static CartItemsController itemsCartController;
+    private static SmartCardController smartCardController;
     private static ItemController itemController;
     private static NutritionalFactsController nutritionalFactsController;
-    private static PaymentController paymentController;
+  //  private static PaymentController paymentController;
     private Boolean[] checkedList = new Boolean[3];
     
     /**
@@ -40,9 +42,10 @@ public class CustomerUI extends javax.swing.JFrame {
         initComponents();
         
         itemsCartController = new CartItemsController(this);
+        smartCardController = new SmartCardController(this);
         itemController = new ItemController();
         nutritionalFactsController = new NutritionalFactsController(this);
-        paymentController = new PaymentController(this);
+    //    paymentController = new PaymentController(this);
         checkedList[0] = false;
         checkedList[1] = false;
         checkedList[2] = false;
@@ -989,7 +992,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void cent10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent10ButtonActionPerformed
          // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = paymentController.deductPrice(price, 0.10);
+        double remainingPrice = itemsCartController.deductPrice(price, 0.10);
         priceTextField.setText(Double.toString(remainingPrice));
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
@@ -1039,7 +1042,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void cent25ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent25ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-       double remainingPrice = paymentController.deductPrice(price, 0.25);
+       double remainingPrice = itemsCartController.deductPrice(price, 0.25);
         priceTextField.setText(Double.toString(remainingPrice));
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
@@ -1052,7 +1055,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void cent50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent50ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = paymentController.deductPrice(price, 0.50);
+        double remainingPrice = itemsCartController.deductPrice(price, 0.50);
         priceTextField.setText(Double.toString(remainingPrice));
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
@@ -1065,7 +1068,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar1ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = paymentController.deductPrice(price, 1);
+        double remainingPrice = itemsCartController.deductPrice(price, 1);
         priceTextField.setText(Double.toString(remainingPrice));
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
@@ -1078,7 +1081,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar5ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = paymentController.deductPrice(price, 5);
+        double remainingPrice = itemsCartController.deductPrice(price, 5);
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
         else{
@@ -1094,7 +1097,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar10ButtonActionPerformed
         // TODO add your handling code here:
         String name = buyCardMessageTextField.getText();
-        int cardNumber = paymentController.addNewCard(name,10);
+        int cardNumber = smartCardController.addNewCard(name,10);
         String text = "Your card has been generated. Your card number is "+cardNumber+". Your current balance is $10";
         JOptionPane.showMessageDialog(buyCardPanel, text);
         
@@ -1104,7 +1107,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar20ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar20ButtonActionPerformed
         // TODO add your handling code here:
         String name = buyCardMessageTextField.getText();
-        int cardNumber = paymentController.addNewCard(name,20);
+        int cardNumber = smartCardController.addNewCard(name,20);
         String text = "Your card has been generated. Your card number is "+cardNumber+". Your current balance is $20";
         JOptionPane.showMessageDialog(buyCardPanel, text);
 
@@ -1113,7 +1116,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar50ButtonActionPerformed
         // TODO add your handling code here:
         String name = buyCardMessageTextField.getText();
-        int cardNumber = paymentController.addNewCard(name,50);
+        int cardNumber = smartCardController.addNewCard(name,50);
         String text = "Your card has been generated. Your card number is "+cardNumber+". Your current balance is $50";
         JOptionPane.showMessageDialog(buyCardPanel, text);
     }//GEN-LAST:event_dollar50ButtonActionPerformed
@@ -1133,7 +1136,7 @@ public class CustomerUI extends javax.swing.JFrame {
         insertCardMessageTextField.setEditable(false);
         double price = Double.valueOf(priceTextField.getText());
         int cardNumber = Integer.valueOf(cardNumberTextField.getText());
-        double remainingBalance = paymentController.payUsingCard(price,cardNumber);
+        double remainingBalance = smartCardController.payUsingCard(price,cardNumber);
         if(remainingBalance>=0)
             insertCardMessageTextField.setText("Your remaining balance is : "+Double.toString(remainingBalance));
         else

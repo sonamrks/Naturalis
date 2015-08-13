@@ -19,7 +19,8 @@ public class SmartCardController {
     private SmartCard smartCard;
     private CustomerUI customerUI;
     
-    public SmartCardController() {
+    public SmartCardController(CustomerUI customerUI) {
+        this.customerUI = customerUI;
         smartCard = new SmartCard();
     }
     
@@ -30,7 +31,7 @@ public class SmartCardController {
     public void removeCard(Integer num){
         smartCard.deleteCard(num);
     }
-    
+   
     public Double payUsingCard(Double price, Integer cardNumber){
         smartCard.retrieveCardDetails(cardNumber);
         
@@ -50,5 +51,6 @@ public class SmartCardController {
 
         return balance;
     }
+    
 }
 
