@@ -31,7 +31,8 @@ public class CustomerUI extends javax.swing.JFrame {
     private static ItemController itemController;
     private static NutritionalFactsController nutritionalFactsController;
     private static PaymentController paymentController;
-    private SuggestionsComponent suggestionsComponent;
+    private Boolean[] checkedList = new Boolean[3];
+    
     /**
      * Creates new form CustomerUI
      */
@@ -42,6 +43,9 @@ public class CustomerUI extends javax.swing.JFrame {
         itemController = new ItemController();
         nutritionalFactsController = new NutritionalFactsController(this);
         paymentController = new PaymentController(this);
+        checkedList[0] = false;
+        checkedList[1] = false;
+        checkedList[2] = false;
         
         addCartTable();
     }
@@ -106,9 +110,9 @@ public class CustomerUI extends javax.swing.JFrame {
         calorieRangeTextField = new javax.swing.JTextField();
         lowSugarsCheckBox = new javax.swing.JCheckBox();
         highProteinCheckBox = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
+        lowCaloriesCheckBox = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        suggestionsTextArea = new javax.swing.JTextArea();
         cartPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
@@ -348,16 +352,21 @@ public class CustomerUI extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox3.setText("Low Calories");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        lowCaloriesCheckBox.setText("Low Calories");
+        lowCaloriesCheckBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                lowCaloriesCheckBoxItemStateChanged(evt);
+            }
+        });
+        lowCaloriesCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lowCaloriesCheckBoxActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        suggestionsTextArea.setColumns(20);
+        suggestionsTextArea.setRows(5);
+        jScrollPane1.setViewportView(suggestionsTextArea);
 
         javax.swing.GroupLayout displayPanelLayout = new javax.swing.GroupLayout(displayPanel);
         displayPanel.setLayout(displayPanelLayout);
@@ -378,7 +387,7 @@ public class CustomerUI extends javax.swing.JFrame {
                         .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1)
                             .addGroup(displayPanelLayout.createSequentialGroup()
-                                .addComponent(jCheckBox3)
+                                .addComponent(lowCaloriesCheckBox)
                                 .addGap(34, 34, 34)
                                 .addComponent(highProteinCheckBox)
                                 .addGap(28, 28, 28)
@@ -397,7 +406,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(highProteinCheckBox)
-                    .addComponent(jCheckBox3)
+                    .addComponent(lowCaloriesCheckBox)
                     .addComponent(lowSugarsCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1151,7 +1160,8 @@ public class CustomerUI extends javax.swing.JFrame {
     }//GEN-LAST:event_lowSugarsCheckBoxActionPerformed
 
     private void lowCaloriesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxActionPerformed
-        suggestionsComponent = new SuggestionsComponent();
+        
+        suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
         
     }//GEN-LAST:event_lowCaloriesCheckBoxActionPerformed
 
@@ -1159,6 +1169,46 @@ public class CustomerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_highProteinCheckBoxActionPerformed
 
+    private void lowCaloriesCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxItemStateChanged
+        if(evt.getStateChange() ==  evt.SELECTED){
+            checkedList[0] = true;
+        }
+        else{
+            checkedList[0] = false;
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lowCaloriesCheckBoxItemStateChanged
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CustomerUI().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton1;
     private javax.swing.JPanel amoutPanel;
@@ -1198,7 +1248,6 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel item4DispensedLabel;
     private javax.swing.JTextField itemCodeTextField;
     private javax.swing.JPanel itemsPanel;
-    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1216,8 +1265,8 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel leftPanel;
+    private javax.swing.JCheckBox lowCaloriesCheckBox;
     private javax.swing.JCheckBox lowSugarsCheckBox;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel middlePanel;
@@ -1235,6 +1284,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton selectSnackButton;
     private view.SnackPanel snackPanel;
     private javax.swing.JTextField sugarsTextField;
+    private javax.swing.JTextArea suggestionsTextArea;
     private view.WelcomePanel welcomePanel;
     // End of variables declaration//GEN-END:variables
 }

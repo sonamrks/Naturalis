@@ -10,9 +10,10 @@ package controller;
  */
 public class LowCalorieDecorator extends Decorator {
     int i;
+    SuggestionsComponent suggestionsComponent;
      
     public LowCalorieDecorator(SuggestionsComponent suggestionsComponent) {
-        super(suggestionsComponent);
+         this.suggestionsComponent = suggestionsComponent;
     }
     
     public void filter() {
@@ -33,6 +34,8 @@ public class LowCalorieDecorator extends Decorator {
         }
         
     }
+    
+
     
     
 }

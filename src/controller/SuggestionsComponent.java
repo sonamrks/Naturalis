@@ -21,15 +21,25 @@ public class SuggestionsComponent {
     ArrayList<Integer> caloriesList;
     
     public SuggestionsComponent() {
+        itemTableModel = new ItemTableModel();
         filter();
     }
     
     public void filter() {
+        itemTableModel.getItemInfo();
         codeList = itemTableModel.getCodeList();
         nameList = itemTableModel.getNameList();
         proteinList = itemTableModel.getProteinList();
         sugarsList = itemTableModel.getSugarsList();
         caloriesList = itemTableModel.getCaloriesList();   
+    }
+    
+    public String getSuggestionString(){
+        String suggestion="";
+        for(Integer code : codeList){
+            suggestion+=code + "\n";
+        }
+        return suggestion;
     }
     
 }

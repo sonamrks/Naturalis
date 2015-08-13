@@ -18,6 +18,8 @@ import view.CustomerUI;
 public class ItemController {
     
     private ItemTableModel itemsTableModel;
+    private SuggestionsComponent suggestionsComponent;
+    private Decorator decorator;
    // private CustomerUI customerUI;
     
     
@@ -25,6 +27,23 @@ public class ItemController {
        
         itemsTableModel = new ItemTableModel();
        
+    }
+    public String getSuggestionList(Boolean[] checkedList){
+            suggestionsComponent = new SuggestionsComponent();
+            if(checkedList[0] == true) {
+                decorator = new LowCalorieDecorator(suggestionsComponent);
+                decorator.filter();
+            }
+            if(checkedList[1] == true){ 
+                decorator = new HighProteinDecorator(suggestionsComponent);
+                decorator.filter();
+            }
+            if(checkedList[2] == true){  
+                decorator = new LowSugarsDecorator(suggestionsComponent);
+                decorator.filter();
+            }
+            return suggestionsComponent.getSuggestionString();
+        
     }
     
     public ArrayList<Integer> getCode(){
