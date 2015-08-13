@@ -1161,7 +1161,7 @@ public class CustomerUI extends javax.swing.JFrame {
 
     private void lowCaloriesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxActionPerformed
         
-        suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
+    //    suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
         
     }//GEN-LAST:event_lowCaloriesCheckBoxActionPerformed
 
@@ -1176,6 +1176,7 @@ public class CustomerUI extends javax.swing.JFrame {
         else{
             checkedList[0] = false;
         }
+        //System.out.println(checkedList[0]);
         // TODO add your handling code here:
     }//GEN-LAST:event_lowCaloriesCheckBoxItemStateChanged
     public static void main(String args[]) {

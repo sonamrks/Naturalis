@@ -30,7 +30,9 @@ public class ItemController {
     }
     public String getSuggestionList(Boolean[] checkedList){
             suggestionsComponent = new SuggestionsComponent();
+           
             if(checkedList[0] == true) {
+                 System.out.println("hello"+checkedList[0]);
                 decorator = new LowCalorieDecorator(suggestionsComponent);
                 decorator.filter();
             }

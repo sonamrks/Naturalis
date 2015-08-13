@@ -13,7 +13,9 @@ public class LowCalorieDecorator extends Decorator {
     SuggestionsComponent suggestionsComponent;
      
     public LowCalorieDecorator(SuggestionsComponent suggestionsComponent) {
-         this.suggestionsComponent = suggestionsComponent;
+                System.out.println("initialized");
+        this.suggestionsComponent = suggestionsComponent;
+
     }
     
     public void filter() {
