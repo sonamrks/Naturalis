@@ -11,6 +11,7 @@ import controller.CartItemsController;
 import controller.ItemController;
 import controller.NutritionalFactsController;
 import controller.PaymentController;
+import controller.SuggestionsComponent;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import javax.swing.ImageIcon;
@@ -30,6 +31,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private static ItemController itemController;
     private static NutritionalFactsController nutritionalFactsController;
     private static PaymentController paymentController;
+    private SuggestionsComponent suggestionsComponent;
     /**
      * Creates new form CustomerUI
      */
@@ -96,15 +98,17 @@ public class CustomerUI extends javax.swing.JFrame {
         coinsImageLabel = new javax.swing.JLabel();
         itemsPanel = new javax.swing.JPanel();
         welcomePanel = new view.WelcomePanel();
-        beveragePanel = new view.BeveragePanel();
         snackPanel = new view.SnackPanel();
         middlePanel = new javax.swing.JPanel();
         displayPanel = new javax.swing.JPanel();
-        healthySpecificComboBox = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         calorieRangeTextField = new javax.swing.JTextField();
-        suggestionsPanel = new javax.swing.JPanel();
+        lowSugarsCheckBox = new javax.swing.JCheckBox();
+        highProteinCheckBox = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         cartPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
@@ -284,7 +288,6 @@ public class CustomerUI extends javax.swing.JFrame {
 
         itemsPanel.setLayout(new java.awt.CardLayout());
         itemsPanel.add(welcomePanel, "welcome");
-        itemsPanel.add(beveragePanel, "beverage");
         itemsPanel.add(snackPanel, "snacks");
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
@@ -321,13 +324,6 @@ public class CustomerUI extends javax.swing.JFrame {
 
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        healthySpecificComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Low Sugar", "Low Carbs", " " }));
-        healthySpecificComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                healthySpecificComboBoxActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Healthy spcefics :");
 
         jLabel2.setText("Calorie range : ");
@@ -338,16 +334,30 @@ public class CustomerUI extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout suggestionsPanelLayout = new javax.swing.GroupLayout(suggestionsPanel);
-        suggestionsPanel.setLayout(suggestionsPanelLayout);
-        suggestionsPanelLayout.setHorizontalGroup(
-            suggestionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 258, Short.MAX_VALUE)
-        );
-        suggestionsPanelLayout.setVerticalGroup(
-            suggestionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 124, Short.MAX_VALUE)
-        );
+        lowSugarsCheckBox.setText("Low Sugars");
+        lowSugarsCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lowSugarsCheckBoxActionPerformed(evt);
+            }
+        });
+
+        highProteinCheckBox.setText("High Protein");
+        highProteinCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                highProteinCheckBoxActionPerformed(evt);
+            }
+        });
+
+        jCheckBox3.setText("Low Calories");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lowCaloriesCheckBoxActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout displayPanelLayout = new javax.swing.GroupLayout(displayPanel);
         displayPanel.setLayout(displayPanelLayout);
@@ -357,17 +367,23 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(displayPanelLayout.createSequentialGroup()
-                        .addComponent(suggestionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(displayPanelLayout.createSequentialGroup()
                         .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(calorieRangeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(healthySpecificComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(180, 180, 180))))
+                        .addComponent(calorieRangeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(180, 180, 180))
+                    .addGroup(displayPanelLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addGroup(displayPanelLayout.createSequentialGroup()
+                                .addComponent(jCheckBox3)
+                                .addGap(34, 34, 34)
+                                .addComponent(highProteinCheckBox)
+                                .addGap(28, 28, 28)
+                                .addComponent(lowSugarsCheckBox)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         displayPanelLayout.setVerticalGroup(
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,12 +393,15 @@ public class CustomerUI extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(calorieRangeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(healthySpecificComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(suggestionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(highProteinCheckBox)
+                    .addComponent(jCheckBox3)
+                    .addComponent(lowSugarsCheckBox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61))
         );
 
         jLabel5.setText("Items to Buy");
@@ -578,13 +597,10 @@ public class CustomerUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(middlePanelLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(middlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(middlePanelLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(cartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(29, 29, 29))
+                        .addGap(74, 74, 74)
+                        .addComponent(cartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
         middlePanelLayout.setVerticalGroup(
             middlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,7 +610,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -904,7 +920,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buyCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -960,10 +976,6 @@ public class CustomerUI extends javax.swing.JFrame {
     private void calorieRangeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calorieRangeTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_calorieRangeTextFieldActionPerformed
-
-    private void healthySpecificComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_healthySpecificComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_healthySpecificComboBoxActionPerformed
 
     private void cent10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent10ButtonActionPerformed
          // TODO add your handling code here:
@@ -1134,10 +1146,22 @@ public class CustomerUI extends javax.swing.JFrame {
         item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
     }//GEN-LAST:event_priceTextFieldActionPerformed
 
+    private void lowSugarsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowSugarsCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lowSugarsCheckBoxActionPerformed
+
+    private void lowCaloriesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxActionPerformed
+        suggestionsComponent = new SuggestionsComponent();
+        
+    }//GEN-LAST:event_lowCaloriesCheckBoxActionPerformed
+
+    private void highProteinCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highProteinCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_highProteinCheckBoxActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton1;
     private javax.swing.JPanel amoutPanel;
-    private view.BeveragePanel beveragePanel;
     private javax.swing.JLabel buyCardLabel;
     private javax.swing.JTextField buyCardMessageTextField;
     private javax.swing.JPanel buyCardPanel;
@@ -1161,7 +1185,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton dollar50Button;
     private javax.swing.JButton dollar5Button;
     private javax.swing.JButton getInfoButton;
-    private javax.swing.JComboBox healthySpecificComboBox;
+    private javax.swing.JCheckBox highProteinCheckBox;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JTextField insertCardMessageTextField;
     private javax.swing.JPanel insertCardPanel;
@@ -1174,6 +1198,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel item4DispensedLabel;
     private javax.swing.JTextField itemCodeTextField;
     private javax.swing.JPanel itemsPanel;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1190,7 +1215,10 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel leftPanel;
+    private javax.swing.JCheckBox lowSugarsCheckBox;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel middlePanel;
     private javax.swing.JLabel nameLabel;
@@ -1207,7 +1235,6 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton selectSnackButton;
     private view.SnackPanel snackPanel;
     private javax.swing.JTextField sugarsTextField;
-    private javax.swing.JPanel suggestionsPanel;
     private view.WelcomePanel welcomePanel;
     // End of variables declaration//GEN-END:variables
 }
