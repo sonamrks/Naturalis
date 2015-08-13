@@ -76,7 +76,9 @@ public class NavigationPanel extends javax.swing.JPanel {
          System.out.println(password);
          if(username.equals("natAdmin") && password.equals("password")){
             System.out.println("Login valid");
-            Main.getCardLayout().show(Main.getCards(),"Machines");
+         MachinesPanel machines = new MachinesPanel();
+         machines.setVisible(true);
+            //Main.getCardLayout().show(Main.getCards(),"Machines");
         }
       }
       

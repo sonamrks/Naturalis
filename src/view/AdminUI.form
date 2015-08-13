@@ -28,7 +28,7 @@
               <Component id="itemsScrollPanePanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="statisticsPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -40,7 +40,7 @@
                   <Component id="statisticsPanel" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="itemsScrollPanePanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="135" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -56,11 +56,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="cokePanel" alignment="0" min="-2" pref="453" max="-2" attributes="0"/>
-                      <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cokePanel" max="32767" attributes="0"/>
+                      <Component id="jPanel1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -71,7 +71,7 @@
                   <Component id="cokePanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <EmptySpace pref="91" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,32 +83,38 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cokeImageLabel" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="addCokeButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="cokeImageLabel" min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="cokeInfoPanel" min="-2" pref="373" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="addCokeButton" min="-2" pref="67" max="-2" attributes="0"/>
+                          <Component id="updateButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="cokeImageLabel" min="-2" pref="78" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="updateButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="addCokeButton" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="cokeInfoPanel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cokeImageLabel" min="-2" pref="78" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cokeInfoPanel" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -199,7 +205,7 @@
                               <Component id="cokePriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cokeCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -274,6 +280,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCokeButtonActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="updateButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="update"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
