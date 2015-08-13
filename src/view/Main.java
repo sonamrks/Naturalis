@@ -32,7 +32,7 @@ public class Main extends javax.swing.JFrame {
         customerUI = new CustomerUI();
         cards.add(navigationPanel, "Navigation");
         cards.add(machinesPanel,"Machines");
-        cards.add(adminUI,"Admin"); 
+ //       cards.add(adminUI,"Admin"); 
 //        cards.add(customerUI,"Customer");
         
         initComponents();
@@ -87,6 +87,7 @@ public class Main extends javax.swing.JFrame {
             public void run() {
                 Main main = new Main();
                 main.setContentPane(new NavigationPanel());
+             //   Main.getCardLayout().show(Main.getCards(),"Admin");
                 main.setSize(1000, 750);
                 main.setVisible(true);
             }

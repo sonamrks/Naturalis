@@ -1,26 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
 import java.util.ArrayList;
 
-import model.BeverageComponent;
-import model.Item;
-
-public class Decorator extends BeverageComponent{{
-	
-	BeverageComponent beverage;
-	public ArrayList<BeverageComponent> lowCalorieBeverages = new ArrayList<BeverageComponent>();
-	
-	public Item createItem(){
-		return null;
-	}
-	public String getName(){
-		return null;
-	}
-	public double getPrice(){
-		return 0;
-	}
-	public double getCalories(){
-		return 0;
-	}
-	
+/**
+ *
+ * @author Sonam
+ */
+public class Decorator extends SuggestionsComponent {  
+    SuggestionsComponent suggestionsComponent;
+  
+    public Decorator(SuggestionsComponent suggestionsComponent) { 
+        this.suggestionsComponent = suggestionsComponent;
+    }
+    public void filter() {    
+    }
+    
+    public SuggestionsComponent getSuggestionsComponent() {
+        return suggestionsComponent;
+    }
+    
 }
