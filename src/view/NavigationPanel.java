@@ -5,17 +5,23 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sonam
  */
 public class NavigationPanel extends javax.swing.JPanel {
-
+    
+    private LoginPanel loginPanel;
+    private String username;
+    private String password;
     /**
      * Creates new form NavigationPage
      */
     public NavigationPanel() {
         initComponents();
+        loginPanel = new LoginPanel();
     }
 
     /**
@@ -61,7 +67,19 @@ public class NavigationPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
-        Main.getCardLayout().show(Main.getCards(),"Machines");
+        
+        int result  = JOptionPane.showConfirmDialog(null, loginPanel,
+                "Please Enter User Name and Password", JOptionPane.OK_CANCEL_OPTION);
+      if (result == JOptionPane.OK_OPTION) {
+         username = loginPanel.getUserName();
+         password = loginPanel.getPassword();
+         System.out.println(password);
+         if(username.equals("natAdmin") && password.equals("password")){
+            System.out.println("Login valid");
+            Main.getCardLayout().show(Main.getCards(),"Machines");
+        }
+      }
+      
     }//GEN-LAST:event_adminButtonActionPerformed
 
     private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
