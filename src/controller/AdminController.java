@@ -14,11 +14,11 @@ import model.Admin;
  */
 public class AdminController {
     private Admin admin;
-    private ItemsTableModel itemsTableModel;
+    private ItemTableModel itemsTableModel;
     
     public AdminController(){
         admin = new Admin();
-        itemsTableModel = new ItemsTableModel();
+        itemsTableModel = new ItemTableModel();
     }
     public int addCoke(Integer count){
         return admin.addCoke(count);

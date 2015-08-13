@@ -17,13 +17,13 @@ import view.CustomerUI;
  */
 public class ItemController {
     
-    private ItemsTableModel itemsTableModel;
+    private ItemTableModel itemsTableModel;
    // private CustomerUI customerUI;
     
     
     public ItemController() {
        
-        itemsTableModel = new ItemsTableModel();
+        itemsTableModel = new ItemTableModel();
        
     }
     
