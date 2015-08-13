@@ -6,127 +6,20 @@
 package view;
 
 import controller.AdminController;
-import controller.ItemController;
-import java.util.ArrayList;
 
 /**
  *
- * @author AshitaRaghu
+ * @author Sonam
  */
-public class AdminUI extends javax.swing.JFrame {
-
+public class AdminUIPanel extends javax.swing.JPanel {
+    
     private AdminController adminController;
-    private static ItemController itemsController;
     /**
      * Creates new form AdminUI
      */
-    public AdminUI() {
+    public AdminUIPanel() {
         initComponents();
         adminController = new AdminController();
-        itemsController = new ItemController();
-        setProtein();
-        setSugars();
-        setCarbohydrates();
-        setCalories();
-        setPrice();
-        setCount();
-        
-    }
-    public void setProtein(){
-        
-        ArrayList<Integer> proteinList = adminController.setProtein();
-        
-        cokeProteinTextField.setText(Integer.toString(proteinList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
-    }
-    public void setSugars(){
-        
-        ArrayList<Integer> sugarsList = adminController.setSugars();
-        
-        cokeSugarsTextField.setText(Integer.toString(sugarsList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
-    }
-    public void setCarbohydrates(){
-        
-        ArrayList<Integer> carbohydratesList = adminController.setCarbohydrates();
-        
-        cokeCarbohydratesTextField.setText(Integer.toString(carbohydratesList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
-    }
-    public void setCalories(){
-        
-        ArrayList<Integer> caloriesList = adminController.setCalories();
-        
-        cokeCaloriesTextField.setText(Integer.toString(caloriesList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
-    }
-    public void setPrice(){
-        
-        ArrayList<Double> priceList = adminController.setPrice();
-        
-        cokePriceTextField.setText(Double.toString(priceList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
-    }
-    public void setCount(){
-        
-        ArrayList<Integer> countList = adminController.setCount();
-        
-        cokeCountTextField.setText(Integer.toString(countList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
     }
 
     /**
@@ -138,6 +31,9 @@ public class AdminUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        itemsPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         itemsScrollPanePanel = new javax.swing.JPanel();
         cokePanel = new javax.swing.JPanel();
         cokeImageLabel = new javax.swing.JLabel();
@@ -159,7 +55,9 @@ public class AdminUI extends javax.swing.JFrame {
         statisticsPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        itemsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel1.setText("Items Panel");
 
         cokeImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coke.jpg"))); // NOI18N
 
@@ -342,6 +240,28 @@ public class AdminUI extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setViewportView(itemsScrollPanePanel);
+
+        javax.swing.GroupLayout itemsPanelLayout = new javax.swing.GroupLayout(itemsPanel);
+        itemsPanel.setLayout(itemsPanelLayout);
+        itemsPanelLayout.setHorizontalGroup(
+            itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itemsPanelLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+        );
+        itemsPanelLayout.setVerticalGroup(
+            itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itemsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         statisticsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel2.setText("Statistics Panel");
@@ -363,16 +283,16 @@ public class AdminUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(itemsScrollPanePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(itemsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(statisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,22 +300,14 @@ public class AdminUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(statisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(itemsScrollPanePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 156, Short.MAX_VALUE)))
+                    .addComponent(itemsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cokeProteinTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeProteinTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cokeProteinTextFieldActionPerformed
-
-    private void cokeSugarsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeSugarsTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cokeSugarsTextFieldActionPerformed
 
     private void cokeCarbohydratesTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeCarbohydratesTextFieldActionPerformed
         // TODO add your handling code here:
@@ -409,53 +321,21 @@ public class AdminUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cokePriceTextFieldActionPerformed
 
+    private void cokeSugarsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeSugarsTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cokeSugarsTextFieldActionPerformed
+
     private void cokeCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeCountTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cokeCountTextFieldActionPerformed
 
     private void addCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCokeButtonActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(cokeCountTextField.getText());
-        count++;
-        adminController.addCoke(count);
+        int count = adminController.addCoke();
         System.out.println(count);
         cokeCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addCokeButtonActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminUI().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCokeButton;
@@ -469,7 +349,9 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JTextField cokePriceTextField;
     private javax.swing.JTextField cokeProteinTextField;
     private javax.swing.JTextField cokeSugarsTextField;
+    private javax.swing.JPanel itemsPanel;
     private javax.swing.JPanel itemsScrollPanePanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -477,6 +359,7 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel statisticsPanel;
     // End of variables declaration//GEN-END:variables
 }
