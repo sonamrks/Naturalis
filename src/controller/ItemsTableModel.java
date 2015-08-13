@@ -18,10 +18,9 @@ import model.DatabaseConnection;
  *
  * @author AshitaRaghu
  */
-public class ItemTableModel {
+public class ItemsTableModel {
     
     ArrayList<Integer> codeList = new ArrayList<Integer>();
-    ArrayList<String> nameList = new ArrayList<String>();
     ArrayList<Double> priceList = new ArrayList<Double>();
     ArrayList<Integer> proteinList = new ArrayList<Integer>();
     ArrayList<Integer> sugarsList = new ArrayList<Integer>();
@@ -121,36 +120,6 @@ public class ItemTableModel {
         return countList;
     }
     
-    public ArrayList<Integer> getCodeList() {
-        return codeList;
-    }
     
-    public ArrayList<String> getNameList() {
-        return nameList;
-    }
-
-    public ArrayList<Double> getPriceList() {
-        return priceList;
-    }
-
-    public ArrayList<Integer> getProteinList() {
-        return proteinList;
-    }
-
-    public ArrayList<Integer> getSugarsList() {
-        return sugarsList;
-    }
-
-    public ArrayList<Integer> getCarbohydratesList() {
-        return carbohydratesList;
-    }
-
-    public ArrayList<Integer> getCaloriesList() {
-        return caloriesList;
-    }
-
-    public ArrayList<Integer> getCountList() {
-        return countList;
-    }
     
 }
