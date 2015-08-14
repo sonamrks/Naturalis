@@ -86,37 +86,7 @@ public class ItemTableModel {
         return priceList;
     }
     public ArrayList<Integer> setProtein(){
-        
-        try {
-            
-            String getInfo = "SELECT protein,sugars,carbohydrates,calories,price,count FROM item";
-            /*String getSugars = "SELECT sugars FROM item";
-            String getCarbohydrates = "SELECT carbohydrates FROM item";
-            String getCalories = "SELECT calories FROM item";
-            String getPrice = "SELECT price FROM item";
-            String getCount = "SELECT count FROM item";*/
-            
-            PreparedStatement statement = connection.prepareStatement(getInfo);
-            ResultSet result = statement.executeQuery();
-            
-            while(result.next()){
-                proteinList.add(result.getInt("protein"));
-                sugarsList.add(result.getInt("sugars"));
-                carbohydratesList.add(result.getInt("carbohydrates"));
-                caloriesList.add(result.getInt("calories"));
-                priceList.add(result.getDouble("price"));
-                countList.add(result.getInt("count"));
-                
-                
-            }
-            
-            statement = connection.prepareStatement(getInfo);
-            result = statement.executeQuery();
-            
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-
-        }
+       
         return proteinList;
     }
     
@@ -133,6 +103,36 @@ public class ItemTableModel {
         return caloriesList;
     }
     public ArrayList<Double> setPrice(){
+        
+        try {
+            
+            String getInfo = "SELECT price,count FROM item";
+            /*String getSugars = "SELECT sugars FROM item";
+            String getCarbohydrates = "SELECT carbohydrates FROM item";
+            String getCalories = "SELECT calories FROM item";
+            String getPrice = "SELECT price FROM item";
+            String getCount = "SELECT count FROM item";*/
+            
+            PreparedStatement statement = connection.prepareStatement(getInfo);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next()){
+                //proteinList.add(result.getInt("protein"));
+                //sugarsList.add(result.getInt("sugars"));
+                //carbohydratesList.add(result.getInt("carbohydrates"));
+                //caloriesList.add(result.getInt("calories"));
+                priceList.add(result.getDouble("price"));
+                countList.add(result.getInt("count"));
+                
+            }
+            
+            statement = connection.prepareStatement(getInfo);
+            result = statement.executeQuery();
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
         
         return priceList;
     }

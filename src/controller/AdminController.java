@@ -20,8 +20,11 @@ public class AdminController {
         admin = new Admin();
         itemsTableModel = new ItemTableModel();
     }
-    public int addCoke(Integer count){
-        return admin.addCoke(count);
+    public void increaseItemCount(Integer count, Integer code){
+         admin.increaseItemCount(count,code);
+    }
+    public void updatePrice(Double price,Integer code){
+       admin.updatePrice(price,code);
     }
     public ArrayList<Integer> setProtein(){
         return itemsTableModel.setProtein();
