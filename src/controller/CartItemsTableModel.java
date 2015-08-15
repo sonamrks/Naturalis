@@ -31,7 +31,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private String name, s;
     private double price;
     private Item item;
-    private int soldCount;
+    private int soldCount,count;
     
     ItemFactory beverageFactory = new ItemFactory();
 
@@ -92,8 +92,16 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
         }
     }
     
-    public void reduceSoldCount(Integer code,String action){
+    public void updateSoldCount(Integer code,String action){
         try {
+            String getCount = "SELECT count FROM item WHERE code=?";
+            statement = connection.prepareStatement(getCount);
+            statement.setInt(1,code);
+            result = statement.executeQuery();
+
+            while(result.next()){
+                count = result.getInt("count");
+            }
             String getSoldCount = "SELECT soldCount FROM item WHERE code=?";
             statement = connection.prepareStatement(getSoldCount);
             statement.setInt(1,code);
@@ -102,18 +110,34 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             while(result.next()){
                 soldCount = result.getInt("soldCount");
             }
-            if(action.equals("reduce")){
+            if(action.equals("add")){
+                count--;
+                soldCount++;
+                
+                String updateCount = "UPDATE item SET count=? where code=?";
+                statement = connection.prepareStatement(updateCount);
+                statement.setInt(1,count);
+                statement.setInt(2,code);
+                statement.executeUpdate();
+                
                 String updateSoldCount = "UPDATE item SET soldCount=? where code=?";
                 statement = connection.prepareStatement(updateSoldCount);
-                soldCount--;
                 statement.setInt(1,soldCount);
                 statement.setInt(2,code);
                 statement.executeUpdate();
             }
             else{
+                count++;
+                soldCount--;
+                
+                String updateCount = "UPDATE item SET count=? where code=?";
+                statement = connection.prepareStatement(updateCount);
+                statement.setInt(1,count);
+                statement.setInt(2,code);
+                statement.executeUpdate();
+                
                 String updateSoldCount = "UPDATE item SET soldCount=? where code=?";
                 statement = connection.prepareStatement(updateSoldCount);
-                soldCount++;
                 statement.setInt(1,soldCount);
                 statement.setInt(2,code);
                 statement.executeUpdate();
