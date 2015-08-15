@@ -44,4 +44,14 @@ public class AdminController {
     public ArrayList<Integer> setCount(){
         return itemsTableModel.setCount();
     }
+    public int getCategorySoldCount(String category){
+        return itemsTableModel.getCategorySoldCount(category);
+    }
+   
+    public int getCategorySoldCount(String category, String machine) {
+        return itemsTableModel.getCategorySoldCount(category,machine);
+    }
+    public int[] getItemSoldCount(){
+        return itemsTableModel.getItemSoldCount();
+    }
 }

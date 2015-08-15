@@ -31,13 +31,13 @@ public class BarChart extends JFrame {
     public BarChart(){
         
     }
-    public void BeverageVsSnackBarChart(String appTitle,String chartTitle,double beveragesSold, double snacksSold){
+    public void beverageVsSnackBarChart(String appTitle,String chartTitle,double beveragesSold, double snacksSold){
         this.beveragesSold = beveragesSold;
         this.snacksSold = snacksSold;
         
         DefaultCategoryDataset bevSnackDataset = new DefaultCategoryDataset();
-        bevSnackDataset.setValue(40,"Count sold", "Beverages");
-        bevSnackDataset.setValue(60,"Count sold", "Snacks");
+        bevSnackDataset.setValue(beveragesSold,"Count sold", "Beverages");
+        bevSnackDataset.setValue(snacksSold,"Count sold", "Snacks");
         
         JFreeChart bevSnackchart = ChartFactory.createBarChart3D("Beverage Vs Snack Comparison", "Category", "Count sold", bevSnackDataset, PlotOrientation.VERTICAL, true, true, false);
         CategoryPlot plot = bevSnackchart.getCategoryPlot();
@@ -46,6 +46,27 @@ public class BarChart extends JFrame {
         ChartPanel bevSnackChartPanel = new ChartPanel(bevSnackchart);
         bevSnackChartPanel.setPreferredSize(new java.awt.Dimension(500, 300));
         setContentPane(bevSnackChartPanel);
+    }
+    
+    public void itemSoldBarChart(String appTitle,String chartTitle,int[] soldCount){
+        
+        DefaultCategoryDataset itemsDataset = new DefaultCategoryDataset();
+        itemsDataset.setValue(soldCount[0],"Count sold", "Coke");
+        itemsDataset.setValue(soldCount[1],"Count sold", "OrangeJuice");
+        itemsDataset.setValue(soldCount[2],"Count sold", "Lemonade");
+        itemsDataset.setValue(soldCount[3],"Count sold", "Gatorade");
+        itemsDataset.setValue(soldCount[4],"Count sold", "Granola");
+        itemsDataset.setValue(soldCount[5],"Count sold", "Chips");
+        itemsDataset.setValue(soldCount[6],"Count sold", "Nuts");
+        itemsDataset.setValue(soldCount[7],"Count sold", "Cookie");
+         
+        JFreeChart itemschart = ChartFactory.createBarChart3D("Beverage Vs Snack Comparison", "Category", "Count sold", itemsDataset, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot plot = itemschart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.black);
+        
+        ChartPanel itemsChartPanel = new ChartPanel(itemschart);
+        itemsChartPanel.setPreferredSize(new java.awt.Dimension(500, 300));
+        setContentPane(itemsChartPanel);
     }
     
 }

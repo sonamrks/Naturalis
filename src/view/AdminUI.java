@@ -38,6 +38,7 @@ public class AdminUI extends javax.swing.JFrame {
         //setCalories();
         setPrice();
         setCount();
+        setBevSnackSoldCount();
         
     }
     public void setProtein(){
@@ -158,6 +159,10 @@ public class AdminUI extends javax.swing.JFrame {
         
         
     }
+    public void setBevSnackSoldCount(){
+        beveragesSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("beverage")));
+        snacksSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("snack")));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -168,14 +173,22 @@ public class AdminUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bevSnackMachineButtonGroup = new javax.swing.ButtonGroup();
         statisticsPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        BevSnacksStatisticsPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         beveragesSoldTextField = new javax.swing.JTextField();
         snacksSoldTextField = new javax.swing.JTextField();
-        pieChartButton = new javax.swing.JButton();
-        barChartButton = new javax.swing.JButton();
+        bevSnackPieChartButton = new javax.swing.JButton();
+        bevSnackBarChartButton = new javax.swing.JButton();
+        machine1RadioButton = new javax.swing.JRadioButton();
+        machine2RadioButton = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        itemsPieChartButton = new javax.swing.JButton();
+        itemsBarChartButton = new javax.swing.JButton();
         itemsScrollPane = new javax.swing.JScrollPane();
         cokePanel = new javax.swing.JPanel();
         frappuccinoPanel = new javax.swing.JPanel();
@@ -351,47 +364,140 @@ public class AdminUI extends javax.swing.JFrame {
             }
         });
 
-        pieChartButton.setText("Pie Chart");
-        pieChartButton.addActionListener(new java.awt.event.ActionListener() {
+        bevSnackPieChartButton.setText("Pie Chart");
+        bevSnackPieChartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pieChartButtonActionPerformed(evt);
+                bevSnackPieChartButtonActionPerformed(evt);
             }
         });
 
-        barChartButton.setText("Bar Chart");
-        barChartButton.addActionListener(new java.awt.event.ActionListener() {
+        bevSnackBarChartButton.setText("Bar Chart");
+        bevSnackBarChartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                barChartButtonActionPerformed(evt);
+                bevSnackBarChartButtonActionPerformed(evt);
             }
         });
+
+        bevSnackMachineButtonGroup.add(machine1RadioButton);
+        machine1RadioButton.setText("Machine 1");
+        machine1RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine1RadioButtonActionPerformed(evt);
+            }
+        });
+
+        bevSnackMachineButtonGroup.add(machine2RadioButton);
+        machine2RadioButton.setText("Machine 2");
+        machine2RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine2RadioButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BevSnacksStatisticsPanelLayout = new javax.swing.GroupLayout(BevSnacksStatisticsPanel);
+        BevSnacksStatisticsPanel.setLayout(BevSnacksStatisticsPanelLayout);
+        BevSnacksStatisticsPanelLayout.setHorizontalGroup(
+            BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
+                        .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(beveragesSoldTextField))
+                            .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(snacksSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(128, 128, 128))
+                    .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
+                        .addComponent(bevSnackPieChartButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bevSnackBarChartButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(machine1RadioButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(machine2RadioButton)
+                        .addContainerGap(16, Short.MAX_VALUE))))
+        );
+        BevSnacksStatisticsPanelLayout.setVerticalGroup(
+            BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(beveragesSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(snacksSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bevSnackPieChartButton)
+                    .addComponent(bevSnackBarChartButton)
+                    .addComponent(machine1RadioButton)
+                    .addComponent(machine2RadioButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel4.setText("All items Statistics");
+
+        itemsPieChartButton.setText("Pie Chart");
+        itemsPieChartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemsPieChartButtonActionPerformed(evt);
+            }
+        });
+
+        itemsBarChartButton.setText("Bar Chart");
+        itemsBarChartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemsBarChartButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(itemsPieChartButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(itemsBarChartButton))
+                    .addComponent(jLabel4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(itemsPieChartButton)
+                    .addComponent(itemsBarChartButton))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
         statisticsPanel.setLayout(statisticsPanelLayout);
         statisticsPanelLayout.setHorizontalGroup(
             statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statisticsPanelLayout.createSequentialGroup()
-                .addContainerGap(177, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(113, 113, 113))
             .addGroup(statisticsPanelLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(statisticsPanelLayout.createSequentialGroup()
-                        .addComponent(pieChartButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(barChartButton)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(statisticsPanelLayout.createSequentialGroup()
-                        .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(statisticsPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(snacksSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(statisticsPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(beveragesSoldTextField)))
-                        .addGap(131, 131, 131))))
+                    .addComponent(BevSnacksStatisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         statisticsPanelLayout.setVerticalGroup(
             statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -399,18 +505,10 @@ public class AdminUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(beveragesSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(snacksSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pieChartButton)
-                    .addComponent(barChartButton))
-                .addContainerGap(500, Short.MAX_VALUE))
+                .addComponent(BevSnacksStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(370, Short.MAX_VALUE))
         );
 
         frappuccinoImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/frappuccino.jpg"))); // NOI18N
@@ -1974,9 +2072,9 @@ public class AdminUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(itemsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(statisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2398,7 +2496,7 @@ public class AdminUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_snacksSoldTextFieldActionPerformed
 
-    private void pieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pieChartButtonActionPerformed
+    private void bevSnackPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bevSnackPieChartButtonActionPerformed
         // TODO add your handling code here:
         int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
         int snacksSold = Integer.parseInt(snacksSoldTextField.getText());
@@ -2409,12 +2507,12 @@ public class AdminUI extends javax.swing.JFrame {
         
         
         PieChart pieChart = new PieChart();
-        pieChart.BeverageVsSnackPieChart("Pie Chart","Beverages vs Snacks comparison",beveragesFraction,snacksFraction);
+        pieChart.beverageVsSnackPieChart("Pie Chart","Beverages vs Snacks comparison",beveragesFraction,snacksFraction);
         pieChart.pack();
         pieChart.setVisible(true);
-    }//GEN-LAST:event_pieChartButtonActionPerformed
+    }//GEN-LAST:event_bevSnackPieChartButtonActionPerformed
 
-    private void barChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barChartButtonActionPerformed
+    private void bevSnackBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bevSnackBarChartButtonActionPerformed
         // TODO add your handling code here:
         int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
         int snacksSold = Integer.parseInt(snacksSoldTextField.getText());
@@ -2424,10 +2522,42 @@ public class AdminUI extends javax.swing.JFrame {
         double snacksFraction = (snacksSold/totalSale)*100;
         
         BarChart barChart = new BarChart();
-        barChart.BeverageVsSnackBarChart("Bar Chart","Beverage vs Snack Comparison",beveragesFraction,snacksFraction);
+        barChart.beverageVsSnackBarChart("Bar Chart","Beverage vs Snack Comparison",beveragesFraction,snacksFraction);
         barChart.pack();
         barChart.setVisible(true);
-    }//GEN-LAST:event_barChartButtonActionPerformed
+    }//GEN-LAST:event_bevSnackBarChartButtonActionPerformed
+
+    private void machine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1RadioButtonActionPerformed
+        // TODO add your handling code here:
+        beveragesSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("beverage","machine1")));
+        snacksSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("snack","machine1")));
+    }//GEN-LAST:event_machine1RadioButtonActionPerformed
+
+    private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
+        // TODO add your handling code here:
+        beveragesSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("beverage","machine2")));
+        snacksSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("snack","machine2")));
+    }//GEN-LAST:event_machine2RadioButtonActionPerformed
+
+    private void itemsBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsBarChartButtonActionPerformed
+        // TODO add your handling code here:
+        int[] itemsSoldCount = adminController.getItemSoldCount();
+        
+        BarChart pieChart = new BarChart();
+        pieChart.itemSoldBarChart("Bar Chart","Items Sold Comparison",itemsSoldCount);
+        pieChart.pack();
+        pieChart.setVisible(true);
+    }//GEN-LAST:event_itemsBarChartButtonActionPerformed
+
+    private void itemsPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsPieChartButtonActionPerformed
+        // TODO add your handling code here:
+        int[] itemsSoldCount = adminController.getItemSoldCount();
+        
+        PieChart pieChart = new PieChart();
+        pieChart.itemSoldPieChart("Pie Chart","Items Sold Comparison",itemsSoldCount);
+        pieChart.pack();
+        pieChart.setVisible(true);
+    }//GEN-LAST:event_itemsPieChartButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2465,6 +2595,7 @@ public class AdminUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BevSnacksStatisticsPanel;
     private javax.swing.JButton addCoconutWaterButton;
     private javax.swing.JButton addCokeButton;
     private javax.swing.JButton addFrappuccinoButton;
@@ -2474,7 +2605,9 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JButton addProteinSmoothieButton;
     private javax.swing.JButton addSparklingWaterButton;
     private javax.swing.JButton addproteinShakeButton1;
-    private javax.swing.JButton barChartButton;
+    private javax.swing.JButton bevSnackBarChartButton;
+    private javax.swing.ButtonGroup bevSnackMachineButtonGroup;
+    private javax.swing.JButton bevSnackPieChartButton;
     private javax.swing.JTextField beveragesSoldTextField;
     private javax.swing.JButton chipsAddButton;
     private javax.swing.JTextField chipsCountTextField;
@@ -2538,6 +2671,8 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JPanel greekYogurtPanel;
     private javax.swing.JTextField greekYogurtPriceTextField;
     private javax.swing.JButton greekYogurtUpdateButton;
+    private javax.swing.JButton itemsBarChartButton;
+    private javax.swing.JButton itemsPieChartButton;
     private javax.swing.JScrollPane itemsScrollPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2572,17 +2707,21 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lemonadeCountTextField;
     private javax.swing.JLabel lemonadeImageLabel1;
     private javax.swing.JPanel lemonadePanel;
     private javax.swing.JTextField lemonadePriceTextField;
     private javax.swing.JButton lemonadeUpdateButton;
+    private javax.swing.JRadioButton machine1RadioButton;
+    private javax.swing.JRadioButton machine2RadioButton;
     private javax.swing.JButton nutsAddButton;
     private javax.swing.JTextField nutsCountTextField;
     private javax.swing.JLabel nutsImageLabel;
@@ -2594,7 +2733,6 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JPanel orangePanel;
     private javax.swing.JTextField orangePriceTextField;
     private javax.swing.JButton orangeUpdateButton;
-    private javax.swing.JButton pieChartButton;
     private javax.swing.JButton popcornAddButton;
     private javax.swing.JTextField popcornCountTextField;
     private javax.swing.JLabel popcornImageLabel;
