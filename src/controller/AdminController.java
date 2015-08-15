@@ -51,7 +51,12 @@ public class AdminController {
     public int getCategorySoldCount(String category, String machine) {
         return itemsTableModel.getCategorySoldCount(category,machine);
     }
-    public int[] getItemSoldCount(){
-        return itemsTableModel.getItemSoldCount();
+    
+    public int[] getItemSoldCount(String machine){
+        int[] soldCount =  itemsTableModel.getItemSoldCount(machine);
+        return soldCount;
+    }
+    public int[] getNutritionalItemSoldCount(String machine){
+        return itemsTableModel.getNutritionalItemSoldCount(machine);
     }
 }

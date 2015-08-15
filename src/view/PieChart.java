@@ -36,6 +36,7 @@ public class PieChart extends JFrame {
         bevSnackDataset.setValue("snacks", snacksSold);
         
         JFreeChart bevSnackChart = ChartFactory.createPieChart3D(chartTitle, bevSnackDataset, true, true, false);
+             
         PiePlot3D plot = (PiePlot3D)bevSnackChart.getPlot(); 
         plot.setStartAngle(0);
         plot.setDirection(Rotation.CLOCKWISE);
@@ -57,6 +58,24 @@ public class PieChart extends JFrame {
         itemsDataset.setValue("chips", soldCount[5]);
         itemsDataset.setValue("nuts", soldCount[6]);
         itemsDataset.setValue("cookie", soldCount[7]);
+        
+        JFreeChart itemsChart = ChartFactory.createPieChart3D(chartTitle, itemsDataset, true, true, false);
+        PiePlot3D plot = (PiePlot3D)itemsChart.getPlot(); 
+        plot.setStartAngle(0);
+        plot.setDirection(Rotation.CLOCKWISE);
+        plot.setForegroundAlpha(0.8f);
+        
+        ChartPanel itemsChartPanel = new ChartPanel(itemsChart);
+        itemsChartPanel.setPreferredSize(new java.awt.Dimension(500, 300));
+        setContentPane(itemsChartPanel);
+    }
+    
+
+    void nutritionalItemsSoldPieChart(String pie_Chart, String chartTitle, int[] nutritionalItemsSoldCount) {
+       DefaultPieDataset itemsDataset = new DefaultPieDataset();
+        itemsDataset.setValue("Low Calories", nutritionalItemsSoldCount[0]);
+        itemsDataset.setValue("High Protein", nutritionalItemsSoldCount[1]);
+        itemsDataset.setValue("Low Sugars", nutritionalItemsSoldCount[2]);
         
         JFreeChart itemsChart = ChartFactory.createPieChart3D(chartTitle, itemsDataset, true, true, false);
         PiePlot3D plot = (PiePlot3D)itemsChart.getPlot(); 
