@@ -7,7 +7,15 @@ package view;
 
 import controller.AdminController;
 import controller.ItemController;
+import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -162,6 +170,12 @@ public class AdminUI extends javax.swing.JFrame {
 
         statisticsPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        beveragesSoldTextField = new javax.swing.JTextField();
+        snacksSoldTextField = new javax.swing.JTextField();
+        pieChartButton = new javax.swing.JButton();
+        barChartButton = new javax.swing.JButton();
         itemsScrollPane = new javax.swing.JScrollPane();
         cokePanel = new javax.swing.JPanel();
         frappuccinoPanel = new javax.swing.JPanel();
@@ -321,6 +335,36 @@ public class AdminUI extends javax.swing.JFrame {
 
         jLabel2.setText("Statistics Panel");
 
+        jLabel1.setText("Number of Beverages Sold :");
+
+        jLabel3.setText("Number of Snacks Sold : ");
+
+        beveragesSoldTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                beveragesSoldTextFieldActionPerformed(evt);
+            }
+        });
+
+        snacksSoldTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                snacksSoldTextFieldActionPerformed(evt);
+            }
+        });
+
+        pieChartButton.setText("Pie Chart");
+        pieChartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pieChartButtonActionPerformed(evt);
+            }
+        });
+
+        barChartButton.setText("Bar Chart");
+        barChartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                barChartButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
         statisticsPanel.setLayout(statisticsPanelLayout);
         statisticsPanelLayout.setHorizontalGroup(
@@ -329,13 +373,44 @@ public class AdminUI extends javax.swing.JFrame {
                 .addContainerGap(177, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(113, 113, 113))
+            .addGroup(statisticsPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(statisticsPanelLayout.createSequentialGroup()
+                        .addComponent(pieChartButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(barChartButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(statisticsPanelLayout.createSequentialGroup()
+                        .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(statisticsPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(snacksSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(statisticsPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(beveragesSoldTextField)))
+                        .addGap(131, 131, 131))))
         );
         statisticsPanelLayout.setVerticalGroup(
             statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(statisticsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addContainerGap(593, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(beveragesSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(snacksSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pieChartButton)
+                    .addComponent(barChartButton))
+                .addContainerGap(500, Short.MAX_VALUE))
         );
 
         frappuccinoImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/frappuccino.jpg"))); // NOI18N
@@ -2314,6 +2389,45 @@ public class AdminUI extends javax.swing.JFrame {
         greekYogurtCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_greekYogurtAddButtonActionPerformed
 
+    private void beveragesSoldTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beveragesSoldTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_beveragesSoldTextFieldActionPerformed
+
+    private void snacksSoldTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snacksSoldTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_snacksSoldTextFieldActionPerformed
+
+    private void pieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pieChartButtonActionPerformed
+        // TODO add your handling code here:
+        int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
+        int snacksSold = Integer.parseInt(snacksSoldTextField.getText());
+        double totalSale = beveragesSold+snacksSold;
+        
+        double beveragesFraction = (beveragesSold/totalSale)*100;
+        double snacksFraction = (snacksSold/totalSale)*100;
+        
+        
+        PieChart pieChart = new PieChart();
+        pieChart.BeverageVsSnackPieChart("Pie Chart","Beverages vs Snacks comparison",beveragesFraction,snacksFraction);
+        pieChart.pack();
+        pieChart.setVisible(true);
+    }//GEN-LAST:event_pieChartButtonActionPerformed
+
+    private void barChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barChartButtonActionPerformed
+        // TODO add your handling code here:
+        int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
+        int snacksSold = Integer.parseInt(snacksSoldTextField.getText());
+        double totalSale = beveragesSold+snacksSold;
+        
+        double beveragesFraction = (beveragesSold/totalSale)*100;
+        double snacksFraction = (snacksSold/totalSale)*100;
+        
+        BarChart barChart = new BarChart();
+        barChart.BeverageVsSnackBarChart("Bar Chart","Beverage vs Snack Comparison",beveragesFraction,snacksFraction);
+        barChart.pack();
+        barChart.setVisible(true);
+    }//GEN-LAST:event_barChartButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2359,6 +2473,8 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JButton addProteinSmoothieButton;
     private javax.swing.JButton addSparklingWaterButton;
     private javax.swing.JButton addproteinShakeButton1;
+    private javax.swing.JButton barChartButton;
+    private javax.swing.JTextField beveragesSoldTextField;
     private javax.swing.JButton chipsAddButton;
     private javax.swing.JTextField chipsCountTextField;
     private javax.swing.JLabel chipsImageLabel;
@@ -2422,6 +2538,7 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JTextField greekYogurtPriceTextField;
     private javax.swing.JButton greekYogurtUpdateButton;
     private javax.swing.JScrollPane itemsScrollPane;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -2443,6 +2560,7 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -2475,6 +2593,7 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JPanel orangePanel;
     private javax.swing.JTextField orangePriceTextField;
     private javax.swing.JButton orangeUpdateButton;
+    private javax.swing.JButton pieChartButton;
     private javax.swing.JButton popcornAddButton;
     private javax.swing.JTextField popcornCountTextField;
     private javax.swing.JLabel popcornImageLabel;
@@ -2490,6 +2609,7 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JLabel proteinSmoothieImageLabel;
     private javax.swing.JPanel proteinSmoothiePanel;
     private javax.swing.JTextField proteinSmoothiePriceTextField;
+    private javax.swing.JTextField snacksSoldTextField;
     private javax.swing.JTextField sparklingWaterCountTextField;
     private javax.swing.JLabel sparklingWaterImageLabel;
     private javax.swing.JTextField sparklingWaterPriceTextField;
