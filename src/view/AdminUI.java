@@ -2056,6 +2056,7 @@ public class AdminUI extends javax.swing.JFrame {
         count++;
         adminController.increaseItemCount(count,102);
         orangeCountTextField.setText(Integer.toString(count));
+        System.out.println("test");
     }//GEN-LAST:event_addOrangeButtonActionPerformed
 
     private void lemonadePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadePriceTextFieldActionPerformed
