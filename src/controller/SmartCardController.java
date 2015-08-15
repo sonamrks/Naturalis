@@ -33,8 +33,8 @@ public class SmartCardController {
     }
    
     public Double payUsingCard(Double price, Integer cardNumber){
-        smartCard.retrieveCardDetails(cardNumber);
         
+        smartCard.retrieveCardDetails(cardNumber);
         boolean balance_ok=false;
         balance = smartCard.getBalance();
 

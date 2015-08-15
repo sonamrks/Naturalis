@@ -77,13 +77,14 @@ public class SmartCard {
        try {
             String getCardQuery = "SELECT * FROM card where number=?";
             statement = connection.prepareStatement(getCardQuery);
-            statement.setString(1, name);
+            statement.setInt(1, cardNumber);
 
             ResultSet result = statement.executeQuery();
 
             while(result.next()){
-                cardNumber = result.getInt("name");
-                balance = result.getDouble("price");
+                this.cardNumber = result.getInt("number");
+                this.name = result.getString("name");
+                this.balance = result.getDouble("balance");
             }
         } 
        catch (SQLException ex) {
