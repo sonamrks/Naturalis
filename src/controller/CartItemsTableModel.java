@@ -12,7 +12,10 @@ package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import model.DatabaseConnection;
 import model.Item;
@@ -28,11 +31,15 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private String name, s;
     private double price;
     private Item item;
+    private int soldCount;
     
     ItemFactory beverageFactory = new ItemFactory();
 
     DatabaseConnection dbConnection = DatabaseConnection.getInstance();
     Connection connection = dbConnection.getConnection();
+    
+    PreparedStatement statement;
+    ResultSet result;
     
     public CartItemsTableModel() {
   //   cartItems = new HashMap<Integer,Item>();
@@ -58,9 +65,9 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
 
             String getName = "SELECT name FROM item WHERE code=?";
 
-            PreparedStatement statement = connection.prepareStatement(getName);
+            statement = connection.prepareStatement(getName);
             statement.setInt(1,code);
-            ResultSet result = statement.executeQuery();
+            result = statement.executeQuery();
 
             while(result.next()){
                 name = result.getString("name");
@@ -75,11 +82,44 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             cartItems.add(item);
             fireTableRowsInserted(itemCodes.size()-1, numcols-1);
             numrows++;
+            
+            
         }
         catch(Exception err)
         {
          System.out.println(err.getMessage());
          err.printStackTrace();
+        }
+    }
+    
+    public void reduceSoldCount(Integer code,String action){
+        try {
+            String getSoldCount = "SELECT soldCount FROM item WHERE code=?";
+            statement = connection.prepareStatement(getSoldCount);
+            statement.setInt(1,code);
+            result = statement.executeQuery();
+
+            while(result.next()){
+                soldCount = result.getInt("soldCount");
+            }
+            if(action.equals("reduce")){
+                String updateSoldCount = "UPDATE item SET soldCount=? where code=?";
+                statement = connection.prepareStatement(updateSoldCount);
+                soldCount--;
+                statement.setInt(1,soldCount);
+                statement.setInt(2,code);
+                statement.executeUpdate();
+            }
+            else{
+                String updateSoldCount = "UPDATE item SET soldCount=? where code=?";
+                statement = connection.prepareStatement(updateSoldCount);
+                soldCount++;
+                statement.setInt(1,soldCount);
+                statement.setInt(2,code);
+                statement.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CartItemsTableModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

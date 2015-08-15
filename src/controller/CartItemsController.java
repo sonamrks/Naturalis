@@ -63,6 +63,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     public void addItem(String ID){
      //   itemsCartTableModel.addRow(Integer.valueOf(ID));	
         itemsCartTableModel.addItem(Integer.valueOf(ID));
+        itemsCartTableModel.reduceSoldCount(Integer.valueOf(ID),"reduce");
     }
 
     public void removeItem(String ID){
@@ -71,6 +72,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         } else {
          //   itemsCartTableModel.deleteRow(Integer.valueOf(ID));
             iterator.removeItem(Integer.valueOf(ID));
+            itemsCartTableModel.reduceSoldCount(Integer.valueOf(ID),"increase");
         }
     }	
     
