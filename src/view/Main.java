@@ -18,7 +18,7 @@ public class Main extends javax.swing.JFrame {
     static private JPanel cards;
     private NavigationPanel navigationPanel;
     private MachinesPanel machinesPanel;
-    private AdminUIPanel adminUI;
+    private AdminUI adminUI;
     private CustomerUI customerUI;
     /**
      * Creates new form Main
@@ -28,7 +28,7 @@ public class Main extends javax.swing.JFrame {
         cards = new JPanel(cardLayout);
         navigationPanel = new NavigationPanel();
         machinesPanel = new MachinesPanel();
-        adminUI = new AdminUIPanel();
+        adminUI = new AdminUI();
         customerUI = new CustomerUI();
         cards.add(navigationPanel, "Navigation");
         cards.add(machinesPanel,"Machines");
