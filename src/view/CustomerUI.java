@@ -10,6 +10,10 @@ import controller.ItemFactory;
 import controller.CartItemsController;
 import controller.ItemController;
 import controller.NutritionalFactsController;
+import controller.PayCard;
+import controller.PayCash;
+import controller.PaymentContext;
+import controller.PaymentStrategy;
 import controller.SmartCardController;
 //import controller.PaymentController;
 import controller.SuggestionsComponent;
@@ -32,6 +36,9 @@ public class CustomerUI extends javax.swing.JFrame {
     private static SmartCardController smartCardController;
     private static ItemController itemController;
     private static NutritionalFactsController nutritionalFactsController;
+    private static PaymentContext context;
+    
+    private double price;
   //  private static PaymentController paymentController;
     private Boolean[] checkedList = new Boolean[3];
     
@@ -1026,8 +1033,8 @@ public class CustomerUI extends javax.swing.JFrame {
 
     private void cent10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent10ButtonActionPerformed
          // TODO add your handling code here:
-        double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = itemsCartController.deductPrice(price, 0.10);
+        price = Double.parseDouble(priceTextField.getText());
+        double remainingPrice = context.pay(price, 0.10);
         priceTextField.setText(Double.toString(remainingPrice));
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
@@ -1077,7 +1084,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void cent25ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent25ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-       double remainingPrice = itemsCartController.deductPrice(price, 0.25);
+        double remainingPrice = context.pay(price, 0.25);
         priceTextField.setText(Double.toString(remainingPrice));
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
@@ -1090,7 +1097,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void cent50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent50ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = itemsCartController.deductPrice(price, 0.50);
+        double remainingPrice = context.pay(price, 0.50);
         priceTextField.setText(Double.toString(remainingPrice));
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
@@ -1103,7 +1110,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar1ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = itemsCartController.deductPrice(price, 1);
+        double remainingPrice = context.pay(price, 1);
         priceTextField.setText(Double.toString(remainingPrice));
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
@@ -1116,7 +1123,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private void dollar5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar5ButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = itemsCartController.deductPrice(price, 5);
+        double remainingPrice = context.pay(price, 5);
         if(remainingPrice>=0)
             priceTextField.setText(Double.toString(remainingPrice));
         else{
@@ -1169,9 +1176,11 @@ public class CustomerUI extends javax.swing.JFrame {
     private void payCardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payCardButtonActionPerformed
         // TODO add your handling code here:
         insertCardMessageTextField.setEditable(false);
-        double price = Double.valueOf(priceTextField.getText());
-        int cardNumber = Integer.valueOf(cardNumberTextField.getText());
-        double remainingBalance = smartCardController.payUsingCard(price,cardNumber);
+        double price = Double.parseDouble(priceTextField.getText());
+        double cardNumber = Double.parseDouble(cardNumberTextField.getText());
+        
+        double remainingBalance = context.pay(price,cardNumber);
+        //double remainingBalance = smartCardController.payUsingCard(price,cardNumber);
         if(remainingBalance>=0)
             insertCardMessageTextField.setText("Your remaining balance is : "+Double.toString(remainingBalance));
         else
@@ -1220,12 +1229,18 @@ public class CustomerUI extends javax.swing.JFrame {
 
     private void cashRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashRadioButtonActionPerformed
         // TODO add your handling code here:
+        context = new PaymentContext();
+        context.setPaymentStrategy(new PayCash());
+        
         insertCardPanel.setVisible(false);
         insertCoinPanel.setVisible(true);
     }//GEN-LAST:event_cashRadioButtonActionPerformed
 
     private void cardRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardRadioButtonActionPerformed
         // TODO add your handling code here:
+        context = new PaymentContext();
+        context.setPaymentStrategy(new PayCard());
+        
         insertCoinPanel.setVisible(false);
         insertCardPanel.setVisible(true);
     }//GEN-LAST:event_cardRadioButtonActionPerformed
