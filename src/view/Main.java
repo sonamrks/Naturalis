@@ -20,7 +20,6 @@ public class Main extends javax.swing.JFrame {
     private MachinesPanel machinesPanel;
     private AdminUI adminUI;
     private CustomerUI customerUI;
-    static int activityType=1; // Customer is default activity
     /**
      * Creates new form Main
      */
@@ -29,6 +28,8 @@ public class Main extends javax.swing.JFrame {
         cards = new JPanel(cardLayout);
         navigationPanel = new NavigationPanel();
         machinesPanel = new MachinesPanel();
+        adminUI = new AdminUI();
+        customerUI = new CustomerUI();
         cards.add(navigationPanel, "Navigation");
         cards.add(machinesPanel,"Machines");
  //       cards.add(adminUI,"Admin"); 
@@ -78,14 +79,6 @@ public class Main extends javax.swing.JFrame {
         this.cardLayout = cardLayout;
     }
     
-    public static int getActivityType() {
-        return activityType;
-    }
-
-    public static void setActivityType(int activityType) {
-        Main.activityType = activityType;
-    }
-    
     /**
      * @param args the command line arguments
      */
@@ -93,7 +86,7 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Main main = new Main();
-                main.setContentPane(cards);
+                main.setContentPane(new NavigationPanel());
                 main.setSize(1000, 750);
                 main.setVisible(true);
             }

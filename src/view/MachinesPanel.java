@@ -67,17 +67,11 @@ public class MachinesPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void machine1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1ButtonActionPerformed
-        if(Main.getActivityType() == 0)
-            new AdminUI().setVisible(true);
-        else 
-            new CustomerUI().setVisible(true);
+        Main.getCardLayout().show(Main.getCards(),"Admin");
     }//GEN-LAST:event_machine1ButtonActionPerformed
 
     private void machine2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2ButtonActionPerformed
-        if(Main.getActivityType() == 0)
-            new AdminUI().setVisible(true);
-        else 
-            new CustomerUI().setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_machine2ButtonActionPerformed
 
 
