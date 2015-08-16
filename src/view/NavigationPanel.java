@@ -67,23 +67,25 @@ public class NavigationPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
-        
-        int result  = JOptionPane.showConfirmDialog(null, loginPanel,
-                "Please Enter User Name and Password", JOptionPane.OK_CANCEL_OPTION);
-      if (result == JOptionPane.OK_OPTION) {
-         username = loginPanel.getUserName();
-         password = loginPanel.getPassword();
-         System.out.println(password);
-         if(username.equals("natAdmin") && password.equals("password")){
-            System.out.println("Login valid");
-            Main.getCardLayout().show(Main.getCards(),"Machines");
-        }
-      }
-      
+      int result  = JOptionPane.showConfirmDialog(null, loginPanel,"Please Enter User Name and Password", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            username = loginPanel.getUserName();
+            password = loginPanel.getPassword();
+            System.out.println(password);
+            if(username.equals("natAdmin") && password.equals("password")) {
+                System.out.println("Login valid");
+                Main.setActivityType(0);
+                Main.getCardLayout().show(Main.getCards(),"Machines");
+            }
+            else {
+                JOptionPane.showMessageDialog(loginPanel, "Invalid username/password");
+            }
+        }  
     }//GEN-LAST:event_adminButtonActionPerformed
 
     private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
-        Main.getCardLayout().show(Main.getCards(),"Customer");
+        Main.setActivityType(1);
+        Main.getCardLayout().show(Main.getCards(),"Machines");
     }//GEN-LAST:event_customerButtonActionPerformed
 
 
