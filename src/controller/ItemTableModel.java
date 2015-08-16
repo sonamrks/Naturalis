@@ -39,6 +39,8 @@ public class ItemTableModel {
     ResultSet result;
     
     public void getItemInfo(){
+         DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+    Connection connection = dbConnection.getConnection();
         try {
             String getInfo = "SELECT code,name,protein,sugars,calories FROM item";
             PreparedStatement statement = connection.prepareStatement(getInfo);
@@ -361,6 +363,30 @@ public class ItemTableModel {
             Logger.getLogger(ItemTableModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return soldCount;
+    }
+    
+    public String getCalorieRangeSuggestions(int low,int high){
+        String suggestion="";
+        try {
+            String getSuggestions = "SELECT code,name,protein,sugars,calories FROM item where calories<? and calories>? and machineID=4201";
+            PreparedStatement statement = connection.prepareStatement(getSuggestions);
+            statement.setInt(1,high);
+            statement.setInt(2,low);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next())
+            {
+                suggestion+=Integer.toString(result.getInt("code")) + "\t";
+                suggestion+=result.getString("name") + "\t";
+                suggestion+=Integer.toString(result.getInt("protein")) + "\t";
+                suggestion+=Integer.toString(result.getInt("sugars")) + "\t";
+                suggestion+=Integer.toString(result.getInt("calories")) + "\t";
+                suggestion+="\n";
+            }
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        return suggestion;
     }
     
 }

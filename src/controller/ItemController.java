@@ -55,4 +55,9 @@ public class ItemController {
         return itemsTableModel.getPrice();
     }
     
+    public String getCalorieRangeSuggestions(int low,int high){
+        System.out.println("in controller");
+        return itemsTableModel.getCalorieRangeSuggestions(low,high);
+    }
+    
 }
