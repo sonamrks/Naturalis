@@ -363,4 +363,28 @@ public class ItemTableModel {
         return soldCount;
     }
     
+    String getCalorieRangeSuggestions(int low, int high) {
+        String suggestions="";
+        try {
+            String getSuggestions = "SELECT code,name,protein,sugars,calories FROM item where calories>? and calories<? and machineID=4201";
+            PreparedStatement statement = connection.prepareStatement(getSuggestions);
+            statement.setInt(1, low);
+            statement.setInt(2, high);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next())
+            {
+                suggestions+=Integer.toString(result.getInt("code")) + "\t";
+                suggestions+=result.getString("name") + "\t";
+                suggestions+=Integer.toString(result.getInt("protein")) + "\t";
+                suggestions+=Integer.toString(result.getInt("sugars")) + "\t";
+                suggestions+=Integer.toString(result.getInt("calories")) + "\t";
+                suggestions+="\n";
+            }
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+        return suggestions;
+    }
+    
 }

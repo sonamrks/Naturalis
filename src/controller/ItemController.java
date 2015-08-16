@@ -54,5 +54,8 @@ public class ItemController {
     public ArrayList<Double> getPrice() {
         return itemsTableModel.getPrice();
     }
+    public String getCalorieRangeSuggestions(int low,int high){
+        return itemsTableModel.getCalorieRangeSuggestions(low,high);
+    }
     
 }
