@@ -17,16 +17,22 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="adminButton" min="-2" pref="361" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="customerButton" min="-2" pref="352" max="-2" attributes="0"/>
+              <Component id="customerButton" min="-2" pref="261" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="adminButton" min="-2" pref="259" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="managerButton" pref="221" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="adminButton" pref="476" max="32767" attributes="0"/>
-          <Component id="customerButton" alignment="0" max="32767" attributes="0"/>
+          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+              <Component id="customerButton" alignment="3" pref="476" max="32767" attributes="0"/>
+              <Component id="adminButton" alignment="3" pref="476" max="32767" attributes="0"/>
+              <Component id="managerButton" alignment="3" pref="476" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -45,6 +51,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customerButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="managerButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manager"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="managerButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

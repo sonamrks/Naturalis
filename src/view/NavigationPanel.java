@@ -35,6 +35,7 @@ public class NavigationPanel extends javax.swing.JPanel {
 
         adminButton = new javax.swing.JButton();
         customerButton = new javax.swing.JButton();
+        managerButton = new javax.swing.JButton();
 
         adminButton.setText("Admin");
         adminButton.addActionListener(new java.awt.event.ActionListener() {
@@ -50,19 +51,31 @@ public class NavigationPanel extends javax.swing.JPanel {
             }
         });
 
+        managerButton.setText("Manager");
+        managerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                managerButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(customerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(customerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(managerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adminButton, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-            .addComponent(customerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(customerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addComponent(adminButton, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addComponent(managerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -74,7 +87,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             System.out.println(password);
             if(username.equals("natAdmin") && password.equals("password")) {
                 System.out.println("Login valid");
-                Main.setActivityType(0);
+                Main.setActivityType(2);
                 Main.getCardLayout().show(Main.getCards(),"Machines");
             }
             else {
@@ -88,9 +101,15 @@ public class NavigationPanel extends javax.swing.JPanel {
         Main.getCardLayout().show(Main.getCards(),"Machines");
     }//GEN-LAST:event_customerButtonActionPerformed
 
+    private void managerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerButtonActionPerformed
+        Main.setActivityType(2);
+        new ManagerUI().setVisible(true);
+    }//GEN-LAST:event_managerButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adminButton;
     private javax.swing.JButton customerButton;
+    private javax.swing.JButton managerButton;
     // End of variables declaration//GEN-END:variables
 }

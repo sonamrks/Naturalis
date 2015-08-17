@@ -24,7 +24,7 @@ public class LowSugarsDecorator extends Decorator {
         int size = suggestionsComponent.getCodeList().size();
         int i = 0;
         while(i < size) {
-            if(suggestionsComponent.getSugarsList().get(i) > 10) {
+            if(suggestionsComponent.getSugarsList().get(i) > 20) {
                 suggestionsComponent.getCaloriesList().remove(i);
                 suggestionsComponent.getNameList().remove(i);
                 suggestionsComponent.getCodeList().remove(i);

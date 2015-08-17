@@ -18,8 +18,6 @@ public class Main extends javax.swing.JFrame {
     static private JPanel cards;
     private NavigationPanel navigationPanel;
     private MachinesPanel machinesPanel;
-    private AdminUI adminUI;
-    private CustomerUI customerUI;
     static int activityType=1; // Customer is default activity
     /**
      * Creates new form Main
