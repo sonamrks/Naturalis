@@ -15,11 +15,12 @@ import java.util.ArrayList;
  */
 public class BeveragePanel extends javax.swing.JPanel {
     
-    private static ItemController itemsController;
+    private ItemController itemsController;
 
     /**
      * Creates new form BeveragePanel
      */
+
     public BeveragePanel(ItemController itemController) {
         initComponents();
         this.itemsController = itemController;

@@ -34,7 +34,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private JTable suggestionsTable;
     private static CartItemsController itemsCartController;
     private static SmartCardController smartCardController;
-    private static ItemController itemController;
+    private ItemController itemController;
     private static NutritionalFactsController nutritionalFactsController;
     private static PaymentContext context;
     private double price;
@@ -707,7 +707,7 @@ public class CustomerUI extends javax.swing.JFrame {
                                 .addGap(19, 19, 19)
                                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 36, Short.MAX_VALUE))
-                    .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 385, Short.MAX_VALUE))
+                    .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE))
                 .addContainerGap())
         );
         middlePanelLayout.setVerticalGroup(
@@ -1205,13 +1205,12 @@ public class CustomerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         double price = Double.parseDouble(priceTextField.getText());
         double remainingPrice = context.pay(price, 5);
-        if(remainingPrice>=0)
+        if(remainingPrice>0)
             priceTextField.setText(Double.toString(remainingPrice));
         else{
             priceTextField.setText("0");
             changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
-            
-        item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
+        item1DispensedLabel.setIcon(new ImageIcon("/images/greekYogurt.jpg"));
         }
              
 
