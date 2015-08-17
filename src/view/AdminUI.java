@@ -2636,6 +2636,8 @@ public class AdminUI extends javax.swing.JFrame {
         pieChart.itemSoldPieChart("Pie Chart","Items Sold Comparison",itemsSoldCount);
         pieChart.pack();
         pieChart.setVisible(true);
+        
+        
     }//GEN-LAST:event_itemsPieChartButtonActionPerformed
 
     private void nutritionalStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionalStatisticsButtonActionPerformed

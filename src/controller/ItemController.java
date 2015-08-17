@@ -28,6 +28,10 @@ public class ItemController {
         itemsTableModel = new ItemTableModel(machine);
        
     }
+    public ItemController() {
+       
+    }
+    
     public String getSuggestionList(Boolean[] checkedList){
             suggestionsComponent = new SuggestionsComponent(itemsTableModel);
            
