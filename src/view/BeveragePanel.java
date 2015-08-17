@@ -20,9 +20,9 @@ public class BeveragePanel extends javax.swing.JPanel {
     /**
      * Creates new form BeveragePanel
      */
-    public BeveragePanel() {
+    public BeveragePanel(ItemController itemController) {
         initComponents();
-        itemsController = new ItemController();
+        this.itemsController = itemController;
         setCodeLabel();
         setPriceLabel();
         //itemsController = new ItemsController(this);

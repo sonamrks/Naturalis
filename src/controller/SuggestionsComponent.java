@@ -26,9 +26,10 @@ public class SuggestionsComponent {
         proteinList = new ArrayList<Integer>();
         sugarsList = new ArrayList<Integer>();
         caloriesList =  new ArrayList<Integer>();     
-        itemTableModel = new ItemTableModel();
-        nameList = itemTableModel.getNameList();
-        caloriesList = itemTableModel.getCaloriesList();  
+    }
+    
+    public SuggestionsComponent(ItemTableModel itemTableModel) {
+        this.itemTableModel = itemTableModel;    
     }
     
     public void filter() {

@@ -31,6 +31,7 @@ public class ItemTableModel {
     
     private String getSoldCount;
     private int[] soldCount = new int[100];
+    private String machine;
     
     DatabaseConnection dbConnection = DatabaseConnection.getInstance();
     Connection connection = dbConnection.getConnection();
@@ -38,9 +39,17 @@ public class ItemTableModel {
     PreparedStatement statement;
     ResultSet result;
     
+    public ItemTableModel(String machine) {
+        this.machine = machine;
+    }
+    
     public void getItemInfo(){
         try {
-            String getInfo = "SELECT code,name,protein,sugars,calories FROM item";
+            String getInfo;
+            if(machine == "machine1") 
+                getInfo = "SELECT code,name,protein,sugars,calories FROM item where machineID = 4201";
+            else 
+                getInfo = "SELECT code,name,protein,sugars,calories FROM item where machineID = 4202";
             PreparedStatement statement = connection.prepareStatement(getInfo);
             ResultSet result = statement.executeQuery();
             

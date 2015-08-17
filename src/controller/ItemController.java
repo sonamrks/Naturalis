@@ -23,13 +23,13 @@ public class ItemController {
    // private CustomerUI customerUI;
     
     
-    public ItemController() {
+    public ItemController(String machine) {
        
-        itemsTableModel = new ItemTableModel();
+        itemsTableModel = new ItemTableModel(machine);
        
     }
     public String getSuggestionList(Boolean[] checkedList){
-            suggestionsComponent = new SuggestionsComponent();
+            suggestionsComponent = new SuggestionsComponent(itemsTableModel);
            
             if(checkedList[0] == true) {
                  System.out.println("hello"+checkedList[0]);

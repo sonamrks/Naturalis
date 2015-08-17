@@ -37,20 +37,20 @@ public class CustomerUI extends javax.swing.JFrame {
     private static ItemController itemController;
     private static NutritionalFactsController nutritionalFactsController;
     private static PaymentContext context;
-    
     private double price;
+    
   //  private static PaymentController paymentController;
     private Boolean[] checkedList = new Boolean[3];
     
     /**
      * Creates new form CustomerUI
      */
-    public CustomerUI() {
+    public CustomerUI(String machine) {
         initComponents();
-        
-        itemsCartController = new CartItemsController(this);
+
+        itemsCartController = new CartItemsController(this, machine);
         smartCardController = new SmartCardController(this);
-        itemController = new ItemController();
+        itemController = new ItemController(machine);
         nutritionalFactsController = new NutritionalFactsController(this);
     //    paymentController = new PaymentController(this);
         checkedList[0] = false;
@@ -67,7 +67,7 @@ public class CustomerUI extends javax.swing.JFrame {
     /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerUI().setVisible(true);
+                new CustomerUI("machine1").setVisible(true);
             }
         });
     }
@@ -126,7 +126,6 @@ public class CustomerUI extends javax.swing.JFrame {
         coinsImageLabel = new javax.swing.JLabel();
         itemsPanel = new javax.swing.JPanel();
         welcomePanel = new view.WelcomePanel();
-        beveragePanel = new view.BeveragePanel();
         snackPanel = new view.SnackPanel();
         middlePanel = new javax.swing.JPanel();
         displayPanel = new javax.swing.JPanel();
@@ -329,7 +328,6 @@ public class CustomerUI extends javax.swing.JFrame {
 
         itemsPanel.setLayout(new java.awt.CardLayout());
         itemsPanel.add(welcomePanel, "welcome");
-        itemsPanel.add(beveragePanel, "beverage");
         itemsPanel.add(snackPanel, "snack");
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
@@ -1356,7 +1354,6 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JLabel Name;
     private javax.swing.JButton addButton1;
     private javax.swing.JPanel amoutPanel;
-    private view.BeveragePanel beveragePanel;
     private javax.swing.JLabel buyCardLabel;
     private javax.swing.JTextField buyCardMessageTextField;
     private javax.swing.JPanel buyCardPanel;

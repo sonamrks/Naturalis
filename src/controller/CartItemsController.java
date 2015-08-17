@@ -26,7 +26,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     private Set<Integer> keys;
 
     
-    public CartItemsController(CustomerUI customerUI) {
+    public CartItemsController(CustomerUI customerUI,String machine) {
         this.customerUI = customerUI;
         itemsCartTableModel = new CartItemsTableModel();
         itemsCartTableModel.addTableModelListener(this);
