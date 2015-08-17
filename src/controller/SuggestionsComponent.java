@@ -29,16 +29,17 @@ public class SuggestionsComponent {
     }
     
     public SuggestionsComponent(ItemTableModel itemTableModel) {
-        this.itemTableModel = itemTableModel;    
-    }
-    
-    public void filter() {
+        this.itemTableModel = itemTableModel;  
         itemTableModel.getItemInfo();
         codeList = itemTableModel.getCodeList();
         nameList = itemTableModel.getNameList();
         proteinList = itemTableModel.getProteinList();
         sugarsList = itemTableModel.getSugarsList();
-        caloriesList = itemTableModel.getCaloriesList();  
+        caloriesList = itemTableModel.getCaloriesList(); 
+    }
+    
+    public void filter() {
+ 
     }
     
     public ArrayList<Integer> getCodeList() {
@@ -63,7 +64,7 @@ public class SuggestionsComponent {
     
     public String getSuggestionString(){
         String suggestions="";
-        for(int i =0 ;i < codeList.size() ; i++){
+        for(int i = 0 ;i < codeList.size() ; i++){
             suggestions+=codeList.get(i) + "\t";
             suggestions+=nameList.get(i) + "\t";
             suggestions+=proteinList.get(i) + "\t";
@@ -72,6 +73,10 @@ public class SuggestionsComponent {
             suggestions+="\n";
         }
         return suggestions;
+    }
+    
+    public int getSize() {
+        return codeList.size();
     }
     
 }

@@ -21,16 +21,20 @@ public class LowSugarsDecorator extends Decorator {
     }
     
     public void lowSugarsFilter() {
-        int size = suggestionsComponent.getCodeList().size()/2;
-        for(int i = 0; i < size; i++) {
-            if(suggestionsComponent.getSugarsList().get(i) > 120) {
+        int size = suggestionsComponent.getCodeList().size();
+        int i = 0;
+        while(i < size) {
+            if(suggestionsComponent.getSugarsList().get(i) > 10) {
                 suggestionsComponent.getCaloriesList().remove(i);
                 suggestionsComponent.getNameList().remove(i);
                 suggestionsComponent.getCodeList().remove(i);
                 suggestionsComponent.getProteinList().remove(i);
                 suggestionsComponent.getSugarsList().remove(i);  
+                size--;
+            }
+            else {
+                i+=1;    
             } 
-            i++;
         }
         
     }

@@ -31,9 +31,10 @@ public class ItemController {
     public String getSuggestionList(Boolean[] checkedList){
             suggestionsComponent = new SuggestionsComponent(itemsTableModel);
            
+            System.out.println("before Size: " + suggestionsComponent.getSize());
+            
             if(checkedList[0] == true) {
-                 System.out.println("hello"+checkedList[0]);
-                LowCalorieDecorator decorator = new LowCalorieDecorator(suggestionsComponent);
+                decorator = new LowCalorieDecorator(suggestionsComponent);
                 decorator.filter();
             }
             if(checkedList[1] == true){ 
@@ -44,6 +45,7 @@ public class ItemController {
                 decorator = new LowSugarsDecorator(suggestionsComponent);
                 decorator.filter();
             }
+            System.out.println("after Size: " + suggestionsComponent.getSize());
             return suggestionsComponent.getSuggestionString();
         
     }

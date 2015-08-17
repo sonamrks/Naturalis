@@ -383,7 +383,7 @@
                               </Group>
                               <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="displayPanel" pref="0" max="32767" attributes="0"/>
+                          <Component id="displayPanel" pref="385" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -503,7 +503,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="lowCaloriesCheckBoxItemStateChanged"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lowCaloriesCheckBoxActionPerformed"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">

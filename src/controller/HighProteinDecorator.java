@@ -21,14 +21,18 @@ public class HighProteinDecorator extends Decorator {
     }
     
     public void highProteinFilter() {
-        int size = suggestionsComponent.getCodeList().size()/2;
+        int size = suggestionsComponent.getCodeList().size();
         for(int i = 0; i < size; i++) {
-            if(suggestionsComponent.getProteinList().get(i) < 100) {
+            if(suggestionsComponent.getProteinList().get(i) < 4) {
                 suggestionsComponent.getCaloriesList().remove(i);
                 suggestionsComponent.getNameList().remove(i);
                 suggestionsComponent.getCodeList().remove(i);
                 suggestionsComponent.getProteinList().remove(i);
                 suggestionsComponent.getSugarsList().remove(i);  
+                size--;
+            }
+            else {
+                i++;    
             } 
         }       
     }   

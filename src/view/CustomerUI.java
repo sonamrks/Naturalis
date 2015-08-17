@@ -385,11 +385,6 @@ public class CustomerUI extends javax.swing.JFrame {
                 lowCaloriesCheckBoxItemStateChanged(evt);
             }
         });
-        lowCaloriesCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lowCaloriesCheckBoxActionPerformed(evt);
-            }
-        });
 
         suggestionsTextArea.setColumns(20);
         suggestionsTextArea.setRows(5);
@@ -712,7 +707,7 @@ public class CustomerUI extends javax.swing.JFrame {
                                 .addGap(19, 19, 19)
                                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 36, Short.MAX_VALUE))
-                    .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 385, Short.MAX_VALUE))
                 .addContainerGap())
         );
         middlePanelLayout.setVerticalGroup(
@@ -1288,22 +1283,8 @@ public class CustomerUI extends javax.swing.JFrame {
         item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
     }//GEN-LAST:event_priceTextFieldActionPerformed
 
-    private void lowCaloriesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxActionPerformed
-        
-    //    suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
-        
-    }//GEN-LAST:event_lowCaloriesCheckBoxActionPerformed
-
-    private void lowCaloriesCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxItemStateChanged
-        if(evt.getStateChange() ==  evt.SELECTED){
-            checkedList[0] = true;
-        }
-        else{
-            checkedList[0] = false;
-        }
-        suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
-    }//GEN-LAST:event_lowCaloriesCheckBoxItemStateChanged
-
+    
+    
     private void cashRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashRadioButtonActionPerformed
         // TODO add your handling code here:
         context = new PaymentContext();
@@ -1331,7 +1312,7 @@ public class CustomerUI extends javax.swing.JFrame {
     }//GEN-LAST:event_suggestionsButtonActionPerformed
 
     private void highProteinCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_highProteinCheckBoxItemStateChanged
-        if(evt.getStateChange() ==  evt.SELECTED){
+        if(highProteinCheckBox.isSelected()){
             checkedList[0] = true;
         }
         else{
@@ -1341,7 +1322,7 @@ public class CustomerUI extends javax.swing.JFrame {
     }//GEN-LAST:event_highProteinCheckBoxItemStateChanged
 
     private void lowSugarsCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lowSugarsCheckBoxItemStateChanged
-        if(evt.getStateChange() ==  evt.SELECTED){
+        if(lowSugarsCheckBox.isSelected()){
             checkedList[0] = true;
         }
         else{
@@ -1349,6 +1330,16 @@ public class CustomerUI extends javax.swing.JFrame {
         }
         suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
     }//GEN-LAST:event_lowSugarsCheckBoxItemStateChanged
+
+    private void lowCaloriesCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxItemStateChanged
+        if(lowCaloriesCheckBox.isSelected()){
+            checkedList[0] = true;
+        }
+        else{
+            checkedList[0] = false;
+        }
+        suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
+    }//GEN-LAST:event_lowCaloriesCheckBoxItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Name;
