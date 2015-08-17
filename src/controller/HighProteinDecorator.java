@@ -10,7 +10,6 @@ package controller;
  * @author Sonam
  */
 public class HighProteinDecorator extends Decorator {
-    int i;
      
     public HighProteinDecorator(SuggestionsComponent suggestionsComponent) {
         super(suggestionsComponent);
@@ -22,17 +21,15 @@ public class HighProteinDecorator extends Decorator {
     }
     
     public void highProteinFilter() {
-        for(Integer protein : suggestionsComponent.proteinList) {
-            if(protein > 120) {
-                suggestionsComponent.caloriesList.remove(i);
-                suggestionsComponent.nameList.remove(i);
-                suggestionsComponent.codeList.remove(i);
-                suggestionsComponent.proteinList.remove(i);
-                suggestionsComponent.sugarsList.remove(i);  
+        int size = suggestionsComponent.getCodeList().size()/2;
+        for(int i = 0; i < size; i++) {
+            if(suggestionsComponent.getProteinList().get(i) < 100) {
+                suggestionsComponent.getCaloriesList().remove(i);
+                suggestionsComponent.getNameList().remove(i);
+                suggestionsComponent.getCodeList().remove(i);
+                suggestionsComponent.getProteinList().remove(i);
+                suggestionsComponent.getSugarsList().remove(i);  
             } 
-            i++;
-        }
-        
-    }
-    
+        }       
+    }   
 }

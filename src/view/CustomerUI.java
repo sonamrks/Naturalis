@@ -368,16 +368,16 @@ public class CustomerUI extends javax.swing.JFrame {
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lowSugarsCheckBox.setText("Low Sugars");
-        lowSugarsCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lowSugarsCheckBoxActionPerformed(evt);
+        lowSugarsCheckBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                lowSugarsCheckBoxItemStateChanged(evt);
             }
         });
 
         highProteinCheckBox.setText("High Protein");
-        highProteinCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                highProteinCheckBoxActionPerformed(evt);
+        highProteinCheckBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                highProteinCheckBoxItemStateChanged(evt);
             }
         });
 
@@ -713,8 +713,8 @@ public class CustomerUI extends javax.swing.JFrame {
                             .addGroup(middlePanelLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 36, Short.MAX_VALUE))
+                    .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         middlePanelLayout.setVerticalGroup(
@@ -1290,19 +1290,11 @@ public class CustomerUI extends javax.swing.JFrame {
         item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
     }//GEN-LAST:event_priceTextFieldActionPerformed
 
-    private void lowSugarsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowSugarsCheckBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lowSugarsCheckBoxActionPerformed
-
     private void lowCaloriesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxActionPerformed
         
     //    suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
         
     }//GEN-LAST:event_lowCaloriesCheckBoxActionPerformed
-
-    private void highProteinCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highProteinCheckBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_highProteinCheckBoxActionPerformed
 
     private void lowCaloriesCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxItemStateChanged
         if(evt.getStateChange() ==  evt.SELECTED){
@@ -1339,6 +1331,26 @@ public class CustomerUI extends javax.swing.JFrame {
         String suggestions = itemController.getCalorieRangeSuggestions(low,high);
         suggestionsTextArea.setText(suggestions);
     }//GEN-LAST:event_suggestionsButtonActionPerformed
+
+    private void highProteinCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_highProteinCheckBoxItemStateChanged
+        if(evt.getStateChange() ==  evt.SELECTED){
+            checkedList[0] = true;
+        }
+        else{
+            checkedList[0] = false;
+        }
+        suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
+    }//GEN-LAST:event_highProteinCheckBoxItemStateChanged
+
+    private void lowSugarsCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lowSugarsCheckBoxItemStateChanged
+        if(evt.getStateChange() ==  evt.SELECTED){
+            checkedList[0] = true;
+        }
+        else{
+            checkedList[0] = false;
+        }
+        suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
+    }//GEN-LAST:event_lowSugarsCheckBoxItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Name;

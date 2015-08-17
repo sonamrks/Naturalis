@@ -10,7 +10,6 @@ package controller;
  * @author Sonam
  */
 public class LowSugarsDecorator extends Decorator {
-    int i;
      
     public LowSugarsDecorator(SuggestionsComponent suggestionsComponent) {
         super(suggestionsComponent);
@@ -22,13 +21,14 @@ public class LowSugarsDecorator extends Decorator {
     }
     
     public void lowSugarsFilter() {
-        for(Integer sugars : suggestionsComponent.sugarsList) {
-            if(sugars > 120) {
-                suggestionsComponent.caloriesList.remove(i);
-                suggestionsComponent.nameList.remove(i);
-                suggestionsComponent.codeList.remove(i);
-                suggestionsComponent.proteinList.remove(i);
-                suggestionsComponent.sugarsList.remove(i);  
+        int size = suggestionsComponent.getCodeList().size()/2;
+        for(int i = 0; i < size; i++) {
+            if(suggestionsComponent.getSugarsList().get(i) > 120) {
+                suggestionsComponent.getCaloriesList().remove(i);
+                suggestionsComponent.getNameList().remove(i);
+                suggestionsComponent.getCodeList().remove(i);
+                suggestionsComponent.getProteinList().remove(i);
+                suggestionsComponent.getSugarsList().remove(i);  
             } 
             i++;
         }

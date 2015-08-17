@@ -39,9 +39,9 @@ public class LowCalorieDecorator extends Decorator {
     
       public void lowCalorieFilter() {
      //   System.out.println("calore " + suggestionsComponent.getCaloriesList().get(0));
-          int size = suggestionsComponent.getCaloriesList().size();
+          int size = suggestionsComponent.getCodeList().size()/2;
         for(int i = 0; i < size; i++) {
-            if(suggestionsComponent.getCaloriesList().get(i) > 20) {
+            if(suggestionsComponent.getCaloriesList().get(i) > 100) {
                 suggestionsComponent.getCaloriesList().remove(i);
                 suggestionsComponent.getNameList().remove(i);
                 suggestionsComponent.getCodeList().remove(i);
