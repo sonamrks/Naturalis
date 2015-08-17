@@ -42,6 +42,9 @@ public class ItemTableModel {
     public ItemTableModel(String machine) {
         this.machine = machine;
     }
+    public ItemTableModel() {
+        
+    }
     
     public void getItemInfo(){
         try {
@@ -223,9 +226,10 @@ public class ItemTableModel {
         try {
             if(machine.equals("machine1"))
                 getCokeSold = "SELECT soldCount FROM item where code=101 and machineID=4201";
-            else
+            else if(machine.equals("machine2"))
                 getCokeSold = "SELECT soldCount FROM item where code=101 and machineID=4202";
-
+            else
+                getCokeSold = "SELECT soldCount FROM item where code=101";
             statement = connection.prepareStatement(getCokeSold);
             result = statement.executeQuery();
             while(result.next()){
@@ -236,8 +240,10 @@ public class ItemTableModel {
             
             if(machine.equals("machine1"))
                 getOrangeSold = "SELECT soldCount FROM item where code=102 and machineID=4201";
-            else
+            else if(machine.equals("machine2"))
                 getOrangeSold = "SELECT soldCount FROM item where code=102 and machineID=4202";
+            else
+                getOrangeSold = "SELECT soldCount FROM item where code=102";
             statement = connection.prepareStatement(getOrangeSold);
             result = statement.executeQuery();
             while(result.next()){
@@ -248,8 +254,10 @@ public class ItemTableModel {
             
             if(machine.equals("machine1"))
                 getLemonadeSold = "SELECT soldCount FROM item where code=103 and machineID=4201";
-            else
+            else  if(machine.equals("machine2"))
                 getLemonadeSold = "SELECT soldCount FROM item where code=103 and machineID=4202";
+            else
+                getLemonadeSold = "SELECT soldCount FROM item where code=103";
             statement = connection.prepareStatement(getLemonadeSold);
             result = statement.executeQuery();
             while(result.next()){
@@ -260,8 +268,10 @@ public class ItemTableModel {
             
            if(machine.equals("machine1"))
                 getGatoradeSold = "SELECT soldCount FROM item where code=104 and machineID=4201";
-            else
+           else if(machine.equals("machine2"))
                 getGatoradeSold = "SELECT soldCount FROM item where code=104 and machineID=4202";
+           else
+               getGatoradeSold = "SELECT soldCount FROM item where code=104";
             statement = connection.prepareStatement(getGatoradeSold);
             result = statement.executeQuery();
             while(result.next()){
@@ -272,8 +282,10 @@ public class ItemTableModel {
             
             if(machine.equals("machine1"))
                 getGranolaSold = "SELECT soldCount FROM item where code=201 and machineID=4201";
-            else
+            else if(machine.equals("machine2"))
                 getGranolaSold = "SELECT soldCount FROM item where code=201 and machineID=4202";
+            else
+               getGranolaSold = "SELECT soldCount FROM item where code=201";
             statement = connection.prepareStatement(getGranolaSold);
             result = statement.executeQuery();
             while(result.next()){
@@ -284,8 +296,10 @@ public class ItemTableModel {
             
             if(machine.equals("machine1"))
                 getChipsSold = "SELECT soldCount FROM item where code=202 and machineID=4201";
-            else
+            else if(machine.equals("machine2"))
                 getChipsSold = "SELECT soldCount FROM item where code=202 and machineID=4202";
+            else
+                getChipsSold = "SELECT soldCount FROM item where code=202";
             statement = connection.prepareStatement(getChipsSold);
             result = statement.executeQuery();
             while(result.next()){
@@ -296,8 +310,10 @@ public class ItemTableModel {
             
             if(machine.equals("machine1"))
                 getNutsSold = "SELECT soldCount FROM item where code=203 and machineID=4201";
-            else
+            else  if(machine.equals("machine2"))
                 getNutsSold = "SELECT soldCount FROM item where code=203 and machineID=4202";
+            else
+                getNutsSold = "SELECT soldCount FROM item where code=203";
             statement = connection.prepareStatement(getNutsSold);
             result = statement.executeQuery();
             while(result.next()){
@@ -308,8 +324,10 @@ public class ItemTableModel {
             
             if(machine.equals("machine1"))
                 getCookieSold = "SELECT soldCount FROM item where code=204 and machineID=4201";
-            else
+            else if(machine.equals("machine2"))
                 getCookieSold = "SELECT soldCount FROM item where code=204 and machineID=4202";
+            else
+                getCookieSold = "SELECT soldCount FROM item where code=204";
             statement = connection.prepareStatement(getCookieSold);
             result = statement.executeQuery();
             while(result.next()){
@@ -331,8 +349,10 @@ public class ItemTableModel {
         try {
             if(machine.equals("machine1"))
                 getLowCaloriesSold = "SELECT soldCount FROM item where calories<120 and machineID=4201";
-            else
+            else if(machine.equals("machine2"))
                 getLowCaloriesSold = "SELECT soldCount FROM item where calories<120 and machineID=4202";
+            else
+                getLowCaloriesSold = "SELECT soldCount FROM item where calories<120";
 
             statement = connection.prepareStatement(getLowCaloriesSold);
             result = statement.executeQuery();
@@ -344,8 +364,10 @@ public class ItemTableModel {
             
             if(machine.equals("machine1"))
                 getHighProteinSold = "SELECT soldCount FROM item where protein>4 and machineID=4201";
-            else
+            else if(machine.equals("machine2"))
                 getHighProteinSold = "SELECT soldCount FROM item where protein>4 and machineID=4202";
+            else
+                getHighProteinSold = "SELECT soldCount FROM item where protein>4";
             statement = connection.prepareStatement(getHighProteinSold);
             result = statement.executeQuery();
             while(result.next()){
@@ -356,8 +378,10 @@ public class ItemTableModel {
             
             if(machine.equals("machine1"))
                 getLowSugarsSold = "SELECT soldCount FROM item where sugars<20 and machineID=4201";
-            else
+            else if(machine.equals("machine2"))
                 getLowSugarsSold = "SELECT soldCount FROM item where sugars<20 and machineID=4202";
+            else
+                getLowSugarsSold = "SELECT soldCount FROM item where sugars<20";
             statement = connection.prepareStatement(getLowSugarsSold);
             result = statement.executeQuery();
             while(result.next()){
