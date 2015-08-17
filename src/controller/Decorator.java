@@ -10,13 +10,12 @@ package controller;
  * @author Sonam
  */
 public class Decorator extends SuggestionsComponent {  
-    //SuggestionsComponent suggestionsComponent;
+    SuggestionsComponent suggestionsComponent;
   
-   /* public Decorator(SuggestionsComponent suggestionsComponent) { 
+   public Decorator(SuggestionsComponent suggestionsComponent) { 
         this.suggestionsComponent = suggestionsComponent;
-    }*/
-    public void filter() {    
     }
+   
     
     /*public SuggestionsComponent getSuggestionsComponent() {
 //        return suggestionsComponent;

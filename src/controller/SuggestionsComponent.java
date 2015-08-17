@@ -14,15 +14,21 @@ import java.util.ArrayList;
 public class SuggestionsComponent {
     private ItemTableModel itemTableModel;
     
-    ArrayList<Integer> codeList;
-    ArrayList<String> nameList;
-    ArrayList<Integer> proteinList;
-    ArrayList<Integer> sugarsList;
-    ArrayList<Integer> caloriesList;
+    private ArrayList<Integer> codeList;
+    private ArrayList<String> nameList;
+    private ArrayList<Integer> proteinList;
+    private ArrayList<Integer> sugarsList;
+    private ArrayList<Integer> caloriesList;
     
     public SuggestionsComponent() {
+        codeList = new ArrayList<Integer>();
+        nameList = new ArrayList<String>();
+        proteinList = new ArrayList<Integer>();
+        sugarsList = new ArrayList<Integer>();
+        caloriesList =  new ArrayList<Integer>();     
         itemTableModel = new ItemTableModel();
-        filter();
+        nameList = itemTableModel.getNameList();
+        caloriesList = itemTableModel.getCaloriesList();  
     }
     
     public void filter() {
@@ -31,7 +37,27 @@ public class SuggestionsComponent {
         nameList = itemTableModel.getNameList();
         proteinList = itemTableModel.getProteinList();
         sugarsList = itemTableModel.getSugarsList();
-        caloriesList = itemTableModel.getCaloriesList();   
+        caloriesList = itemTableModel.getCaloriesList();  
+    }
+    
+    public ArrayList<Integer> getCodeList() {
+        return codeList;
+    }
+
+    public ArrayList<String> getNameList() {
+        return nameList;
+    }
+
+    public ArrayList<Integer> getProteinList() {
+        return proteinList;
+    }
+
+    public ArrayList<Integer> getSugarsList() {
+        return sugarsList;
+    }
+
+    public ArrayList<Integer> getCaloriesList() {
+        return caloriesList;
     }
     
     public String getSuggestionString(){

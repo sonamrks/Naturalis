@@ -63,6 +63,16 @@ public class CustomerUI extends javax.swing.JFrame {
         addCartTable();
     }
     
+    public static void main(String[] args){
+    /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CustomerUI().setVisible(true);
+            }
+        });
+    }
+    
+    
     public void addCartTable() {
     cartTable = new JTable(itemsCartController.getTableModel());
     cartTable.getSelectionModel().addListSelectionListener(itemsCartController);
@@ -1301,8 +1311,7 @@ public class CustomerUI extends javax.swing.JFrame {
         else{
             checkedList[0] = false;
         }
-        //System.out.println(checkedList[0]);
-        // TODO add your handling code here:
+        suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
     }//GEN-LAST:event_lowCaloriesCheckBoxItemStateChanged
 
     private void cashRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashRadioButtonActionPerformed

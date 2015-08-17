@@ -9,32 +9,46 @@ package controller;
  * @author Sonam
  */
 public class LowCalorieDecorator extends Decorator {
-    int i;
-    SuggestionsComponent suggestionsComponent;
      
     public LowCalorieDecorator(SuggestionsComponent suggestionsComponent) {
-                System.out.println("initialized");
-        this.suggestionsComponent = suggestionsComponent;
-
+          super(suggestionsComponent);
+          
+      //  this.suggestionsComponent = suggestionsComponent;
     }
     
+    @Override
     public void filter() {
         suggestionsComponent.filter();
         lowCalorieFilter();
     }
     
-    public void lowCalorieFilter() {
-        for(Integer calories : suggestionsComponent.caloriesList) {
-            if(calories > 120) {
-                suggestionsComponent.caloriesList.remove(i);
-                suggestionsComponent.nameList.remove(i);
-                suggestionsComponent.codeList.remove(i);
-                suggestionsComponent.proteinList.remove(i);
-                suggestionsComponent.sugarsList.remove(i);  
+  /*  public void lowCalorieFilter() {
+     //   System.out.println("calore " + suggestionsComponent.getCaloriesList().get(0));
+        for(int i = 0; i < suggestionsComponent.getCaloriesList().size(); i++) {
+            if(suggestionsComponent.getCaloriesList().get(i) > 20) {
+                        System.out.println("calore " + suggestionsComponent.getCodeList().get(i));
+
+                suggestionsComponent.getCaloriesList().remove(i);
+                suggestionsComponent.getNameList().remove(i);
+                suggestionsComponent.getCodeList().remove(i);
+                suggestionsComponent.getProteinList().remove(i);
+                suggestionsComponent.getSugarsList().remove(i);  
             } 
-            i++;
-        }
-        
+        }  
+    }*/
+    
+      public void lowCalorieFilter() {
+     //   System.out.println("calore " + suggestionsComponent.getCaloriesList().get(0));
+          int size = suggestionsComponent.getCaloriesList().size();
+        for(int i = 0; i < size; i++) {
+            if(suggestionsComponent.getCaloriesList().get(i) > 20) {
+                suggestionsComponent.getCaloriesList().remove(i);
+                suggestionsComponent.getNameList().remove(i);
+                suggestionsComponent.getCodeList().remove(i);
+                suggestionsComponent.getProteinList().remove(i);
+                suggestionsComponent.getSugarsList().remove(i);  
+            } 
+        }  
     }
     
 

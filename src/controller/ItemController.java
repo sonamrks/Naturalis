@@ -33,7 +33,7 @@ public class ItemController {
            
             if(checkedList[0] == true) {
                  System.out.println("hello"+checkedList[0]);
-                decorator = new LowCalorieDecorator(suggestionsComponent);
+                LowCalorieDecorator decorator = new LowCalorieDecorator(suggestionsComponent);
                 decorator.filter();
             }
             if(checkedList[1] == true){ 
