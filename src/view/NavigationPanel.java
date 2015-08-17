@@ -103,7 +103,7 @@ public class NavigationPanel extends javax.swing.JPanel {
 
     private void managerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerButtonActionPerformed
         Main.setActivityType(2);
-        new ManagerUI().setVisible(true);
+        new AdminUI().setVisible(true);
     }//GEN-LAST:event_managerButtonActionPerformed
 
 
