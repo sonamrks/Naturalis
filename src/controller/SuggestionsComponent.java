@@ -62,11 +62,16 @@ public class SuggestionsComponent {
     }
     
     public String getSuggestionString(){
-        String suggestion="";
-        for(Integer code : codeList){
-            suggestion+=code + "\n";
+        String suggestions="";
+        for(int i =0 ;i < codeList.size() ; i++){
+            suggestions+=codeList.get(i) + "\t";
+            suggestions+=nameList.get(i) + "\t";
+            suggestions+=proteinList.get(i) + "\t";
+            suggestions+=sugarsList.get(i) + "\t";
+            suggestions+=caloriesList.get(i) + "\t";
+            suggestions+="\n";
         }
-        return suggestion;
+        return suggestions;
     }
     
 }
