@@ -19,6 +19,7 @@ public class SnackPanel extends javax.swing.JPanel implements Observable {
 
     private ItemController itemsController;
     private Set<Observer> observers;
+    private String ID;
     /**
      * Creates new form SnackPanel
      */
@@ -669,39 +670,49 @@ public class SnackPanel extends javax.swing.JPanel implements Observable {
     }// </editor-fold>//GEN-END:initComponents
 
     private void granolaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(granolaCodeLabel.getText());   
+        ID = granolaCodeLabel.getText();  
+        notifyObserver();
     }//GEN-LAST:event_granolaButtonActionPerformed
 
-    private void chipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(chipsCodeLabel.getText());       }//GEN-LAST:event_chipsButtonActionPerformed
-
     private void cookieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(cookieCodeLabel.getText());   
+        ID = cookieCodeLabel.getText();  
+        notifyObserver();
     }//GEN-LAST:event_cookieButtonActionPerformed
 
     private void veggieStrawsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(veggieStrawsCodeLabel.getText());   
+       ID = veggieStrawsCodeLabel.getText();  
+        notifyObserver();
     }//GEN-LAST:event_veggieStrawsButtonActionPerformed
 
     private void greekYogurtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(greekYogurtCodeLabel.getText());   
+        ID = greekYogurtCodeLabel.getText();  
+        notifyObserver();
     }//GEN-LAST:event_greekYogurtButtonActionPerformed
 
     private void nutsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(nutsCodeLabel.getText());
+        ID = nutsCodeLabel.getText();  
+        notifyObserver();
     }//GEN-LAST:event_nutsButtonActionPerformed
 
     private void driedFruitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(driedFruitsCodeLabel.getText());
+        ID = driedFruitsCodeLabel.getText();  
+        notifyObserver();
     }//GEN-LAST:event_driedFruitButtonActionPerformed
 
     private void popcornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(popcornCodeLabel.getText());
+         ID = popcornCodeLabel.getText();  
+        notifyObserver();
     }//GEN-LAST:event_popcornButtonActionPerformed
 
     private void crackersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(crackersCodeLabel.getText());
+        ID = crackersCodeLabel.getText();  
+        notifyObserver();
     }//GEN-LAST:event_crackersButtonActionPerformed
+
+    private void chipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsButtonActionPerformed
+        ID = chipsCodeLabel.getText();  
+        notifyObserver();
+    }//GEN-LAST:event_chipsButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

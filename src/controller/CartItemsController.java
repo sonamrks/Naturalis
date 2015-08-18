@@ -76,6 +76,6 @@ public class CartItemsController implements Observer, ListSelectionListener, Tab
     }	
     
     public void Update(String ID){
-        
+        addItem(ID);
     }
 }
