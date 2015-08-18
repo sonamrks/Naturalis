@@ -74,7 +74,7 @@ public class MachinesPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_machine1ButtonActionPerformed
 
     private void machine2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2ButtonActionPerformed
-        if(Main.getActivityType() == 0)
+        if(Main.getActivityType() == 1)
             new ManagerUI().setVisible(true);
         else 
             new CustomerUI(4202).setVisible(true);
