@@ -63,5 +63,38 @@ public class ItemController {
     public String getCalorieRangeSuggestions(int low,int high){
         return itemsTableModel.getCalorieRangeSuggestions(low,high);
     }
+      public ArrayList<Integer> setProtein(){
+        return itemsTableModel.setProtein();
+    }
+    public ArrayList<Integer> setSugars(){
+        return itemsTableModel.setSugars();
+    }
+    public ArrayList<Integer> setCarbohydrates(){
+        return itemsTableModel.setCarbohydrates();
+    }
+    public ArrayList<Integer> setCalories(){
+        return itemsTableModel.setCalories();
+    }
+    public ArrayList<Double> setPrice() {
+        return itemsTableModel.setPrice();
+    }
+    public ArrayList<Integer> setCount(){
+        return itemsTableModel.setCount();
+    }
+    public int getCategorySoldCount(String category){
+        return itemsTableModel.getCategorySoldCount(category);
+    }
+   
+    public int getCategorySoldCount(String category, String machine) {
+        return itemsTableModel.getCategorySoldCount(category,machine);
+    }
+    
+    public int[] getItemSoldCount(String machine){
+        int[] soldCount =  itemsTableModel.getItemSoldCount(machine);
+        return soldCount;
+    }
+    public int[] getNutritionalItemSoldCount(String machine){
+        return itemsTableModel.getNutritionalItemSoldCount(machine);
+    }
     
 }

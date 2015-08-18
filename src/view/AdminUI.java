@@ -40,7 +40,7 @@ public class AdminUI extends javax.swing.JFrame {
 
     public void setPrice(){
         
-        ArrayList<Double> priceList = adminController.setPrice();
+        ArrayList<Double> priceList = itemsController.setPrice();
         
         cokePriceTextField.setText(Double.toString(priceList.get(0)));
         orangePriceTextField.setText(Double.toString(priceList.get(1)));
@@ -64,7 +64,7 @@ public class AdminUI extends javax.swing.JFrame {
     }
     public void setCount(){
         
-        ArrayList<Integer> countList = adminController.setCount();
+        ArrayList<Integer> countList = itemsController.setCount();
         
         cokeCountTextField.setText(Integer.toString(countList.get(0)));
         orangeCountTextField.setText(Integer.toString(countList.get(1)));
@@ -89,8 +89,8 @@ public class AdminUI extends javax.swing.JFrame {
         
     }
     public void setBevSnackSoldCount(){
-        beveragesSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("beverage")));
-        snacksSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("snack")));
+        beveragesSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("beverage")));
+        snacksSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("snack")));
     }
 
     /**
@@ -2538,23 +2538,23 @@ public class AdminUI extends javax.swing.JFrame {
 
     private void machine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1RadioButtonActionPerformed
         // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("beverage","machine1")));
-        snacksSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("snack","machine1")));
+        beveragesSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("beverage","machine1")));
+        snacksSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("snack","machine1")));
     }//GEN-LAST:event_machine1RadioButtonActionPerformed
 
     private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
         // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("beverage","machine2")));
-        snacksSoldTextField.setText(Integer.toString(adminController.getCategorySoldCount("snack","machine2")));
+        beveragesSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("beverage","machine2")));
+        snacksSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("snack","machine2")));
     }//GEN-LAST:event_machine2RadioButtonActionPerformed
 
     private void itemsBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsBarChartButtonActionPerformed
         // TODO add your handling code here:
         int[] itemsSoldCount = new int[100];
         if(itemsMachine1RadioButton.isSelected())
-            itemsSoldCount = adminController.getItemSoldCount("machine1");
+            itemsSoldCount = itemsController.getItemSoldCount("machine1");
         else
-            itemsSoldCount = adminController.getItemSoldCount("machine2");
+            itemsSoldCount = itemsController.getItemSoldCount("machine2");
         
         BarChart barChart = new BarChart();
         barChart.itemSoldBarChart("Bar Chart","Items Sold Comparison",itemsSoldCount);
@@ -2566,9 +2566,9 @@ public class AdminUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int[] itemsSoldCount = new int[100];
         if(itemsMachine1RadioButton.isSelected())
-            itemsSoldCount = adminController.getItemSoldCount("machine1");
+            itemsSoldCount = itemsController.getItemSoldCount("machine1");
         else
-            itemsSoldCount = adminController.getItemSoldCount("machine2");
+            itemsSoldCount = itemsController.getItemSoldCount("machine2");
          
         PieChart pieChart = new PieChart();
         pieChart.itemSoldPieChart("Pie Chart","Items Sold Comparison",itemsSoldCount);
@@ -2590,9 +2590,9 @@ public class AdminUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int[] nutritionalItemsSoldCount = new int[100];
         if(nutStatsMachine1RadioButton.isSelected())
-            nutritionalItemsSoldCount = adminController.getNutritionalItemSoldCount("machine1");
+            nutritionalItemsSoldCount = itemsController.getNutritionalItemSoldCount("machine1");
         else
-            nutritionalItemsSoldCount = adminController.getNutritionalItemSoldCount("machine2");
+            nutritionalItemsSoldCount = itemsController.getNutritionalItemSoldCount("machine2");
         
         PieChart pieChart = new PieChart();
 //        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount);
