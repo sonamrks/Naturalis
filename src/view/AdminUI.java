@@ -2603,7 +2603,15 @@ public class AdminUI extends javax.swing.JFrame {
     private void nutStatsMachine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutStatsMachine2RadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nutStatsMachine2RadioButtonActionPerformed
-
+    public static void main(String[] args){
+    /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminUI().setVisible(true);
+            }
+        });
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BevSnacksStatisticsPanel;
     private javax.swing.JButton addCoconutWaterButton;

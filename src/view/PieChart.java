@@ -58,6 +58,11 @@ public class PieChart extends JFrame {
         beverageItemsDataset.setValue("orangeJuice", soldCount[1]);
         beverageItemsDataset.setValue("lemonade", soldCount[2]);
         beverageItemsDataset.setValue("gatorade", soldCount[3]);
+        beverageItemsDataset.setValue("frappuccino", soldCount[4]);
+        beverageItemsDataset.setValue("coconut water", soldCount[5]);
+        beverageItemsDataset.setValue("sparkling water", soldCount[6]);
+        beverageItemsDataset.setValue("protein smoothie", soldCount[7]);
+        beverageItemsDataset.setValue("protein shake", soldCount[8]);
         
         
         JFreeChart beverageitemsChart = ChartFactory.createPieChart3D(chartTitle, beverageItemsDataset, true, true, false);
@@ -67,10 +72,15 @@ public class PieChart extends JFrame {
         plot.setForegroundAlpha(0.8f);
         
         DefaultPieDataset snackItemsDataset = new DefaultPieDataset();
-        snackItemsDataset.setValue("granola", soldCount[4]);
-        snackItemsDataset.setValue("chips", soldCount[5]);
-        snackItemsDataset.setValue("nuts", soldCount[6]);
-        snackItemsDataset.setValue("cookie", soldCount[7]);
+        snackItemsDataset.setValue("granola", soldCount[9]);
+        snackItemsDataset.setValue("chips", soldCount[10]);
+        snackItemsDataset.setValue("nuts", soldCount[11]);
+        snackItemsDataset.setValue("cookie", soldCount[12]);
+        snackItemsDataset.setValue("dried fruits", soldCount[13]);
+        snackItemsDataset.setValue("popcorn", soldCount[14]);
+        snackItemsDataset.setValue("crackers", soldCount[15]);
+        snackItemsDataset.setValue("veggie straws", soldCount[16]);
+        snackItemsDataset.setValue("greek yogurt", soldCount[17]);
         
         JFreeChart snackItemsChart = ChartFactory.createPieChart3D(chartTitle, snackItemsDataset, true, true, false);
         PiePlot3D snackPlot = (PiePlot3D)snackItemsChart.getPlot(); 

@@ -222,7 +222,10 @@ public class ItemTableModel {
     public int[] getItemSoldCount(String machine){
         
         int sale=0;
-        String getCokeSold,getOrangeSold,getLemonadeSold,getGatoradeSold,getGranolaSold,getNutsSold,getChipsSold,getCookieSold;
+        String getCokeSold,getOrangeSold,getLemonadeSold,getGatoradeSold;
+        String getFrappuccinoSold,getCoconutWaterSold, getSparklingWaterSold,getProteinSmoothieSold,getProteinShakeSold;
+        String getGranolaSold,getNutsSold,getChipsSold,getCookieSold;
+        String getDriedFruitsSold,getPopcornSold,getCrackersSold,getVeggieStrawsSold,getGreekYogurtSold;
         try {
             if(machine.equals("machine1"))
                 getCokeSold = "SELECT soldCount FROM item where code=101 and machineID=4201";
@@ -280,6 +283,77 @@ public class ItemTableModel {
             }
             sale = 0;
             
+             if(machine.equals("machine1"))
+                getFrappuccinoSold = "SELECT soldCount FROM item where code=105 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getFrappuccinoSold = "SELECT soldCount FROM item where code=105 and machineID=4202";
+            else
+                getFrappuccinoSold = "SELECT soldCount FROM item where code=105";
+            statement = connection.prepareStatement(getFrappuccinoSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[4]=sale;
+            }
+            sale = 0;
+            
+            
+            if(machine.equals("machine1"))
+                getCoconutWaterSold = "SELECT soldCount FROM item where code=106 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getCoconutWaterSold = "SELECT soldCount FROM item where code=106 and machineID=4202";
+            else
+               getCoconutWaterSold = "SELECT soldCount FROM item where code=106";
+            statement = connection.prepareStatement(getCoconutWaterSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[5]=sale;
+            }
+            sale = 0;
+            
+            if(machine.equals("machine1"))
+                getSparklingWaterSold = "SELECT soldCount FROM item where code=107 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getSparklingWaterSold = "SELECT soldCount FROM item where code=107 and machineID=4202";
+            else
+               getSparklingWaterSold = "SELECT soldCount FROM item where code=107";
+            statement = connection.prepareStatement(getSparklingWaterSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[6]=sale;
+            }
+            sale = 0;
+            
+            if(machine.equals("machine1"))
+                getProteinSmoothieSold = "SELECT soldCount FROM item where code=108 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getProteinSmoothieSold = "SELECT soldCount FROM item where code=108 and machineID=4202";
+            else
+               getProteinSmoothieSold = "SELECT soldCount FROM item where code=108";
+            statement = connection.prepareStatement(getProteinSmoothieSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[7]=sale;
+            }
+            sale = 0;
+            
+            if(machine.equals("machine1"))
+                getProteinShakeSold = "SELECT soldCount FROM item where code=109 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getProteinShakeSold = "SELECT soldCount FROM item where code=109 and machineID=4202";
+            else
+               getProteinShakeSold = "SELECT soldCount FROM item where code=109";
+            statement = connection.prepareStatement(getProteinShakeSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[8]=sale;
+            }
+            sale = 0;
+            
             if(machine.equals("machine1"))
                 getGranolaSold = "SELECT soldCount FROM item where code=201 and machineID=4201";
             else if(machine.equals("machine2"))
@@ -290,7 +364,7 @@ public class ItemTableModel {
             result = statement.executeQuery();
             while(result.next()){
                 sale+= result.getInt("soldCount");
-                soldCount[4]=sale;
+                soldCount[9]=sale;
             }
             sale = 0;
             
@@ -299,15 +373,15 @@ public class ItemTableModel {
             else if(machine.equals("machine2"))
                 getChipsSold = "SELECT soldCount FROM item where code=202 and machineID=4202";
             else
-                getChipsSold = "SELECT soldCount FROM item where code=202";
+               getChipsSold = "SELECT soldCount FROM item where code=202";
             statement = connection.prepareStatement(getChipsSold);
             result = statement.executeQuery();
             while(result.next()){
                 sale+= result.getInt("soldCount");
-                soldCount[5]=sale;
+                soldCount[10]=sale;
             }
             sale = 0;
-            
+           
             if(machine.equals("machine1"))
                 getNutsSold = "SELECT soldCount FROM item where code=203 and machineID=4201";
             else  if(machine.equals("machine2"))
@@ -318,7 +392,7 @@ public class ItemTableModel {
             result = statement.executeQuery();
             while(result.next()){
                 sale+= result.getInt("soldCount");
-                soldCount[6]=sale;
+                soldCount[11]=sale;
             }
             sale = 0;
             
@@ -332,7 +406,77 @@ public class ItemTableModel {
             result = statement.executeQuery();
             while(result.next()){
                 sale+= result.getInt("soldCount");
-                soldCount[7]=sale;
+                soldCount[12]=sale;
+            }
+            sale = 0;
+            
+            if(machine.equals("machine1"))
+                getDriedFruitsSold = "SELECT soldCount FROM item where code=205 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getDriedFruitsSold = "SELECT soldCount FROM item where code=205 and machineID=4202";
+            else
+                getDriedFruitsSold = "SELECT soldCount FROM item where code=205";
+            statement = connection.prepareStatement(getDriedFruitsSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[13]=sale;
+            }
+            sale = 0;
+            
+            if(machine.equals("machine1"))
+                getPopcornSold = "SELECT soldCount FROM item where code=206 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getPopcornSold = "SELECT soldCount FROM item where code=206 and machineID=4202";
+            else
+                getPopcornSold = "SELECT soldCount FROM item where code=206";
+            statement = connection.prepareStatement(getPopcornSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[14]=sale;
+            }
+            sale = 0;
+            
+            if(machine.equals("machine1"))
+                getCrackersSold = "SELECT soldCount FROM item where code=207 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getCrackersSold = "SELECT soldCount FROM item where code=207 and machineID=4202";
+            else
+                getCrackersSold = "SELECT soldCount FROM item where code=207";
+            statement = connection.prepareStatement(getCrackersSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[15]=sale;
+            }
+            sale = 0;
+            
+            if(machine.equals("machine1"))
+                getVeggieStrawsSold = "SELECT soldCount FROM item where code=208 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getVeggieStrawsSold = "SELECT soldCount FROM item where code=208 and machineID=4202";
+            else
+                getVeggieStrawsSold = "SELECT soldCount FROM item where code=208";
+            statement = connection.prepareStatement(getVeggieStrawsSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[16]=sale;
+            }
+            sale = 0;
+            
+            if(machine.equals("machine1"))
+                getGreekYogurtSold = "SELECT soldCount FROM item where code=209 and machineID=4201";
+            else if(machine.equals("machine2"))
+                getGreekYogurtSold = "SELECT soldCount FROM item where code=209 and machineID=4202";
+            else
+                getGreekYogurtSold = "SELECT soldCount FROM item where code=209";
+            statement = connection.prepareStatement(getGreekYogurtSold);
+            result = statement.executeQuery();
+            while(result.next()){
+                sale+= result.getInt("soldCount");
+                soldCount[17]=sale;
             }
             sale = 0;
             
