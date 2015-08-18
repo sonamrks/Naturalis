@@ -21,7 +21,7 @@ import model.DatabaseConnection;
 import model.Item;
 
 
-public class CartItemsTableModel extends AbstractTableModel implements AbstractList {
+public class CartItemsTableModel extends AbstractTableModel implements AbstractList, Observable {
  //   private Map<Integer,Item> cartItems;
     private List<Item> cartItems;
     private List<Integer> itemCodes;
@@ -32,6 +32,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private double price;
     private Item item;
     private int soldCount,count;
+    private Set<Observer> observers;
     
     ItemFactory beverageFactory = new ItemFactory();
 
@@ -46,6 +47,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
      cartItems = new ArrayList<Item>();
      itemCodes = new ArrayList<Integer>();
      itemNames = new ArrayList<String>();
+     observers = new HashSet<Observer>();
      numrows = itemCodes.size();
      numcols = 2;    
     }
@@ -78,12 +80,9 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             s = "model." + name;
             item = beverageFactory.createItem(s);
             addPrice(item.getPrice());
-    //                cartItems.put(code,item);
             cartItems.add(item);
             fireTableRowsInserted(itemCodes.size()-1, numcols-1);
-            numrows++;
-            
-            
+            numrows++;           
         }
         catch(Exception err)
         {
@@ -262,7 +261,6 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     }
     
     public double getTotalPrice() {
-        System.out.println("price inside model:" + totalPrice);
 	return this.totalPrice;
     }
     
@@ -306,5 +304,24 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     
     public void subtractPrice(double price) {
         this.totalPrice -= price;
+    }
+       
+    @Override
+    public void attachObserver(Observer observer) {
+        observers.add(observer);
+    }
+    
+    @Override
+    public void dettachObserver(Observer observer) {
+        observers.remove(observer);
+    }
+    
+    @Override
+    public void notifyObserver() {
+        java.util.Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+                Observer observer = it.next();
+                observer.Update(ID);
+        }
     }
 }

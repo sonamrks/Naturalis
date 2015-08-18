@@ -20,16 +20,12 @@ public class PriceController implements Observer {
         itemsCartTableModel = new CartItemsTableModel();
     }
     
-    public double getTotalPrice() {
-        return itemsCartTableModel.getTotalPrice();
-    }
-    
     public double deductPrice(double price, double deductable){
         double remainingPrice = price - deductable;
         return remainingPrice;
     }
     
     public void Update(String ID){
-        
+        customerUI.updatePrice(itemsCartTableModel.getTotalPrice());
     }
 }

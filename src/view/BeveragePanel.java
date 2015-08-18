@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.Observable;
 import controller.CartItemsController;
 import controller.ItemController;
 import controller.Observer;
@@ -16,11 +17,9 @@ import java.util.Set;
  *
  * @author AshitaRaghu
  */
-public class BeveragePanel extends javax.swing.JPanel  implements Observable {
+public class BeveragePanel extends javax.swing.JPanel {
     
     private ItemController itemsController;
-    private Set<Observer> observers;
-    private String ID;
 
     /**
      * Creates new form BeveragePanel
@@ -29,29 +28,9 @@ public class BeveragePanel extends javax.swing.JPanel  implements Observable {
     public BeveragePanel(ItemController itemController) {
         initComponents();
         this.itemsController = itemController;
-        observers = new HashSet<Observer>();
         setCodeLabel();
         setPriceLabel();
         //itemsController = new ItemsController(this);
-    }
-    
-    @Override
-    public void attachObserver(Observer observer) {
-        observers.add(observer);
-    }
-    
-    @Override
-    public void dettachObserver(Observer observer) {
-        observers.remove(observer);
-    }
-    
-    @Override
-    public void notifyObserver() {
-        java.util.Iterator<Observer> it = observers.iterator();
-        while (it.hasNext()) {
-                Observer observer = it.next();
-                observer.Update(ID);
-        }
     }
     
     public void setCodeLabel(){
@@ -710,48 +689,39 @@ public class BeveragePanel extends javax.swing.JPanel  implements Observable {
     }// </editor-fold>//GEN-END:initComponents
 
     private void orangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeButtonActionPerformed
-        ID = orangeJuiceCodeLabel.getText();  
-        notifyObserver();
+        CustomerUI.getItemsCartController().addItem(orangeJuiceCodeLabel.getText());  
     }//GEN-LAST:event_orangeButtonActionPerformed
 
     private void gatoradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeButtonActionPerformed
-       ID = gatoradeCodeLabel.getText();  
-        notifyObserver();
+        CustomerUI.getItemsCartController().addItem(gatoradeCodeLabel.getText());  
     }//GEN-LAST:event_gatoradeButtonActionPerformed
 
     private void sparklingWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterButtonActionPerformed
-        ID = sparklingWaterCodeLabel.getText();  
-        notifyObserver();
+        CustomerUI.getItemsCartController().addItem(sparklingWaterCodeLabel.getText());  
     }//GEN-LAST:event_sparklingWaterButtonActionPerformed
 
     private void proteinShakeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeButtonActionPerformed
-        ID = proteinShakeCodeLabel.getText();  
-        notifyObserver();
+        CustomerUI.getItemsCartController().addItem(proteinShakeCodeLabel.getText());  
     }//GEN-LAST:event_proteinShakeButtonActionPerformed
 
     private void cokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeButtonActionPerformed
-       ID = cokeCodeLabel.getText();  
-        notifyObserver();
+        CustomerUI.getItemsCartController().addItem(cokeCodeLabel.getText());  
     }//GEN-LAST:event_cokeButtonActionPerformed
 
     private void lemonadeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeButtonActionPerformed
-        ID = lemonadeCodeLabel.getText();  
-        notifyObserver();
+        CustomerUI.getItemsCartController().addItem(lemonadeCodeLabel.getText());  
     }//GEN-LAST:event_lemonadeButtonActionPerformed
 
     private void frappuccinoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoButtonActionPerformed
-        ID = frappuccinoCodeLabel.getText();  
-        notifyObserver();
+        CustomerUI.getItemsCartController().addItem(frappuccinoCodeLabel.getText());  
     }//GEN-LAST:event_frappuccinoButtonActionPerformed
 
     private void coconutWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterButtonActionPerformed
-        ID = coconutWaterCodeLabel.getText();  
-        notifyObserver();
+        CustomerUI.getItemsCartController().addItem(coconutWaterCodeLabel.getText());  
     }//GEN-LAST:event_coconutWaterButtonActionPerformed
 
     private void proteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothieButtonActionPerformed
-        ID = proteinSmoothieCodeLabel.getText();  
-        notifyObserver();
+        CustomerUI.getItemsCartController().addItem(proteinSmoothieCodeLabel.getText());  
     }//GEN-LAST:event_proteinSmoothieButtonActionPerformed
 
 

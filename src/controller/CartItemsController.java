@@ -9,7 +9,6 @@ package controller;
  *
  * @author Sonam
  */
-import view.Observable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -19,17 +18,26 @@ import javax.swing.event.TableModelListener;
 import view.CustomerUI;
 import javax.swing.table.TableModel;
 import javax.swing.event.*;
+import view.CartItemsPanel;
+import view.PaymentPanel;
 
-public class CartItemsController implements Observer, ListSelectionListener, TableModelListener {
+public class CartItemsController implements ListSelectionListener, TableModelListener {
     private CartItemsTableModel itemsCartTableModel;
     private CustomerUI customerUI;
+    private CartItemsPanel cartItemsPanel;
+    private PaymentPanel paymentPanel;
     Iterator iterator;
     
-    public CartItemsController(CustomerUI customerUI,int machineID) {
+    public CartItemsController(CustomerUI customerUI, CartItemsPanel cartItemsPanel, PaymentPanel paymentPanel, int machineID) {
         this.customerUI = customerUI;
+        this.cartItemsPanel = cartItemsPanel;
+        this.paymentPanel = paymentPanel;
         itemsCartTableModel = new CartItemsTableModel();
         itemsCartTableModel.addTableModelListener(this);
         iterator = itemsCartTableModel.createIterator();
+                
+        itemsCartTableModel.attachObserver(cartItemsPanel);
+        itemsCartTableModel.attachObserver(paymentPanel);
     }
         
     public TableModel getTableModel() {
@@ -52,7 +60,7 @@ public class CartItemsController implements Observer, ListSelectionListener, Tab
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
             customerUI.updateCartTable();	 
-            customerUI.updatePrice();
+//            customerUI.updatePrice();
     } catch(Exception exp) {
             exp.getMessage();
             exp.printStackTrace();
@@ -74,8 +82,4 @@ public class CartItemsController implements Observer, ListSelectionListener, Tab
             itemsCartTableModel.updateSoldCount(Integer.valueOf(ID),"remove");
         }
     }	
-    
-    public void Update(String ID){
-        addItem(ID);
-    }
 }
