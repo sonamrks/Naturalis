@@ -21,6 +21,7 @@ public class SnackPanel extends javax.swing.JPanel {
     public SnackPanel(ItemController itemController) {
         initComponents();
         this.itemsController = itemController;
+
     }
 
     public void setCodeLabel(){

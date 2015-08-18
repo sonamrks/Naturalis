@@ -9,6 +9,7 @@ package controller;
  *
  * @author Sonam
  */
+import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -18,12 +19,14 @@ import view.CustomerUI;
 import javax.swing.table.TableModel;
 import javax.swing.event.*;
 
-public class CartItemsController implements ListSelectionListener, TableModelListener {
+public class CartItemsController implements Observable, ListSelectionListener, TableModelListener {
     private CartItemsTableModel itemsCartTableModel;
     private CustomerUI customerUI;
     Iterator iterator;
   //  private Map<Integer,Item> items;
     private Set<Integer> keys;
+    private Set<Observer> observers;
+    private String ID;
 
     
     public CartItemsController(CustomerUI customerUI,int machineID) {
@@ -31,6 +34,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         itemsCartTableModel = new CartItemsTableModel();
         itemsCartTableModel.addTableModelListener(this);
         iterator = itemsCartTableModel.createIterator();
+        observers = new HashSet<Observer>();
     }
         
     public TableModel getTableModel() {
@@ -85,5 +89,22 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         return remainingPrice;
     }
     
-
+    @Override
+    public void attachObserver(Observer observer) {
+        observers.add(observer);
+    }
+    
+    @Override
+    public void dettachObserver(Observer observer) {
+        observers.remove(observer);
+    }
+    
+    @Override
+    public void notifyObserver() {
+        java.util.Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+                Observer observer = it.next();
+                observer.Update(ID);
+        }
+    }
 }
