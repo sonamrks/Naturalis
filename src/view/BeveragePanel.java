@@ -7,15 +7,19 @@ package view;
 
 import controller.CartItemsController;
 import controller.ItemController;
+import controller.Observer;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author AshitaRaghu
  */
-public class BeveragePanel extends javax.swing.JPanel {
+public class BeveragePanel extends javax.swing.JPanel  implements Observable {
     
     private ItemController itemsController;
+    private Set<Observer> observers;
 
     /**
      * Creates new form BeveragePanel
@@ -24,10 +28,31 @@ public class BeveragePanel extends javax.swing.JPanel {
     public BeveragePanel(ItemController itemController) {
         initComponents();
         this.itemsController = itemController;
+        observers = new HashSet<Observer>();
         setCodeLabel();
         setPriceLabel();
         //itemsController = new ItemsController(this);
     }
+    
+    @Override
+    public void attachObserver(Observer observer) {
+        observers.add(observer);
+    }
+    
+    @Override
+    public void dettachObserver(Observer observer) {
+        observers.remove(observer);
+    }
+    
+    @Override
+    public void notifyObserver() {
+        java.util.Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+                Observer observer = it.next();
+                observer.Update(ID);
+        }
+    }
+    
     public void setCodeLabel(){
         
         ArrayList<Integer> codeList = itemsController.getCode();

@@ -85,7 +85,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             username = loginPanel.getUserName();
             password = loginPanel.getPassword();
             System.out.println(password);
-            if(username.equals("natAdmin") && password.equals("password")) {
+            if(username.equals("admin") && password.equals("admin")) {
                 System.out.println("Login valid");
                 Main.setActivityType(2);
                 Main.getCardLayout().show(Main.getCards(),"Machines");
@@ -102,8 +102,20 @@ public class NavigationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_customerButtonActionPerformed
 
     private void managerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerButtonActionPerformed
-        Main.setActivityType(2);
-        new AdminUI().setVisible(true);
+        int result  = JOptionPane.showConfirmDialog(null, loginPanel,"Please Enter User Name and Password", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            username = loginPanel.getUserName();
+            password = loginPanel.getPassword();
+            System.out.println(password);
+            if(username.equals("manager") && password.equals("manager")) {
+                System.out.println("Login valid");
+                Main.setActivityType(2);
+                new AdminUI().setVisible(true);
+            }
+            else {
+                JOptionPane.showMessageDialog(loginPanel, "Invalid username/password");
+            }
+        } 
     }//GEN-LAST:event_managerButtonActionPerformed
 
 

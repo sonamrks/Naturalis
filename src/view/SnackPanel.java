@@ -6,21 +6,26 @@
 package view;
 
 import controller.ItemController;
+import controller.Observer;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author AshitaRaghu
  */
-public class SnackPanel extends javax.swing.JPanel {
+public class SnackPanel extends javax.swing.JPanel implements Observable {
 
-       private ItemController itemsController;
+    private ItemController itemsController;
+    private Set<Observer> observers;
     /**
      * Creates new form SnackPanel
      */
     public SnackPanel(ItemController itemController) {
         initComponents();
         this.itemsController = itemController;
+        observers = new HashSet<Observer>();
 
     }
 
@@ -53,6 +58,25 @@ public class SnackPanel extends javax.swing.JPanel {
         crackersPriceLabel.setText(Double.toString(priceList.get(6)));
         veggieStrawsPriceLabel.setText(Double.toString(priceList.get(7)));
          greekYogurtPriceLabel.setText(Double.toString(priceList.get(8)));
+    }
+    
+    @Override
+    public void attachObserver(Observer observer) {
+        observers.add(observer);
+    }
+    
+    @Override
+    public void dettachObserver(Observer observer) {
+        observers.remove(observer);
+    }
+    
+    @Override
+    public void notifyObserver() {
+        java.util.Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+                Observer observer = it.next();
+                observer.Update(ID);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.

@@ -14,6 +14,7 @@ import controller.PayCard;
 import controller.PayCash;
 import controller.PaymentContext;
 import controller.PaymentStrategy;
+import controller.PriceController;
 import controller.SmartCardController;
 //import controller.PaymentController;
 import controller.SuggestionsComponent;
@@ -34,6 +35,7 @@ public class CustomerUI extends javax.swing.JFrame {
     private JTable cartTable; 
     private JTable suggestionsTable;
     private static CartItemsController itemsCartController;
+    private PriceController priceController;
     private static SmartCardController smartCardController;
     private ItemController itemController;
     private static NutritionalFactsController nutritionalFactsController;
@@ -54,6 +56,7 @@ public class CustomerUI extends javax.swing.JFrame {
         initComponents();
         
         itemsCartController = new CartItemsController(this, machineID);
+        priceController = new PriceController(this, machineID);
         smartCardController = new SmartCardController(this);
         itemController = new ItemController(machineID);
         nutritionalFactsController = new NutritionalFactsController(this);
@@ -66,6 +69,11 @@ public class CustomerUI extends javax.swing.JFrame {
         itemsPanel.add(welcomePanel,"Welcome");
         itemsPanel.add(beveragePanel,"Beverages");
         itemsPanel.add(snackPanel,"Snacks");
+        
+        beveragePanel.attachObserver(itemsCartController);
+        beveragePanel.attachObserver(priceController);
+        snackPanel.attachObserver(itemsCartController);
+        snackPanel.attachObserver(priceController);
 
     //    paymentController = new PaymentController(this);
         checkedList[0] = false;
@@ -101,8 +109,8 @@ public class CustomerUI extends javax.swing.JFrame {
     }
     
      public void updatePrice() {
-         System.out.println("payment " + itemsCartController.getTotalPrice());
-        priceTextField.setValue(itemsCartController.getTotalPrice());
+         System.out.println("payment " + priceController.getTotalPrice());
+        priceTextField.setValue(priceController.getTotalPrice());
     }
      
      public static CartItemsController getItemsCartController() {

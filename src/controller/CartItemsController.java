@@ -9,6 +9,7 @@ package controller;
  *
  * @author Sonam
  */
+import view.Observable;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -19,22 +20,16 @@ import view.CustomerUI;
 import javax.swing.table.TableModel;
 import javax.swing.event.*;
 
-public class CartItemsController implements Observable, ListSelectionListener, TableModelListener {
+public class CartItemsController implements Observer, ListSelectionListener, TableModelListener {
     private CartItemsTableModel itemsCartTableModel;
     private CustomerUI customerUI;
     Iterator iterator;
-  //  private Map<Integer,Item> items;
-    private Set<Integer> keys;
-    private Set<Observer> observers;
-    private String ID;
-
     
     public CartItemsController(CustomerUI customerUI,int machineID) {
         this.customerUI = customerUI;
         itemsCartTableModel = new CartItemsTableModel();
         itemsCartTableModel.addTableModelListener(this);
         iterator = itemsCartTableModel.createIterator();
-        observers = new HashSet<Observer>();
     }
         
     public TableModel getTableModel() {
@@ -80,31 +75,7 @@ public class CartItemsController implements Observable, ListSelectionListener, T
         }
     }	
     
-    public double getTotalPrice() {
-        return itemsCartTableModel.getTotalPrice();
-    }
-    
-    public double deductPrice(double price, double deductable){
-        double remainingPrice = price - deductable;
-        return remainingPrice;
-    }
-    
-    @Override
-    public void attachObserver(Observer observer) {
-        observers.add(observer);
-    }
-    
-    @Override
-    public void dettachObserver(Observer observer) {
-        observers.remove(observer);
-    }
-    
-    @Override
-    public void notifyObserver() {
-        java.util.Iterator<Observer> it = observers.iterator();
-        while (it.hasNext()) {
-                Observer observer = it.next();
-                observer.Update(ID);
-        }
+    public void Update(String ID){
+        
     }
 }
