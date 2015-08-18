@@ -23,9 +23,9 @@ public class ItemController {
    // private CustomerUI customerUI;
     
     
-    public ItemController(String machine) {
+    public ItemController(int machineID) {
        
-        itemsTableModel = new ItemTableModel(machine);
+        itemsTableModel = new ItemTableModel(machineID);
        
     }
     public ItemController() {

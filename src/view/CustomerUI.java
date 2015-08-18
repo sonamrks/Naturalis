@@ -50,18 +50,18 @@ public class CustomerUI extends javax.swing.JFrame {
     /**
      * Creates new form CustomerUI
      */
-    public CustomerUI(String machine) { 
+    public CustomerUI(int machineID) { 
         initComponents();
         
-        itemsCartController = new CartItemsController(this, machine);
+        itemsCartController = new CartItemsController(this, machineID);
         smartCardController = new SmartCardController(this);
-        itemController = new ItemController(machine);
+        itemController = new ItemController(machineID);
         nutritionalFactsController = new NutritionalFactsController(this);
         
         cardLayout = new CardLayout();
         welcomePanel = new WelcomePanel();
         beveragePanel = new BeveragePanel(itemController);
-        snackPanel = new SnackPanel();
+        snackPanel = new SnackPanel(itemController);
         itemsPanel.setLayout(cardLayout);
         itemsPanel.add(welcomePanel,"Welcome");
         itemsPanel.add(beveragePanel,"Beverages");
@@ -82,7 +82,7 @@ public class CustomerUI extends javax.swing.JFrame {
     /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerUI("machine1").setVisible(true);
+                new CustomerUI(4201).setVisible(true);
             }
         });
     }

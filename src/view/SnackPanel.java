@@ -14,13 +14,13 @@ import java.util.ArrayList;
  */
 public class SnackPanel extends javax.swing.JPanel {
 
-       private static ItemController itemsController;
+       private ItemController itemsController;
     /**
      * Creates new form SnackPanel
      */
-    public SnackPanel() {
+    public SnackPanel(ItemController itemController) {
         initComponents();
-        
+        this.itemsController = itemController;
     }
 
     public void setCodeLabel(){
