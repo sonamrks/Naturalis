@@ -5,6 +5,8 @@
  */
 package view;
 
+import controller.AccessUserController;
+import controller.UserLogController;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,12 +18,16 @@ public class NavigationPanel extends javax.swing.JPanel {
     private LoginPanel loginPanel;
     private String username;
     private String password;
+    private AccessUserController accessUserController;
+    private UserLogController userLogController;
     /**
      * Creates new form NavigationPage
      */
     public NavigationPanel() {
         initComponents();
         loginPanel = new LoginPanel();
+        accessUserController = new AccessUserController();
+        userLogController = new UserLogController();
     }
 
     /**
@@ -84,9 +90,11 @@ public class NavigationPanel extends javax.swing.JPanel {
         if (result == JOptionPane.OK_OPTION) {
             username = loginPanel.getUserName();
             password = loginPanel.getPassword();
-            System.out.println(password);
-            if(username.equals("admin") && password.equals("admin")) {
+            
+            boolean validateOK = accessUserController.validateAccess(username, password, "admin");
+            if(validateOK == true) {
                 System.out.println("Login valid");
+                userLogController.addLogEntry(username,password,"admin");
                 Main.setActivityType(2);
                 Main.getCardLayout().show(Main.getCards(),"Machines");
             }
@@ -106,9 +114,10 @@ public class NavigationPanel extends javax.swing.JPanel {
         if (result == JOptionPane.OK_OPTION) {
             username = loginPanel.getUserName();
             password = loginPanel.getPassword();
-            System.out.println(password);
-            if(username.equals("manager") && password.equals("manager")) {
-                System.out.println("Login valid");
+            
+            boolean validateOK = accessUserController.validateAccess(username, password, "manager");
+            if(validateOK == true) {
+                
                 Main.setActivityType(2);
                 new AdminUI().setVisible(true);
             }
