@@ -53,19 +53,20 @@ public class CustomerUI extends javax.swing.JFrame {
     public CustomerUI(String machine) { 
         initComponents();
         
-        cardLayout = new CardLayout();
-        welcomePanel = new WelcomePanel();
-     //   beveragePanel = new BeveragePanel(itemController);
-        snackPanel = new SnackPanel();
-        itemsPanel.setLayout(cardLayout);
-        itemsPanel.add(welcomePanel,"Welcome");
-     //   itemsPanel.add(beveragePanel,"Beverages");
-        itemsPanel.add(snackPanel,"Snacks");
-        
         itemsCartController = new CartItemsController(this, machine);
         smartCardController = new SmartCardController(this);
         itemController = new ItemController(machine);
         nutritionalFactsController = new NutritionalFactsController(this);
+        
+        cardLayout = new CardLayout();
+        welcomePanel = new WelcomePanel();
+        beveragePanel = new BeveragePanel(itemController);
+        snackPanel = new SnackPanel();
+        itemsPanel.setLayout(cardLayout);
+        itemsPanel.add(welcomePanel,"Welcome");
+        itemsPanel.add(beveragePanel,"Beverages");
+        itemsPanel.add(snackPanel,"Snacks");
+
     //    paymentController = new PaymentController(this);
         checkedList[0] = false;
         checkedList[1] = false;
@@ -1145,8 +1146,7 @@ public class CustomerUI extends javax.swing.JFrame {
 
     private void selectBeverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBeverageButtonActionPerformed
         // TODO add your handling code here:
-       CardLayout card  = (CardLayout)itemsPanel.getLayout();
-       card.show(itemsPanel,"beverage");
+       cardLayout.show(itemsPanel,"Beverages");
     }//GEN-LAST:event_selectBeverageButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
