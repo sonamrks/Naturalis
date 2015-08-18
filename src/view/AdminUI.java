@@ -5,7 +5,6 @@
  */
 package view;
 
-import controller.AdminController;
 import controller.ItemController;
 import controller.ManagerController;
 import java.awt.Color;
@@ -20,27 +19,94 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
- * @author Sonam
+ * @author AshitaRaghu
  */
 public class AdminUI extends javax.swing.JFrame {
 
-    private AdminController adminController;
+    private ManagerController managerController;
     private static ItemController itemsController;
     /**
-     * Creates new form ManagerUI
+     * Creates new form AdminUI
      */
     public AdminUI() {
         initComponents();
-        adminController= new AdminController();
+        managerController = new ManagerController();
         itemsController = new ItemController();
+        //setProtein();
+        //setSugars();
+        //setCarbohydrates();
+        //setCalories();
         setPrice();
         setCount();
-        setBevSnackSoldCount();        
+        
     }
-
+    public void setProtein(){
+        
+        ArrayList<Integer> proteinList = managerController.setProtein();
+        
+        //cokeProteinTextField.setText(Integer.toString(proteinList.get(0)));
+       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
+        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
+        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
+        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
+        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
+        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
+        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
+        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
+        
+        
+    }
+    public void setSugars(){
+        
+        ArrayList<Integer> sugarsList = managerController.setSugars();
+        
+        //cokeSugarsTextField.setText(Integer.toString(sugarsList.get(0)));
+       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
+        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
+        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
+        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
+        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
+        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
+        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
+        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
+        
+        
+    }
+    public void setCarbohydrates(){
+        
+        ArrayList<Integer> carbohydratesList = managerController.setCarbohydrates();
+        
+        //cokeCarbohydratesTextField.setText(Integer.toString(carbohydratesList.get(0)));
+       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
+        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
+        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
+        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
+        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
+        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
+        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
+        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
+        
+        
+    }
+    public void setCalories(){
+        
+        ArrayList<Integer> caloriesList = managerController.setCalories();
+        
+       // cokeCaloriesTextField.setText(Integer.toString(caloriesList.get(0)));
+       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
+        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
+        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
+        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
+        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
+        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
+        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
+        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
+        
+        
+    }
     public void setPrice(){
         
-        ArrayList<Double> priceList = itemsController.setPrice();
+        ArrayList<Double> priceList = managerController.setPrice();
         
         cokePriceTextField.setText(Double.toString(priceList.get(0)));
         orangePriceTextField.setText(Double.toString(priceList.get(1)));
@@ -61,10 +127,14 @@ public class AdminUI extends javax.swing.JFrame {
         crackersPriceTextField.setText(Double.toString(priceList.get(15)));
         veggieStrawsPriceTextField.setText(Double.toString(priceList.get(16)));
         greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));
+        
+        
+        
+        
     }
     public void setCount(){
         
-        ArrayList<Integer> countList = itemsController.setCount();
+        ArrayList<Integer> countList = managerController.setCount();
         
         cokeCountTextField.setText(Integer.toString(countList.get(0)));
         orangeCountTextField.setText(Integer.toString(countList.get(1)));
@@ -88,10 +158,7 @@ public class AdminUI extends javax.swing.JFrame {
         
         
     }
-    public void setBevSnackSoldCount(){
-        beveragesSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("beverage")));
-        snacksSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("snack")));
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,6 +172,7 @@ public class AdminUI extends javax.swing.JFrame {
         bevSnackMachineButtonGroup = new javax.swing.ButtonGroup();
         itemsMachineButtonGroup = new javax.swing.ButtonGroup();
         nutritionalStatisticsButtonGroup = new javax.swing.ButtonGroup();
+        allMachinesButtonGroup = new javax.swing.ButtonGroup();
         statisticsPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         BevSnacksStatisticsPanel = new javax.swing.JPanel();
@@ -114,18 +182,17 @@ public class AdminUI extends javax.swing.JFrame {
         snacksSoldTextField = new javax.swing.JTextField();
         bevSnackPieChartButton = new javax.swing.JButton();
         bevSnackBarChartButton = new javax.swing.JButton();
-        machine1RadioButton = new javax.swing.JRadioButton();
-        machine2RadioButton = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         itemsPieChartButton = new javax.swing.JButton();
         itemsBarChartButton = new javax.swing.JButton();
-        itemsMachine1RadioButton = new javax.swing.JRadioButton();
-        itemsMachine2RadioButton = new javax.swing.JRadioButton();
         nutritionalStatisticsPanel = new javax.swing.JPanel();
         nutritionalStatisticsButton = new javax.swing.JButton();
-        nutStatsMachine1RadioButton = new javax.swing.JRadioButton();
-        nutStatsMachine2RadioButton = new javax.swing.JRadioButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        machine1RadioButton = new javax.swing.JRadioButton();
+        machine2RadioButton = new javax.swing.JRadioButton();
+        allMachinesRadioButton = new javax.swing.JRadioButton();
         itemsScrollPane = new javax.swing.JScrollPane();
         cokePanel = new javax.swing.JPanel();
         frappuccinoPanel = new javax.swing.JPanel();
@@ -285,6 +352,8 @@ public class AdminUI extends javax.swing.JFrame {
 
         jLabel2.setText("Statistics Panel");
 
+        BevSnacksStatisticsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         jLabel1.setText("Number of Beverages Sold :");
 
         jLabel3.setText("Number of Snacks Sold : ");
@@ -315,22 +384,6 @@ public class AdminUI extends javax.swing.JFrame {
             }
         });
 
-        bevSnackMachineButtonGroup.add(machine1RadioButton);
-        machine1RadioButton.setText("Machine 1");
-        machine1RadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machine1RadioButtonActionPerformed(evt);
-            }
-        });
-
-        bevSnackMachineButtonGroup.add(machine2RadioButton);
-        machine2RadioButton.setText("Machine 2");
-        machine2RadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machine2RadioButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout BevSnacksStatisticsPanelLayout = new javax.swing.GroupLayout(BevSnacksStatisticsPanel);
         BevSnacksStatisticsPanel.setLayout(BevSnacksStatisticsPanelLayout);
         BevSnacksStatisticsPanelLayout.setHorizontalGroup(
@@ -346,17 +399,13 @@ public class AdminUI extends javax.swing.JFrame {
                                 .addComponent(beveragesSoldTextField))
                             .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                                 .addComponent(snacksSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(128, 128, 128))
                     .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
                         .addComponent(bevSnackPieChartButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bevSnackBarChartButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(machine1RadioButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(machine2RadioButton)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         BevSnacksStatisticsPanelLayout.setVerticalGroup(
@@ -373,11 +422,11 @@ public class AdminUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bevSnackPieChartButton)
-                    .addComponent(bevSnackBarChartButton)
-                    .addComponent(machine1RadioButton)
-                    .addComponent(machine2RadioButton))
+                    .addComponent(bevSnackBarChartButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setText("All items Statistics");
 
@@ -395,39 +444,20 @@ public class AdminUI extends javax.swing.JFrame {
             }
         });
 
-        itemsMachineButtonGroup.add(itemsMachine1RadioButton);
-        itemsMachine1RadioButton.setText("Machine 1");
-        itemsMachine1RadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemsMachine1RadioButtonActionPerformed(evt);
-            }
-        });
-
-        itemsMachineButtonGroup.add(itemsMachine2RadioButton);
-        itemsMachine2RadioButton.setText("Machine 2");
-        itemsMachine2RadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemsMachine2RadioButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(itemsMachine1RadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(itemsMachine2RadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
-                .addComponent(itemsPieChartButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(itemsBarChartButton)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(itemsPieChartButton)
+                        .addGap(34, 34, 34)
+                        .addComponent(itemsBarChartButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel4)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -437,28 +467,17 @@ public class AdminUI extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(itemsMachine1RadioButton)
-                    .addComponent(itemsMachine2RadioButton)
                     .addComponent(itemsPieChartButton)
                     .addComponent(itemsBarChartButton))
                 .addGap(30, 30, 30))
         );
 
+        nutritionalStatisticsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         nutritionalStatisticsButton.setText("Nutritional Statistics");
         nutritionalStatisticsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nutritionalStatisticsButtonActionPerformed(evt);
-            }
-        });
-
-        nutritionalStatisticsButtonGroup.add(nutStatsMachine1RadioButton);
-        nutStatsMachine1RadioButton.setText("Machine 1");
-
-        nutritionalStatisticsButtonGroup.add(nutStatsMachine2RadioButton);
-        nutStatsMachine2RadioButton.setText("Machine 2");
-        nutStatsMachine2RadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutStatsMachine2RadioButtonActionPerformed(evt);
             }
         });
 
@@ -468,56 +487,108 @@ public class AdminUI extends javax.swing.JFrame {
             nutritionalStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nutritionalStatisticsPanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(nutritionalStatisticsPanelLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(nutStatsMachine1RadioButton)
-                .addGap(18, 18, 18)
-                .addComponent(nutStatsMachine2RadioButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         nutritionalStatisticsPanelLayout.setVerticalGroup(
             nutritionalStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nutritionalStatisticsPanelLayout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addGroup(nutritionalStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nutStatsMachine1RadioButton)
-                    .addComponent(nutStatsMachine2RadioButton))
-                .addGap(18, 18, 18)
-                .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(nutritionalStatisticsPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel5.setText("Sales Satistics");
+
+        allMachinesButtonGroup.add(machine1RadioButton);
+        machine1RadioButton.setText("Machine 1");
+        machine1RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine1RadioButtonActionPerformed(evt);
+            }
+        });
+
+        allMachinesButtonGroup.add(machine2RadioButton);
+        machine2RadioButton.setText("Machine 2");
+        machine2RadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine2RadioButtonActionPerformed(evt);
+            }
+        });
+
+        allMachinesButtonGroup.add(allMachinesRadioButton);
+        allMachinesRadioButton.setText("All Machines");
+        allMachinesRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allMachinesRadioButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(machine1RadioButton)
+                        .addGap(37, 37, 37)
+                        .addComponent(machine2RadioButton)
+                        .addGap(30, 30, 30)
+                        .addComponent(allMachinesRadioButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(machine1RadioButton)
+                    .addComponent(machine2RadioButton)
+                    .addComponent(allMachinesRadioButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
         statisticsPanel.setLayout(statisticsPanelLayout);
         statisticsPanelLayout.setHorizontalGroup(
             statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statisticsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(113, 113, 113))
+            .addComponent(nutritionalStatisticsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(statisticsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(statisticsPanelLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addComponent(BevSnacksStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(nutritionalStatisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(statisticsPanelLayout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         statisticsPanelLayout.setVerticalGroup(
             statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(statisticsPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BevSnacksStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(43, 43, 43)
                 .addComponent(nutritionalStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addGap(115, 115, 115))
         );
 
         frappuccinoImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/frappuccino.jpg"))); // NOI18N
@@ -2118,7 +2189,7 @@ public class AdminUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(proteinSmoothieCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,108);
+        managerController.increaseItemCount(count,108);
         System.out.println(count);
         proteinSmoothieCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addProteinSmoothieButtonActionPerformed
@@ -2127,20 +2198,20 @@ public class AdminUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(frappuccinoCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,105);
+        managerController.increaseItemCount(count,105);
         frappuccinoCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addFrappuccinoButtonActionPerformed
 
     private void updateProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProteinSmoothieButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(proteinSmoothiePriceTextField.getText());
-        adminController.updatePrice(price,108);
+        managerController.updatePrice(price,108);
     }//GEN-LAST:event_updateProteinSmoothieButtonActionPerformed
 
     private void frappuccinoUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(frappuccinoPriceTextField.getText());
-        adminController.updatePrice(price,105);
+        managerController.updatePrice(price,105);
     }//GEN-LAST:event_frappuccinoUpdateButtonActionPerformed
 
     private void orangePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangePriceTextFieldActionPerformed
@@ -2154,14 +2225,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void orangeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(orangePriceTextField.getText());
-        adminController.updatePrice(price,102);
+        managerController.updatePrice(price,102);
     }//GEN-LAST:event_orangeUpdateButtonActionPerformed
 
     private void addOrangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrangeButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(orangeCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,102);
+        managerController.increaseItemCount(count,102);
         orangeCountTextField.setText(Integer.toString(count));
         System.out.println("test");
     }//GEN-LAST:event_addOrangeButtonActionPerformed
@@ -2178,14 +2249,14 @@ public class AdminUI extends javax.swing.JFrame {
         // TODO add your handling code here:
          
         double price = Double.valueOf(lemonadePriceTextField.getText());
-        adminController.updatePrice(price,103);
+        managerController.updatePrice(price,103);
     }//GEN-LAST:event_lemonadeUpdateButtonActionPerformed
 
     private void addLemonadeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLemonadeButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(lemonadeCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,103);
+        managerController.increaseItemCount(count,103);
         lemonadeCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addLemonadeButtonActionPerformed
 
@@ -2200,14 +2271,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void gatoradeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(gatoradePriceTextField.getText());
-        adminController.updatePrice(price,104);
+        managerController.updatePrice(price,104);
     }//GEN-LAST:event_gatoradeUpdateButtonActionPerformed
 
     private void addGatoradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGatoradeButtonActionPerformed
         // TODO add your handling code here:
          int count = Integer.valueOf(gatoradeCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,104);
+        managerController.increaseItemCount(count,104);
         gatoradeCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addGatoradeButtonActionPerformed
 
@@ -2222,14 +2293,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void coconutWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(coconutWaterPriceTextField.getText());
-        adminController.updatePrice(price,106);
+        managerController.updatePrice(price,106);
     }//GEN-LAST:event_coconutWaterUpdateButtonActionPerformed
 
     private void addCoconutWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCoconutWaterButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(coconutWaterCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,106);
+        managerController.increaseItemCount(count,106);
         System.out.println(count);
         coconutWaterCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addCoconutWaterButtonActionPerformed
@@ -2245,14 +2316,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void sparklingWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(sparklingWaterPriceTextField.getText());
-        adminController.updatePrice(price,107);
+        managerController.updatePrice(price,107);
     }//GEN-LAST:event_sparklingWaterUpdateButtonActionPerformed
 
     private void addSparklingWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSparklingWaterButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(sparklingWaterCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,107);
+        managerController.increaseItemCount(count,107);
         System.out.println(count);
         sparklingWaterCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addSparklingWaterButtonActionPerformed
@@ -2268,14 +2339,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void updateCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCokeButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(cokePriceTextField.getText());
-        adminController.updatePrice(price,101);
+        managerController.updatePrice(price,101);
     }//GEN-LAST:event_updateCokeButtonActionPerformed
 
     private void addCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCokeButtonActionPerformed
         // TODO add your handling code here:
           int count = Integer.valueOf(cokeCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,101);
+        managerController.increaseItemCount(count,101);
         System.out.println(count);
         cokeCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addCokeButtonActionPerformed
@@ -2291,14 +2362,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void granolaUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(granolaPriceTextField.getText());
-        adminController.updatePrice(price,201);
+        managerController.updatePrice(price,201);
     }//GEN-LAST:event_granolaUpdateButtonActionPerformed
 
     private void granolaAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(granolaCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,201);
+        managerController.increaseItemCount(count,201);
         System.out.println(count);
         granolaCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_granolaAddButtonActionPerformed
@@ -2330,14 +2401,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void chipsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(chipsPriceTextField.getText());
-        adminController.updatePrice(price,202);
+        managerController.updatePrice(price,202);
     }//GEN-LAST:event_chipsUpdateButtonActionPerformed
 
     private void chipsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(chipsCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,202);
+        managerController.increaseItemCount(count,202);
         System.out.println(count);
         chipsCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_chipsAddButtonActionPerformed
@@ -2353,14 +2424,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void nutsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(nutsPriceTextField.getText());
-        adminController.updatePrice(price,203);
+        managerController.updatePrice(price,203);
     }//GEN-LAST:event_nutsUpdateButtonActionPerformed
 
     private void nutsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsAddButtonActionPerformed
         // TODO add your handling code here:
          int count = Integer.valueOf(nutsCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,203);
+        managerController.increaseItemCount(count,203);
         System.out.println(count);
         nutsCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_nutsAddButtonActionPerformed
@@ -2376,14 +2447,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void cookieUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieUpdateButtonActionPerformed
         // TODO add your handling code here:
            double price = Double.valueOf(cookiePriceTextField.getText());
-        adminController.updatePrice(price,204);
+        managerController.updatePrice(price,204);
     }//GEN-LAST:event_cookieUpdateButtonActionPerformed
 
     private void cookieAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(cookieCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,204);
+        managerController.increaseItemCount(count,204);
         cookieCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_cookieAddButtonActionPerformed
 
@@ -2398,14 +2469,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void driedFruitsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(driedFruitsPriceTextField.getText());
-        adminController.updatePrice(price,205);
+        managerController.updatePrice(price,205);
     }//GEN-LAST:event_driedFruitsUpdateButtonActionPerformed
 
     private void driedFruitsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(driedFruitsCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,205);
+        managerController.increaseItemCount(count,205);
         driedFruitsCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_driedFruitsAddButtonActionPerformed
 
@@ -2420,14 +2491,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void popcornUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(popcornPriceTextField.getText());
-        adminController.updatePrice(price,206);
+        managerController.updatePrice(price,206);
     }//GEN-LAST:event_popcornUpdateButtonActionPerformed
 
     private void popcornAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(popcornCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,206);
+        managerController.increaseItemCount(count,206);
         popcornCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_popcornAddButtonActionPerformed
 
@@ -2442,14 +2513,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void crackersUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(crackersPriceTextField.getText());
-        adminController.updatePrice(price,207);
+        managerController.updatePrice(price,207);
     }//GEN-LAST:event_crackersUpdateButtonActionPerformed
 
     private void crackersAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(crackersCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,207);
+        managerController.increaseItemCount(count,207);
         crackersCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_crackersAddButtonActionPerformed
 
@@ -2464,14 +2535,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void veggieStrawsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(veggieStrawsPriceTextField.getText());
-        adminController.updatePrice(price,208);
+        managerController.updatePrice(price,208);
     }//GEN-LAST:event_veggieStrawsUpdateButtonActionPerformed
 
     private void veggieStrawsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(veggieStrawsCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,208);
+        managerController.increaseItemCount(count,208);
         veggieStrawsCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_veggieStrawsAddButtonActionPerformed
 
@@ -2486,14 +2557,14 @@ public class AdminUI extends javax.swing.JFrame {
     private void greekYogurtUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(greekYogurtPriceTextField.getText());
-        adminController.updatePrice(price,209);
+        managerController.updatePrice(price,209);
     }//GEN-LAST:event_greekYogurtUpdateButtonActionPerformed
 
     private void greekYogurtAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(greekYogurtCountTextField.getText());
         count++;
-        adminController.increaseItemCount(count,209);
+        managerController.increaseItemCount(count,209);
         greekYogurtCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_greekYogurtAddButtonActionPerformed
 
@@ -2536,25 +2607,15 @@ public class AdminUI extends javax.swing.JFrame {
         barChart.setVisible(true);
     }//GEN-LAST:event_bevSnackBarChartButtonActionPerformed
 
-    private void machine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1RadioButtonActionPerformed
-        // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("beverage","machine1")));
-        snacksSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("snack","machine1")));
-    }//GEN-LAST:event_machine1RadioButtonActionPerformed
-
-    private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
-        // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("beverage","machine2")));
-        snacksSoldTextField.setText(Integer.toString(itemsController.getCategorySoldCount("snack","machine2")));
-    }//GEN-LAST:event_machine2RadioButtonActionPerformed
-
     private void itemsBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsBarChartButtonActionPerformed
         // TODO add your handling code here:
         int[] itemsSoldCount = new int[100];
-        if(itemsMachine1RadioButton.isSelected())
-            itemsSoldCount = itemsController.getItemSoldCount("machine1");
+        if(machine1RadioButton.isSelected())
+            itemsSoldCount = managerController.getItemSoldCount("machine1");
+        else if(machine1RadioButton.isSelected())
+            itemsSoldCount = managerController.getItemSoldCount("machine2");
         else
-            itemsSoldCount = itemsController.getItemSoldCount("machine2");
+           itemsSoldCount = managerController.getItemSoldCount("allMachines"); 
         
         BarChart barChart = new BarChart();
         barChart.itemSoldBarChart("Bar Chart","Items Sold Comparison",itemsSoldCount);
@@ -2565,44 +2626,55 @@ public class AdminUI extends javax.swing.JFrame {
     private void itemsPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsPieChartButtonActionPerformed
         // TODO add your handling code here:
         int[] itemsSoldCount = new int[100];
-        if(itemsMachine1RadioButton.isSelected())
-            itemsSoldCount = itemsController.getItemSoldCount("machine1");
+        if(machine1RadioButton.isSelected())
+            itemsSoldCount = managerController.getItemSoldCount("machine1");
+        else if(machine1RadioButton.isSelected())
+            itemsSoldCount = managerController.getItemSoldCount("machine2");
         else
-            itemsSoldCount = itemsController.getItemSoldCount("machine2");
+           itemsSoldCount = managerController.getItemSoldCount("allMachines");
          
         PieChart pieChart = new PieChart();
         pieChart.itemSoldPieChart("Pie Chart","Items Sold Comparison",itemsSoldCount);
         pieChart.pack();
         pieChart.setVisible(true);
-        
-        
     }//GEN-LAST:event_itemsPieChartButtonActionPerformed
-
-    private void itemsMachine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsMachine1RadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemsMachine1RadioButtonActionPerformed
-
-    private void itemsMachine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsMachine2RadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemsMachine2RadioButtonActionPerformed
 
     private void nutritionalStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionalStatisticsButtonActionPerformed
         // TODO add your handling code here:
         int[] nutritionalItemsSoldCount = new int[100];
-        if(nutStatsMachine1RadioButton.isSelected())
-            nutritionalItemsSoldCount = itemsController.getNutritionalItemSoldCount("machine1");
+        if(machine1RadioButton.isSelected())
+            nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("machine1");
+        else if(machine2RadioButton.isSelected())
+            nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("machine2");
         else
-            nutritionalItemsSoldCount = itemsController.getNutritionalItemSoldCount("machine2");
+           nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("allMachines"); 
+        
         
         PieChart pieChart = new PieChart();
-//        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount);
+        //for(int i=0;i<15;i++)
+            //System.out.println(managerController.lowCalNames[i]);
+        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount,managerController.lowCalCount,managerController.lowCalNames,managerController.highProteinCount,managerController.highProteinNames,managerController.lowSugarsCount,managerController.lowSugarsNames);
         pieChart.pack();
         pieChart.setVisible(true);
     }//GEN-LAST:event_nutritionalStatisticsButtonActionPerformed
 
-    private void nutStatsMachine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutStatsMachine2RadioButtonActionPerformed
+    private void allMachinesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allMachinesRadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nutStatsMachine2RadioButtonActionPerformed
+        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage")));
+        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack")));
+    }//GEN-LAST:event_allMachinesRadioButtonActionPerformed
+
+    private void machine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1RadioButtonActionPerformed
+        // TODO add your handling code here:
+        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine1")));
+        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine1")));
+    }//GEN-LAST:event_machine1RadioButtonActionPerformed
+
+    private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
+        // TODO add your handling code here:
+        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine2")));
+        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine2")));
+    }//GEN-LAST:event_machine2RadioButtonActionPerformed
     public static void main(String[] args){
     /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2611,7 +2683,6 @@ public class AdminUI extends javax.swing.JFrame {
             }
         });
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BevSnacksStatisticsPanel;
     private javax.swing.JButton addCoconutWaterButton;
@@ -2623,6 +2694,8 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JButton addProteinSmoothieButton;
     private javax.swing.JButton addSparklingWaterButton;
     private javax.swing.JButton addproteinShakeButton1;
+    private javax.swing.ButtonGroup allMachinesButtonGroup;
+    private javax.swing.JRadioButton allMachinesRadioButton;
     private javax.swing.JButton bevSnackBarChartButton;
     private javax.swing.ButtonGroup bevSnackMachineButtonGroup;
     private javax.swing.JButton bevSnackPieChartButton;
@@ -2690,8 +2763,6 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JTextField greekYogurtPriceTextField;
     private javax.swing.JButton greekYogurtUpdateButton;
     private javax.swing.JButton itemsBarChartButton;
-    private javax.swing.JRadioButton itemsMachine1RadioButton;
-    private javax.swing.JRadioButton itemsMachine2RadioButton;
     private javax.swing.ButtonGroup itemsMachineButtonGroup;
     private javax.swing.JButton itemsPieChartButton;
     private javax.swing.JScrollPane itemsScrollPane;
@@ -2732,10 +2803,12 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField lemonadeCountTextField;
     private javax.swing.JLabel lemonadeImageLabel1;
     private javax.swing.JPanel lemonadePanel;
@@ -2743,8 +2816,6 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JButton lemonadeUpdateButton;
     private javax.swing.JRadioButton machine1RadioButton;
     private javax.swing.JRadioButton machine2RadioButton;
-    private javax.swing.JRadioButton nutStatsMachine1RadioButton;
-    private javax.swing.JRadioButton nutStatsMachine2RadioButton;
     private javax.swing.JButton nutritionalStatisticsButton;
     private javax.swing.ButtonGroup nutritionalStatisticsButtonGroup;
     private javax.swing.JPanel nutritionalStatisticsPanel;
