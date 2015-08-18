@@ -117,7 +117,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             
             boolean validateOK = accessUserController.validateAccess(username, password, "manager");
             if(validateOK == true) {
-                
+                userLogController.addLogEntry(username,password,"manager");
                 Main.setActivityType(2);
                 new AdminUI().setVisible(true);
             }
