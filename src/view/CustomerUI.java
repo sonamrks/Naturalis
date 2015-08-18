@@ -21,6 +21,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -29,7 +30,7 @@ import javax.swing.JTable;
  * @author AshitaRaghu
  */
 public class CustomerUI extends javax.swing.JFrame {
-
+    
     private JTable cartTable; 
     private JTable suggestionsTable;
     private static CartItemsController itemsCartController;
@@ -38,6 +39,10 @@ public class CustomerUI extends javax.swing.JFrame {
     private static NutritionalFactsController nutritionalFactsController;
     private static PaymentContext context;
     private double price;
+    static private CardLayout cardLayout;
+    private WelcomePanel welcomePanel;
+    private BeveragePanel beveragePanel;
+    private SnackPanel snackPanel;
     
   //  private static PaymentController paymentController;
     private Boolean[] checkedList = new Boolean[3];
@@ -45,9 +50,18 @@ public class CustomerUI extends javax.swing.JFrame {
     /**
      * Creates new form CustomerUI
      */
-    public CustomerUI(String machine) {
+    public CustomerUI(String machine) { 
         initComponents();
-
+        
+        cardLayout = new CardLayout();
+        welcomePanel = new WelcomePanel();
+     //   beveragePanel = new BeveragePanel(itemController);
+        snackPanel = new SnackPanel();
+        itemsPanel.setLayout(cardLayout);
+        itemsPanel.add(welcomePanel,"Welcome");
+     //   itemsPanel.add(beveragePanel,"Beverages");
+        itemsPanel.add(snackPanel,"Snacks");
+        
         itemsCartController = new CartItemsController(this, machine);
         smartCardController = new SmartCardController(this);
         itemController = new ItemController(machine);
@@ -125,8 +139,6 @@ public class CustomerUI extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         coinsImageLabel = new javax.swing.JLabel();
         itemsPanel = new javax.swing.JPanel();
-        welcomePanel = new view.WelcomePanel();
-        snackPanel = new view.SnackPanel();
         middlePanel = new javax.swing.JPanel();
         displayPanel = new javax.swing.JPanel();
         lowSugarsCheckBox = new javax.swing.JCheckBox();
@@ -326,9 +338,16 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        itemsPanel.setLayout(new java.awt.CardLayout());
-        itemsPanel.add(welcomePanel, "welcome");
-        itemsPanel.add(snackPanel, "snack");
+        javax.swing.GroupLayout itemsPanelLayout = new javax.swing.GroupLayout(itemsPanel);
+        itemsPanel.setLayout(itemsPanelLayout);
+        itemsPanelLayout.setHorizontalGroup(
+            itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        itemsPanelLayout.setVerticalGroup(
+            itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 368, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
@@ -341,7 +360,7 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(itemsPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(itemsPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(leftPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(dispenserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -707,7 +726,7 @@ public class CustomerUI extends javax.swing.JFrame {
                                 .addGap(19, 19, 19)
                                 .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 36, Short.MAX_VALUE))
-                    .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE))
+                    .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 385, Short.MAX_VALUE))
                 .addContainerGap())
         );
         middlePanelLayout.setVerticalGroup(
@@ -1104,8 +1123,7 @@ public class CustomerUI extends javax.swing.JFrame {
 
     private void selectSnackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectSnackButtonActionPerformed
         // TODO add your handling code here:
-        CardLayout card  = (CardLayout)itemsPanel.getLayout();
-       card.show(itemsPanel,"snack");
+        cardLayout.show(itemsPanel,"Snacks");
     }//GEN-LAST:event_selectSnackButtonActionPerformed
 
     private void itemCodeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCodeTextFieldActionPerformed
@@ -1424,11 +1442,9 @@ public class CustomerUI extends javax.swing.JFrame {
     private javax.swing.JButton selectBeverageButton;
     private javax.swing.JPanel selectButtonPanel;
     private javax.swing.JButton selectSnackButton;
-    private view.SnackPanel snackPanel;
     private javax.swing.JTextField sugarsTextField;
     private javax.swing.JButton suggestionsButton;
     private javax.swing.JTextArea suggestionsTextArea;
     private javax.swing.JTextField toTextField;
-    private view.WelcomePanel welcomePanel;
     // End of variables declaration//GEN-END:variables
 }
