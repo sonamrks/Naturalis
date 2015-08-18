@@ -16,6 +16,14 @@ public class ManagerController {
     private Admin admin;
     private ItemTableModel itemsTableModel;
     
+    int[] nutritionalCount = new int[100];
+    public int[] lowCalCount = new int[100];
+    public String[] lowCalNames = new String[100];
+    public int[] highProteinCount = new int[100];
+    public String[] highProteinNames = new String[100];
+    public int[] lowSugarsCount = new int[100];
+    public String[] lowSugarsNames = new String[100];
+    
     public ManagerController(){
         admin = new Admin();
         itemsTableModel = new ItemTableModel();
@@ -57,6 +65,19 @@ public class ManagerController {
         return soldCount;
     }
     public int[] getNutritionalItemSoldCount(String machine){
-        return itemsTableModel.getNutritionalItemSoldCount(machine);
+        
+        nutritionalCount = itemsTableModel.getNutritionalItemSoldCount(machine);
+        
+        lowCalCount = itemsTableModel.getLowCalCount();
+        lowCalNames = itemsTableModel.getLowCalNames();
+        highProteinCount = itemsTableModel.getHighProteinCount();
+        highProteinNames = itemsTableModel.getHighProteinNames();
+        lowSugarsCount = itemsTableModel.getLowSugarsCount();
+        lowSugarsNames = itemsTableModel.getLowSugarsNames();
+        
+       // for(int i=0;i<5;i++)
+         //   System.out.println(lowCalNames[i]);
+        
+        return nutritionalCount;
     }
 }

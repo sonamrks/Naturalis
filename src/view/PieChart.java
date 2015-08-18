@@ -7,13 +7,17 @@ package view;
 
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PiePlot3D;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.util.Rotation;
@@ -65,7 +69,7 @@ public class PieChart extends JFrame {
         beverageItemsDataset.setValue("protein shake", soldCount[8]);
         
         
-        JFreeChart beverageitemsChart = ChartFactory.createPieChart3D(chartTitle, beverageItemsDataset, true, true, false);
+        JFreeChart beverageitemsChart = ChartFactory.createPieChart3D("Beverages", beverageItemsDataset, true, true, false);
         PiePlot3D plot = (PiePlot3D)beverageitemsChart.getPlot(); 
         plot.setStartAngle(0);
         plot.setDirection(Rotation.CLOCKWISE);
@@ -82,7 +86,7 @@ public class PieChart extends JFrame {
         snackItemsDataset.setValue("veggie straws", soldCount[16]);
         snackItemsDataset.setValue("greek yogurt", soldCount[17]);
         
-        JFreeChart snackItemsChart = ChartFactory.createPieChart3D(chartTitle, snackItemsDataset, true, true, false);
+        JFreeChart snackItemsChart = ChartFactory.createPieChart3D("Snacks", snackItemsDataset, true, true, false);
         PiePlot3D snackPlot = (PiePlot3D)snackItemsChart.getPlot(); 
         snackPlot.setStartAngle(0);
         snackPlot.setDirection(Rotation.CLOCKWISE);
@@ -104,7 +108,7 @@ public class PieChart extends JFrame {
     }
     
 
-    void nutritionalItemsSoldPieChart(String pie_Chart, String chartTitle, int[] nutritionalItemsSoldCount) {
+    void nutritionalItemsSoldPieChart(String pie_Chart, String chartTitle, int[] nutritionalItemsSoldCount,int[] lowCalCount, String[] lowCalNames,int[] highProteinCount, String[] highProteinNames,int[] lowSugarsCount, String[] lowSugarsNames) {
        DefaultPieDataset itemsDataset = new DefaultPieDataset();
         itemsDataset.setValue("Low Calories", nutritionalItemsSoldCount[0]);
         itemsDataset.setValue("High Protein", nutritionalItemsSoldCount[1]);
@@ -116,9 +120,55 @@ public class PieChart extends JFrame {
         plot.setDirection(Rotation.CLOCKWISE);
         plot.setForegroundAlpha(0.8f);
         
-        ChartPanel itemsChartPanel = new ChartPanel(itemsChart);
-        itemsChartPanel.setPreferredSize(new java.awt.Dimension(500, 300));
-        setContentPane(itemsChartPanel);
+      
+        DefaultCategoryDataset lowCaloriesItemsDataset = new DefaultCategoryDataset();
+
+        for(int i=0 ;lowCalCount[i]!=0; i++){
+            //System.out.println(lowCalNames[i]);
+            lowCaloriesItemsDataset.setValue(lowCalCount[i],"Count sold", lowCalNames[i]);
+        }
+        
+        JFreeChart lowCaloriesItemschart = ChartFactory.createBarChart3D("Low Calories", "Category", "Count sold", lowCaloriesItemsDataset, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot lowCalPlot = lowCaloriesItemschart.getCategoryPlot();
+        lowCalPlot.setRangeGridlinePaint(Color.black);
+        
+        DefaultCategoryDataset highProteinItemsDataset = new DefaultCategoryDataset();
+        for(int i=0; highProteinCount[i]!=0; i++){
+            highProteinItemsDataset.setValue(highProteinCount[i],"Count sold", highProteinNames[i]);
+        }
+        
+        JFreeChart highProteinItemschart = ChartFactory.createBarChart3D("High Protein", "Category", "Count sold", highProteinItemsDataset, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot highProteinPlot = highProteinItemschart.getCategoryPlot();
+        highProteinPlot.setRangeGridlinePaint(Color.black);
+        
+        DefaultCategoryDataset lowSugarsItemsDataset = new DefaultCategoryDataset();
+        for(int i=0; lowSugarsCount[i]!=0; i++){
+            lowSugarsItemsDataset.setValue(lowSugarsCount[i],"Count sold", lowSugarsNames[i]);
+        }
+        
+        JFreeChart lowSugarsItemschart = ChartFactory.createBarChart3D("Low Sugars", "Category", "Count sold", lowSugarsItemsDataset, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot lowSugarsPlot = lowSugarsItemschart.getCategoryPlot();
+        lowSugarsPlot.setRangeGridlinePaint(Color.black);
+        
+        ChartPanel nutritionalChartPanel = new ChartPanel(itemsChart);
+        ChartPanel lowCalChartPanel = new ChartPanel(lowCaloriesItemschart);
+        ChartPanel highProteinChartPanel = new ChartPanel(highProteinItemschart);
+        ChartPanel lowSugarsChartPanel = new ChartPanel(lowSugarsItemschart);
+        
+        JPanel chartPanel = new JPanel();
+        chartPanel.setLayout(new BorderLayout());
+        chartPanel.add(nutritionalChartPanel,BorderLayout.NORTH);
+        chartPanel.add(lowCalChartPanel,BorderLayout.WEST);
+        chartPanel.add(highProteinChartPanel,BorderLayout.CENTER);
+        chartPanel.add(lowSugarsChartPanel,BorderLayout.EAST);
+        
+        
+        chartPanel.setPreferredSize(new java.awt.Dimension(800, 400));
+        nutritionalChartPanel.setPreferredSize(new java.awt.Dimension(600, 400));
+        lowCalChartPanel.setPreferredSize(new java.awt.Dimension(400, 300));
+        highProteinChartPanel.setPreferredSize(new java.awt.Dimension(400, 300));
+        lowSugarsChartPanel.setPreferredSize(new java.awt.Dimension(400, 300));
+        setContentPane(chartPanel);
     }
     
 }

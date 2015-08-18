@@ -32,6 +32,12 @@ public class ItemTableModel {
     private String getSoldCount;
     private int[] soldCount = new int[100];
     private int machineID;
+    private int[] lowCalCount = new int[100];
+    private int[] highProteinCount = new int[100];
+    private int[] lowSugarsCount = new int[100];
+    private String[] lowCalNames = new String[100];
+    private String[] highProteinNames = new String[100];
+    private String[] lowSugarsNames = new String[100];
     
     DatabaseConnection dbConnection = DatabaseConnection.getInstance();
     Connection connection = dbConnection.getConnection();
@@ -486,45 +492,64 @@ public class ItemTableModel {
         String getHighProteinSold,getLowCaloriesSold,getLowSugarsSold;
         try {
             if(machine.equals("machine1"))
-                getLowCaloriesSold = "SELECT soldCount FROM item where calories<120 and machineID=4201";
+                getLowCaloriesSold = "SELECT name,soldCount FROM item where calories<120 and machineID=4201";
             else if(machine.equals("machine2"))
-                getLowCaloriesSold = "SELECT soldCount FROM item where calories<120 and machineID=4202";
+                getLowCaloriesSold = "SELECT name,soldCount FROM item where calories<120 and machineID=4202";
             else
-                getLowCaloriesSold = "SELECT soldCount FROM item where calories<120";
+                getLowCaloriesSold = "SELECT name,soldCount FROM item where calories<120";
 
             statement = connection.prepareStatement(getLowCaloriesSold);
             result = statement.executeQuery();
+            int i=0;
             while(result.next()){
                 sale+= result.getInt("soldCount");
                 soldCount[0]=sale;
+                lowCalCount[i]=result.getInt("soldCount");
+                lowCalNames[i]=result.getString("name");
+                //System.out.println(lowCalNames[i]);
+                i++;
             }
             sale = 0;
             
             if(machine.equals("machine1"))
-                getHighProteinSold = "SELECT soldCount FROM item where protein>4 and machineID=4201";
+                getHighProteinSold = "SELECT name,soldCount FROM item where protein>4 and machineID=4201";
             else if(machine.equals("machine2"))
-                getHighProteinSold = "SELECT soldCount FROM item where protein>4 and machineID=4202";
+                getHighProteinSold = "SELECT name,soldCount FROM item where protein>4 and machineID=4202";
             else
-                getHighProteinSold = "SELECT soldCount FROM item where protein>4";
+                getHighProteinSold = "SELECT name,soldCount FROM item where protein>4";
             statement = connection.prepareStatement(getHighProteinSold);
             result = statement.executeQuery();
+            
+            i = 0;
             while(result.next()){
                 sale+= result.getInt("soldCount");
                 soldCount[1]=sale;
+                
+                highProteinCount[i]=result.getInt("soldCount");
+                highProteinNames[i]=result.getString("name");
+                //System.out.println(highProteinNames[i]);
+                i++;
             }
             sale = 0;
             
             if(machine.equals("machine1"))
-                getLowSugarsSold = "SELECT soldCount FROM item where sugars<20 and machineID=4201";
+                getLowSugarsSold = "SELECT name,soldCount FROM item where sugars<20 and machineID=4201";
             else if(machine.equals("machine2"))
-                getLowSugarsSold = "SELECT soldCount FROM item where sugars<20 and machineID=4202";
+                getLowSugarsSold = "SELECT name,soldCount FROM item where sugars<20 and machineID=4202";
             else
-                getLowSugarsSold = "SELECT soldCount FROM item where sugars<20";
+                getLowSugarsSold = "SELECT name,soldCount FROM item where sugars<20";
             statement = connection.prepareStatement(getLowSugarsSold);
             result = statement.executeQuery();
+            
+            i = 0;
             while(result.next()){
                 sale+= result.getInt("soldCount");
                 soldCount[2]=sale;
+                
+                lowSugarsCount[i]=result.getInt("soldCount");
+                lowSugarsNames[i]=result.getString("name");
+                //System.out.println(lowSugarsNames[i]);
+                i++;
             }
             sale = 0;
         }
@@ -556,6 +581,24 @@ public class ItemTableModel {
            System.out.println(ex.getMessage());
         }
         return suggestions;
+    }
+    public int[] getLowCalCount(){
+        return lowCalCount;
+    }
+    public String[] getLowCalNames(){
+        return lowCalNames;
+    }
+    public int[] getHighProteinCount(){
+        return highProteinCount;
+    }
+    public String[] getHighProteinNames(){
+        return highProteinNames;
+    }
+    public int[] getLowSugarsCount(){
+        return lowSugarsCount;
+    }
+    public String[] getLowSugarsNames(){
+        return lowSugarsNames;
     }
     
 }

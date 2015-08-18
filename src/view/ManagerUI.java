@@ -2616,6 +2616,7 @@ public class ManagerUI extends javax.swing.JFrame {
             itemsSoldCount = managerController.getItemSoldCount("machine2");
         else
            itemsSoldCount = managerController.getItemSoldCount("allMachines"); 
+        
         BarChart barChart = new BarChart();
         barChart.itemSoldBarChart("Bar Chart","Items Sold Comparison",itemsSoldCount);
         barChart.pack();
@@ -2647,8 +2648,12 @@ public class ManagerUI extends javax.swing.JFrame {
             nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("machine2");
         else
            nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("allMachines"); 
+        
+        
         PieChart pieChart = new PieChart();
-        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount);
+        //for(int i=0;i<15;i++)
+            //System.out.println(managerController.lowCalNames[i]);
+        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount,managerController.lowCalCount,managerController.lowCalNames,managerController.highProteinCount,managerController.highProteinNames,managerController.lowSugarsCount,managerController.lowSugarsNames);
         pieChart.pack();
         pieChart.setVisible(true);
     }//GEN-LAST:event_nutritionalStatisticsButtonActionPerformed

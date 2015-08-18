@@ -5,8 +5,10 @@
  */
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -50,23 +52,48 @@ public class BarChart extends JFrame {
     
     public void itemSoldBarChart(String appTitle,String chartTitle,int[] soldCount){
         
-        DefaultCategoryDataset itemsDataset = new DefaultCategoryDataset();
-        itemsDataset.setValue(soldCount[0],"Count sold", "Coke");
-        itemsDataset.setValue(soldCount[1],"Count sold", "OrangeJuice");
-        itemsDataset.setValue(soldCount[2],"Count sold", "Lemonade");
-        itemsDataset.setValue(soldCount[3],"Count sold", "Gatorade");
-        itemsDataset.setValue(soldCount[4],"Count sold", "Granola");
-        itemsDataset.setValue(soldCount[5],"Count sold", "Chips");
-        itemsDataset.setValue(soldCount[6],"Count sold", "Nuts");
-        itemsDataset.setValue(soldCount[7],"Count sold", "Cookie");
-         
-        JFreeChart itemschart = ChartFactory.createBarChart3D("Beverage Vs Snack Comparison", "Category", "Count sold", itemsDataset, PlotOrientation.VERTICAL, true, true, false);
-        CategoryPlot plot = itemschart.getCategoryPlot();
+        DefaultCategoryDataset beverageItemsDataset = new DefaultCategoryDataset();
+        beverageItemsDataset.setValue(soldCount[0],"Count sold", "Coke");
+        beverageItemsDataset.setValue(soldCount[1],"Count sold", "OrangeJuice");
+        beverageItemsDataset.setValue(soldCount[2],"Count sold", "Lemonade");
+        beverageItemsDataset.setValue(soldCount[3],"Count sold", "Gatorade");
+        beverageItemsDataset.setValue(soldCount[4],"Count sold", "Frappuccino");
+        beverageItemsDataset.setValue(soldCount[5],"Count sold", "Coconut Water");
+        beverageItemsDataset.setValue(soldCount[6],"Count sold", "Sparkling Water");
+        beverageItemsDataset.setValue(soldCount[7],"Count sold", "Protein Smoothie");
+        beverageItemsDataset.setValue(soldCount[8],"Count sold", "Protein Shake");
+        
+        JFreeChart beverageItemschart = ChartFactory.createBarChart3D("Beverages", "Category", "Count sold", beverageItemsDataset, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot plot = beverageItemschart.getCategoryPlot();
         plot.setRangeGridlinePaint(Color.black);
         
-        ChartPanel itemsChartPanel = new ChartPanel(itemschart);
-        itemsChartPanel.setPreferredSize(new java.awt.Dimension(500, 300));
-        setContentPane(itemsChartPanel);
+        DefaultCategoryDataset snackItemsDataset = new DefaultCategoryDataset();
+        snackItemsDataset.setValue(soldCount[9],"Count sold", "Granola");
+        snackItemsDataset.setValue(soldCount[10],"Count sold", "Chips");
+        snackItemsDataset.setValue(soldCount[11],"Count sold", "Nuts");
+        snackItemsDataset.setValue(soldCount[12],"Count sold", "Cookie");
+        snackItemsDataset.setValue(soldCount[13],"Count sold", "Dried Fruits");
+        snackItemsDataset.setValue(soldCount[14],"Count sold", "Popcorn");
+        snackItemsDataset.setValue(soldCount[15],"Count sold", "Crackers");
+        snackItemsDataset.setValue(soldCount[16],"Count sold", "Veggie Straws");
+        snackItemsDataset.setValue(soldCount[17],"Count sold", "Greek Yogurt");
+        
+        JFreeChart snackItemschart = ChartFactory.createBarChart3D("Snacks", "Category", "Count sold", snackItemsDataset, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot snackPlot = snackItemschart.getCategoryPlot();
+        snackPlot.setRangeGridlinePaint(Color.black);
+        
+        ChartPanel beverageItemsChartPanel = new ChartPanel(beverageItemschart);
+        ChartPanel snackItemsChartPanel = new ChartPanel(snackItemschart);
+        
+        JPanel chartPanel = new JPanel();
+        chartPanel.setLayout(new BorderLayout());
+        chartPanel.add(beverageItemsChartPanel,BorderLayout.WEST);
+        chartPanel.add(snackItemsChartPanel,BorderLayout.EAST);
+        
+        chartPanel.setPreferredSize(new java.awt.Dimension(800, 400));
+        beverageItemsChartPanel.setPreferredSize(new java.awt.Dimension(400, 300));
+        snackItemsChartPanel.setPreferredSize(new java.awt.Dimension(400, 300));
+        setContentPane(chartPanel);
     }
     
 }

@@ -2595,7 +2595,7 @@ public class AdminUI extends javax.swing.JFrame {
             nutritionalItemsSoldCount = adminController.getNutritionalItemSoldCount("machine2");
         
         PieChart pieChart = new PieChart();
-        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount);
+//        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount);
         pieChart.pack();
         pieChart.setVisible(true);
     }//GEN-LAST:event_nutritionalStatisticsButtonActionPerformed
