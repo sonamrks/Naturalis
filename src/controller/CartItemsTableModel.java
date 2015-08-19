@@ -152,11 +152,11 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
 
     @Override
     public Iterator createIterator() {
-    //  return new CartIterator();
-        return null;
+      return new CartIterator();
+     //   return null;
     }
 
-  /*  class CartIterator implements Iterator {
+    class CartIterator implements Iterator {
             int currentIndex = 0;
 
             @Override
@@ -177,7 +177,8 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             public void removeItem(Integer code) {
                 itemCodes.remove(code);
                 itemNames.remove("name");
-                              
+
+                
                 while(hasNext()) {
                     if(next().getCode()== code) {
                         price = cartItems.get(currentIndex).getPrice();
@@ -186,13 +187,18 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
                     }
                 }
                 currentIndex = 0;
+                                
                 subtractPrice(price);
-                notifyObservers(); 
+                System.out.println("price " + price + "total " + totalPrice);
+
+                fireTableRowsDeleted(itemCodes.size(), numcols-1); 
             }
-    }*/
+    }
     
-    public void removeItem(Integer code) {
+  /*  public void removeItem(Integer code) {
         try {
+            itemCodes.remove(code);
+            itemNames.remove("name");
             String getPrice = "SELECT price FROM item WHERE code=?";
             statement = connection.prepareStatement(getPrice);
             statement.setInt(1,code);
@@ -204,15 +210,14 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             
             subtractPrice(price);
             cartItems.remove(item);
-            numrows--;
-            notifyObservers();
+            fireTableRowsDeleted(itemCodes.size(), numcols-1);  
         }
         catch(Exception err)
         {
          System.out.println(err.getMessage());
          err.printStackTrace();
         }
-    }
+    }*/
     
     @Override
     public int getColumnCount() {
