@@ -10,5 +10,5 @@ package controller;
  * @author Sonam
  */
 public interface Observer {
-    public void Update(String ID);
+    public void update();
 }

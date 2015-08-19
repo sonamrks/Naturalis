@@ -22,20 +22,16 @@ import view.PaymentPanel;
 public class CartItemsController implements ListSelectionListener, TableModelListener {
     private CartItemsTableModel itemsCartTableModel;
     private CustomerUI customerUI;
-    private CartItemsPanel cartItemsPanel;
-    private PaymentPanel paymentPanel;
     Iterator iterator;
     
-    public CartItemsController(CustomerUI customerUI, CartItemsPanel cartItemsPanel, PaymentPanel paymentPanel) {
+    public CartItemsController(CustomerUI customerUI) {
         this.customerUI = customerUI;
-        this.cartItemsPanel = cartItemsPanel;
-        this.paymentPanel = paymentPanel;
         itemsCartTableModel = new CartItemsTableModel();
         itemsCartTableModel.addTableModelListener(this);
         iterator = itemsCartTableModel.createIterator();
                 
-        itemsCartTableModel.attachObserver(cartItemsPanel);
-        itemsCartTableModel.attachObserver(paymentPanel);
+     //   itemsCartTableModel.attachObserver(cartItemsPanel);
+     //   itemsCartTableModel.attachObserver(paymentPanel);
     }
         
     public TableModel getTableModel() {
@@ -57,8 +53,8 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
             itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
-            cartItemsPanel.updateCartTable();	 
-            paymentPanel.updatePrice(itemsCartTableModel.getTotalPrice());
+            customerUI.getCartItemsPanel().update();	 
+            customerUI.getPaymentPanel().update();
     } catch(Exception exp) {
             exp.getMessage();
             exp.printStackTrace();

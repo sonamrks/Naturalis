@@ -10,6 +10,7 @@ import controller.ItemController;
 import controller.NutritionalFactsController;
 import controller.SmartCardController;
 import java.awt.CardLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JTable;
 
 /**
@@ -40,17 +41,17 @@ public class CustomerUI extends javax.swing.JFrame {
      */
     public CustomerUI(int machineID) { 
         initComponents();    
-               
-        cartItemsPanel = new CartItemsPanel(itemsCartController);
-        paymentPanel = new PaymentPanel();
-        cartPanel.add(cartItemsPanel);
-        rightPanel.add(paymentPanel);
-       
+                     
       //  priceController = new PriceController(this, machineID);
-        itemsCartController = new CartItemsController(this, cartItemsPanel, paymentPanel);
+        itemsCartController = new CartItemsController(this);
         itemController = new ItemController(machineID);
         nutritionalFactsController = new NutritionalFactsController(this);
         smartCardController = new SmartCardController(this);
+        
+        cartItemsPanel = new CartItemsPanel(itemsCartController);
+        paymentPanel = new PaymentPanel(this, itemsCartController);
+        cartPanel.add(cartItemsPanel);
+        rightPanel.add(paymentPanel);
         
         cardLayout = new CardLayout();
         welcomePanel = new WelcomePanel();
@@ -79,6 +80,14 @@ public class CustomerUI extends javax.swing.JFrame {
     public static CartItemsController getItemsCartController() { 
         return itemsCartController;
     }
+    
+    public CartItemsPanel getCartItemsPanel() {
+        return cartItemsPanel;
+    }
+    
+    public PaymentPanel getPaymentPanel() {
+        return paymentPanel;
+    }
      
     public void setItemCodeTextField(String code) {
          itemCodeTextField.setText(code);
@@ -86,6 +95,10 @@ public class CustomerUI extends javax.swing.JFrame {
      
      public void giveChange(String change) {
          changeTextField.setText(change);
+     }
+     
+     public void dispense() {
+         item1DispensedLabel.setIcon(new ImageIcon("/images/greekYogurt.jpg"));
      }
 
     /**

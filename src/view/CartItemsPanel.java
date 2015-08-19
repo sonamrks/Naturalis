@@ -23,8 +23,9 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
     /**
      * Creates new form CartItemsPanel
      */
-    public CartItemsPanel() {
-        initComponents();             
+    public CartItemsPanel(CartItemsController itemsCartController) {
+        initComponents();   
+        this.itemsCartController = itemsCartController;
         addCartTable();
     }
         
@@ -36,13 +37,11 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
         cartItemsPanel.add(cartScrollPane, BorderLayout.CENTER);       
     }
     
-    public void updateCartTable() {
-        cartTable.setModel(itemsCartController.getTableModel());
-    }
-    
+   /* public void updateCartTable() {    
+    }*/
        
-    public void Update(String ID){
-        addItem(ID);
+    public void update(){
+        cartTable.setModel(itemsCartController.getTableModel());
     }
 
     /**

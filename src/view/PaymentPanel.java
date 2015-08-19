@@ -17,23 +17,27 @@ import controller.PaymentContext;
  */
 public class PaymentPanel extends javax.swing.JPanel  implements Observer {
 
-    private double price;
+    private CustomerUI customerUI;
+    private static CartItemsController itemsCartController;
     private static PaymentContext context;
+    private double price;
     /**
      * Creates new form PaymentPanel
      */
-    public PaymentPanel() {
-        initComponents();    
+    public PaymentPanel(CustomerUI customerUI, CartItemsController itemsCartController) {
+        initComponents();   
+        this.customerUI = customerUI;
+        this.itemsCartController = itemsCartController;
         insertCoinPanel.setVisible(false);
         insertCardPanel.setVisible(false);
     }
        
-    public void updatePrice(double price) {
+ /*   public void updatePrice(double price) {
         priceTextField.setValue(price);
-    }
+    }*/
         
-    public void Update(String ID){
-      //  addItem(ID);
+    public void update(){
+        priceTextField.setValue(itemsCartController.getTotalPrice());
     }
 
     /**
@@ -331,8 +335,8 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         priceTextField.setText(Double.toString(remainingPrice));
         else{
             priceTextField.setText("0");
-            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
-            //  customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+        //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+              customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
         }
     }//GEN-LAST:event_cent10ButtonActionPerformed
 
@@ -345,7 +349,8 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         priceTextField.setText(Double.toString(remainingPrice));
         else{
             priceTextField.setText("0");
-            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+         //   changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
         }
     }//GEN-LAST:event_cent25ButtonActionPerformed
 
@@ -358,7 +363,8 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         priceTextField.setText(Double.toString(remainingPrice));
         else{
             priceTextField.setText("0");
-            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+          //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
         }
     }//GEN-LAST:event_cent50ButtonActionPerformed
 
@@ -371,7 +377,8 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         priceTextField.setText(Double.toString(remainingPrice));
         else{
             priceTextField.setText("0");
-            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+          //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
         }
     }//GEN-LAST:event_dollar1ButtonActionPerformed
 
@@ -383,8 +390,9 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         priceTextField.setText(Double.toString(remainingPrice));
         else{
             priceTextField.setText("0");
-            changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
-            item1DispensedLabel.setIcon(new ImageIcon("/images/greekYogurt.jpg"));
+        //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+            customerUI.dispense();          
         }
 
     }//GEN-LAST:event_dollar5ButtonActionPerformed
@@ -415,7 +423,8 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
     private void priceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextFieldActionPerformed
         // TODO add your handling code here:
         if(priceTextField.getText()=="0.0")
-        item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
+      //  item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
+         customerUI.dispense(); 
     }//GEN-LAST:event_priceTextFieldActionPerformed
 
     private void cashRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashRadioButtonActionPerformed
