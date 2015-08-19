@@ -8,6 +8,7 @@ package view;
 import controller.ItemController;
 import controller.ManagerController;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import org.jfree.chart.ChartFactory;
@@ -25,6 +26,7 @@ public class ManagerUI extends javax.swing.JFrame {
 
     private ManagerController managerController;
     private static ItemController itemsController;
+    private LycheeJuice lycheeJuice;
     /**
      * Creates new form AdminUI
      */
@@ -32,10 +34,7 @@ public class ManagerUI extends javax.swing.JFrame {
         initComponents();
         managerController = new ManagerController();
         itemsController = new ItemController();
-        //setProtein();
-        //setSugars();
-        //setCarbohydrates();
-        //setCalories();
+        lycheeJuice = new LycheeJuice();
         setPrice();
         setCount();
         
@@ -368,6 +367,10 @@ public class ManagerUI extends javax.swing.JFrame {
         greekYogurtUpdateButton = new javax.swing.JButton();
         greekYogurtAddButton = new javax.swing.JButton();
         greekYogurtImageLabel = new javax.swing.JLabel();
+        dietPepsiPanel = new javax.swing.JPanel();
+        pretzelPanel = new javax.swing.JPanel();
+        cornPanel = new javax.swing.JPanel();
+        lycheeJuicePanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1651,7 +1654,7 @@ public class ManagerUI extends javax.swing.JFrame {
                         .addComponent(chipsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(chipsAddButton)
-                        .addGap(0, 38, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(chipsShakePanelLayout.createSequentialGroup()
                         .addComponent(jLabel28)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -1726,7 +1729,7 @@ public class ManagerUI extends javax.swing.JFrame {
                         .addComponent(nutsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nutsAddButton)
-                        .addGap(0, 38, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(nutsShakePanelLayout.createSequentialGroup()
                         .addComponent(jLabel30)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -1801,7 +1804,7 @@ public class ManagerUI extends javax.swing.JFrame {
                         .addComponent(cookieCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cookieAddButton)
-                        .addGap(0, 38, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(cookieShakePanelLayout.createSequentialGroup()
                         .addComponent(jLabel32)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -1876,7 +1879,7 @@ public class ManagerUI extends javax.swing.JFrame {
                         .addComponent(driedFruitsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(driedFruitsAddButton)
-                        .addGap(0, 38, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(driedFruitsPanelLayout.createSequentialGroup()
                         .addComponent(jLabel34)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -1951,7 +1954,7 @@ public class ManagerUI extends javax.swing.JFrame {
                         .addComponent(popcornCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(popcornAddButton)
-                        .addGap(0, 38, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(popcornPanelLayout.createSequentialGroup()
                         .addComponent(jLabel36)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -2026,7 +2029,7 @@ public class ManagerUI extends javax.swing.JFrame {
                         .addComponent(crackersCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(crackersAddButton)
-                        .addGap(0, 38, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(crackersPanelLayout.createSequentialGroup()
                         .addComponent(jLabel38)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -2101,7 +2104,7 @@ public class ManagerUI extends javax.swing.JFrame {
                         .addComponent(veggieStrawsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(veggieStrawsAddButton)
-                        .addGap(0, 38, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
                         .addComponent(jLabel40)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -2176,7 +2179,7 @@ public class ManagerUI extends javax.swing.JFrame {
                         .addComponent(greekYogurtCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(greekYogurtAddButton)
-                        .addGap(0, 38, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(greekYogurtPanelLayout.createSequentialGroup()
                         .addComponent(jLabel42)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -2199,32 +2202,87 @@ public class ManagerUI extends javax.swing.JFrame {
             .addComponent(greekYogurtImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout dietPepsiPanelLayout = new javax.swing.GroupLayout(dietPepsiPanel);
+        dietPepsiPanel.setLayout(dietPepsiPanelLayout);
+        dietPepsiPanelLayout.setHorizontalGroup(
+            dietPepsiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        dietPepsiPanelLayout.setVerticalGroup(
+            dietPepsiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 271, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout pretzelPanelLayout = new javax.swing.GroupLayout(pretzelPanel);
+        pretzelPanel.setLayout(pretzelPanelLayout);
+        pretzelPanelLayout.setHorizontalGroup(
+            pretzelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pretzelPanelLayout.setVerticalGroup(
+            pretzelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 154, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout cornPanelLayout = new javax.swing.GroupLayout(cornPanel);
+        cornPanel.setLayout(cornPanelLayout);
+        cornPanelLayout.setHorizontalGroup(
+            cornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        cornPanelLayout.setVerticalGroup(
+            cornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 169, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout lycheeJuicePanelLayout = new javax.swing.GroupLayout(lycheeJuicePanel);
+        lycheeJuicePanel.setLayout(lycheeJuicePanelLayout);
+        lycheeJuicePanelLayout.setHorizontalGroup(
+            lycheeJuicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        lycheeJuicePanelLayout.setVerticalGroup(
+            lycheeJuicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout cokePanelLayout = new javax.swing.GroupLayout(cokePanel);
         cokePanel.setLayout(cokePanelLayout);
         cokePanelLayout.setHorizontalGroup(
             cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokePanelLayout.createSequentialGroup()
-                .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(greekYogurtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crackersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(popcornPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(driedFruitsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cookieShakePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nutsShakePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chipsShakePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lycheeJuicePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cornPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pretzelPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(dietPepsiPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(crackersPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(popcornPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(driedFruitsPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cookieShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nutsShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chipsShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(granolaShakePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(proteinSmoothiePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(frappuccinoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(gatoradePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(lemonadePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(gatoradePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lemonadePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(coconutWaterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sparlkingWaterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sparlkingWaterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(greekYogurtPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(173, Short.MAX_VALUE))
             .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(cokePanelLayout.createSequentialGroup()
@@ -2275,22 +2333,30 @@ public class ManagerUI extends javax.swing.JFrame {
                 .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(greekYogurtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(3516, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addComponent(lycheeJuicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dietPepsiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pretzelPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cornPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(2905, Short.MAX_VALUE))
             .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(cokePanelLayout.createSequentialGroup()
                     .addGap(126, 126, 126)
                     .addComponent(orangePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(5368, Short.MAX_VALUE)))
+                    .addContainerGap(5509, Short.MAX_VALUE)))
             .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(cokePanelLayout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(cokeInfoPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(5486, Short.MAX_VALUE)))
+                    .addContainerGap(5627, Short.MAX_VALUE)))
             .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(cokePanelLayout.createSequentialGroup()
                     .addGap(982, 982, 982)
                     .addComponent(proteinShakePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(4513, Short.MAX_VALUE)))
+                    .addContainerGap(4654, Short.MAX_VALUE)))
         );
 
         itemsScrollPane.setViewportView(cokePanel);
@@ -2309,10 +2375,13 @@ public class ManagerUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(statisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(statisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(itemsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 2310, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2844,9 +2913,36 @@ public class ManagerUI extends javax.swing.JFrame {
         itemInfo[8] = categoryTextField.getText();
         itemInfo[9] = machineIDTextField.getText();
         
-        System.out.println(itemInfo[9]);
-        
         itemsController.addNewItem(itemInfo);
+        
+        if(Integer.valueOf(codeTextField.getText()) == 110){
+            lycheeJuicePanel.setLayout(new FlowLayout());
+            lycheeJuicePanel.add(lycheeJuice);
+            lycheeJuice.setPrice(Double.valueOf(priceTextField.getText()));
+            lycheeJuice.setCount(Integer.valueOf(countTextField.getText()));
+        }
+        else if(Integer.valueOf(codeTextField.getText()) == 111){
+            DietPepsi dietPepsi = new DietPepsi();
+            dietPepsiPanel.setLayout(new FlowLayout());
+            dietPepsiPanel.add(dietPepsi);
+            dietPepsiPanel.setVisible(true);
+            dietPepsi.setPrice(Double.valueOf(priceTextField.getText()));
+            dietPepsi.setCount(Integer.valueOf(countTextField.getText()));
+        }
+        else if(Integer.valueOf(codeTextField.getText()) == 210){
+            Pretzel pretzel = new Pretzel();
+            pretzelPanel.setLayout(new FlowLayout());
+            pretzelPanel.add(pretzel);
+            pretzel.setPrice(Double.valueOf(priceTextField.getText()));
+            pretzel.setCount(Integer.valueOf(countTextField.getText()));
+        }
+        else {
+            Corn pretzel = new Corn();
+            cornPanel.setLayout(new FlowLayout());
+            cornPanel.add(pretzel);
+            pretzel.setPrice(Double.valueOf(priceTextField.getText()));
+            pretzel.setCount(Integer.valueOf(countTextField.getText()));
+        }
     }//GEN-LAST:event_addItemButtonActionPerformed
     public static void main(String[] args){
     /* Create and display the form */
@@ -2911,6 +3007,7 @@ public class ManagerUI extends javax.swing.JFrame {
     private javax.swing.JTextField cookiePriceTextField;
     private javax.swing.JPanel cookieShakePanel;
     private javax.swing.JButton cookieUpdateButton;
+    private javax.swing.JPanel cornPanel;
     private javax.swing.JLabel countLabel;
     private javax.swing.JTextField countTextField;
     private javax.swing.JButton crackersAddButton;
@@ -2919,6 +3016,7 @@ public class ManagerUI extends javax.swing.JFrame {
     private javax.swing.JPanel crackersPanel;
     private javax.swing.JTextField crackersPriceTextField;
     private javax.swing.JButton crackersUpdateButton;
+    private javax.swing.JPanel dietPepsiPanel;
     private javax.swing.JButton driedFruitsAddButton;
     private javax.swing.JTextField driedFruitsCountTextField;
     private javax.swing.JLabel driedFruitsImageLabel;
@@ -3000,6 +3098,7 @@ public class ManagerUI extends javax.swing.JFrame {
     private javax.swing.JPanel lemonadePanel;
     private javax.swing.JTextField lemonadePriceTextField;
     private javax.swing.JButton lemonadeUpdateButton;
+    private javax.swing.JPanel lycheeJuicePanel;
     private javax.swing.JRadioButton machine1RadioButton;
     private javax.swing.JRadioButton machine2RadioButton;
     private javax.swing.JLabel machineIDLabel;
@@ -3026,6 +3125,7 @@ public class ManagerUI extends javax.swing.JFrame {
     private javax.swing.JPanel popcornPanel;
     private javax.swing.JTextField popcornPriceTextField;
     private javax.swing.JButton popcornUpdateButton;
+    private javax.swing.JPanel pretzelPanel;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JTextField priceTextField;
     private javax.swing.JLabel proteinLabel;
