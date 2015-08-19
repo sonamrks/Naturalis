@@ -44,6 +44,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         int firstIndex = selectModel.getMinSelectionIndex();
 		
         customerUI.setItemCodeTextField((String) itemsCartTableModel.getValueAt(firstIndex, 0));
+        customerUI.getCartItemsPanel().setItemCodeTextField((String) itemsCartTableModel.getValueAt(firstIndex, 0));
     }   
 
     @Override

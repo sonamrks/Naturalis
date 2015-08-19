@@ -151,7 +151,7 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         insertCoinPanelLayout.setHorizontalGroup(
             insertCoinPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(insertCoinPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(insertCoinLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(insertCoinPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(insertCoinPanelLayout.createSequentialGroup()
@@ -283,8 +283,10 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
                         .addContainerGap()
                         .addGroup(paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(insertCoinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(insertCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                            .addGroup(paymentPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(insertCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         paymentPanelLayout.setVerticalGroup(
             paymentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -299,103 +301,65 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
                     .addComponent(cardRadioButton))
                 .addGap(18, 18, 18)
                 .addComponent(insertCoinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(insertCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 242, Short.MAX_VALUE)
+            .addGap(0, 258, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(13, 13, 13)
                     .addComponent(paymentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 564, Short.MAX_VALUE)
+            .addGap(0, 578, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(paymentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(paymentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cent10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent10ButtonActionPerformed
+    private void cardRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardRadioButtonActionPerformed
         // TODO add your handling code here:
-        price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = context.pay(price, 0.10);
-        priceTextField.setText(Double.toString(remainingPrice));
-        if(remainingPrice>=0)
-        priceTextField.setText(Double.toString(remainingPrice));
-        else{
-            priceTextField.setText("0");
-        //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
-              customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
-        }
-    }//GEN-LAST:event_cent10ButtonActionPerformed
+        context = new PaymentContext();
+        context.setPaymentStrategy(new PayCard());
 
-    private void cent25ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent25ButtonActionPerformed
+        insertCoinPanel.setVisible(false);
+        insertCardPanel.setVisible(true);
+    }//GEN-LAST:event_cardRadioButtonActionPerformed
+
+    private void cashRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashRadioButtonActionPerformed
         // TODO add your handling code here:
-        double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = context.pay(price, 0.25);
-        priceTextField.setText(Double.toString(remainingPrice));
-        if(remainingPrice>=0)
-        priceTextField.setText(Double.toString(remainingPrice));
-        else{
-            priceTextField.setText("0");
-         //   changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
-            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
-        }
-    }//GEN-LAST:event_cent25ButtonActionPerformed
+        context = new PaymentContext();
+        context.setPaymentStrategy(new PayCash());
 
-    private void cent50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent50ButtonActionPerformed
+        insertCardPanel.setVisible(false);
+        insertCoinPanel.setVisible(true);
+    }//GEN-LAST:event_cashRadioButtonActionPerformed
+
+    private void priceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextFieldActionPerformed
         // TODO add your handling code here:
-        double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = context.pay(price, 0.50);
-        priceTextField.setText(Double.toString(remainingPrice));
-        if(remainingPrice>=0)
-        priceTextField.setText(Double.toString(remainingPrice));
-        else{
-            priceTextField.setText("0");
-          //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
-            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
-        }
-    }//GEN-LAST:event_cent50ButtonActionPerformed
+        if(priceTextField.getText()=="0.0")
+        //  item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
+        customerUI.dispense();
+    }//GEN-LAST:event_priceTextFieldActionPerformed
 
-    private void dollar1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar1ButtonActionPerformed
+    private void cardNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTextFieldActionPerformed
         // TODO add your handling code here:
-        double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = context.pay(price, 1);
-        priceTextField.setText(Double.toString(remainingPrice));
-        if(remainingPrice>=0)
-        priceTextField.setText(Double.toString(remainingPrice));
-        else{
-            priceTextField.setText("0");
-          //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
-            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
-        }
-    }//GEN-LAST:event_dollar1ButtonActionPerformed
+    }//GEN-LAST:event_cardNumberTextFieldActionPerformed
 
-    private void dollar5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar5ButtonActionPerformed
+    private void insertCardMessageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertCardMessageTextFieldActionPerformed
         // TODO add your handling code here:
-        double price = Double.parseDouble(priceTextField.getText());
-        double remainingPrice = context.pay(price, 5);
-        if(remainingPrice>0)
-        priceTextField.setText(Double.toString(remainingPrice));
-        else{
-            priceTextField.setText("0");
-        //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
-            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
-            customerUI.dispense();          
-        }
-
-    }//GEN-LAST:event_dollar5ButtonActionPerformed
+    }//GEN-LAST:event_insertCardMessageTextFieldActionPerformed
 
     private void payCardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payCardButtonActionPerformed
         // TODO add your handling code here:
@@ -411,39 +375,75 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         insertCardMessageTextField.setText("Sorry! you do not have enough balance");
     }//GEN-LAST:event_payCardButtonActionPerformed
 
-    private void insertCardMessageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertCardMessageTextFieldActionPerformed
+    private void dollar5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar5ButtonActionPerformed
         // TODO add your handling code here:
+        double price = Double.parseDouble(priceTextField.getText());
+        double remainingPrice = context.pay(price, 5);
+        if(remainingPrice>0)
+        priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+            customerUI.dispense();
+        }
+    }//GEN-LAST:event_dollar5ButtonActionPerformed
 
-    }//GEN-LAST:event_insertCardMessageTextFieldActionPerformed
-
-    private void cardNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTextFieldActionPerformed
+    private void dollar1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar1ButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cardNumberTextFieldActionPerformed
+        double price = Double.parseDouble(priceTextField.getText());
+        double remainingPrice = context.pay(price, 1);
+        priceTextField.setText(Double.toString(remainingPrice));
+        if(remainingPrice>=0)
+        priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+        }
+    }//GEN-LAST:event_dollar1ButtonActionPerformed
 
-    private void priceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextFieldActionPerformed
+    private void cent50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent50ButtonActionPerformed
         // TODO add your handling code here:
-        if(priceTextField.getText()=="0.0")
-      //  item1DispensedLabel.setIcon(new ImageIcon("C:/Ashita/COEN 359 Design Patterns/Project/thumbnail images/greekYogurt.jpg"));
-         customerUI.dispense(); 
-    }//GEN-LAST:event_priceTextFieldActionPerformed
+        double price = Double.parseDouble(priceTextField.getText());
+        double remainingPrice = context.pay(price, 0.50);
+        priceTextField.setText(Double.toString(remainingPrice));
+        if(remainingPrice>=0)
+        priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+        }
+    }//GEN-LAST:event_cent50ButtonActionPerformed
 
-    private void cashRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashRadioButtonActionPerformed
+    private void cent25ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent25ButtonActionPerformed
         // TODO add your handling code here:
-        context = new PaymentContext();
-        context.setPaymentStrategy(new PayCash());
+        double price = Double.parseDouble(priceTextField.getText());
+        double remainingPrice = context.pay(price, 0.25);
+        priceTextField.setText(Double.toString(remainingPrice));
+        if(remainingPrice>=0)
+        priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            //   changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+        }
+    }//GEN-LAST:event_cent25ButtonActionPerformed
 
-        insertCardPanel.setVisible(false);
-        insertCoinPanel.setVisible(true);
-    }//GEN-LAST:event_cashRadioButtonActionPerformed
-
-    private void cardRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardRadioButtonActionPerformed
+    private void cent10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cent10ButtonActionPerformed
         // TODO add your handling code here:
-        context = new PaymentContext();
-        context.setPaymentStrategy(new PayCard());
-
-        insertCoinPanel.setVisible(false);
-        insertCardPanel.setVisible(true);
-    }//GEN-LAST:event_cardRadioButtonActionPerformed
+        price = Double.parseDouble(priceTextField.getText());
+        double remainingPrice = context.pay(price, 0.10);
+        priceTextField.setText(Double.toString(remainingPrice));
+        if(remainingPrice>=0)
+        priceTextField.setText(Double.toString(remainingPrice));
+        else{
+            priceTextField.setText("0");
+            //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
+            customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+        }
+    }//GEN-LAST:event_cent10ButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

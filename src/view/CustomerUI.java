@@ -10,7 +10,10 @@ import controller.ItemController;
 import controller.NutritionalFactsController;
 import controller.SmartCardController;
 import java.awt.CardLayout;
+import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 
 /**
@@ -50,7 +53,9 @@ public class CustomerUI extends javax.swing.JFrame {
         
         cartItemsPanel = new CartItemsPanel(itemsCartController);
         paymentPanel = new PaymentPanel(this, itemsCartController);
+        cartPanel.setLayout(new FlowLayout());
         cartPanel.add(cartItemsPanel);
+        rightPanel.setLayout(new FlowLayout());
         rightPanel.add(paymentPanel);
         
         cardLayout = new CardLayout();
@@ -166,8 +171,10 @@ public class CustomerUI extends javax.swing.JFrame {
         rightPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1250, 700));
 
         leftPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         selectButtonPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -191,9 +198,9 @@ public class CustomerUI extends javax.swing.JFrame {
             selectButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(selectButtonPanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(selectBeverageButton)
+                .addComponent(selectBeverageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(selectSnackButton)
+                .addComponent(selectSnackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         selectButtonPanelLayout.setVerticalGroup(
@@ -201,10 +208,12 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(selectButtonPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(selectButtonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectBeverageButton)
-                    .addComponent(selectSnackButton))
+                    .addComponent(selectBeverageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectSnackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        leftPanel.add(selectButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 13, -1, -1));
 
         dispenserPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -245,6 +254,8 @@ public class CustomerUI extends javax.swing.JFrame {
                     .addComponent(item4DispensedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
+
+        leftPanel.add(dispenserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
 
         changeSlotPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -294,6 +305,8 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
+        leftPanel.add(changeSlotPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, -1, -1));
+
         javax.swing.GroupLayout itemsPanelLayout = new javax.swing.GroupLayout(itemsPanel);
         itemsPanel.setLayout(itemsPanelLayout);
         itemsPanelLayout.setHorizontalGroup(
@@ -302,42 +315,15 @@ public class CustomerUI extends javax.swing.JFrame {
         );
         itemsPanelLayout.setVerticalGroup(
             itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 368, Short.MAX_VALUE)
+            .addGap(0, 290, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
-        leftPanel.setLayout(leftPanelLayout);
-        leftPanelLayout.setHorizontalGroup(
-            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(selectButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(itemsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addComponent(dispenserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(64, 64, 64))
-        );
-        leftPanelLayout.setVerticalGroup(
-            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(selectButtonPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(itemsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dispenserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(changeSlotPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0))
-        );
+        leftPanel.add(itemsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 137, -1, 290));
 
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        middlePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        displayPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lowSugarsCheckBox.setText("Low Sugars");
         lowSugarsCheckBox.addItemListener(new java.awt.event.ItemListener() {
@@ -345,6 +331,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 lowSugarsCheckBoxItemStateChanged(evt);
             }
         });
+        displayPanel.add(lowSugarsCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
 
         highProteinCheckBox.setText("High Protein");
         highProteinCheckBox.addItemListener(new java.awt.event.ItemListener() {
@@ -352,6 +339,7 @@ public class CustomerUI extends javax.swing.JFrame {
                 highProteinCheckBoxItemStateChanged(evt);
             }
         });
+        displayPanel.add(highProteinCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
         lowCaloriesCheckBox.setText("Low Calories");
         lowCaloriesCheckBox.addItemListener(new java.awt.event.ItemListener() {
@@ -359,10 +347,13 @@ public class CustomerUI extends javax.swing.JFrame {
                 lowCaloriesCheckBoxItemStateChanged(evt);
             }
         });
+        displayPanel.add(lowCaloriesCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         suggestionsTextArea.setColumns(20);
         suggestionsTextArea.setRows(5);
         jScrollPane1.setViewportView(suggestionsTextArea);
+
+        displayPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 350, -1));
 
         jLabel2.setText("Calorie range : ");
 
@@ -410,91 +401,43 @@ public class CustomerUI extends javax.swing.JFrame {
                     .addComponent(jLabel18)
                     .addComponent(fromTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(suggestionsButton))
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-
-        jLabel3.setText("OR");
-
-        jLabel19.setText("Code");
-
-        Name.setText("Name");
-
-        jLabel21.setText("Protein");
-
-        jLabel22.setText("Sugars");
-
-        jLabel23.setText("Calories");
-
-        javax.swing.GroupLayout displayPanelLayout = new javax.swing.GroupLayout(displayPanel);
-        displayPanel.setLayout(displayPanelLayout);
-        displayPanelLayout.setHorizontalGroup(
-            displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(displayPanelLayout.createSequentialGroup()
-                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(displayPanelLayout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jLabel3))
-                    .addGroup(displayPanelLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lowCaloriesCheckBox)
-                            .addGroup(displayPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Name)))
-                        .addGap(18, 18, 18)
-                        .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(displayPanelLayout.createSequentialGroup()
-                                .addComponent(highProteinCheckBox)
-                                .addGap(18, 18, 18)
-                                .addComponent(lowSugarsCheckBox))
-                            .addGroup(displayPanelLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabel21)
-                                .addGap(53, 53, 53)
-                                .addComponent(jLabel22)
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel23))))
-                    .addGroup(displayPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        displayPanelLayout.setVerticalGroup(
-            displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(displayPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jLabel3)
-                .addGap(3, 3, 3)
-                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lowSugarsCheckBox)
-                    .addComponent(lowCaloriesCheckBox)
-                    .addComponent(highProteinCheckBox))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(Name)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+
+        displayPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 4, -1, -1));
+
+        jLabel3.setText("OR");
+        displayPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 92, -1, -1));
+
+        jLabel19.setText("Code");
+        displayPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
+        Name.setText("Name");
+        displayPanel.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+
+        jLabel21.setText("Protein");
+        displayPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+
+        jLabel22.setText("Sugars");
+        displayPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+
+        jLabel23.setText("Calories");
+        displayPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, -1));
+
+        middlePanel.add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 370, 290));
 
         javax.swing.GroupLayout cartPanelLayout = new javax.swing.GroupLayout(cartPanel);
         cartPanel.setLayout(cartPanelLayout);
         cartPanelLayout.setHorizontalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 246, Short.MAX_VALUE)
+            .addGap(0, 235, Short.MAX_VALUE)
         );
         cartPanelLayout.setVerticalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
+            .addGap(0, 128, Short.MAX_VALUE)
         );
+
+        middlePanel.add(cartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 13, -1, -1));
 
         jLabel1.setText("Item Code :");
 
@@ -585,63 +528,38 @@ public class CustomerUI extends javax.swing.JFrame {
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(infoPanelLayout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel15))
-                            .addGroup(infoPanelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(itemCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(getInfoButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(itemCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(getInfoButton)
                         .addContainerGap(63, Short.MAX_VALUE))
                     .addGroup(infoPanelLayout.createSequentialGroup()
                         .addComponent(nutritionFactsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(infoPanelLayout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jLabel15)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
+                .addGap(9, 9, 9)
                 .addComponent(jLabel15)
-                .addGap(20, 20, 20)
-                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(itemCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getInfoButton))
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(getInfoButton)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(9, 9, 9)))
+                    .addComponent(itemCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nutritionFactsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout middlePanelLayout = new javax.swing.GroupLayout(middlePanel);
-        middlePanel.setLayout(middlePanelLayout);
-        middlePanelLayout.setHorizontalGroup(
-            middlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(middlePanelLayout.createSequentialGroup()
-                .addGroup(middlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(middlePanelLayout.createSequentialGroup()
-                        .addGroup(middlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(middlePanelLayout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(cartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(middlePanelLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        middlePanelLayout.setVerticalGroup(
-            middlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(middlePanelLayout.createSequentialGroup()
-                .addComponent(cartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(infoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
+        middlePanel.add(infoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         rightPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -649,11 +567,11 @@ public class CustomerUI extends javax.swing.JFrame {
         rightPanel.setLayout(rightPanelLayout);
         rightPanelLayout.setHorizontalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 369, Short.MAX_VALUE)
+            .addGap(0, 333, Short.MAX_VALUE)
         );
         rightPanelLayout.setVerticalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 729, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -663,21 +581,21 @@ public class CustomerUI extends javax.swing.JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(middlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(middlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(middlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(rightPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(middlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -693,8 +611,8 @@ public class CustomerUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 653, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

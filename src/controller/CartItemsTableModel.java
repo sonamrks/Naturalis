@@ -187,7 +187,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
                 currentIndex = 0;
            
                 subtractPrice(price);
-                fireTableRowsDeleted(itemCodes.size(), numcols-1);   
+                notifyObservers();  
             }
     }
     
@@ -255,10 +255,6 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     public List getItemNames() {
 	return this.itemNames;
     }
-
-  //  public Map<Integer,Item> getCartItems() {
-  //      return this.cartItems;
-  //  }
     
     public List<Item> getCartItems() {
         return this.cartItems;
@@ -267,38 +263,6 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     public double getTotalPrice() {
 	return this.totalPrice;
     }
-    
-    public void addRow(Integer code) {
-        s = "";
-        if(!itemCodes.contains(code)) {
-            try {
-                itemCodes.add(code);
-               
-                String getName = "SELECT name FROM item WHERE code=?";
-                
-                PreparedStatement statement = connection.prepareStatement(getName);
-                statement.setInt(1,code);
-                ResultSet result = statement.executeQuery();
-                
-                while(result.next()){
-                    name = result.getString("name");
-                }
-
-                itemNames.add(name);
-                
-                s = "model." + name;
-                item = beverageFactory.createItem(s);
-                addPrice(item.getPrice());
-//                cartItems.put(code,item);
-                cartItems.add(item);
-                fireTableRowsInserted(itemCodes.size()-1, numcols-1);
-                numrows++;
-            }catch(Exception err){
-                System.out.println(err.getMessage());
-                err.printStackTrace();
-            }
-        }
-    }   
     
     public void addPrice(double price) {
         
