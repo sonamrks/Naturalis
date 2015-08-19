@@ -5,107 +5,40 @@
  */
 package view;
 
-import controller.ItemController;
 import controller.ManagerController;
-import java.awt.Color;
 import java.util.ArrayList;
-import javax.swing.JFrame;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
  * @author AshitaRaghu
  */
 public class AdminUI extends javax.swing.JFrame {
-
     private ManagerController managerController;
-    private static ItemController itemsController;
     /**
-     * Creates new form AdminUI
+     * Creates new form LimitedView
      */
     public AdminUI() {
         initComponents();
         managerController = new ManagerController();
-        itemsController = new ItemController();
-        //setProtein();
-        //setSugars();
-        //setCarbohydrates();
-        //setCalories();
         setPrice();
         setCount();
-        
     }
-    public void setProtein(){
+    
+     public void setProtein(){
         
         ArrayList<Integer> proteinList = managerController.setProtein();
-        
-        //cokeProteinTextField.setText(Integer.toString(proteinList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
     }
     public void setSugars(){
         
         ArrayList<Integer> sugarsList = managerController.setSugars();
-        
-        //cokeSugarsTextField.setText(Integer.toString(sugarsList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
     }
     public void setCarbohydrates(){
-        
         ArrayList<Integer> carbohydratesList = managerController.setCarbohydrates();
-        
-        //cokeCarbohydratesTextField.setText(Integer.toString(carbohydratesList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
     }
     public void setCalories(){
-        
         ArrayList<Integer> caloriesList = managerController.setCalories();
-        
-       // cokeCaloriesTextField.setText(Integer.toString(caloriesList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
     }
     public void setPrice(){
-        
         ArrayList<Double> priceList = managerController.setPrice();
         
         cokePriceTextField.setText(Double.toString(priceList.get(0)));
@@ -127,13 +60,8 @@ public class AdminUI extends javax.swing.JFrame {
         crackersPriceTextField.setText(Double.toString(priceList.get(15)));
         veggieStrawsPriceTextField.setText(Double.toString(priceList.get(16)));
         greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));
-        
-        
-        
-        
     }
     public void setCount(){
-        
         ArrayList<Integer> countList = managerController.setCount();
         
         cokeCountTextField.setText(Integer.toString(countList.get(0)));
@@ -155,8 +83,6 @@ public class AdminUI extends javax.swing.JFrame {
         crackersCountTextField.setText(Integer.toString(countList.get(15)));
         veggieStrawsCountTextField.setText(Integer.toString(countList.get(16)));
         greekYogurtCountTextField.setText(Integer.toString(countList.get(17)));
-        
-        
     }
    
 
@@ -169,32 +95,8 @@ public class AdminUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bevSnackMachineButtonGroup = new javax.swing.ButtonGroup();
-        itemsMachineButtonGroup = new javax.swing.ButtonGroup();
-        nutritionalStatisticsButtonGroup = new javax.swing.ButtonGroup();
-        allMachinesButtonGroup = new javax.swing.ButtonGroup();
-        statisticsPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        BevSnacksStatisticsPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        beveragesSoldTextField = new javax.swing.JTextField();
-        snacksSoldTextField = new javax.swing.JTextField();
-        bevSnackPieChartButton = new javax.swing.JButton();
-        bevSnackBarChartButton = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        itemsPieChartButton = new javax.swing.JButton();
-        itemsBarChartButton = new javax.swing.JButton();
-        nutritionalStatisticsPanel = new javax.swing.JPanel();
-        nutritionalStatisticsButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        machine1RadioButton = new javax.swing.JRadioButton();
-        machine2RadioButton = new javax.swing.JRadioButton();
-        allMachinesRadioButton = new javax.swing.JRadioButton();
-        itemsScrollPane = new javax.swing.JScrollPane();
-        cokePanel = new javax.swing.JPanel();
+        itemsScrollPanel = new javax.swing.JScrollPane();
+        itemsPanel = new javax.swing.JPanel();
         frappuccinoPanel = new javax.swing.JPanel();
         frappuccinoImageLabel = new javax.swing.JLabel();
         cokeInfoPanel1 = new javax.swing.JPanel();
@@ -347,249 +249,6 @@ public class AdminUI extends javax.swing.JFrame {
         greekYogurtImageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        statisticsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel2.setText("Statistics Panel");
-
-        BevSnacksStatisticsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel1.setText("Number of Beverages Sold :");
-
-        jLabel3.setText("Number of Snacks Sold : ");
-
-        beveragesSoldTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                beveragesSoldTextFieldActionPerformed(evt);
-            }
-        });
-
-        snacksSoldTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                snacksSoldTextFieldActionPerformed(evt);
-            }
-        });
-
-        bevSnackPieChartButton.setText("Pie Chart");
-        bevSnackPieChartButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bevSnackPieChartButtonActionPerformed(evt);
-            }
-        });
-
-        bevSnackBarChartButton.setText("Bar Chart");
-        bevSnackBarChartButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bevSnackBarChartButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout BevSnacksStatisticsPanelLayout = new javax.swing.GroupLayout(BevSnacksStatisticsPanel);
-        BevSnacksStatisticsPanel.setLayout(BevSnacksStatisticsPanelLayout);
-        BevSnacksStatisticsPanelLayout.setHorizontalGroup(
-            BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
-                        .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(beveragesSoldTextField))
-                            .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                                .addComponent(snacksSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(128, 128, 128))
-                    .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
-                        .addComponent(bevSnackPieChartButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bevSnackBarChartButton)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        BevSnacksStatisticsPanelLayout.setVerticalGroup(
-            BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BevSnacksStatisticsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(beveragesSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(snacksSoldTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(BevSnacksStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bevSnackPieChartButton)
-                    .addComponent(bevSnackBarChartButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel4.setText("All items Statistics");
-
-        itemsPieChartButton.setText("Pie Chart");
-        itemsPieChartButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemsPieChartButtonActionPerformed(evt);
-            }
-        });
-
-        itemsBarChartButton.setText("Bar Chart");
-        itemsBarChartButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemsBarChartButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(itemsPieChartButton)
-                        .addGap(34, 34, 34)
-                        .addComponent(itemsBarChartButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(itemsPieChartButton)
-                    .addComponent(itemsBarChartButton))
-                .addGap(30, 30, 30))
-        );
-
-        nutritionalStatisticsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        nutritionalStatisticsButton.setText("Nutritional Statistics");
-        nutritionalStatisticsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutritionalStatisticsButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout nutritionalStatisticsPanelLayout = new javax.swing.GroupLayout(nutritionalStatisticsPanel);
-        nutritionalStatisticsPanel.setLayout(nutritionalStatisticsPanelLayout);
-        nutritionalStatisticsPanelLayout.setHorizontalGroup(
-            nutritionalStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nutritionalStatisticsPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        nutritionalStatisticsPanelLayout.setVerticalGroup(
-            nutritionalStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nutritionalStatisticsPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel5.setText("Sales Satistics");
-
-        allMachinesButtonGroup.add(machine1RadioButton);
-        machine1RadioButton.setText("Machine 1");
-        machine1RadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machine1RadioButtonActionPerformed(evt);
-            }
-        });
-
-        allMachinesButtonGroup.add(machine2RadioButton);
-        machine2RadioButton.setText("Machine 2");
-        machine2RadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machine2RadioButtonActionPerformed(evt);
-            }
-        });
-
-        allMachinesButtonGroup.add(allMachinesRadioButton);
-        allMachinesRadioButton.setText("All Machines");
-        allMachinesRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                allMachinesRadioButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(machine1RadioButton)
-                        .addGap(37, 37, 37)
-                        .addComponent(machine2RadioButton)
-                        .addGap(30, 30, 30)
-                        .addComponent(allMachinesRadioButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(machine1RadioButton)
-                    .addComponent(machine2RadioButton)
-                    .addComponent(allMachinesRadioButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
-        statisticsPanel.setLayout(statisticsPanelLayout);
-        statisticsPanelLayout.setHorizontalGroup(
-            statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(nutritionalStatisticsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(statisticsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(statisticsPanelLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(BevSnacksStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(statisticsPanelLayout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        statisticsPanelLayout.setVerticalGroup(
-            statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statisticsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BevSnacksStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(nutritionalStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115))
-        );
 
         frappuccinoImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/frappuccino.jpg"))); // NOI18N
 
@@ -2049,12 +1708,12 @@ public class AdminUI extends javax.swing.JFrame {
             .addComponent(greekYogurtImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout cokePanelLayout = new javax.swing.GroupLayout(cokePanel);
-        cokePanel.setLayout(cokePanelLayout);
-        cokePanelLayout.setHorizontalGroup(
-            cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cokePanelLayout.createSequentialGroup()
-                .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        javax.swing.GroupLayout itemsPanelLayout = new javax.swing.GroupLayout(itemsPanel);
+        itemsPanel.setLayout(itemsPanelLayout);
+        itemsPanelLayout.setHorizontalGroup(
+            itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itemsPanelLayout.createSequentialGroup()
+                .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(greekYogurtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(crackersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2066,35 +1725,35 @@ public class AdminUI extends javax.swing.JFrame {
                     .addComponent(granolaShakePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(proteinSmoothiePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(frappuccinoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
+                    .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, itemsPanelLayout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(gatoradePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cokePanelLayout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, itemsPanelLayout.createSequentialGroup()
                             .addGap(20, 20, 20)
                             .addComponent(lemonadePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(coconutWaterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sparlkingWaterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(173, Short.MAX_VALUE))
-            .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(cokePanelLayout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE))
+            .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(itemsPanelLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(orangePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(183, Short.MAX_VALUE)))
-            .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(cokePanelLayout.createSequentialGroup()
+                    .addContainerGap(76, Short.MAX_VALUE)))
+            .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(itemsPanelLayout.createSequentialGroup()
                     .addGap(20, 20, 20)
                     .addComponent(cokeInfoPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(176, Short.MAX_VALUE)))
-            .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(cokePanelLayout.createSequentialGroup()
+                    .addContainerGap(69, Short.MAX_VALUE)))
+            .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(itemsPanelLayout.createSequentialGroup()
                     .addGap(33, 33, 33)
                     .addComponent(proteinShakePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(163, Short.MAX_VALUE)))
+                    .addContainerGap(56, Short.MAX_VALUE)))
         );
-        cokePanelLayout.setVerticalGroup(
-            cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cokePanelLayout.createSequentialGroup()
+        itemsPanelLayout.setVerticalGroup(
+            itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(itemsPanelLayout.createSequentialGroup()
                 .addGap(244, 244, 244)
                 .addComponent(lemonadePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -2126,56 +1785,43 @@ public class AdminUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(greekYogurtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(3516, Short.MAX_VALUE))
-            .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(cokePanelLayout.createSequentialGroup()
+            .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(itemsPanelLayout.createSequentialGroup()
                     .addGap(126, 126, 126)
                     .addComponent(orangePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(5368, Short.MAX_VALUE)))
-            .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(cokePanelLayout.createSequentialGroup()
+            .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(itemsPanelLayout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(cokeInfoPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(5486, Short.MAX_VALUE)))
-            .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(cokePanelLayout.createSequentialGroup()
+            .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(itemsPanelLayout.createSequentialGroup()
                     .addGap(982, 982, 982)
                     .addComponent(proteinShakePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(4513, Short.MAX_VALUE)))
         );
 
-        itemsScrollPane.setViewportView(cokePanel);
+        itemsScrollPanel.setViewportView(itemsPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(itemsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(statisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(itemsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(itemsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(statisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(itemsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void proteinSmoothiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothiePriceTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_proteinSmoothiePriceTextFieldActionPerformed
-
-    private void proteinSmoothieCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothieCountTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_proteinSmoothieCountTextFieldActionPerformed
 
     private void frappuccinoPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoPriceTextFieldActionPerformed
         // TODO add your handling code here:
@@ -2185,14 +1831,11 @@ public class AdminUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_frappuccinoCountTextFieldActionPerformed
 
-    private void addProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProteinSmoothieButtonActionPerformed
+    private void frappuccinoUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoUpdateButtonActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(proteinSmoothieCountTextField.getText());
-        count++;
-        managerController.increaseItemCount(count,108);
-        System.out.println(count);
-        proteinSmoothieCountTextField.setText(Integer.toString(count));
-    }//GEN-LAST:event_addProteinSmoothieButtonActionPerformed
+        double price = Double.valueOf(frappuccinoPriceTextField.getText());
+        managerController.updatePrice(price,105);
+    }//GEN-LAST:event_frappuccinoUpdateButtonActionPerformed
 
     private void addFrappuccinoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFrappuccinoButtonActionPerformed
         // TODO add your handling code here:
@@ -2201,18 +1844,6 @@ public class AdminUI extends javax.swing.JFrame {
         managerController.increaseItemCount(count,105);
         frappuccinoCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addFrappuccinoButtonActionPerformed
-
-    private void updateProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProteinSmoothieButtonActionPerformed
-        // TODO add your handling code here:
-        double price = Double.valueOf(proteinSmoothiePriceTextField.getText());
-        managerController.updatePrice(price,108);
-    }//GEN-LAST:event_updateProteinSmoothieButtonActionPerformed
-
-    private void frappuccinoUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoUpdateButtonActionPerformed
-        // TODO add your handling code here:
-        double price = Double.valueOf(frappuccinoPriceTextField.getText());
-        managerController.updatePrice(price,105);
-    }//GEN-LAST:event_frappuccinoUpdateButtonActionPerformed
 
     private void orangePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangePriceTextFieldActionPerformed
         // TODO add your handling code here:
@@ -2247,7 +1878,7 @@ public class AdminUI extends javax.swing.JFrame {
 
     private void lemonadeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeUpdateButtonActionPerformed
         // TODO add your handling code here:
-         
+
         double price = Double.valueOf(lemonadePriceTextField.getText());
         managerController.updatePrice(price,103);
     }//GEN-LAST:event_lemonadeUpdateButtonActionPerformed
@@ -2276,7 +1907,7 @@ public class AdminUI extends javax.swing.JFrame {
 
     private void addGatoradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGatoradeButtonActionPerformed
         // TODO add your handling code here:
-         int count = Integer.valueOf(gatoradeCountTextField.getText());
+        int count = Integer.valueOf(gatoradeCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,104);
         gatoradeCountTextField.setText(Integer.toString(count));
@@ -2344,12 +1975,35 @@ public class AdminUI extends javax.swing.JFrame {
 
     private void addCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCokeButtonActionPerformed
         // TODO add your handling code here:
-          int count = Integer.valueOf(cokeCountTextField.getText());
+        int count = Integer.valueOf(cokeCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,101);
         System.out.println(count);
         cokeCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_addCokeButtonActionPerformed
+
+    private void proteinSmoothiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothiePriceTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proteinSmoothiePriceTextFieldActionPerformed
+
+    private void proteinSmoothieCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothieCountTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proteinSmoothieCountTextFieldActionPerformed
+
+    private void updateProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProteinSmoothieButtonActionPerformed
+        // TODO add your handling code here:
+        double price = Double.valueOf(proteinSmoothiePriceTextField.getText());
+        managerController.updatePrice(price,108);
+    }//GEN-LAST:event_updateProteinSmoothieButtonActionPerformed
+
+    private void addProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProteinSmoothieButtonActionPerformed
+        // TODO add your handling code here:
+        int count = Integer.valueOf(proteinSmoothieCountTextField.getText());
+        count++;
+        managerController.increaseItemCount(count,108);
+        System.out.println(count);
+        proteinSmoothieCountTextField.setText(Integer.toString(count));
+    }//GEN-LAST:event_addProteinSmoothieButtonActionPerformed
 
     private void granolaPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaPriceTextFieldActionPerformed
         // TODO add your handling code here:
@@ -2429,7 +2083,7 @@ public class AdminUI extends javax.swing.JFrame {
 
     private void nutsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsAddButtonActionPerformed
         // TODO add your handling code here:
-         int count = Integer.valueOf(nutsCountTextField.getText());
+        int count = Integer.valueOf(nutsCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,203);
         System.out.println(count);
@@ -2446,7 +2100,7 @@ public class AdminUI extends javax.swing.JFrame {
 
     private void cookieUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieUpdateButtonActionPerformed
         // TODO add your handling code here:
-           double price = Double.valueOf(cookiePriceTextField.getText());
+        double price = Double.valueOf(cookiePriceTextField.getText());
         managerController.updatePrice(price,204);
     }//GEN-LAST:event_cookieUpdateButtonActionPerformed
 
@@ -2568,123 +2222,43 @@ public class AdminUI extends javax.swing.JFrame {
         greekYogurtCountTextField.setText(Integer.toString(count));
     }//GEN-LAST:event_greekYogurtAddButtonActionPerformed
 
-    private void beveragesSoldTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beveragesSoldTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_beveragesSoldTextFieldActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdminUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
 
-    private void snacksSoldTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snacksSoldTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_snacksSoldTextFieldActionPerformed
-
-    private void bevSnackPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bevSnackPieChartButtonActionPerformed
-        // TODO add your handling code here:
-        int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
-        int snacksSold = Integer.parseInt(snacksSoldTextField.getText());
-        double totalSale = beveragesSold+snacksSold;
-        
-        double beveragesFraction = (beveragesSold/totalSale)*100;
-        double snacksFraction = (snacksSold/totalSale)*100;
-        
-        
-        PieChart pieChart = new PieChart();
-        pieChart.beverageVsSnackPieChart("Pie Chart","Beverages vs Snacks comparison",beveragesFraction,snacksFraction);
-        pieChart.pack();
-        pieChart.setVisible(true);
-    }//GEN-LAST:event_bevSnackPieChartButtonActionPerformed
-
-    private void bevSnackBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bevSnackBarChartButtonActionPerformed
-        // TODO add your handling code here:
-        int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
-        int snacksSold = Integer.parseInt(snacksSoldTextField.getText());
-        double totalSale = beveragesSold+snacksSold;
-        
-        double beveragesFraction = (beveragesSold/totalSale)*100;
-        double snacksFraction = (snacksSold/totalSale)*100;
-        
-        BarChart barChart = new BarChart();
-        barChart.beverageVsSnackBarChart("Bar Chart","Beverage vs Snack Comparison",beveragesFraction,snacksFraction);
-        barChart.pack();
-        barChart.setVisible(true);
-    }//GEN-LAST:event_bevSnackBarChartButtonActionPerformed
-
-    private void itemsBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsBarChartButtonActionPerformed
-        // TODO add your handling code here:
-        int[] itemsSoldCount = new int[100];
-        if(machine1RadioButton.isSelected())
-            itemsSoldCount = managerController.getItemSoldCount("machine1");
-        else if(machine1RadioButton.isSelected())
-            itemsSoldCount = managerController.getItemSoldCount("machine2");
-        else
-           itemsSoldCount = managerController.getItemSoldCount("allMachines"); 
-        
-        BarChart barChart = new BarChart();
-        barChart.itemSoldBarChart("Bar Chart","Items Sold Comparison",itemsSoldCount);
-        barChart.pack();
-        barChart.setVisible(true);
-    }//GEN-LAST:event_itemsBarChartButtonActionPerformed
-
-    private void itemsPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsPieChartButtonActionPerformed
-        // TODO add your handling code here:
-        int[] itemsSoldCount = new int[100];
-        if(machine1RadioButton.isSelected())
-            itemsSoldCount = managerController.getItemSoldCount("machine1");
-        else if(machine1RadioButton.isSelected())
-            itemsSoldCount = managerController.getItemSoldCount("machine2");
-        else
-           itemsSoldCount = managerController.getItemSoldCount("allMachines");
-         
-        PieChart pieChart = new PieChart();
-        pieChart.itemSoldPieChart("Pie Chart","Items Sold Comparison",itemsSoldCount);
-        pieChart.pack();
-        pieChart.setVisible(true);
-    }//GEN-LAST:event_itemsPieChartButtonActionPerformed
-
-    private void nutritionalStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionalStatisticsButtonActionPerformed
-        // TODO add your handling code here:
-        int[] nutritionalItemsSoldCount = new int[100];
-        if(machine1RadioButton.isSelected())
-            nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("machine1");
-        else if(machine2RadioButton.isSelected())
-            nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("machine2");
-        else
-           nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("allMachines"); 
-        
-        
-        PieChart pieChart = new PieChart();
-        //for(int i=0;i<15;i++)
-            //System.out.println(managerController.lowCalNames[i]);
-        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount,managerController.lowCalCount,managerController.lowCalNames,managerController.highProteinCount,managerController.highProteinNames,managerController.lowSugarsCount,managerController.lowSugarsNames);
-        pieChart.pack();
-        pieChart.setVisible(true);
-    }//GEN-LAST:event_nutritionalStatisticsButtonActionPerformed
-
-    private void allMachinesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allMachinesRadioButtonActionPerformed
-        // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage")));
-        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack")));
-    }//GEN-LAST:event_allMachinesRadioButtonActionPerformed
-
-    private void machine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1RadioButtonActionPerformed
-        // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine1")));
-        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine1")));
-    }//GEN-LAST:event_machine1RadioButtonActionPerformed
-
-    private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
-        // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine2")));
-        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine2")));
-    }//GEN-LAST:event_machine2RadioButtonActionPerformed
-    public static void main(String[] args){
-    /* Create and display the form */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AdminUI().setVisible(true);
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BevSnacksStatisticsPanel;
     private javax.swing.JButton addCoconutWaterButton;
     private javax.swing.JButton addCokeButton;
     private javax.swing.JButton addFrappuccinoButton;
@@ -2694,12 +2268,6 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JButton addProteinSmoothieButton;
     private javax.swing.JButton addSparklingWaterButton;
     private javax.swing.JButton addproteinShakeButton1;
-    private javax.swing.ButtonGroup allMachinesButtonGroup;
-    private javax.swing.JRadioButton allMachinesRadioButton;
-    private javax.swing.JButton bevSnackBarChartButton;
-    private javax.swing.ButtonGroup bevSnackMachineButtonGroup;
-    private javax.swing.JButton bevSnackPieChartButton;
-    private javax.swing.JTextField beveragesSoldTextField;
     private javax.swing.JButton chipsAddButton;
     private javax.swing.JTextField chipsCountTextField;
     private javax.swing.JLabel chipsImageLabel;
@@ -2720,7 +2288,6 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JPanel cokeInfoPanel5;
     private javax.swing.JPanel cokeInfoPanel6;
     private javax.swing.JPanel cokeInfoPanel7;
-    private javax.swing.JPanel cokePanel;
     private javax.swing.JTextField cokePriceTextField;
     private javax.swing.JButton cookieAddButton;
     private javax.swing.JTextField cookieCountTextField;
@@ -2762,11 +2329,8 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JPanel greekYogurtPanel;
     private javax.swing.JTextField greekYogurtPriceTextField;
     private javax.swing.JButton greekYogurtUpdateButton;
-    private javax.swing.JButton itemsBarChartButton;
-    private javax.swing.ButtonGroup itemsMachineButtonGroup;
-    private javax.swing.JButton itemsPieChartButton;
-    private javax.swing.JScrollPane itemsScrollPane;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel itemsPanel;
+    private javax.swing.JScrollPane itemsScrollPanel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -2777,7 +2341,6 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -2788,7 +2351,6 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -2799,26 +2361,17 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField lemonadeCountTextField;
     private javax.swing.JLabel lemonadeImageLabel1;
     private javax.swing.JPanel lemonadePanel;
     private javax.swing.JTextField lemonadePriceTextField;
     private javax.swing.JButton lemonadeUpdateButton;
-    private javax.swing.JRadioButton machine1RadioButton;
-    private javax.swing.JRadioButton machine2RadioButton;
-    private javax.swing.JButton nutritionalStatisticsButton;
-    private javax.swing.ButtonGroup nutritionalStatisticsButtonGroup;
-    private javax.swing.JPanel nutritionalStatisticsPanel;
     private javax.swing.JButton nutsAddButton;
     private javax.swing.JTextField nutsCountTextField;
     private javax.swing.JLabel nutsImageLabel;
@@ -2845,13 +2398,11 @@ public class AdminUI extends javax.swing.JFrame {
     private javax.swing.JLabel proteinSmoothieImageLabel;
     private javax.swing.JPanel proteinSmoothiePanel;
     private javax.swing.JTextField proteinSmoothiePriceTextField;
-    private javax.swing.JTextField snacksSoldTextField;
     private javax.swing.JTextField sparklingWaterCountTextField;
     private javax.swing.JLabel sparklingWaterImageLabel;
     private javax.swing.JTextField sparklingWaterPriceTextField;
     private javax.swing.JButton sparklingWaterUpdateButton;
     private javax.swing.JPanel sparlkingWaterPanel;
-    private javax.swing.JPanel statisticsPanel;
     private javax.swing.JButton updateCokeButton;
     private javax.swing.JButton updateProteinSmoothieButton;
     private javax.swing.JButton veggieStrawsAddButton;
