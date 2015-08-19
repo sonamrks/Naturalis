@@ -6,6 +6,8 @@
 package view;
 
 import controller.Observer;
+import controller.PayCard;
+import controller.PayCash;
 import controller.PaymentContext;
 
 /**
@@ -20,11 +22,17 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
      * Creates new form PaymentPanel
      */
     public PaymentPanel() {
-        initComponents();
+        initComponents();    
+        insertCoinPanel.setVisible(false);
+        insertCardPanel.setVisible(false);
+    }
+       
+    public void updatePrice(double price) {
+        priceTextField.setValue(price);
     }
         
     public void Update(String ID){
-        addItem(ID);
+      //  addItem(ID);
     }
 
     /**

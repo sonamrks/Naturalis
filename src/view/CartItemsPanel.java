@@ -7,22 +7,45 @@ package view;
 
 import controller.CartItemsController;
 import controller.Observer;
+import java.awt.BorderLayout;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /**
  *
  * @author Sonam
  */
 public class CartItemsPanel extends javax.swing.JPanel implements Observer {
-
+    
+    private JTable cartTable; 
     private static CartItemsController itemsCartController;
+
     /**
      * Creates new form CartItemsPanel
      */
     public CartItemsPanel() {
-        initComponents();
+        initComponents();             
+        addCartTable();
+        itemsCartController = new CartItemsController(this, machineID);
+    }
+         
+    public static CartItemsController getItemsCartController() {
+         return itemsCartController;
+     }
+        
+    public void addCartTable() {
+        cartTable = new JTable(itemsCartController.getTableModel());
+        cartTable.getSelectionModel().addListSelectionListener(itemsCartController);
+        JScrollPane cartScrollPane = new JScrollPane(cartTable);
+        cartItemsPanel.setLayout(new BorderLayout());
+        cartItemsPanel.add(cartScrollPane, BorderLayout.CENTER);       
     }
     
-        
+    public void updateCartTable() {
+        cartTable.setModel(itemsCartController.getTableModel());
+    }
+    
+       
     public void Update(String ID){
         addItem(ID);
     }

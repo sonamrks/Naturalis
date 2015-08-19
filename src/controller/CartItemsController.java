@@ -9,8 +9,6 @@ package controller;
  *
  * @author Sonam
  */
-import java.util.HashSet;
-import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.TableModelEvent;
@@ -59,7 +57,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
             itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
-            customerUI.updateCartTable();	 
+//            customerUI.updateCartTable();	 
 //            customerUI.updatePrice();
     } catch(Exception exp) {
             exp.getMessage();
