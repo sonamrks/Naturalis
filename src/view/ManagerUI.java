@@ -27,7 +27,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private ManagerController managerController;
     private ItemController itemController;
     ArrayList<Integer> countList;
-    private LycheeJuice lycheeJuice;
     /**
      * Creates new form AdminUI
      */
@@ -37,9 +36,17 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
      //   itemsController = new ItemController();
         this.itemController = itemController;
         itemController.registerAColleague(this);
-        lycheeJuice = new LycheeJuice();
-        setPrice();
-        setCount();     
+        
+        lycheeJuicePanel.setVisible(false);
+        dietPepsiPanel.setVisible(false);
+        pretzelPanel.setVisible(false);
+        cornPanel.setVisible(false);
+        
+          setPrice();
+        setCount();   
+        
+        
+      
     }
     
     public void sendMessage(Integer code) {
@@ -2923,8 +2930,10 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         itemController.addNewItem(itemInfo);
         
         if(Integer.valueOf(codeTextField.getText()) == 110){
+            LycheeJuice lycheeJuice = new LycheeJuice();
             lycheeJuicePanel.setLayout(new FlowLayout());
             lycheeJuicePanel.add(lycheeJuice);
+            lycheeJuicePanel.setVisible(true);
             lycheeJuice.setPrice(Double.valueOf(priceTextField.getText()));
             lycheeJuice.setCount(Integer.valueOf(countTextField.getText()));
         }
@@ -2940,6 +2949,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             Pretzel pretzel = new Pretzel();
             pretzelPanel.setLayout(new FlowLayout());
             pretzelPanel.add(pretzel);
+            pretzelPanel.setVisible(true);
             pretzel.setPrice(Double.valueOf(priceTextField.getText()));
             pretzel.setCount(Integer.valueOf(countTextField.getText()));
         }
@@ -2947,10 +2957,12 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             Corn pretzel = new Corn();
             cornPanel.setLayout(new FlowLayout());
             cornPanel.add(pretzel);
+            cornPanel.setVisible(true);
             pretzel.setPrice(Double.valueOf(priceTextField.getText()));
             pretzel.setCount(Integer.valueOf(countTextField.getText()));
         }
     }//GEN-LAST:event_addItemButtonActionPerformed
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BevSnacksStatisticsPanel;
