@@ -655,6 +655,7 @@ public class SnackPanel extends javax.swing.JPanel {
 
     private void granolaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaButtonActionPerformed
         itemsCartController.addItem(granolaCodeLabel.getText());  
+        customerUI.sendMessage(Integer.valueOf(granolaCodeLabel.getText()));
     }//GEN-LAST:event_granolaButtonActionPerformed
 
     private void cookieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieButtonActionPerformed

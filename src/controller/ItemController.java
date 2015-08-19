@@ -5,6 +5,7 @@
  */
 package controller;
 
+import view.Colleague;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
@@ -15,7 +16,7 @@ import view.CustomerUI;
  *
  * @author AshitaRaghu
  */
-public class ItemController {
+public class ItemController implements Mediator {
     
     private ItemTableModel itemsTableModel;
     private SuggestionsComponent suggestionsComponent;
@@ -98,6 +99,14 @@ public class ItemController {
     }
     public void addNewItem(String[] itemInfo){
         itemsTableModel.addNewItem(itemInfo);
+    }
+    
+    public void sendMessageToAll(Colleague sender, Integer code) {
+        
+    }
+    
+    public void registerAColleague (Colleague c) {
+        
     }
     
 }

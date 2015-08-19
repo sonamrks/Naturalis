@@ -7,6 +7,7 @@ package view;
 
 import controller.CartItemsController;
 import controller.ItemController;
+import controller.Mediator;
 import controller.NutritionalFactsController;
 import controller.SmartCardController;
 import java.awt.CardLayout;
@@ -20,7 +21,7 @@ import javax.swing.JTable;
  *
  * @author AshitaRaghu
  */
-public class CustomerUI extends javax.swing.JFrame {
+public class CustomerUI extends javax.swing.JFrame implements Colleague {
     
     private JTable suggestionsTable;
  //   private PriceController priceController;
@@ -102,13 +103,22 @@ public class CustomerUI extends javax.swing.JFrame {
          itemCodeTextField.setText(code);
      }
      
-     public void giveChange(String change) {
+    public void giveChange(String change) {
          changeTextField.setText(change);
-     }
+    }
      
-     public void dispense() {
+    public void dispense() {
          item1DispensedLabel.setIcon(new ImageIcon("/images/greekYogurt.jpg"));
-     }
+    }
+     
+    public void sendMessage(Integer code) {
+        itemController.sendMessageToAll(this, code);
+    }
+    
+    public void receiveMessage(Integer code) {
+      //  code.
+    }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
