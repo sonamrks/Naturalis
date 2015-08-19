@@ -57,9 +57,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane1" min="-2" pref="343" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="362" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -135,7 +136,7 @@
                           <Component id="proteinSmoothiePanel" min="-2" max="-2" attributes="0"/>
                           <Component id="proteinShakePanel" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -160,7 +161,7 @@
                                   <Component id="orangeJuicePriceLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
@@ -210,14 +211,8 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="orangeJuiceCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="102"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="orangeJuicePriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$3"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -285,9 +280,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="cokeCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="101"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
@@ -295,9 +287,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="cokePriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -370,14 +359,8 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lemonadeCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="103"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lemonadePriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$3"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -446,14 +429,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="gatoradeCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="104"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="gatoradePriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$3"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -527,14 +504,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="frappuccinoCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="105"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="frappuccinoPriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$2.5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -608,14 +579,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="coconutWaterCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="106"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="coconutWaterPriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$ 1.5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -692,14 +657,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="sparklingWaterCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="107"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="sparklingWaterPriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$1.5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -773,14 +732,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="proteinSmoothieCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="108"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="proteinSmoothiePriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$4.5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -803,7 +756,7 @@
                                   <Component id="proteinShakeCodeLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
@@ -854,14 +807,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="proteinShakeCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="109"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="proteinShakePriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

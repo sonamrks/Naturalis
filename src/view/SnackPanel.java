@@ -32,6 +32,8 @@ public class SnackPanel extends javax.swing.JPanel {
         this.customerUI = customerUI;
         itemsController = customerUI.getItemController();
         itemsCartController = customerUI.getItemsCartController();
+        setCodeLabel();
+        setPriceLabel();
     }
 
     public void setCodeLabel(){
@@ -143,10 +145,6 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel10.setText("Price :");
 
-        nutsCodeLabel.setText("203");
-
-        nutsPriceLabel.setText("$2");
-
         javax.swing.GroupLayout nutsPanelLayout = new javax.swing.GroupLayout(nutsPanel);
         nutsPanel.setLayout(nutsPanelLayout);
         nutsPanelLayout.setHorizontalGroup(
@@ -190,10 +188,6 @@ public class SnackPanel extends javax.swing.JPanel {
         jLabel1.setText("Code :");
 
         jLabel2.setText("Price :");
-
-        granolaCodeLabel.setText("201");
-
-        granolaPriceLabel.setText("$2.5");
 
         javax.swing.GroupLayout granolaPanelLayout = new javax.swing.GroupLayout(granolaPanel);
         granolaPanel.setLayout(granolaPanelLayout);
@@ -242,10 +236,6 @@ public class SnackPanel extends javax.swing.JPanel {
         jLabel5.setText("Code :");
 
         jLabel6.setText("Price :");
-
-        chipsCodeLabel.setText("202");
-
-        chipsPriceLabel.setText("$3");
 
         javax.swing.GroupLayout chipsPanelLayout = new javax.swing.GroupLayout(chipsPanel);
         chipsPanel.setLayout(chipsPanelLayout);
@@ -442,10 +432,6 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel26.setText("Price :");
 
-        crackersCodeLabel.setText("207");
-
-        crackersPriceLabel.setText("$3");
-
         javax.swing.GroupLayout crackersPanelLayout = new javax.swing.GroupLayout(crackersPanel);
         crackersPanel.setLayout(crackersPanelLayout);
         crackersPanelLayout.setHorizontalGroup(
@@ -490,10 +476,6 @@ public class SnackPanel extends javax.swing.JPanel {
         jLabel29.setText("Code :");
 
         jLabel30.setText("Price :");
-
-        veggieStrawsCodeLabel.setText("208");
-
-        veggieStrawsPriceLabel.setText("$3");
 
         javax.swing.GroupLayout veggieStrawsPanelLayout = new javax.swing.GroupLayout(veggieStrawsPanel);
         veggieStrawsPanel.setLayout(veggieStrawsPanelLayout);
@@ -542,10 +524,6 @@ public class SnackPanel extends javax.swing.JPanel {
         jLabel33.setText("Code :");
 
         jLabel34.setText("Price :");
-
-        greekYogurtCodeLabel.setText("209");
-
-        greekYogurtPriceLabel.setText("$2");
 
         javax.swing.GroupLayout greekYogurtPanelLayout = new javax.swing.GroupLayout(greekYogurtPanel);
         greekYogurtPanel.setLayout(greekYogurtPanelLayout);
@@ -650,7 +628,7 @@ public class SnackPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
