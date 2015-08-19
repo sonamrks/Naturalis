@@ -600,5 +600,30 @@ public class ItemTableModel {
     public String[] getLowSugarsNames(){
         return lowSugarsNames;
     }
+    public void addNewItem(String[] itemInfo){
+        try {
+            DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+    Connection connection = dbConnection.getConnection();
+            String getInfo;
+            getInfo = "INSERT into item VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            statement = connection.prepareStatement(getInfo);
+            statement.setInt(1,Integer.valueOf(itemInfo[0]));
+            statement.setString(2,itemInfo[1]);
+            statement.setInt(3,Integer.valueOf(itemInfo[2]));
+            statement.setInt(4,Integer.valueOf(itemInfo[3]));
+            statement.setInt(5,Integer.valueOf(itemInfo[4]));
+            statement.setInt(6,Integer.valueOf(itemInfo[5]));
+            statement.setInt(7,Integer.valueOf(itemInfo[6]));
+            statement.setDouble(8,Double.valueOf(itemInfo[7]));
+            statement.setString(9,null);
+            statement.setString(10,itemInfo[8]);
+            statement.setInt(11,0);
+            statement.setInt(12,Integer.valueOf(itemInfo[9]));
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
 }

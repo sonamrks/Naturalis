@@ -29,7 +29,7 @@ public class ItemController {
        
     }
     public ItemController() {
-       
+       itemsTableModel = new ItemTableModel();
     }
     
     public String getSuggestionList(Boolean[] checkedList){
@@ -95,6 +95,9 @@ public class ItemController {
     }
     public int[] getNutritionalItemSoldCount(String machine){
         return itemsTableModel.getNutritionalItemSoldCount(machine);
+    }
+    public void addNewItem(String[] itemInfo){
+        itemsTableModel.addNewItem(itemInfo);
     }
     
 }
