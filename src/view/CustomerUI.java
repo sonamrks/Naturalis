@@ -23,6 +23,7 @@ import javax.swing.JTable;
  */
 public class CustomerUI extends javax.swing.JFrame implements Colleague {
     
+    private Integer machineID;
     private JTable suggestionsTable;
  //   private PriceController priceController;
     private ItemController itemController;
@@ -43,44 +44,39 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     /**
      * Creates new form CustomerUI
      */
-    public CustomerUI(int machineID) { 
+    public CustomerUI(ItemController itemController, Integer machineID) { 
         initComponents();    
-                     
+                 
+        this.machineID= machineID;
       //  priceController = new PriceController(this, machineID);
         itemsCartController = new CartItemsController(this);
-        itemController = new ItemController(machineID);
+      //  itemController = new ItemController(machineID);
+        this.itemController = itemController;
         nutritionalFactsController = new NutritionalFactsController(this);
         smartCardController = new SmartCardController(this);
         
         cartItemsPanel = new CartItemsPanel(itemsCartController);
         paymentPanel = new PaymentPanel(this, itemsCartController);
-     //   cartPanel.setLayout(new FlowLayout());
+        cartPanel.setLayout(new FlowLayout());
         cartPanel.add(cartItemsPanel);
-     //   rightPanel.setLayout(new FlowLayout());
+        rightPanel.setLayout(new FlowLayout());
         rightPanel.add(paymentPanel);
         
         cardLayout = new CardLayout();
         welcomePanel = new WelcomePanel();
-        beveragePanel = new BeveragePanel(this);
-        snackPanel = new SnackPanel(this);
+        beveragePanel = new BeveragePanel(this, machineID);
+        snackPanel = new SnackPanel(this, machineID);
         itemsPanel.setLayout(cardLayout);
         itemsPanel.add(welcomePanel,"Welcome");
         itemsPanel.add(beveragePanel,"Beverages");
         itemsPanel.add(snackPanel,"Snacks");
 
+        itemController.registerAColleague(this);
+        
     //    paymentController = new PaymentController(this);
         checkedList[0] = false;
         checkedList[1] = false;
         checkedList[2] = false;
-    }
-    
-    public static void main(String[] args){
-    /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CustomerUI(4201).setVisible(true);
-            }
-        });
     }
     
     public ItemController getItemController() { 

@@ -19,6 +19,7 @@ import java.util.Set;
  */
 public class BeveragePanel extends javax.swing.JPanel {
     
+    private Integer machineID;
     private CustomerUI customerUI;
     private ItemController itemsController;
     private CartItemsController itemsCartController;
@@ -27,8 +28,9 @@ public class BeveragePanel extends javax.swing.JPanel {
      * Creates new form BeveragePanel
      */
 
-    public BeveragePanel(CustomerUI customerUI) {
+    public BeveragePanel(CustomerUI customerUI, Integer machineID) {
         initComponents();
+        this.machineID = machineID;
         this.customerUI = customerUI;
         itemsController = customerUI.getItemController();
         itemsCartController = customerUI.getItemsCartController();
@@ -39,7 +41,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     
     public void setCodeLabel(){
         
-        ArrayList<Integer> codeList = itemsController.getCode();
+        ArrayList<Integer> codeList = itemsController.getCodeForMachine(machineID);
         
         cokeCodeLabel.setText(Integer.toString(codeList.get(0)));
         orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
@@ -55,7 +57,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     }
     public void setPriceLabel(){
     
-        ArrayList<Double> priceList = itemsController.getPrice();
+        ArrayList<Double> priceList = itemsController.getPriceForMachine(machineID);
         
         cokePriceLabel.setText(Double.toString(priceList.get(0)));
         orangeJuicePriceLabel.setText(Double.toString(priceList.get(1)));

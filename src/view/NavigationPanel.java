@@ -6,6 +6,7 @@
 package view;
 
 import controller.AccessUserController;
+import controller.ItemController;
 import controller.LoginStrategy;
 import controller.MultipleLoginAttempts;
 import controller.UserLogController;
@@ -20,6 +21,7 @@ public class NavigationPanel extends javax.swing.JPanel {
     private LoginPanel loginPanel;
     private String username;
     private String password;
+    private ItemController itemController;
     private AccessUserController accessUserController;
     private UserLogController userLogController;
     private MultipleLoginAttempts multipleLoginAttempts;
@@ -27,8 +29,9 @@ public class NavigationPanel extends javax.swing.JPanel {
     /**
      * Creates new form NavigationPage
      */
-    public NavigationPanel() {
+    public NavigationPanel(ItemController itemController) {
         initComponents();
+        this.itemController = itemController;
         loginPanel = new LoginPanel();
         accessUserController = new AccessUserController();
         userLogController = new UserLogController();
@@ -132,7 +135,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             if(validateOK == true) {
                 userLogController.addLogEntry(username,password,"manager");
                 Main.setActivityType(2);
-                new AdminUI().setVisible(true);
+                new AdminUI(itemController).setVisible(true);
             }
             else {
                 JOptionPane.showMessageDialog(loginPanel, "Invalid username/password");

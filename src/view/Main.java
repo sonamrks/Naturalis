@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.ItemController;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -14,6 +15,7 @@ import javax.swing.JPanel;
  */
 public class Main extends javax.swing.JFrame {
 
+    private ItemController itemController;
     static private CardLayout cardLayout;
     static private JPanel cards;
     private NavigationPanel navigationPanel;
@@ -23,10 +25,11 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Main() {
+        itemController= new ItemController();
         cardLayout = new CardLayout();
         cards = new JPanel(cardLayout);
-        navigationPanel = new NavigationPanel();
-        machinesPanel = new MachinesPanel();
+        navigationPanel = new NavigationPanel(itemController);
+        machinesPanel = new MachinesPanel(itemController);
         cards.add(navigationPanel, "Navigation");
         cards.add(machinesPanel,"Machines");
         

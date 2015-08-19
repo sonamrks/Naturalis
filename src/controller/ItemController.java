@@ -22,6 +22,7 @@ public class ItemController implements Mediator {
     private SuggestionsComponent suggestionsComponent;
     private Decorator decorator;
    // private CustomerUI customerUI;
+    private ArrayList <Colleague> colleagues = new ArrayList<Colleague>();
     
     
     public ItemController(int machineID) {
@@ -53,6 +54,14 @@ public class ItemController implements Mediator {
             System.out.println("after Size: " + suggestionsComponent.getSize());
             return suggestionsComponent.getSuggestionString();
         
+    }
+    
+    public ArrayList<Integer> getCodeForMachine(Integer machineID) {
+        return itemsTableModel.getCodeForMachine(machineID);
+    }
+    
+    public ArrayList<Double> getPriceForMachine(Integer machineID) {
+        return itemsTableModel.getPriceForMachine(machineID);
     }
     
     public ArrayList<Integer> getCode(){
@@ -102,11 +111,16 @@ public class ItemController implements Mediator {
     }
     
     public void sendMessageToAll(Colleague sender, Integer code) {
-        
+        for (int i = 0; i < colleagues.size(); ++i){
+                Colleague c = colleagues.get(i);
+                if (c != sender){
+                        c.receiveMessage(code);
+                }
+        }
     }
     
     public void registerAColleague (Colleague c) {
-        
+        colleagues.add(c);
     }
     
 }

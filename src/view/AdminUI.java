@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.ItemController;
 import controller.ManagerController;
 import java.util.ArrayList;
 
@@ -12,16 +13,26 @@ import java.util.ArrayList;
  *
  * @author AshitaRaghu
  */
-public class AdminUI extends javax.swing.JFrame {
+public class AdminUI extends javax.swing.JFrame implements Colleague {
     private ManagerController managerController;
+    private ItemController itemController;
     /**
      * Creates new form LimitedView
      */
-    public AdminUI() {
+    public AdminUI(ItemController itemController) {
         initComponents();
+        this.itemController = itemController;
         managerController = new ManagerController();
         setPrice();
         setCount();
+    }
+    
+    public void sendMessage(Integer code) {
+   //     itemController.sendMessageToAll(this, code);
+    }
+    
+    public void receiveMessage(Integer code) {
+      //  code.
     }
     
      public void setProtein(){
@@ -2249,13 +2260,6 @@ public class AdminUI extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminUI().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

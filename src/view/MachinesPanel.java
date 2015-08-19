@@ -5,17 +5,21 @@
  */
 package view;
 
+import controller.ItemController;
+
 /**
  *
  * @author Sonam
  */
 public class MachinesPanel extends javax.swing.JPanel {
 
+    private ItemController itemController;
     /**
      * Creates new form machinesListPanel
      */
-    public MachinesPanel() {
+    public MachinesPanel(ItemController itemController) {
         initComponents();
+        this.itemController = itemController;
     }
 
     /**
@@ -68,16 +72,16 @@ public class MachinesPanel extends javax.swing.JPanel {
 
     private void machine1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1ButtonActionPerformed
         if(Main.getActivityType() == 0)
-            new ManagerUI().setVisible(true);
+            new ManagerUI(itemController).setVisible(true);
         else 
-            new CustomerUI(4201).setVisible(true);
+            new CustomerUI(itemController, 4201).setVisible(true);
     }//GEN-LAST:event_machine1ButtonActionPerformed
 
     private void machine2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2ButtonActionPerformed
         if(Main.getActivityType() == 1)
-            new ManagerUI().setVisible(true);
+            new ManagerUI(itemController).setVisible(true);
         else 
-            new CustomerUI(4202).setVisible(true);
+            new CustomerUI(itemController, 4202).setVisible(true);
     }//GEN-LAST:event_machine2ButtonActionPerformed
 
 

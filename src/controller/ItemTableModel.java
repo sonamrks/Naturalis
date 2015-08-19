@@ -99,6 +99,42 @@ public class ItemTableModel {
         return codeList;
     }
     
+    public ArrayList<Integer> getCodeForMachine(Integer machineID){        
+        try {         
+            String getCode = "SELECT code FROM item where machineID = " + Integer.toString(machineID);
+            
+            PreparedStatement statement = connection.prepareStatement(getCode);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next()){
+                codeList.add(result.getInt("code"));
+            }            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return codeList;
+    }
+    
+    public ArrayList<Double> getPriceForMachine(Integer machineID){        
+        try {         
+            String getPrice = "SELECT price FROM item where machineID = " + Integer.toString(machineID);
+               
+            statement = connection.prepareStatement(getPrice);
+            result = statement.executeQuery();
+            
+            while(result.next()){
+                priceList.add(result.getDouble("price"));
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return priceList;
+    }
+    
+    
     public ArrayList<Double> getPrice(){
         
         return priceList;
