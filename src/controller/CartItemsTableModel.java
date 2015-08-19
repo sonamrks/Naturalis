@@ -152,10 +152,11 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
 
     @Override
     public Iterator createIterator() {
-      return new CartIterator();
+    //  return new CartIterator();
+        return null;
     }
 
-    class CartIterator implements Iterator {
+  /*  class CartIterator implements Iterator {
             int currentIndex = 0;
 
             @Override
@@ -176,7 +177,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             public void removeItem(Integer code) {
                 itemCodes.remove(code);
                 itemNames.remove("name");
-                
+                              
                 while(hasNext()) {
                     if(next().getCode()== code) {
                         price = cartItems.get(currentIndex).getPrice();
@@ -185,10 +186,32 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
                     }
                 }
                 currentIndex = 0;
-           
                 subtractPrice(price);
-                notifyObservers();  
+                notifyObservers(); 
             }
+    }*/
+    
+    public void removeItem(Integer code) {
+        try {
+            String getPrice = "SELECT price FROM item WHERE code=?";
+            statement = connection.prepareStatement(getPrice);
+            statement.setInt(1,code);
+            result = statement.executeQuery();
+
+            while(result.next()){
+            price = result.getDouble("price");
+            }
+            
+            subtractPrice(price);
+            cartItems.remove(item);
+            numrows--;
+            notifyObservers();
+        }
+        catch(Exception err)
+        {
+         System.out.println(err.getMessage());
+         err.printStackTrace();
+        }
     }
     
     @Override

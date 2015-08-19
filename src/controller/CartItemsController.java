@@ -22,13 +22,13 @@ import view.PaymentPanel;
 public class CartItemsController implements ListSelectionListener, TableModelListener {
     private CartItemsTableModel itemsCartTableModel;
     private CustomerUI customerUI;
-    Iterator iterator;
+//    Iterator iterator;
     
     public CartItemsController(CustomerUI customerUI) {
         this.customerUI = customerUI;
         itemsCartTableModel = new CartItemsTableModel();
         itemsCartTableModel.addTableModelListener(this);
-        iterator = itemsCartTableModel.createIterator();
+     //   iterator = itemsCartTableModel.createIterator();
                 
      //   itemsCartTableModel.attachObserver(cartItemsPanel);
      //   itemsCartTableModel.attachObserver(paymentPanel);
@@ -73,7 +73,8 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
             JOptionPane.showMessageDialog(null,"Please select an item to delete","No items selected",JOptionPane.ERROR_MESSAGE);
         } else {
          //   itemsCartTableModel.deleteRow(Integer.valueOf(ID));
-            iterator.removeItem(Integer.valueOf(ID));
+//            iterator.removeItem(Integer.valueOf(ID));
+            itemsCartTableModel.removeItem(Integer.valueOf(ID));
             itemsCartTableModel.updateSoldCount(Integer.valueOf(ID),"remove");
         }
     }	
