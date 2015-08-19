@@ -6,6 +6,8 @@
 package view;
 
 import controller.AccessUserController;
+import controller.LoginStrategy;
+import controller.MultipleLoginAttempts;
 import controller.UserLogController;
 import javax.swing.JOptionPane;
 
@@ -20,6 +22,8 @@ public class NavigationPanel extends javax.swing.JPanel {
     private String password;
     private AccessUserController accessUserController;
     private UserLogController userLogController;
+    private MultipleLoginAttempts multipleLoginAttempts;
+    private LoginStrategy strategy;
     /**
      * Creates new form NavigationPage
      */
@@ -29,7 +33,13 @@ public class NavigationPanel extends javax.swing.JPanel {
         accessUserController = new AccessUserController();
         userLogController = new UserLogController();
     }
-
+    public void setLoginStrategy(LoginStrategy strategy){
+        this.strategy = strategy;
+    }
+    public boolean validate(String username, String password, String role,AccessUserController accessUserController){
+        boolean validateOK = strategy.validate(username,password,role,accessUserController);
+        return validateOK;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,14 +94,17 @@ public class NavigationPanel extends javax.swing.JPanel {
                 .addComponent(managerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
       int result  = JOptionPane.showConfirmDialog(null, loginPanel,"Please Enter User Name and Password", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
             username = loginPanel.getUserName();
             password = loginPanel.getPassword();
             
-            boolean validateOK = accessUserController.validateAccess(username, password, "admin");
+            setLoginStrategy(new MultipleLoginAttempts());
+            boolean validateOK = validate(username,password,"admin",accessUserController);
+            
+            //boolean validateOK = accessUserController.validateAccess(username, password, "admin");
             if(validateOK == true) {
                 System.out.println("Login valid");
                 userLogController.addLogEntry(username,password,"admin");
