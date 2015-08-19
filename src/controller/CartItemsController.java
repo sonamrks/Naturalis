@@ -26,7 +26,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     private PaymentPanel paymentPanel;
     Iterator iterator;
     
-    public CartItemsController(CustomerUI customerUI, CartItemsPanel cartItemsPanel, PaymentPanel paymentPanel, int machineID) {
+    public CartItemsController(CustomerUI customerUI, CartItemsPanel cartItemsPanel, PaymentPanel paymentPanel) {
         this.customerUI = customerUI;
         this.cartItemsPanel = cartItemsPanel;
         this.paymentPanel = paymentPanel;
@@ -57,8 +57,8 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
             itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
-//            customerUI.updateCartTable();	 
-//            customerUI.updatePrice();
+            cartItemsPanel.updateCartTable();	 
+            paymentPanel.updatePrice(itemsCartTableModel.getTotalPrice());
     } catch(Exception exp) {
             exp.getMessage();
             exp.printStackTrace();
@@ -80,4 +80,13 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
             itemsCartTableModel.updateSoldCount(Integer.valueOf(ID),"remove");
         }
     }	
+    
+    public double getTotalPrice() {
+        return itemsCartTableModel.getTotalPrice();
+    }
+    
+    public double deductPrice(double price, double deductable){
+        double remainingPrice = price - deductable;
+        return remainingPrice;
+    }
 }

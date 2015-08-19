@@ -26,12 +26,7 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
     public CartItemsPanel() {
         initComponents();             
         addCartTable();
-        itemsCartController = new CartItemsController(this, machineID);
     }
-         
-    public static CartItemsController getItemsCartController() {
-         return itemsCartController;
-     }
         
     public void addCartTable() {
         cartTable = new JTable(itemsCartController.getTableModel());

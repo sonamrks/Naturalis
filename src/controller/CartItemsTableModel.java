@@ -81,14 +81,18 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             item = beverageFactory.createItem(s);
             addPrice(item.getPrice());
             cartItems.add(item);
-            fireTableRowsInserted(itemCodes.size()-1, numcols-1);
-            numrows++;           
+            numrows++;  
+            notifyObservers();
         }
         catch(Exception err)
         {
          System.out.println(err.getMessage());
          err.printStackTrace();
         }
+    }
+       
+    public void updateCartTable() {
+        fireTableRowsInserted(itemCodes.size()-1, numcols-1);
     }
     
     public void updateSoldCount(Integer code,String action){
@@ -317,11 +321,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     }
     
     @Override
-    public void notifyObserver() {
-        java.util.Iterator<Observer> it = observers.iterator();
-        while (it.hasNext()) {
-                Observer observer = it.next();
-                observer.Update(ID);
-        }
+    public void notifyObservers() {
+        updateCartTable();
     }
 }

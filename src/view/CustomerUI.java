@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.CartItemsController;
 import controller.ItemController;
 import controller.NutritionalFactsController;
 import controller.SmartCardController;
@@ -19,10 +20,13 @@ public class CustomerUI extends javax.swing.JFrame {
     
     private JTable suggestionsTable;
  //   private PriceController priceController;
-    private static SmartCardController smartCardController;
     private ItemController itemController;
+    private static CartItemsController itemsCartController;
     private static NutritionalFactsController nutritionalFactsController;
-    private double price;
+    private static SmartCardController smartCardController;
+  //  private double price;
+    private CartItemsPanel cartItemsPanel;
+    private PaymentPanel paymentPanel;
     static private CardLayout cardLayout;
     private WelcomePanel welcomePanel;
     private BeveragePanel beveragePanel;
@@ -35,12 +39,18 @@ public class CustomerUI extends javax.swing.JFrame {
      * Creates new form CustomerUI
      */
     public CustomerUI(int machineID) { 
-        initComponents();
+        initComponents();    
+               
+        cartItemsPanel = new CartItemsPanel(itemsCartController);
+        paymentPanel = new PaymentPanel();
+        cartPanel.add(cartItemsPanel);
+        rightPanel.add(paymentPanel);
        
       //  priceController = new PriceController(this, machineID);
-        smartCardController = new SmartCardController(this);
+        itemsCartController = new CartItemsController(this, cartItemsPanel, paymentPanel);
         itemController = new ItemController(machineID);
         nutritionalFactsController = new NutritionalFactsController(this);
+        smartCardController = new SmartCardController(this);
         
         cardLayout = new CardLayout();
         welcomePanel = new WelcomePanel();
@@ -64,6 +74,10 @@ public class CustomerUI extends javax.swing.JFrame {
                 new CustomerUI(4201).setVisible(true);
             }
         });
+    }
+    
+    public static CartItemsController getItemsCartController() { 
+        return itemsCartController;
     }
      
     public void setItemCodeTextField(String code) {

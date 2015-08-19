@@ -14,5 +14,5 @@ import controller.Observer;
 public interface Observable {
     public void attachObserver(Observer observer);
     public void dettachObserver(Observer observer);
-    public void notifyObserver();
+    public void notifyObservers();
 }
