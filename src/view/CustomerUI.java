@@ -25,13 +25,13 @@ public class CustomerUI extends javax.swing.JFrame {
     private JTable suggestionsTable;
  //   private PriceController priceController;
     private ItemController itemController;
-    private static CartItemsController itemsCartController;
-    private static NutritionalFactsController nutritionalFactsController;
-    private static SmartCardController smartCardController;
+    private CartItemsController itemsCartController;
+    private NutritionalFactsController nutritionalFactsController;
+    private SmartCardController smartCardController;
   //  private double price;
     private CartItemsPanel cartItemsPanel;
     private PaymentPanel paymentPanel;
-    static private CardLayout cardLayout;
+    private static CardLayout cardLayout;
     private WelcomePanel welcomePanel;
     private BeveragePanel beveragePanel;
     private SnackPanel snackPanel;
@@ -60,8 +60,8 @@ public class CustomerUI extends javax.swing.JFrame {
         
         cardLayout = new CardLayout();
         welcomePanel = new WelcomePanel();
-        beveragePanel = new BeveragePanel(itemController);
-        snackPanel = new SnackPanel(itemController);
+        beveragePanel = new BeveragePanel(this);
+        snackPanel = new SnackPanel(this);
         itemsPanel.setLayout(cardLayout);
         itemsPanel.add(welcomePanel,"Welcome");
         itemsPanel.add(beveragePanel,"Beverages");
@@ -82,7 +82,11 @@ public class CustomerUI extends javax.swing.JFrame {
         });
     }
     
-    public static CartItemsController getItemsCartController() { 
+    public ItemController getItemController() { 
+        return itemController;
+    }
+    
+    public CartItemsController getItemsCartController() { 
         return itemsCartController;
     }
     

@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.CartItemsController;
 import controller.Observable;
 import controller.ItemController;
 import controller.Observer;
@@ -18,13 +19,17 @@ import java.util.Set;
  */
 public class SnackPanel extends javax.swing.JPanel {
 
+    private CustomerUI customerUI;
     private ItemController itemsController;
+    private CartItemsController itemsCartController;
     /**
      * Creates new form SnackPanel
      */
-    public SnackPanel(ItemController itemController) {
+    public SnackPanel(CustomerUI customerUI) {
         initComponents();
-        this.itemsController = itemController;
+        this.customerUI = customerUI;
+        itemsController = customerUI.getItemController();
+        itemsCartController = customerUI.getItemsCartController();
     }
 
     public void setCodeLabel(){
@@ -649,39 +654,39 @@ public class SnackPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void granolaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(granolaCodeLabel.getText());  
+        itemsCartController.addItem(granolaCodeLabel.getText());  
     }//GEN-LAST:event_granolaButtonActionPerformed
 
     private void cookieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(cookieCodeLabel.getText());  
+        itemsCartController.addItem(cookieCodeLabel.getText());  
     }//GEN-LAST:event_cookieButtonActionPerformed
 
     private void veggieStrawsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(veggieStrawsCodeLabel.getText());  
+        itemsCartController.addItem(veggieStrawsCodeLabel.getText());  
     }//GEN-LAST:event_veggieStrawsButtonActionPerformed
 
     private void greekYogurtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(greekYogurtCodeLabel.getText());  
+        itemsCartController.addItem(greekYogurtCodeLabel.getText());  
     }//GEN-LAST:event_greekYogurtButtonActionPerformed
 
     private void nutsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(nutsCodeLabel.getText());  
+        itemsCartController.addItem(nutsCodeLabel.getText());  
     }//GEN-LAST:event_nutsButtonActionPerformed
 
     private void driedFruitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(driedFruitsCodeLabel.getText());  
+        itemsCartController.addItem(driedFruitsCodeLabel.getText());  
     }//GEN-LAST:event_driedFruitButtonActionPerformed
 
     private void popcornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(popcornCodeLabel.getText());  
+        itemsCartController.addItem(popcornCodeLabel.getText());  
     }//GEN-LAST:event_popcornButtonActionPerformed
 
     private void crackersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(crackersCodeLabel.getText());  
+        itemsCartController.addItem(crackersCodeLabel.getText());  
     }//GEN-LAST:event_crackersButtonActionPerformed
 
     private void chipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsButtonActionPerformed
-        CustomerUI.getItemsCartController().addItem(chipsCodeLabel.getText());  
+        itemsCartController.addItem(chipsCodeLabel.getText());  
     }//GEN-LAST:event_chipsButtonActionPerformed
 
 
