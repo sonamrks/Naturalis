@@ -22,23 +22,34 @@ import org.jfree.data.category.DefaultCategoryDataset;
  *
  * @author AshitaRaghu
  */
-public class ManagerUI extends javax.swing.JFrame {
+public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private ManagerController managerController;
-    private static ItemController itemsController;
+    private ItemController itemController;
+    ArrayList<Integer> countList;
     private LycheeJuice lycheeJuice;
     /**
      * Creates new form AdminUI
      */
-    public ManagerUI() {
+    public ManagerUI(ItemController itemController) {
         initComponents();
         managerController = new ManagerController();
-        itemsController = new ItemController();
+     //   itemsController = new ItemController();
+        this.itemController = itemController;
+        itemController.registerAColleague(this);
         lycheeJuice = new LycheeJuice();
         setPrice();
-        setCount();
-        
+        setCount();     
     }
+    
+    public void sendMessage(Integer code) {
+        itemController.sendMessageToAll(this, code);
+    }
+    
+    public void receiveMessage(Integer code) {
+        cokeCountTextField.setText(Integer.toString(countList.get(0)-1));
+    }
+    
     public void setProtein(){
         
         ArrayList<Integer> proteinList = managerController.setProtein();
@@ -125,15 +136,11 @@ public class ManagerUI extends javax.swing.JFrame {
         popcornPriceTextField.setText(Double.toString(priceList.get(14)));
         crackersPriceTextField.setText(Double.toString(priceList.get(15)));
         veggieStrawsPriceTextField.setText(Double.toString(priceList.get(16)));
-        greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));
-        
-        
-        
-        
+        greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));   
     }
     public void setCount(){
         
-        ArrayList<Integer> countList = managerController.setCount();
+        countList = managerController.setCount();
         
         cokeCountTextField.setText(Integer.toString(countList.get(0)));
         orangeCountTextField.setText(Integer.toString(countList.get(1)));
@@ -2913,7 +2920,7 @@ public class ManagerUI extends javax.swing.JFrame {
         itemInfo[8] = categoryTextField.getText();
         itemInfo[9] = machineIDTextField.getText();
         
-        itemsController.addNewItem(itemInfo);
+        itemController.addNewItem(itemInfo);
         
         if(Integer.valueOf(codeTextField.getText()) == 110){
             lycheeJuicePanel.setLayout(new FlowLayout());
@@ -2944,14 +2951,7 @@ public class ManagerUI extends javax.swing.JFrame {
             pretzel.setCount(Integer.valueOf(countTextField.getText()));
         }
     }//GEN-LAST:event_addItemButtonActionPerformed
-    public static void main(String[] args){
-    /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ManagerUI().setVisible(true);
-            }
-        });
-    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BevSnacksStatisticsPanel;
     private javax.swing.JButton addCoconutWaterButton;
