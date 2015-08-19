@@ -32,7 +32,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private double price;
     private Item item;
     private int soldCount,count;
-    private Set<Observer> observers;
+ //   private Set<Observer> observers;
     
     ItemFactory beverageFactory = new ItemFactory();
 
@@ -47,7 +47,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
      cartItems = new ArrayList<Item>();
      itemCodes = new ArrayList<Integer>();
      itemNames = new ArrayList<String>();
-     observers = new HashSet<Observer>();
+//     observers = new HashSet<Observer>();
      numrows = itemCodes.size();
      numcols = 2;    
     }
@@ -304,12 +304,10 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
        
     @Override
     public void attachObserver(Observer observer) {
-        observers.add(observer);
     }
     
     @Override
     public void dettachObserver(Observer observer) {
-        observers.remove(observer);
     }
     
     @Override

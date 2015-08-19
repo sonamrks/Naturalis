@@ -53,9 +53,9 @@ public class CustomerUI extends javax.swing.JFrame {
         
         cartItemsPanel = new CartItemsPanel(itemsCartController);
         paymentPanel = new PaymentPanel(this, itemsCartController);
-        cartPanel.setLayout(new FlowLayout());
+     //   cartPanel.setLayout(new FlowLayout());
         cartPanel.add(cartItemsPanel);
-        rightPanel.setLayout(new FlowLayout());
+     //   rightPanel.setLayout(new FlowLayout());
         rightPanel.add(paymentPanel);
         
         cardLayout = new CardLayout();
