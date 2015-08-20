@@ -43,8 +43,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         pretzelPanel.setVisible(false);
         cornPanel.setVisible(false);
         
-        setPrice();
-        setCount();     
+        setPrice();  
     }
     
     public void sendMessage(String type, Integer index, Double value) {
@@ -59,7 +58,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             countList.set(index, countList.get(index)+1);
         if(type.equals("addtocount"))
             countList.set(index, countList.get(index)+1);
-        setCount(); 
+        //setCount(); 
     }
     
     public void setProtein(){
@@ -101,32 +100,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         crackersPriceTextField.setText(Double.toString(priceList.get(15)));
         veggieStrawsPriceTextField.setText(Double.toString(priceList.get(16)));
         greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));   
-    }
-    public void setCount(){
-        
-        countList = managerController.setCount();
-        
-        cokeCountTextField.setText(Integer.toString(countList.get(0)));
-        orangeCountTextField.setText(Integer.toString(countList.get(1)));
-        lemonadeCountTextField.setText(Integer.toString(countList.get(2)));
-        gatoradeCountTextField.setText(Integer.toString(countList.get(3)));
-        frappuccinoCountTextField.setText(Integer.toString(countList.get(4)));
-        coconutWaterCountTextField.setText(Integer.toString(countList.get(5)));
-        sparklingWaterCountTextField.setText(Integer.toString(countList.get(6)));
-        proteinSmoothieCountTextField.setText(Integer.toString(countList.get(7)));
-        proteinShakeCountTextField.setText(Integer.toString(countList.get(8)));
-        
-        granolaCountTextField.setText(Integer.toString(countList.get(9)));
-        chipsCountTextField.setText(Integer.toString(countList.get(10)));
-        nutsCountTextField.setText(Integer.toString(countList.get(11)));
-        cookieCountTextField.setText(Integer.toString(countList.get(12)));
-        driedFruitsCountTextField.setText(Integer.toString(countList.get(13)));
-        popcornCountTextField.setText(Integer.toString(countList.get(14)));
-        crackersCountTextField.setText(Integer.toString(countList.get(15)));
-        veggieStrawsCountTextField.setText(Integer.toString(countList.get(16)));
-        greekYogurtCountTextField.setText(Integer.toString(countList.get(17)));
-        
-        
     }
    
 
