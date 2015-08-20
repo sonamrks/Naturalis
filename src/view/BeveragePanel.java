@@ -660,39 +660,48 @@ public class BeveragePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void orangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeButtonActionPerformed
-        itemsCartController.addItem(orangeJuiceCodeLabel.getText());  
+        itemsCartController.addItem(orangeJuiceCodeLabel.getText()); 
+        customerUI.sendMessage("addtocart", 1, null);
     }//GEN-LAST:event_orangeButtonActionPerformed
 
     private void gatoradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeButtonActionPerformed
-        itemsCartController.addItem(gatoradeCodeLabel.getText());  
+        itemsCartController.addItem(gatoradeCodeLabel.getText()); 
+        customerUI.sendMessage("addtocart", 3, null);
     }//GEN-LAST:event_gatoradeButtonActionPerformed
 
     private void sparklingWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterButtonActionPerformed
-        itemsCartController.addItem(sparklingWaterCodeLabel.getText());  
+        itemsCartController.addItem(sparklingWaterCodeLabel.getText()); 
+        customerUI.sendMessage("addtocart", 6, null);
     }//GEN-LAST:event_sparklingWaterButtonActionPerformed
 
     private void proteinShakeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeButtonActionPerformed
-        itemsCartController.addItem(proteinShakeCodeLabel.getText());  
+        itemsCartController.addItem(proteinShakeCodeLabel.getText()); 
+        customerUI.sendMessage("addtocart", 7, null);
     }//GEN-LAST:event_proteinShakeButtonActionPerformed
 
     private void cokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeButtonActionPerformed
-        itemsCartController.addItem(cokeCodeLabel.getText());  
+        itemsCartController.addItem(cokeCodeLabel.getText()); 
+        customerUI.sendMessage("addtocart", 0, null);
     }//GEN-LAST:event_cokeButtonActionPerformed
 
     private void lemonadeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeButtonActionPerformed
-        itemsCartController.addItem(lemonadeCodeLabel.getText());  
+        itemsCartController.addItem(lemonadeCodeLabel.getText()); 
+        customerUI.sendMessage("addtocart", 2, null);
     }//GEN-LAST:event_lemonadeButtonActionPerformed
 
     private void frappuccinoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoButtonActionPerformed
-        itemsCartController.addItem(frappuccinoCodeLabel.getText());  
+        itemsCartController.addItem(frappuccinoCodeLabel.getText()); 
+        customerUI.sendMessage("addtocart", 4, null);
     }//GEN-LAST:event_frappuccinoButtonActionPerformed
 
     private void coconutWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterButtonActionPerformed
         itemsCartController.addItem(coconutWaterCodeLabel.getText());  
+        customerUI.sendMessage("addtocart", 5, null);
     }//GEN-LAST:event_coconutWaterButtonActionPerformed
 
     private void proteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothieButtonActionPerformed
         itemsCartController.addItem(proteinSmoothieCodeLabel.getText());  
+        customerUI.sendMessage("addtocart", 7, null);
     }//GEN-LAST:event_proteinSmoothieButtonActionPerformed
 
 

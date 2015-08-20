@@ -110,11 +110,11 @@ public class ItemController implements Mediator {
         itemsTableModel.addNewItem(itemInfo);
     }
     
-    public void sendMessageToAll(Colleague sender, Integer code) {
+    public void sendMessageToAll(Colleague sender, String type, Integer index, Double value) {
         for (int i = 0; i < colleagues.size(); ++i){
                 Colleague c = colleagues.get(i);
                 if (c != sender){
-                        c.receiveMessage(code);
+                        c.receiveMessage(type, index, value);
                 }
         }
     }

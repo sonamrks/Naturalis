@@ -107,11 +107,11 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
          item1DispensedLabel.setIcon(new ImageIcon("/images/greekYogurt.jpg"));
     }
      
-    public void sendMessage(Integer code) {
-        itemController.sendMessageToAll(this, code);
+    public void sendMessage(String type, Integer index, Double value) {
+        itemController.sendMessageToAll(this, type, index, value);
     }
     
-    public void receiveMessage(Integer code) {
+    public void receiveMessage(String type, Integer index, Double value) {
       //  code.
     }
  

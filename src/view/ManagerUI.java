@@ -26,6 +26,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private ManagerController managerController;
     private ItemController itemController;
+    ArrayList<Double> priceList;
     ArrayList<Integer> countList;
     /**
      * Creates new form AdminUI
@@ -46,12 +47,18 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         setCount();     
     }
     
-    public void sendMessage(Integer code) {
-        itemController.sendMessageToAll(this, code);
+    public void sendMessage(String type, Integer index, Double value) {
+        itemController.sendMessageToAll(this, type, index, value);
     }
     
-    public void receiveMessage(Integer code) {
-      setCount(); 
+    public void receiveMessage(String type, Integer index, Double value) {
+        if(type.equals("addtocart")) 
+            countList.set(index, countList.get(index)-1);
+        if(type.equals("removefromcart"))
+            countList.set(index, countList.get(index)+1);
+        if(type.equals("changeprice"))
+            priceList.set(index, value); 
+        setCount(); 
     //  setPrice();
       //  cokeCountTextField.setText(Integer.toString(countList.get(0)-1));
     }
@@ -122,7 +129,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     }
     public void setPrice(){
         
-        ArrayList<Double> priceList = managerController.setPrice();
+        priceList = managerController.setPrice();
         
         cokePriceTextField.setText(Double.toString(priceList.get(0)));
         orangePriceTextField.setText(Double.toString(priceList.get(1)));

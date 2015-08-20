@@ -16,24 +16,32 @@ import java.util.ArrayList;
 public class AdminUI extends javax.swing.JFrame implements Colleague {
     private ManagerController managerController;
     private ItemController itemController;
+    ArrayList<Integer> countList;
+    ArrayList<Double> priceList;
     /**
      * Creates new form LimitedView
      */
     public AdminUI(ItemController itemController) {
         initComponents();
         this.itemController = itemController;
+        itemController.registerAColleague(this);
         managerController = new ManagerController();
         setPrice();
         setCount();
     }
     
-    public void sendMessage(Integer code) {
-   //     itemController.sendMessageToAll(this, code);
+    public void sendMessage(String type, Integer index, Double value) {
+        itemController.sendMessageToAll(this, type, index, value);
     }
     
-    public void receiveMessage(Integer code) {
-        setPrice();
-        setCount();
+    public void receiveMessage(String type, Integer index, Double value) {
+        if(type.equals("addtocart")) 
+            countList.set(index, countList.get(index)-1);
+        if(type.equals("removefromcart"))
+            countList.set(index, countList.get(index)+1);
+        if(type.equals("changeprice"))
+            priceList.set(index, value); 
+        setCount(); 
     }
     
      public void setProtein(){
@@ -51,7 +59,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         ArrayList<Integer> caloriesList = managerController.setCalories();
     }
     public void setPrice(){
-        ArrayList<Double> priceList = managerController.setPrice();
+        priceList = managerController.setPrice();
         
         cokePriceTextField.setText(Double.toString(priceList.get(0)));
         orangePriceTextField.setText(Double.toString(priceList.get(1)));
@@ -74,7 +82,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));
     }
     public void setCount(){
-        ArrayList<Integer> countList = managerController.setCount();
+        countList = managerController.setCount();
         
         cokeCountTextField.setText(Integer.toString(countList.get(0)));
         orangeCountTextField.setText(Integer.toString(countList.get(1)));

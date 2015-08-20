@@ -12,6 +12,6 @@ import view.Colleague;
  * @author Sonam
  */
 public interface Mediator {
-    public void sendMessageToAll(Colleague sender, Integer code);
+    public void sendMessageToAll(Colleague sender, String type, Integer index, Double value);
     public void registerAColleague (Colleague c);
 }
