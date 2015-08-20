@@ -41,6 +41,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             countList.set(index, countList.get(index)+1);
         if(type.equals("changeprice"))
             priceList.set(index, value); 
+        setPrice();
         setCount(); 
     }
     

@@ -48,6 +48,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     }
     
     public void sendMessage(String type, Integer index, Double value) {
+        System.out.println("2. ");
         itemController.sendMessageToAll(this, type, index, value);
     }
     
@@ -2284,7 +2285,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
                     .addComponent(coconutWaterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sparlkingWaterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(greekYogurtPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
             .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(itemsPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -2429,7 +2430,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void frappuccinoUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(frappuccinoPriceTextField.getText());
-        sendMessage("changePrice", 4, price);
+        sendMessage("changeprice", 4, price);
         managerController.updatePrice(price,105);
     }//GEN-LAST:event_frappuccinoUpdateButtonActionPerformed
 
@@ -2444,7 +2445,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void orangeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(orangePriceTextField.getText());
-        sendMessage("changePrice", 1, price);
+        sendMessage("changeprice", 1, price);
         managerController.updatePrice(price,102);
     }//GEN-LAST:event_orangeUpdateButtonActionPerformed
 
@@ -2468,7 +2469,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void lemonadeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeUpdateButtonActionPerformed
         // TODO add your handling code here:        
         double price = Double.valueOf(lemonadePriceTextField.getText());
-        sendMessage("changePrice", 2, price);
+        sendMessage("changeprice", 2, price);
         managerController.updatePrice(price,103);
     }//GEN-LAST:event_lemonadeUpdateButtonActionPerformed
 
@@ -2491,7 +2492,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void gatoradeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(gatoradePriceTextField.getText());
-        sendMessage("changePrice", 3, price);
+        sendMessage("changeprice", 3, price);
         managerController.updatePrice(price,104);
     }//GEN-LAST:event_gatoradeUpdateButtonActionPerformed
 
@@ -2514,7 +2515,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void coconutWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(coconutWaterPriceTextField.getText());
-        sendMessage("changePrice", 5, price);
+        sendMessage("changeprice", 5, price);
         managerController.updatePrice(price,106);
     }//GEN-LAST:event_coconutWaterUpdateButtonActionPerformed
 
@@ -2538,7 +2539,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void sparklingWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(sparklingWaterPriceTextField.getText());
-        sendMessage("changePrice", 6, price);
+        sendMessage("changeprice", 6, price);
         managerController.updatePrice(price,107);
     }//GEN-LAST:event_sparklingWaterUpdateButtonActionPerformed
 
@@ -2562,7 +2563,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void updateCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCokeButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(cokePriceTextField.getText());
-        sendMessage("changePrice", 0, price);
+        sendMessage("changeprice", 0, price);
         managerController.updatePrice(price,101);
     }//GEN-LAST:event_updateCokeButtonActionPerformed
 
@@ -2586,6 +2587,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void granolaUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(granolaPriceTextField.getText());
+        sendMessage("changeprice", 9, price);
         managerController.updatePrice(price,201);
     }//GEN-LAST:event_granolaUpdateButtonActionPerformed
 
@@ -2627,6 +2629,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void chipsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(chipsPriceTextField.getText());
+        sendMessage("changeprice", 10, price);
         managerController.updatePrice(price,202);
     }//GEN-LAST:event_chipsUpdateButtonActionPerformed
 
@@ -2650,6 +2653,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void nutsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(nutsPriceTextField.getText());
+        sendMessage("changeprice", 11, price);
         managerController.updatePrice(price,203);
     }//GEN-LAST:event_nutsUpdateButtonActionPerformed
 
@@ -2672,7 +2676,8 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void cookieUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieUpdateButtonActionPerformed
         // TODO add your handling code here:
-           double price = Double.valueOf(cookiePriceTextField.getText());
+        double price = Double.valueOf(cookiePriceTextField.getText());
+        sendMessage("changeprice", 12, price);
         managerController.updatePrice(price,204);
     }//GEN-LAST:event_cookieUpdateButtonActionPerformed
 
@@ -2695,6 +2700,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void driedFruitsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(driedFruitsPriceTextField.getText());
+        sendMessage("changeprice", 13, price);
         managerController.updatePrice(price,205);
     }//GEN-LAST:event_driedFruitsUpdateButtonActionPerformed
 
@@ -2717,6 +2723,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void popcornUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(popcornPriceTextField.getText());
+        sendMessage("changeprice", 14, price);
         managerController.updatePrice(price,206);
     }//GEN-LAST:event_popcornUpdateButtonActionPerformed
 
@@ -2739,6 +2746,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void crackersUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(crackersPriceTextField.getText());
+        sendMessage("changeprice", 15, price);
         managerController.updatePrice(price,207);
     }//GEN-LAST:event_crackersUpdateButtonActionPerformed
 
@@ -2761,6 +2769,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void veggieStrawsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(veggieStrawsPriceTextField.getText());
+        sendMessage("changeprice", 16, price);
         managerController.updatePrice(price,208);
     }//GEN-LAST:event_veggieStrawsUpdateButtonActionPerformed
 
@@ -2783,6 +2792,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void greekYogurtUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(greekYogurtPriceTextField.getText());
+        sendMessage("changeprice", 17, price);
         managerController.updatePrice(price,209);
     }//GEN-LAST:event_greekYogurtUpdateButtonActionPerformed
 

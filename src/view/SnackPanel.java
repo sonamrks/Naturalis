@@ -37,7 +37,7 @@ public class SnackPanel extends javax.swing.JPanel {
         setPriceLabel();
     }
     
-    public void receiveMessage(Integer index, Double value) {
+    public void changePrice(Integer index, Double value) {
         priceList.set(index-9, value); 
         setCodeLabel();
         setPriceLabel();
