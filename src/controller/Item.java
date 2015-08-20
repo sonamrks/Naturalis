@@ -49,10 +49,6 @@ public class Item {
         this.machineID = machineID;
     }
     public Item() {
-        
-    }
-    
-    public void getItemInfo(){
         try {
             String getInfo;
                 getInfo = "SELECT code,name,protein,sugars,calories FROM item where machineID = " + Integer.toString(machineID);
@@ -71,6 +67,27 @@ public class Item {
            System.out.println(ex.getMessage());
         }
     }
+    
+  /*  public void getItemInfo(){
+        try {
+            String getInfo;
+                getInfo = "SELECT code,name,protein,sugars,calories FROM item where machineID = " + Integer.toString(machineID);
+            PreparedStatement statement = connection.prepareStatement(getInfo);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next())
+            {
+                codeList.add(result.getInt("code"));
+                nameList.add(result.getString("name"));
+                proteinList.add(result.getInt("protein"));
+                sugarsList.add(result.getInt("sugars"));
+                caloriesList.add(result.getInt("calories"));
+            }
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
+        }
+    }
+    */
     
     
     public ArrayList<Integer> getCode(){        
