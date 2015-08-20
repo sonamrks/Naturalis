@@ -9,5 +9,5 @@ package model;
  *
  * @author Sonam
  */
-public interface Snack extends Item {
+public interface Snack extends Product {
 }

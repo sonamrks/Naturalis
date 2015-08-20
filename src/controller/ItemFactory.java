@@ -5,7 +5,7 @@
  */
 package controller;
 
-import model.Item;
+import model.Product;
 
 /**
  *
@@ -24,5 +24,5 @@ public interface ItemFactory {
 
             return beverage;
     }*/
-    public Item createItem(String name);
+    public Product createItem(String name);
 }

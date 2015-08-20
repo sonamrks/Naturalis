@@ -10,7 +10,7 @@ import view.Colleague;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
-import model.Item;
+import model.Product;
 import view.CustomerUI;
 
 /**
@@ -19,7 +19,7 @@ import view.CustomerUI;
  */
 public class ItemController implements Mediator {
     
-    private ItemTableModel itemsTableModel;
+    private Item itemsTableModel;
     private SuggestionsComponent suggestionsComponent;
     private Decorator decorator;
     private ArrayList <Colleague> colleagues = new ArrayList<Colleague>();
@@ -33,11 +33,11 @@ public class ItemController implements Mediator {
     public String[] lowSugarsNames = new String[100];
     
     public ItemController(int machineID) {
-        itemsTableModel = new ItemTableModel(machineID);
+        itemsTableModel = new Item(machineID);
     }
     
     public ItemController() {
-       itemsTableModel = new ItemTableModel();
+       itemsTableModel = new Item();
     }
     
     public String getSuggestionList(Boolean[] checkedList){

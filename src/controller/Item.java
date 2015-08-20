@@ -18,7 +18,7 @@ import model.DatabaseConnection;
  *
  * @author AshitaRaghu
  */
-public class ItemTableModel {
+public class Item {
     
     ArrayList<Integer> codeList = new ArrayList<Integer>();
     ArrayList<String> nameList = new ArrayList<String>();
@@ -45,10 +45,10 @@ public class ItemTableModel {
     PreparedStatement statement;
     ResultSet result;
     
-    public ItemTableModel(int machineID) {
+    public Item(int machineID) {
         this.machineID = machineID;
     }
-    public ItemTableModel() {
+    public Item() {
         
     }
     
@@ -230,7 +230,7 @@ public class ItemTableModel {
                 soldCount+= result.getInt("soldCount");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ItemTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
         }
         return soldCount;
     }
@@ -250,7 +250,7 @@ public class ItemTableModel {
                 soldCount+= result.getInt("soldCount");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ItemTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
         }
         return soldCount;
     }
@@ -518,7 +518,7 @@ public class ItemTableModel {
             
             
         } catch (SQLException ex) {
-            Logger.getLogger(ItemTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
         }
         return soldCount;
     }
@@ -590,7 +590,7 @@ public class ItemTableModel {
             sale = 0;
         }
         catch (SQLException ex) {
-            Logger.getLogger(ItemTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
         }
         return soldCount;
     }
@@ -675,7 +675,7 @@ public class ItemTableModel {
             }
             return totalSales;
         } catch (SQLException ex) {
-            Logger.getLogger(ItemTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
         }
         return totalSales;
     }
@@ -694,7 +694,7 @@ public class ItemTableModel {
                 i++;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ItemTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
         }
         return count;
     }

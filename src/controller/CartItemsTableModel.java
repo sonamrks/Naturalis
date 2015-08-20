@@ -18,19 +18,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import model.DatabaseConnection;
-import model.Item;
+import model.Product;
 
 
 public class CartItemsTableModel extends AbstractTableModel implements AbstractList, Observable {
  //   private Map<Integer,Item> cartItems;
-    private List<Item> cartItems;
+    private List<Product> cartItems;
     private List<Integer> itemCodes;
     private List<String> itemNames;
     private int numcols, numrows;
     private double totalPrice;
     private String name, s;
     private double price;
-    private Item item;
+    private Product item;
     private int soldCount,count;
  //   private Set<Observer> observers;
     
@@ -45,7 +45,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     
     public CartItemsTableModel() {
   //   cartItems = new HashMap<Integer,Item>();
-     cartItems = new ArrayList<Item>();
+     cartItems = new ArrayList<Product>();
      itemCodes = new ArrayList<Integer>();
      itemNames = new ArrayList<String>();
 //     observers = new HashSet<Observer>();
@@ -197,7 +197,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             }
 
             @Override
-            public Item next() {
+            public Product next() {
                     return cartItems.get(currentIndex++);
             }
             
@@ -312,7 +312,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
 	return this.itemNames;
     }
     
-    public List<Item> getCartItems() {
+    public List<Product> getCartItems() {
         return this.cartItems;
     }
     

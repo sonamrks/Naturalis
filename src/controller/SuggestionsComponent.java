@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Sonam
  */
 public class SuggestionsComponent {
-    private ItemTableModel itemTableModel;
+    private Item itemTableModel;
     
     private ArrayList<Integer> codeList;
     private ArrayList<String> nameList;
@@ -28,7 +28,7 @@ public class SuggestionsComponent {
         caloriesList =  new ArrayList<Integer>();     
     }
     
-    public SuggestionsComponent(ItemTableModel itemTableModel) {
+    public SuggestionsComponent(Item itemTableModel) {
         this.itemTableModel = itemTableModel;  
         itemTableModel.getItemInfo();
         codeList = itemTableModel.getCodeList();

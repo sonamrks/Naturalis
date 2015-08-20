@@ -9,7 +9,7 @@ package model;
  *
  * @author Sonam
  */
-public interface Beverage extends Item {
+public interface Beverage extends Product {
 
 }
 

@@ -10,7 +10,7 @@ package controller;
  * @author AshitaRaghu
  */
 public class PayCash implements PaymentStrategy{
-    ItemTableModel itemTableModel = new ItemTableModel();
+    Item itemTableModel = new Item();
     
     public double pay(double price,double deductable){
        double remainingPrice = price - deductable;

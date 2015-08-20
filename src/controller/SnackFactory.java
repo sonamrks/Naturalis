@@ -5,7 +5,7 @@
  */
 package controller;
 
-import model.Item;
+import model.Product;
 import model.Snack;
 
 /**
@@ -13,7 +13,7 @@ import model.Snack;
  * @author Sonam
  */
 public class SnackFactory implements ItemFactory {
-    public Item createItem(String name){
+    public Product createItem(String name){
 		Snack snack = null;
 		
 		try {

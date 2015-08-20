@@ -2,7 +2,7 @@ package controller;
 
 import controller.ItemFactory;
 import java.sql.Connection;
-import model.Item;
+import model.Product;
 import model.Beverage;
 import java.lang.reflect.Constructor;
 import model.Coke;
@@ -13,7 +13,7 @@ import model.Coke;
  */
 public class BeverageFactory implements ItemFactory {
     
-    public Item createItem(String name){
+    public Product createItem(String name){
 		Beverage beverage = null;
 		
 		try {

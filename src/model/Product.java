@@ -3,7 +3,7 @@
  */
 package model;
 
-public interface Item {
+public interface Product {
 	
         public int getCode();
 	public String getName();
