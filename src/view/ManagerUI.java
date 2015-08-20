@@ -57,9 +57,9 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             countList.set(index, countList.get(index)-1);
         if(type.equals("removefromcart"))
             countList.set(index, countList.get(index)+1);
+        if(type.equals("addtocount"))
+            countList.set(index, countList.get(index)+1);
         setCount(); 
-    //  setPrice();
-      //  cokeCountTextField.setText(Integer.toString(countList.get(0)-1));
     }
     
     public void setProtein(){

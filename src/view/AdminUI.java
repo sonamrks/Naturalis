@@ -1864,6 +1864,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,105);
         frappuccinoCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 4, null);
     }//GEN-LAST:event_addFrappuccinoButtonActionPerformed
 
     private void orangePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangePriceTextFieldActionPerformed
@@ -1886,7 +1887,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,102);
         orangeCountTextField.setText(Integer.toString(count));
-        System.out.println("test");
+        sendMessage("addtocount", 1, null);
     }//GEN-LAST:event_addOrangeButtonActionPerformed
 
     private void lemonadePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadePriceTextFieldActionPerformed
@@ -1910,6 +1911,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,103);
         lemonadeCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 2, null);
     }//GEN-LAST:event_addLemonadeButtonActionPerformed
 
     private void gatoradePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradePriceTextFieldActionPerformed
@@ -1932,6 +1934,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,104);
         gatoradeCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 3, null);
     }//GEN-LAST:event_addGatoradeButtonActionPerformed
 
     private void coconutWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterPriceTextFieldActionPerformed
@@ -1955,6 +1958,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         managerController.increaseItemCount(count,106);
         System.out.println(count);
         coconutWaterCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 5, null);
     }//GEN-LAST:event_addCoconutWaterButtonActionPerformed
 
     private void sparklingWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterPriceTextFieldActionPerformed
@@ -1978,6 +1982,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         managerController.increaseItemCount(count,107);
         System.out.println(count);
         sparklingWaterCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 6, null);
     }//GEN-LAST:event_addSparklingWaterButtonActionPerformed
 
     private void cokePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokePriceTextFieldActionPerformed
@@ -2001,6 +2006,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         managerController.increaseItemCount(count,101);
         System.out.println(count);
         cokeCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 0, null);
     }//GEN-LAST:event_addCokeButtonActionPerformed
 
     private void proteinSmoothiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothiePriceTextFieldActionPerformed
@@ -2024,6 +2030,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         managerController.increaseItemCount(count,108);
         System.out.println(count);
         proteinSmoothieCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 7, null);
     }//GEN-LAST:event_addProteinSmoothieButtonActionPerformed
 
     private void granolaPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaPriceTextFieldActionPerformed
@@ -2047,6 +2054,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         managerController.increaseItemCount(count,201);
         System.out.println(count);
         granolaCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 9, null);
     }//GEN-LAST:event_granolaAddButtonActionPerformed
 
     private void proteinShakePriceTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakePriceTextField1ActionPerformed
@@ -2059,10 +2067,17 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
 
     private void proteinShakeUpdateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeUpdateButton1ActionPerformed
         // TODO add your handling code here:
+        double price = Double.valueOf(proteinShakePriceTextField1.getText());
+        managerController.updatePrice(price,109);
     }//GEN-LAST:event_proteinShakeUpdateButton1ActionPerformed
 
     private void addproteinShakeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addproteinShakeButton1ActionPerformed
         // TODO add your handling code here:
+        int count = Integer.valueOf(proteinShakeCountTextField.getText());
+        count++;
+        managerController.increaseItemCount(count,109);
+        proteinShakeCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 8, null);
     }//GEN-LAST:event_addproteinShakeButton1ActionPerformed
 
     private void chipsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsPriceTextFieldActionPerformed
@@ -2084,8 +2099,8 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(chipsCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,202);
-        System.out.println(count);
         chipsCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 10, null);
     }//GEN-LAST:event_chipsAddButtonActionPerformed
 
     private void nutsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsPriceTextFieldActionPerformed
@@ -2107,8 +2122,8 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(nutsCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,203);
-        System.out.println(count);
         nutsCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 11, null);
     }//GEN-LAST:event_nutsAddButtonActionPerformed
 
     private void cookiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookiePriceTextFieldActionPerformed
@@ -2131,6 +2146,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,204);
         cookieCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 12, null);
     }//GEN-LAST:event_cookieAddButtonActionPerformed
 
     private void driedFruitsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsPriceTextFieldActionPerformed
@@ -2153,6 +2169,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,205);
         driedFruitsCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 13, null);
     }//GEN-LAST:event_driedFruitsAddButtonActionPerformed
 
     private void popcornPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornPriceTextFieldActionPerformed
@@ -2175,6 +2192,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,206);
         popcornCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 14, null);
     }//GEN-LAST:event_popcornAddButtonActionPerformed
 
     private void crackersPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersPriceTextFieldActionPerformed
@@ -2197,6 +2215,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,207);
         crackersCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 15, null);
     }//GEN-LAST:event_crackersAddButtonActionPerformed
 
     private void veggieStrawsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsPriceTextFieldActionPerformed
@@ -2219,6 +2238,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,208);
         veggieStrawsCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 16, null);
     }//GEN-LAST:event_veggieStrawsAddButtonActionPerformed
 
     private void greekYogurtPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtPriceTextFieldActionPerformed
@@ -2241,6 +2261,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,209);
         greekYogurtCountTextField.setText(Integer.toString(count));
+        sendMessage("addtocount", 17, null);
     }//GEN-LAST:event_greekYogurtAddButtonActionPerformed
 
     /**
