@@ -9,6 +9,7 @@ import controller.CartItemsController;
 import controller.Observable;
 import controller.ItemController;
 import controller.Observer;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -35,6 +36,7 @@ public class SnackPanel extends javax.swing.JPanel {
         itemsCartController = customerUI.getItemsCartController();
         setCodeLabel();
         setPriceLabel();
+        getCount();
     }
     
     public void changePrice(Integer index, Double value) {
@@ -72,6 +74,28 @@ public class SnackPanel extends javax.swing.JPanel {
         crackersPriceLabel.setText(Double.toString(priceList.get(6)));
         veggieStrawsPriceLabel.setText(Double.toString(priceList.get(7)));
          greekYogurtPriceLabel.setText(Double.toString(priceList.get(8)));
+    }
+      public void getCount(){
+        int[] count = itemsController.getCount(machineID);
+        System.out.println(count[0]);
+        if(count[0]==0)
+            granolaPanel.setBackground(Color.red);
+        if(count[1]==0)
+            chipsPanel.setBackground(Color.red);
+        if(count[2]==0)
+            nutsPanel.setBackground(Color.red);
+        if(count[3]==0)
+            cookiePanel.setBackground(Color.red);
+        if(count[4]==0)
+            driedFruitPanel.setBackground(Color.red);
+        if(count[5]==0)
+            popcornPanel.setBackground(Color.red);
+        if(count[6]==0)
+            crackersPanel.setBackground(Color.red);
+        if(count[7]==0)
+            veggieStrawsPanel.setBackground(Color.red);
+        if(count[8]==0)
+            greekYogurtPanel.setBackground(Color.red);
     }
 
     /**

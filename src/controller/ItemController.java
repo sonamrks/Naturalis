@@ -125,5 +125,8 @@ public class ItemController implements Mediator {
     public double collectMoney(Integer machineID){
         return itemsTableModel.collectMoney(machineID);
     }
+    public int[] getCount(int machineID){
+        return itemsTableModel.getCount(machineID);
+    }
     
 }

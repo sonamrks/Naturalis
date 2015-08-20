@@ -9,6 +9,7 @@ import controller.Observable;
 import controller.CartItemsController;
 import controller.ItemController;
 import controller.Observer;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -37,6 +38,7 @@ public class BeveragePanel extends javax.swing.JPanel {
         itemsCartController = customerUI.getItemsCartController();
         setCodeLabel();
         setPriceLabel();
+        getCount();
         //itemsController = new ItemsController(this);
     }
     
@@ -44,6 +46,7 @@ public class BeveragePanel extends javax.swing.JPanel {
         priceList.set(index, value); 
         setCodeLabel();
         setPriceLabel();
+        
     }
     
     public void setCodeLabel(){
@@ -76,7 +79,28 @@ public class BeveragePanel extends javax.swing.JPanel {
         proteinSmoothiePriceLabel.setText(Double.toString(priceList.get(7)));
         proteinShakePriceLabel.setText(Double.toString(priceList.get(8)));
     }
-
+    public void getCount(){
+        int[] count = itemsController.getCount(machineID);
+        System.out.println(count[0]);
+        if(count[0]==0)
+            cokePanel.setBackground(Color.red);
+        if(count[1]==0)
+            orangePanel.setBackground(Color.red);
+        if(count[2]==0)
+            lemonadePanel.setBackground(Color.red);
+        if(count[3]==0)
+            gatoradePanel.setBackground(Color.red);
+        if(count[4]==0)
+            frappuccinoPanel.setBackground(Color.red);
+        if(count[5]==0)
+            coconutWaterPanel.setBackground(Color.red);
+        if(count[6]==0)
+            sparklingWaterPanel.setBackground(Color.red);
+        if(count[7]==0)
+            proteinSmoothiePanel.setBackground(Color.red);
+        if(count[8]==0)
+            proteinShakePanel.setBackground(Color.red);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,7 +120,7 @@ public class BeveragePanel extends javax.swing.JPanel {
         orangeButton = new javax.swing.JButton();
         orangeJuiceCodeLabel = new javax.swing.JLabel();
         orangeJuicePriceLabel = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        cokePanel = new javax.swing.JPanel();
         cokeButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         cokeCodeLabel = new javax.swing.JLabel();
@@ -225,38 +249,38 @@ public class BeveragePanel extends javax.swing.JPanel {
 
         jLabel3.setText("Price");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout cokePanelLayout = new javax.swing.GroupLayout(cokePanel);
+        cokePanel.setLayout(cokePanelLayout);
+        cokePanelLayout.setHorizontalGroup(
+            cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cokePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cokePanelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cokeCodeLabel))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(cokePanelLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(cokePriceLabel)))
                 .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cokeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        cokePanelLayout.setVerticalGroup(
+            cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cokePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cokeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cokeCodeLabel)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cokePriceLabel)
                     .addComponent(jLabel3)))
         );
@@ -600,7 +624,7 @@ public class BeveragePanel extends javax.swing.JPanel {
                 .addGroup(BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BeveragePanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cokePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(orangePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -629,10 +653,11 @@ public class BeveragePanel extends javax.swing.JPanel {
             BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BeveragePanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addGroup(BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lemonadePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orangePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lemonadePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(orangePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cokePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(BeveragePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(gatoradePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -720,6 +745,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     private javax.swing.JLabel coconutWaterPriceLabel;
     private javax.swing.JButton cokeButton;
     private javax.swing.JLabel cokeCodeLabel;
+    private javax.swing.JPanel cokePanel;
     private javax.swing.JLabel cokePriceLabel;
     private javax.swing.JButton frappuccinoButton;
     private javax.swing.JLabel frappuccinoCodeLabel;
@@ -749,7 +775,6 @@ public class BeveragePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton lemonadeButton;
     private javax.swing.JLabel lemonadeCodeLabel;

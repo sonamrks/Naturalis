@@ -679,4 +679,23 @@ public class ItemTableModel {
         }
         return totalSales;
     }
+    
+    public int[] getCount(int machineID){
+        int[] count = new int[100];
+        try {
+            String getCount = "SELECT count FROM item where category='beverage' and machineID=?";
+            PreparedStatement statement = connection.prepareStatement(getCount);
+            statement.setInt(1, machineID);
+            ResultSet result = statement.executeQuery();
+            int i=0;
+            while(result.next())
+            {
+                count[i] = result.getInt("count");
+                i++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemTableModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return count;
+    }
 }
