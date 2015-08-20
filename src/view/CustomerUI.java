@@ -8,7 +8,6 @@ package view;
 import controller.CartItemsController;
 import controller.ItemController;
 import controller.Mediator;
-import controller.NutritionalFactsController;
 import controller.SmartCardController;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
@@ -29,7 +28,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
  //   private PriceController priceController;
     private ItemController itemController;
     private CartItemsController itemsCartController;
-    private NutritionalFactsController nutritionalFactsController;
     private SmartCardController smartCardController;
   //  private double price;
     private CartItemsPanel cartItemsPanel;
@@ -53,7 +51,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         itemsCartController = new CartItemsController(this);
       //  itemController = new ItemController(machineID);
         this.itemController = itemController;
-        nutritionalFactsController = new NutritionalFactsController(this);
         smartCardController = new SmartCardController(this);
         
         cartItemsPanel = new CartItemsPanel(itemsCartController);
@@ -660,7 +657,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
 
     private void getInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getInfoButtonActionPerformed
         // TODO add your handling code here:
-        int[] nutritionalFacts = nutritionalFactsController.getInfo(itemCodeTextField.getText());
+        int[] nutritionalFacts = itemController.getInfo(itemCodeTextField.getText());
         proteinTextField.setText(Integer.toString(nutritionalFacts[0]));
         sugarsTextField.setText(Integer.toString(nutritionalFacts[1]));
         carbohydratesTextField.setText(Integer.toString(nutritionalFacts[2]));
