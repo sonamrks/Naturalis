@@ -3,7 +3,7 @@ package controller;
 import controller.ItemFactory;
 import java.sql.Connection;
 import model.Item;
-import model.BeverageComponent;
+import model.Beverage;
 import java.lang.reflect.Constructor;
 import model.Coke;
 
@@ -11,12 +11,12 @@ import model.Coke;
  *
  * @author Sonam
  */
-public class BeverageFactory{
+public class BeverageFactory extends ItemFactory {
 
     public BeverageFactory(){
     }
     
-    public Item createItem(String name){
+    public Beverage createItem(String name){
 		Item beverage = null;
 		
 		try {

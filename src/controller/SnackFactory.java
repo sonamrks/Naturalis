@@ -5,7 +5,7 @@
  */
 package controller;
 
-import model.BeverageComponent;
+import model.Beverage;
 import model.SnackComponent;
 
 /**

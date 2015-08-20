@@ -12,7 +12,7 @@ import model.Item;
  * @author Sonam
  */
 public class ItemFactory {
-        public Item createItem(String name){
+     /*   public Item createItem(String name){
 		Item beverage = null;
 		
 		try {
@@ -23,6 +23,6 @@ public class ItemFactory {
 		}
 
 		return beverage;
-	}
+	}*/
 }
 

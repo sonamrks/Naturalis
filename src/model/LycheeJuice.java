@@ -6,7 +6,7 @@ import java.sql.*;
  *
  * @author Sonam
  */
-public class LycheeJuice implements BeverageComponent {
+public class LycheeJuice implements Beverage {
 	
 	private int code;
         private String name;
@@ -105,12 +105,5 @@ public class LycheeJuice implements BeverageComponent {
 	public void setCount(int count){
 		this.count = count;
 	}
-        @Override
-	public  void addBeverage(BeverageComponent beverage){
-		
-	}
-        @Override
-	public  void removeBeverage(BeverageComponent beverage){
-		
-	}
+
 }
