@@ -23,6 +23,9 @@ public class SmartCardController {
         this.customerUI = customerUI;
         smartCard = new SmartCard();
     }
+    public SmartCardController(){
+    
+    }
     
     public Integer addNewCard(String name,Integer cost){
         return smartCard.createNewCard(name,cost);
