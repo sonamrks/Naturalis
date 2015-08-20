@@ -11,12 +11,9 @@ import model.Coke;
  *
  * @author Sonam
  */
-public class BeverageFactory extends ItemFactory {
-
-    public BeverageFactory(){
-    }
+public class BeverageFactory implements ItemFactory {
     
-    public Beverage createItem(String name){
+    public Item createItem(String name){
 		Beverage beverage = null;
 		
 		try {

@@ -5,15 +5,15 @@
  */
 package controller;
 
-import model.Beverage;
+import model.Item;
 import model.Snack;
 
 /**
  *
  * @author Sonam
  */
-public class SnackFactory extends ItemFactory {
-    public Snack createItem(String name){
+public class SnackFactory implements ItemFactory {
+    public Item createItem(String name){
 		Snack snack = null;
 		
 		try {

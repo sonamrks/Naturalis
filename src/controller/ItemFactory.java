@@ -11,18 +11,18 @@ import model.Item;
  *
  * @author Sonam
  */
-public class ItemFactory {
-     /*   public Item createItem(String name){
-		Item beverage = null;
-		
-		try {
-                    beverage = (Item) Class.forName(name).newInstance();
-		}
-		catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+public interface ItemFactory {
+   /* public Item createItem(String name){
+            Item beverage = null;
 
-		return beverage;
-	}*/
+            try {
+                beverage = (Item) Class.forName(name).newInstance();
+            }
+            catch (Exception e) {
+                    System.out.println(e.getMessage());
+            }
+
+            return beverage;
+    }*/
+    public Item createItem(String name);
 }
-
