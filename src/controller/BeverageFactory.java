@@ -17,10 +17,10 @@ public class BeverageFactory extends ItemFactory {
     }
     
     public Beverage createItem(String name){
-		Item beverage = null;
+		Beverage beverage = null;
 		
 		try {
-                    beverage = (Item) Class.forName(name).newInstance();
+                    beverage = (Beverage) Class.forName(name).newInstance();
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());

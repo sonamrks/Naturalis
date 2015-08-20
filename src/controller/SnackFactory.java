@@ -6,18 +6,18 @@
 package controller;
 
 import model.Beverage;
-import model.SnackComponent;
+import model.Snack;
 
 /**
  *
  * @author Sonam
  */
-public class SnackFactory implements ItemFactory {
-    public SnackComponent createItem(String name){
-		SnackComponent snack = null;
+public class SnackFactory extends ItemFactory {
+    public Snack createItem(String name){
+		Snack snack = null;
 		
 		try {
-			snack = (SnackComponent) Class.forName(name).newInstance();
+			snack = (Snack) Class.forName(name).newInstance();
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());

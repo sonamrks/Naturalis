@@ -9,7 +9,6 @@ package model;
  *
  * @author Sonam
  */
-public interface SnackComponent extends Item {
-    public void addSnack(SnackComponent snack);
-    public void removeSnack(SnackComponent snack);
+public interface Snack extends Item {
+    
 }

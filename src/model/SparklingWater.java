@@ -109,13 +109,6 @@ public class SparklingWater implements Beverage {
 	public void setCount(int count){
 		this.count = count;
 	}
-        @Override
-	public  void addBeverage(Beverage beverage){
-		
-	}
-        @Override
-	public  void removeBeverage(Beverage beverage){
-		
-	}
+     
 }
 
