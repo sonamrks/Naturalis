@@ -28,10 +28,11 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private List<String> itemNames;
     private int numcols, numrows;
     private double totalPrice;
-    private String name, s;
+    private String name, s, picturePath;
     private double price;
     private Product item;
     private int soldCount,count;
+    private List<String> itemPicturePaths;
  //   private Set<Observer> observers;
     
     ItemFactory beverageFactory = new BeverageFactory();
@@ -48,15 +49,17 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
      cartItems = new ArrayList<Product>();
      itemCodes = new ArrayList<Integer>();
      itemNames = new ArrayList<String>();
+     itemPicturePaths = new ArrayList<String>();
 //     observers = new HashSet<Observer>();
      numrows = itemCodes.size();
      numcols = 2;    
     }
     
-    public CartItemsTableModel(List list1, List list2, List list3, double price)  {
+    public CartItemsTableModel(List list1, List list2, List list3, List list4,double price)  {
         itemCodes = list1;
         itemNames = list2;
-        cartItems = list3;
+        itemPicturePaths = list3;
+        cartItems = list4;
         totalPrice = price;
         numrows = itemCodes.size();
         numcols = 2;     
@@ -65,18 +68,19 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     public void addItem(Integer code) {
         try {
             itemCodes.add(code);
-
-            String getName = "SELECT name FROM item WHERE code=?";
-
+            String getName = "SELECT name,picturePath FROM item WHERE code=?";
+            
             statement = connection.prepareStatement(getName);
             statement.setInt(1,code);
             result = statement.executeQuery();
 
             while(result.next()){
                 name = result.getString("name");
+                picturePath = result.getString("picturePath");
             }
 
             itemNames.add(name);
+            itemPicturePaths.add(picturePath);
 
             s = "model." + name;
             
@@ -310,6 +314,9 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     
     public List getItemNames() {
 	return this.itemNames;
+    }
+    public List getPicturePath() {
+	return this.itemPicturePaths;
     }
     
     public List<Product> getCartItems() {

@@ -11,11 +11,15 @@ import controller.Mediator;
 import controller.SmartCardController;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.Timer;
 
 /**
  *
@@ -36,6 +40,8 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private WelcomePanel welcomePanel;
     private BeveragePanel beveragePanel;
     private SnackPanel snackPanel;
+    private Timer timer;
+    private int index=0;
     
   //  private static PaymentController paymentController;
     private Boolean[] checkedList = new Boolean[3];
@@ -102,9 +108,19 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     }
      
     public void dispense() {
-         item1DispensedLabel.setIcon(new ImageIcon("/images/greekYogurt.jpg"));
-    }
-     
+       TimerHandler timerHandler = new TimerHandler();
+       timer = new Timer(1000, timerHandler);
+       timer.setRepeats(true);
+       timer.start();
+            
+        }
+         //item1DispensedLabel.setIcon(new ImageIcon(this.getClass().getResource(itemPicturePaths.get(0))));
+    class TimerHandler implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+           List<String> itemPicturePaths = itemsCartController.getPicturePath();
+           item1DispensedLabel.setIcon(new ImageIcon(this.getClass().getResource(itemPicturePaths.get(index++))));
+        }
+   }
     public void sendMessage(String type, Integer index, Double value) {
         itemController.sendMessageToAll(this, type, index, value);
     }

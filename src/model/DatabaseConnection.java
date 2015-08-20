@@ -15,9 +15,9 @@ import java.sql.SQLException;
  */
 public class DatabaseConnection {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-private static final String DB_URL = "jdbc:mysql://localhost/myDB";
+private static final String DB_URL = "jdbc:mysql://localhost/designPatternsDB";
 private static final String USER = "root";
-private static final String PASS = "sonam123";
+private static final String PASS = "password";
 protected static DatabaseConnection dbConnectionInstance;
 private static Connection connection;
 

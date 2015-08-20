@@ -9,6 +9,7 @@ package controller;
  *
  * @author Sonam
  */
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.TableModelEvent;
@@ -51,7 +52,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     public void tableChanged(TableModelEvent e) {
        try {
             // create a new table model with the new data
-            itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
+            itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getPicturePath(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
             customerUI.getCartItemsPanel().update();	 
@@ -88,4 +89,8 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         double remainingPrice = price - deductable;
         return remainingPrice;
     }
+    public List<String> getPicturePath(){
+        return itemsCartTableModel.getPicturePath();
+    }
+	
 }
