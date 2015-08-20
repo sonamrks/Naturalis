@@ -111,7 +111,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             if(validateOK == true) {
                 System.out.println("Login valid");
                 userLogController.addLogEntry(username,password,"admin");
-                Main.setActivityType(2);
+                Main.setActivityType(1);
                 Main.getCardLayout().show(Main.getCards(),"Machines");
             }
             else {
@@ -121,7 +121,7 @@ public class NavigationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_adminButtonActionPerformed
 
     private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
-        Main.setActivityType(1);
+        Main.setActivityType(0);
         Main.getCardLayout().show(Main.getCards(),"Machines");
     }//GEN-LAST:event_customerButtonActionPerformed
 
@@ -135,7 +135,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             if(validateOK == true) {
                 userLogController.addLogEntry(username,password,"manager");
                 Main.setActivityType(2);
-                new AdminUI(itemController).setVisible(true);
+                new ManagerUI(itemController).setVisible(true);
             }
             else {
                 JOptionPane.showMessageDialog(loginPanel, "Invalid username/password");

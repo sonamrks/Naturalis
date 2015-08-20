@@ -32,7 +32,8 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     }
     
     public void receiveMessage(Integer code) {
-      //  code.
+        setPrice();
+        setCount();
     }
     
      public void setProtein(){

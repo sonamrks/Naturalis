@@ -622,7 +622,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="cokePanel">
+        <Container class="javax.swing.JPanel" name="itemsPanel">
 
           <Layout>
             <DimensionLayout dim="0">
@@ -679,7 +679,7 @@
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="cokeInfoPanel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="cokePanel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="176" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -745,7 +745,7 @@
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Component id="cokeInfoPanel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="cokePanel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="5627" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -1495,7 +1495,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="cokeInfoPanel7">
+            <Container class="javax.swing.JPanel" name="cokePanel">
 
               <Layout>
                 <DimensionLayout dim="0">
