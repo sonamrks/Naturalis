@@ -6,17 +6,8 @@
 package view;
 
 import controller.ItemController;
-import controller.ManagerController;
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
-import javax.swing.JFrame;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -24,7 +15,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
-    private ManagerController managerController;
     private ItemController itemController;
     ArrayList<Double> priceList;
     ArrayList<Integer> countList;
@@ -33,8 +23,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
      */
     public ManagerUI(ItemController itemController) {
         initComponents();
-        managerController = new ManagerController();
-     //   itemsController = new ItemController();
         this.itemController = itemController;
         itemController.registerAColleague(this);
         
@@ -58,28 +46,11 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             countList.set(index, countList.get(index)+1);
         if(type.equals("addtocount"))
             countList.set(index, countList.get(index)+1);
-        //setCount(); 
     }
     
-    public void setProtein(){
-        
-        ArrayList<Integer> proteinList = managerController.setProtein();
-    }
-    public void setSugars(){
-        
-        ArrayList<Integer> sugarsList = managerController.setSugars();
-    }
-    public void setCarbohydrates(){
-        
-        ArrayList<Integer> carbohydratesList = managerController.setCarbohydrates();
-    }
-    public void setCalories(){
-        
-        ArrayList<Integer> caloriesList = managerController.setCalories();
-    }
     public void setPrice(){
         
-        priceList = managerController.setPrice();
+        priceList = itemController.setPrice();
         
         cokePriceTextField.setText(Double.toString(priceList.get(0)));
         orangePriceTextField.setText(Double.toString(priceList.get(1)));
@@ -1821,14 +1792,14 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(proteinSmoothiePriceTextField.getText());
         sendMessage("changePrice", 7, price);
-        managerController.updatePrice(price,108);
+        itemController.updatePrice(price,108);
     }//GEN-LAST:event_updateProteinSmoothieButtonActionPerformed
 
     private void frappuccinoUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(frappuccinoPriceTextField.getText());
         sendMessage("changeprice", 4, price);
-        managerController.updatePrice(price,105);
+        itemController.updatePrice(price,105);
     }//GEN-LAST:event_frappuccinoUpdateButtonActionPerformed
 
     private void lemonadePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadePriceTextFieldActionPerformed
@@ -1839,7 +1810,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:        
         double price = Double.valueOf(lemonadePriceTextField.getText());
         sendMessage("changeprice", 2, price);
-        managerController.updatePrice(price,103);
+        itemController.updatePrice(price,103);
     }//GEN-LAST:event_lemonadeUpdateButtonActionPerformed
 
     private void gatoradePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradePriceTextFieldActionPerformed
@@ -1850,7 +1821,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(gatoradePriceTextField.getText());
         sendMessage("changeprice", 3, price);
-        managerController.updatePrice(price,104);
+        itemController.updatePrice(price,104);
     }//GEN-LAST:event_gatoradeUpdateButtonActionPerformed
 
     private void coconutWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterPriceTextFieldActionPerformed
@@ -1861,7 +1832,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(coconutWaterPriceTextField.getText());
         sendMessage("changeprice", 5, price);
-        managerController.updatePrice(price,106);
+        itemController.updatePrice(price,106);
     }//GEN-LAST:event_coconutWaterUpdateButtonActionPerformed
 
     private void sparklingWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterPriceTextFieldActionPerformed
@@ -1872,7 +1843,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(sparklingWaterPriceTextField.getText());
         sendMessage("changeprice", 6, price);
-        managerController.updatePrice(price,107);
+        itemController.updatePrice(price,107);
     }//GEN-LAST:event_sparklingWaterUpdateButtonActionPerformed
 
     private void cokePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokePriceTextFieldActionPerformed
@@ -1883,7 +1854,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(cokePriceTextField.getText());
         sendMessage("changeprice", 0, price);
-        managerController.updatePrice(price,101);
+        itemController.updatePrice(price,101);
     }//GEN-LAST:event_updateCokeButtonActionPerformed
 
     private void granolaPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaPriceTextFieldActionPerformed
@@ -1894,7 +1865,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(granolaPriceTextField.getText());
         sendMessage("changeprice", 9, price);
-        managerController.updatePrice(price,201);
+        itemController.updatePrice(price,201);
     }//GEN-LAST:event_granolaUpdateButtonActionPerformed
 
     private void chipsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsPriceTextFieldActionPerformed
@@ -1905,7 +1876,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(chipsPriceTextField.getText());
         sendMessage("changeprice", 10, price);
-        managerController.updatePrice(price,202);
+        itemController.updatePrice(price,202);
     }//GEN-LAST:event_chipsUpdateButtonActionPerformed
 
     private void nutsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsPriceTextFieldActionPerformed
@@ -1916,7 +1887,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(nutsPriceTextField.getText());
         sendMessage("changeprice", 11, price);
-        managerController.updatePrice(price,203);
+        itemController.updatePrice(price,203);
     }//GEN-LAST:event_nutsUpdateButtonActionPerformed
 
     private void cookiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookiePriceTextFieldActionPerformed
@@ -1927,7 +1898,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(cookiePriceTextField.getText());
         sendMessage("changeprice", 12, price);
-        managerController.updatePrice(price,204);
+        itemController.updatePrice(price,204);
     }//GEN-LAST:event_cookieUpdateButtonActionPerformed
 
     private void driedFruitsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsPriceTextFieldActionPerformed
@@ -1938,7 +1909,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(driedFruitsPriceTextField.getText());
         sendMessage("changeprice", 13, price);
-        managerController.updatePrice(price,205);
+        itemController.updatePrice(price,205);
     }//GEN-LAST:event_driedFruitsUpdateButtonActionPerformed
 
     private void popcornPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornPriceTextFieldActionPerformed
@@ -1949,7 +1920,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(popcornPriceTextField.getText());
         sendMessage("changeprice", 14, price);
-        managerController.updatePrice(price,206);
+        itemController.updatePrice(price,206);
     }//GEN-LAST:event_popcornUpdateButtonActionPerformed
 
     private void crackersPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersPriceTextFieldActionPerformed
@@ -1960,7 +1931,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(crackersPriceTextField.getText());
         sendMessage("changeprice", 15, price);
-        managerController.updatePrice(price,207);
+        itemController.updatePrice(price,207);
     }//GEN-LAST:event_crackersUpdateButtonActionPerformed
 
     private void veggieStrawsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsPriceTextFieldActionPerformed
@@ -1971,7 +1942,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(veggieStrawsPriceTextField.getText());
         sendMessage("changeprice", 16, price);
-        managerController.updatePrice(price,208);
+        itemController.updatePrice(price,208);
     }//GEN-LAST:event_veggieStrawsUpdateButtonActionPerformed
 
     private void greekYogurtPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtPriceTextFieldActionPerformed
@@ -1982,7 +1953,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(greekYogurtPriceTextField.getText());
         sendMessage("changeprice", 17, price);
-        managerController.updatePrice(price,209);
+        itemController.updatePrice(price,209);
     }//GEN-LAST:event_greekYogurtUpdateButtonActionPerformed
 
     private void beveragesSoldTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beveragesSoldTextFieldActionPerformed
@@ -2028,11 +1999,11 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int[] itemsSoldCount = new int[100];
         if(machine1RadioButton.isSelected())
-            itemsSoldCount = managerController.getItemSoldCount("machine1");
+            itemsSoldCount = itemController.getItemSoldCount("machine1");
         else if(machine1RadioButton.isSelected())
-            itemsSoldCount = managerController.getItemSoldCount("machine2");
+            itemsSoldCount = itemController.getItemSoldCount("machine2");
         else
-           itemsSoldCount = managerController.getItemSoldCount("allMachines"); 
+           itemsSoldCount = itemController.getItemSoldCount("allMachines"); 
         
         BarChart barChart = new BarChart();
         barChart.itemSoldBarChart("Bar Chart","Items Sold Comparison",itemsSoldCount);
@@ -2044,11 +2015,11 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int[] itemsSoldCount = new int[100];
         if(machine1RadioButton.isSelected())
-            itemsSoldCount = managerController.getItemSoldCount("machine1");
+            itemsSoldCount = itemController.getItemSoldCount("machine1");
         else if(machine1RadioButton.isSelected())
-            itemsSoldCount = managerController.getItemSoldCount("machine2");
+            itemsSoldCount = itemController.getItemSoldCount("machine2");
         else
-           itemsSoldCount = managerController.getItemSoldCount("allMachines");
+           itemsSoldCount = itemController.getItemSoldCount("allMachines");
          
         PieChart pieChart = new PieChart();
         pieChart.itemSoldPieChart("Pie Chart","Items Sold Comparison",itemsSoldCount);
@@ -2060,37 +2031,37 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int[] nutritionalItemsSoldCount = new int[100];
         if(machine1RadioButton.isSelected())
-            nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("machine1");
+            nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("machine1");
         else if(machine2CollectRadioButton.isSelected())
-            nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("machine2");
+            nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("machine2");
         else
-           nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("allMachines"); 
+           nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("allMachines"); 
         
         
         PieChart pieChart = new PieChart();
         //for(int i=0;i<15;i++)
             //System.out.println(managerController.lowCalNames[i]);
-        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount,managerController.lowCalCount,managerController.lowCalNames,managerController.highProteinCount,managerController.highProteinNames,managerController.lowSugarsCount,managerController.lowSugarsNames);
+        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount,itemController.lowCalCount,itemController.lowCalNames,itemController.highProteinCount,itemController.highProteinNames,itemController.lowSugarsCount,itemController.lowSugarsNames);
         pieChart.pack();
         pieChart.setVisible(true);
     }//GEN-LAST:event_nutritionalStatisticsButtonActionPerformed
 
     private void allMachinesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allMachinesRadioButtonActionPerformed
         // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage")));
-        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack")));
+        beveragesSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("beverage")));
+        snacksSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("snack")));
     }//GEN-LAST:event_allMachinesRadioButtonActionPerformed
 
     private void machine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1RadioButtonActionPerformed
         // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine1")));
-        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine1")));
+        beveragesSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("beverage","machine1")));
+        snacksSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("snack","machine1")));
     }//GEN-LAST:event_machine1RadioButtonActionPerformed
 
     private void machine2CollectRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2CollectRadioButtonActionPerformed
         // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine2")));
-        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine2")));
+        beveragesSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("beverage","machine2")));
+        snacksSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("snack","machine2")));
     }//GEN-LAST:event_machine2CollectRadioButtonActionPerformed
 
     private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
@@ -2159,7 +2130,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(orangePriceTextField.getText());
         sendMessage("changeprice", 1, price);
-        managerController.updatePrice(price,102);
+        itemController.updatePrice(price,102);
     }//GEN-LAST:event_orangeUpdateButtonActionPerformed
 
     private void orangePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangePriceTextFieldActionPerformed
@@ -2169,7 +2140,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private void proteinShakeUpdateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeUpdateButton1ActionPerformed
         double price = Double.valueOf(proteinShakePriceTextField1.getText());
         sendMessage("changePrice", 8, price);
-        managerController.updatePrice(price,109);
+        itemController.updatePrice(price,109);
     }//GEN-LAST:event_proteinShakeUpdateButton1ActionPerformed
 
     private void proteinShakePriceTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakePriceTextField1ActionPerformed

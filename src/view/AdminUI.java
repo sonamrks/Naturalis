@@ -44,22 +44,6 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         setCount(); 
     }
     
-    public void setProtein(){        
-        ArrayList<Integer> proteinList = itemController.setProtein();
-    }
-     
-    public void setSugars(){        
-        ArrayList<Integer> sugarsList = itemController.setSugars();
-    }
-    
-    public void setCarbohydrates(){
-        ArrayList<Integer> carbohydratesList = itemController.setCarbohydrates();
-    }
-    
-    public void setCalories(){
-        ArrayList<Integer> caloriesList = itemController.setCalories();
-    }
-    
     public void setPrice(){
         priceList = itemController.setPrice();
         

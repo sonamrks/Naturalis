@@ -5,20 +5,20 @@
  */
 package view;
 
-import controller.ManagerController;
+import controller.ItemController;
 
 /**
  *
  * @author AshitaRaghu
  */
 public class DietPepsi extends javax.swing.JPanel {
-     private ManagerController managerController;
+     private ItemController itemController;
     /**
      * Creates new form DietPepsi
      */
     public DietPepsi() {
         initComponents();
-        managerController = new ManagerController();
+        itemController = new ItemController();
     }
     public void setPrice(double price){
         dietPepsiPriceTextField.setText(Double.toString(price));
@@ -93,7 +93,7 @@ public class DietPepsi extends javax.swing.JPanel {
     private void dietPepsiUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietPepsiUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(dietPepsiPriceTextField.getText());
-        managerController.updatePrice(price,111);
+        itemController.updatePrice(price,111);
     }//GEN-LAST:event_dietPepsiUpdateButtonActionPerformed
 
 

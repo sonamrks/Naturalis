@@ -105,6 +105,10 @@ public class ItemController implements Mediator {
         return itemsTableModel.setCount();
     }
     
+    public int getCategorySoldCount(String category) {
+        return itemsTableModel.getCategorySoldCount(category);
+    }
+    
     public int getCategorySoldCount(String category, String machine) {
         return itemsTableModel.getCategorySoldCount(category,machine);
     }

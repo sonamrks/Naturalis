@@ -5,20 +5,20 @@
  */
 package view;
 
-import controller.ManagerController;
+import controller.ItemController;
 
 /**
  *
  * @author AshitaRaghu
  */
 public class Pretzel extends javax.swing.JPanel {
-    private ManagerController managerController;
+    private ItemController itemController;
     /**
      * Creates new form Pretzel
      */
     public Pretzel() {
         initComponents();
-        managerController = new ManagerController();
+        itemController = new ItemController();
     }
     public void setPrice(double price){
         pretzelPriceTextField.setText(Double.toString(price));
@@ -94,7 +94,7 @@ public class Pretzel extends javax.swing.JPanel {
     private void pretzelUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pretzelUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(pretzelPriceTextField.getText());
-        managerController.updatePrice(price,210);
+        itemController.updatePrice(price,210);
     }//GEN-LAST:event_pretzelUpdateButtonActionPerformed
 
 

@@ -5,21 +5,20 @@
  */
 package view;
 
-import controller.ManagerController;
-import java.util.ArrayList;
+import controller.ItemController;
 
 /**
  *
  * @author AshitaRaghu
  */
 public class LycheeJuice extends javax.swing.JPanel {
-    private ManagerController managerController;
+    private ItemController itemController;
     /**
      * Creates new form LycheeJuice
      */
     public LycheeJuice() {
         initComponents();
-        managerController = new ManagerController();
+        itemController = new ItemController();
     }
      public void setPrice(double price){
         lycheePriceTextField.setText(Double.toString(price));
@@ -94,7 +93,7 @@ public class LycheeJuice extends javax.swing.JPanel {
     private void lycheeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lycheeUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(lycheePriceTextField.getText());
-        managerController.updatePrice(price,110);
+        itemController.updatePrice(price,110);
     }//GEN-LAST:event_lycheeUpdateButtonActionPerformed
 
 

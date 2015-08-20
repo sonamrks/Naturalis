@@ -5,21 +5,21 @@
  */
 package view;
 
-import controller.ManagerController;
+import controller.ItemController;
 
 /**
  *
  * @author AshitaRaghu
  */
 public class Corn extends javax.swing.JPanel {
-    private ManagerController managerController;
+    private ItemController itemController;
     /**
      * Creates new form Corn
      */
     public Corn() {
         initComponents();
         
-        managerController = new ManagerController();
+        itemController = new ItemController();
     }
     public void setPrice(double price){
         cornPriceTextField.setText(Double.toString(price));
@@ -94,7 +94,7 @@ public class Corn extends javax.swing.JPanel {
     private void cornUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cornUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(cornPriceTextField.getText());
-        managerController.updatePrice(price,211);
+        itemController.updatePrice(price,211);
     }//GEN-LAST:event_cornUpdateButtonActionPerformed
 
 
