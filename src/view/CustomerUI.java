@@ -114,9 +114,10 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     public void receiveMessage(String type, Integer index, Double value) {
         if(type.equals("changeprice")) {
             if(index < 9) {
-                beveragePanel = new BeveragePanel(this, machineID);
-                beveragePanel.receiveMessage(index, value);
-                
+                itemsPanel.remove(beveragePanel);
+           //     beveragePanel = new BeveragePanel(this, machineID);
+                beveragePanel = beveragePanel.changedPanel(index, value);
+                itemsPanel.add(beveragePanel, "Beverages");
             }
             if(index >= 9) {
             //    snackPanel.receiveMessage(index, value);

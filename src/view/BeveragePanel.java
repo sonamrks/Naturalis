@@ -40,10 +40,11 @@ public class BeveragePanel extends javax.swing.JPanel {
         //itemsController = new ItemsController(this);
     }
     
-    public void receiveMessage(Integer index, Double value) {
+    public BeveragePanel changedPanel(Integer index, Double value) {
         priceList.set(index, value); 
         setCodeLabel();
         setPriceLabel();
+        return this;
     }
     
     public void setCodeLabel(){
