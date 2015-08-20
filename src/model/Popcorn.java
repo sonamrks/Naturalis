@@ -14,7 +14,7 @@ import java.sql.Statement;
  *
  * @author AshitaRaghu
  */
-public class Popcorn implements SnackComponent {
+public class Popcorn implements Snack{
         private int code;
     	private String name;
         private int protein;
@@ -111,12 +111,5 @@ public class Popcorn implements SnackComponent {
 	public void setCount(int count){
 		this.count = count;
 	}
-        @Override
-	public  void addSnack(SnackComponent beverage){
-		
-	}
-        @Override
-	public  void removeSnack(SnackComponent beverage){
-		
-	}
+	
 }

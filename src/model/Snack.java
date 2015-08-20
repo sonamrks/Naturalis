@@ -10,6 +10,4 @@ package model;
  * @author Sonam
  */
 public interface Snack extends Item {
-    public void addSnack(Snack snack);
-    public void removeSnack(Snack snack);
 }

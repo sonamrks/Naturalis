@@ -6,7 +6,7 @@ import java.sql.*;
  *
  * @author Sonam
  */
-public class Corn implements SnackComponent {
+public class Corn implements Snack{
 	
 	private int code;
         private String name;
@@ -104,13 +104,5 @@ public class Corn implements SnackComponent {
 	}
 	public void setCount(int count){
 		this.count = count;
-	}
-        @Override
-	public  void addSnack(SnackComponent beverage){
-		
-	}
-        @Override
-	public  void removeSnack(SnackComponent beverage){
-		
 	}
 }
