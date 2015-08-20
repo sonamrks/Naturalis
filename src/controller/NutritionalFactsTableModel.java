@@ -18,41 +18,25 @@ import model.Item;
 public class NutritionalFactsTableModel {
 
     int[] nutritionalFacts;
-    String name;
-    ItemFactory item = new ItemFactory();
     
     public int[] getInfo(Integer ID) {
-        
+        nutritionalFacts = new int[4];
         try {
           
             DatabaseConnection dbConnection = DatabaseConnection.getInstance();
             Connection connection = dbConnection.getConnection();
-            String getName = "SELECT name FROM item WHERE code=?";
+            String getName = "SELECT protein,sugars,carbohydrates,calories FROM item WHERE code=?";
 
             PreparedStatement statement = connection.prepareStatement(getName);
             statement.setInt(1,ID);
             ResultSet result = statement.executeQuery();
 
             while(result.next()){
-               name = result.getString("name");
+               nutritionalFacts[0] = result.getInt("protein");
+               nutritionalFacts[1] = result.getInt("sugars");
+               nutritionalFacts[2] = result.getInt("carbohydrates");
+               nutritionalFacts[3] = result.getInt("calories");
             }
-
-            String s = "model." + name;
-            Item beverage;
-            beverage = item.createItem(s);
-            
-            nutritionalFacts = new int[4];
-            
-           nutritionalFacts[0] = beverage.getProtein();
-           nutritionalFacts[1] = beverage.getSugars();
-           nutritionalFacts[2] = beverage.getCarbohydrates();
-           nutritionalFacts[3] = beverage.getCalories();
-            
-            //System.out.println(nutritionalFacts);
-            
-            
-            //System.out.println("Name : "+beverage.getName()+" Calories : "+beverage.getCalories());            
-            
         }catch(Exception err){
             System.out.println(err.getMessage());
             err.printStackTrace();
