@@ -2119,7 +2119,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             lycheeJuicePanel.add(lycheeJuice);
             lycheeJuicePanel.setVisible(true);
             lycheeJuice.setPrice(Double.valueOf(priceTextField.getText()));
-            lycheeJuice.setCount(Integer.valueOf(countTextField.getText()));
         }
         else if(Integer.valueOf(codeTextField.getText()) == 111){
             DietPepsi dietPepsi = new DietPepsi();
@@ -2127,7 +2126,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             dietPepsiPanel.add(dietPepsi);
             dietPepsiPanel.setVisible(true);
             dietPepsi.setPrice(Double.valueOf(priceTextField.getText()));
-            dietPepsi.setCount(Integer.valueOf(countTextField.getText()));
         }
         else if(Integer.valueOf(codeTextField.getText()) == 210){
             Pretzel pretzel = new Pretzel();
@@ -2135,7 +2133,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             pretzelPanel.add(pretzel);
             pretzelPanel.setVisible(true);
             pretzel.setPrice(Double.valueOf(priceTextField.getText()));
-            pretzel.setCount(Integer.valueOf(countTextField.getText()));
         }
         else {
             Corn pretzel = new Corn();
@@ -2143,7 +2140,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             cornPanel.add(pretzel);
             cornPanel.setVisible(true);
             pretzel.setPrice(Double.valueOf(priceTextField.getText()));
-            pretzel.setCount(Integer.valueOf(countTextField.getText()));
         }
     }//GEN-LAST:event_addItemButtonActionPerformed
 

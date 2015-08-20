@@ -24,10 +24,6 @@ public class Corn extends javax.swing.JPanel {
     public void setPrice(double price){
         cornPriceTextField.setText(Double.toString(price));
     }
-    public void setCount(int count){
-        cornCountTextField.setText(Integer.toString(count));
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,9 +37,6 @@ public class Corn extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         cornPriceTextField = new javax.swing.JTextField();
         cornUpdateButton = new javax.swing.JButton();
-        cornCountTextField = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        cornAddButton = new javax.swing.JButton();
 
         cornImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/corn.jpg"))); // NOI18N
 
@@ -62,21 +55,6 @@ public class Corn extends javax.swing.JPanel {
             }
         });
 
-        cornCountTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cornCountTextFieldActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setText("Count");
-
-        cornAddButton.setText("+");
-        cornAddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cornAddButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,39 +62,28 @@ public class Corn extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cornImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cornPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cornUpdateButton)))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cornCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cornAddButton)))
+                        .addComponent(cornUpdateButton))
+                    .addComponent(jLabel9))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cornPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cornUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cornCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cornAddButton))
-                .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(cornImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cornUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cornPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -130,26 +97,11 @@ public class Corn extends javax.swing.JPanel {
         managerController.updatePrice(price,211);
     }//GEN-LAST:event_cornUpdateButtonActionPerformed
 
-    private void cornCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cornCountTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cornCountTextFieldActionPerformed
-
-    private void cornAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cornAddButtonActionPerformed
-        // TODO add your handling code here:
-        int count = Integer.valueOf(cornCountTextField.getText());
-        count++;
-        managerController.increaseItemCount(count,211);
-        cornCountTextField.setText(Integer.toString(count));
-    }//GEN-LAST:event_cornAddButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cornAddButton;
-    private javax.swing.JTextField cornCountTextField;
     private javax.swing.JLabel cornImageLabel;
     private javax.swing.JTextField cornPriceTextField;
     private javax.swing.JButton cornUpdateButton;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

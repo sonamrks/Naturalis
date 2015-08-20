@@ -24,9 +24,7 @@ public class LycheeJuice extends javax.swing.JPanel {
      public void setPrice(double price){
         lycheePriceTextField.setText(Double.toString(price));
     }
-    public void setCount(int count){
-        lycheeCountTextField.setText(Integer.toString(count));
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,9 +38,6 @@ public class LycheeJuice extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         lycheePriceTextField = new javax.swing.JTextField();
         lycheeUpdateButton = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        lycheeCountTextField = new javax.swing.JTextField();
-        lycheeAddButton = new javax.swing.JButton();
         lycheeJuiceImageLabel = new javax.swing.JLabel();
 
         jLabel9.setText("Price");
@@ -60,21 +55,6 @@ public class LycheeJuice extends javax.swing.JPanel {
             }
         });
 
-        jLabel10.setText("Count");
-
-        lycheeCountTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lycheeCountTextFieldActionPerformed(evt);
-            }
-        });
-
-        lycheeAddButton.setText("+");
-        lycheeAddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lycheeAddButtonActionPerformed(evt);
-            }
-        });
-
         lycheeJuiceImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lycheeJuice.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -83,35 +63,23 @@ public class LycheeJuice extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lycheeJuiceImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(18, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel10))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(lycheePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lycheeUpdateButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lycheeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lycheeAddButton)))
-                .addGap(4, 4, 4))
+                        .addGap(18, 18, 18)
+                        .addComponent(lycheeUpdateButton))
+                    .addComponent(jLabel9)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9))
+                .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lycheePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lycheeUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lycheeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lycheeAddButton))
+                    .addComponent(lycheeUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lycheeJuiceImageLabel)
@@ -123,30 +91,15 @@ public class LycheeJuice extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_lycheePriceTextFieldActionPerformed
 
-    private void lycheeCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lycheeCountTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lycheeCountTextFieldActionPerformed
-
     private void lycheeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lycheeUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(lycheePriceTextField.getText());
         managerController.updatePrice(price,110);
     }//GEN-LAST:event_lycheeUpdateButtonActionPerformed
 
-    private void lycheeAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lycheeAddButtonActionPerformed
-        // TODO add your handling code here:
-        int count = Integer.valueOf(lycheeCountTextField.getText());
-        count++;
-        managerController.increaseItemCount(count,110);
-        lycheeCountTextField.setText(Integer.toString(count));
-    }//GEN-LAST:event_lycheeAddButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JButton lycheeAddButton;
-    private javax.swing.JTextField lycheeCountTextField;
     private javax.swing.JLabel lycheeJuiceImageLabel;
     private javax.swing.JTextField lycheePriceTextField;
     private javax.swing.JButton lycheeUpdateButton;

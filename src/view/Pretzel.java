@@ -23,10 +23,7 @@ public class Pretzel extends javax.swing.JPanel {
     public void setPrice(double price){
         pretzelPriceTextField.setText(Double.toString(price));
     }
-    public void setCount(int count){
-        pretzelCountTextField.setText(Integer.toString(count));
-    }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,9 +37,6 @@ public class Pretzel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         pretzelPriceTextField = new javax.swing.JTextField();
         pretzelUpdateButton = new javax.swing.JButton();
-        pretzelCountTextField = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        pretzelAddButton = new javax.swing.JButton();
 
         pretezelImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pretezel.jpg"))); // NOI18N
 
@@ -61,44 +55,20 @@ public class Pretzel extends javax.swing.JPanel {
             }
         });
 
-        pretzelCountTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pretzelCountTextFieldActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setText("Count");
-
-        pretzelAddButton.setText("+");
-        pretzelAddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pretzelAddButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pretezelImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(18, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pretzelPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pretzelUpdateButton))
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pretzelCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pretzelAddButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,15 +77,11 @@ public class Pretzel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pretezelImageLabel)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(5, 5, 5)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pretzelPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pretzelUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pretzelCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pretzelAddButton))
+                            .addComponent(pretzelUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)))
                 .addContainerGap())
         );
@@ -131,25 +97,10 @@ public class Pretzel extends javax.swing.JPanel {
         managerController.updatePrice(price,210);
     }//GEN-LAST:event_pretzelUpdateButtonActionPerformed
 
-    private void pretzelCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pretzelCountTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pretzelCountTextFieldActionPerformed
-
-    private void pretzelAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pretzelAddButtonActionPerformed
-        // TODO add your handling code here:
-        int count = Integer.valueOf(pretzelCountTextField.getText());
-        count++;
-        managerController.increaseItemCount(count,210);
-        pretzelCountTextField.setText(Integer.toString(count));
-    }//GEN-LAST:event_pretzelAddButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel pretezelImageLabel;
-    private javax.swing.JButton pretzelAddButton;
-    private javax.swing.JTextField pretzelCountTextField;
     private javax.swing.JTextField pretzelPriceTextField;
     private javax.swing.JButton pretzelUpdateButton;
     // End of variables declaration//GEN-END:variables
