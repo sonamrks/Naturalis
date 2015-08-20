@@ -290,10 +290,6 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel14.setText("Price :");
 
-        cookieCodeLabel.setText("204");
-
-        cookiePriceLabel.setText("$1.5");
-
         javax.swing.GroupLayout cookiePanelLayout = new javax.swing.GroupLayout(cookiePanel);
         cookiePanel.setLayout(cookiePanelLayout);
         cookiePanelLayout.setHorizontalGroup(
@@ -340,10 +336,6 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel18.setText("Price :");
 
-        driedFruitsCodeLabel.setText("205");
-
-        driedFruitsPriceLabel.setText("$3.5");
-
         javax.swing.GroupLayout driedFruitPanelLayout = new javax.swing.GroupLayout(driedFruitPanel);
         driedFruitPanel.setLayout(driedFruitPanelLayout);
         driedFruitPanelLayout.setHorizontalGroup(
@@ -387,10 +379,6 @@ public class SnackPanel extends javax.swing.JPanel {
         jLabel21.setText("Code :");
 
         jLabel22.setText("Price :");
-
-        popcornCodeLabel.setText("206");
-
-        popcornPriceLabel.setText("$2.5");
 
         javax.swing.GroupLayout popcornPanelLayout = new javax.swing.GroupLayout(popcornPanel);
         popcornPanel.setLayout(popcornPanelLayout);
@@ -635,7 +623,7 @@ public class SnackPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents

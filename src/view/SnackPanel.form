@@ -33,7 +33,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="364" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="571" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -397,14 +397,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="cookieCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="204"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="cookiePriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$1.5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -473,14 +467,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="driedFruitsCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="205"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="driedFruitsPriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$3.5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -555,14 +543,8 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="popcornCodeLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="206"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="popcornPriceLabel">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="$2.5"/>
-                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

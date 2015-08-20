@@ -96,6 +96,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     }
     
     public void updateSoldCount(Integer code,String action){
+        double price=0;
         try {
             String getCount = "SELECT count FROM item WHERE code=?";
             statement = connection.prepareStatement(getCount);
@@ -113,6 +114,13 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             while(result.next()){
                 soldCount = result.getInt("soldCount");
             }
+            String getPrice = "SELECT price from item where code=?";
+            statement = connection.prepareStatement(getCount);
+            statement.setInt(1,code);
+            result = statement.executeQuery();
+            while(result.next()){
+                price = result.getDouble("price");
+            }
             if(action.equals("add")){
                 count--;
                 soldCount++;
@@ -128,6 +136,14 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
                 statement.setInt(1,soldCount);
                 statement.setInt(2,code);
                 statement.executeUpdate();
+                
+                double sales = count * price;
+                String updateSales = "UPDATE item SET sales=? where code=?";
+                statement = connection.prepareStatement(updateSales);
+                statement.setDouble(1,sales);
+                statement.setInt(2,code);
+                statement.executeUpdate();
+                
             }
             else{
                 count++;
@@ -142,6 +158,13 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
                 String updateSoldCount = "UPDATE item SET soldCount=? where code=?";
                 statement = connection.prepareStatement(updateSoldCount);
                 statement.setInt(1,soldCount);
+                statement.setInt(2,code);
+                statement.executeUpdate();
+                
+                double sales = count * price;
+                String updateSales = "UPDATE item SET sales=? where code=?";
+                statement = connection.prepareStatement(updateSales);
+                statement.setDouble(1,sales);
                 statement.setInt(2,code);
                 statement.executeUpdate();
             }

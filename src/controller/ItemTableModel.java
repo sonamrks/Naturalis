@@ -661,5 +661,21 @@ public class ItemTableModel {
             System.out.println(ex.getMessage());
         }
     }
-    
+    public double collectMoney(){
+        double totalSales = 0;
+        try {
+            String getTotalSales = "SELECT sum(sales) as total FROM item";
+            
+            statement = connection.prepareStatement(getTotalSales);
+            result = statement.executeQuery();
+            
+            while(result.next()){
+                totalSales = result.getDouble("total");
+            }
+            return totalSales;
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemTableModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return totalSales;
+    }
 }

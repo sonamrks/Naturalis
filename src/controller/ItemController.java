@@ -122,5 +122,8 @@ public class ItemController implements Mediator {
     public void registerAColleague (Colleague c) {
         colleagues.add(c);
     }
+    public double collectMoney(){
+        return itemsTableModel.collectMoney();
+    }
     
 }

@@ -64,66 +64,18 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     public void setProtein(){
         
         ArrayList<Integer> proteinList = managerController.setProtein();
-        
-        //cokeProteinTextField.setText(Integer.toString(proteinList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
     }
     public void setSugars(){
         
         ArrayList<Integer> sugarsList = managerController.setSugars();
-        
-        //cokeSugarsTextField.setText(Integer.toString(sugarsList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
     }
     public void setCarbohydrates(){
         
         ArrayList<Integer> carbohydratesList = managerController.setCarbohydrates();
-        
-        //cokeCarbohydratesTextField.setText(Integer.toString(carbohydratesList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
     }
     public void setCalories(){
         
         ArrayList<Integer> caloriesList = managerController.setCalories();
-        
-       // cokeCaloriesTextField.setText(Integer.toString(caloriesList.get(0)));
-       /* orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
-        lemonadeCodeLabel.setText(Integer.toString(codeList.get(2)));
-        gatoradeCodeLabel.setText(Integer.toString(codeList.get(3)));
-        frappuccinoCodeLabel.setText(Integer.toString(codeList.get(4)));
-        coconutWaterCodeLabel.setText(Integer.toString(codeList.get(5)));
-        sparklingWaterCodeLabel.setText(Integer.toString(codeList.get(6)));
-        proteinSmoothieCodeLabel.setText(Integer.toString(codeList.get(7)));
-        proteinShakeCodeLabel.setText(Integer.toString(codeList.get(8)));*/
-        
-        
     }
     public void setPrice(){
         
@@ -191,7 +143,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         nutritionalStatisticsButtonGroup = new javax.swing.ButtonGroup();
         allMachinesButtonGroup = new javax.swing.ButtonGroup();
         statisticsPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         BevSnacksStatisticsPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -233,6 +184,10 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         categoryTextField = new javax.swing.JTextField();
         machineIDTextField = new javax.swing.JTextField();
         addItemButton = new javax.swing.JButton();
+        collectMoneyPanel = new javax.swing.JPanel();
+        collectMoneyButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        collectMoneyTextField = new javax.swing.JTextField();
         itemsScrollPane = new javax.swing.JScrollPane();
         itemsPanel = new javax.swing.JPanel();
         frappuccinoPanel = new javax.swing.JPanel();
@@ -394,8 +349,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
         statisticsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setText("Statistics Panel");
-
         BevSnacksStatisticsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setText("Number of Beverages Sold :");
@@ -497,7 +450,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(itemsPieChartButton)
-                        .addGap(34, 34, 34)
+                        .addGap(29, 29, 29)
                         .addComponent(itemsBarChartButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(133, 133, 133)
@@ -507,13 +460,11 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itemsPieChartButton)
-                    .addComponent(itemsBarChartButton))
-                .addGap(30, 30, 30))
+                    .addComponent(itemsBarChartButton)))
         );
 
         nutritionalStatisticsPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -530,16 +481,13 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         nutritionalStatisticsPanelLayout.setHorizontalGroup(
             nutritionalStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nutritionalStatisticsPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
         nutritionalStatisticsPanelLayout.setVerticalGroup(
             nutritionalStatisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nutritionalStatisticsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+            .addComponent(nutritionalStatisticsButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -575,28 +523,29 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
                         .addComponent(machine1RadioButton)
                         .addGap(37, 37, 37)
                         .addComponent(machine2RadioButton)
                         .addGap(30, 30, 30)
-                        .addComponent(allMachinesRadioButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(allMachinesRadioButton))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel5)))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(machine1RadioButton)
                     .addComponent(machine2RadioButton)
-                    .addComponent(allMachinesRadioButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(allMachinesRadioButton)))
         );
 
         jLabel6.setText("Add new item");
@@ -724,42 +673,76 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
                 .addComponent(addItemButton))
         );
 
+        collectMoneyButton.setText("Collect Money");
+        collectMoneyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                collectMoneyButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coins.png"))); // NOI18N
+
+        javax.swing.GroupLayout collectMoneyPanelLayout = new javax.swing.GroupLayout(collectMoneyPanel);
+        collectMoneyPanel.setLayout(collectMoneyPanelLayout);
+        collectMoneyPanelLayout.setHorizontalGroup(
+            collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(collectMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(collectMoneyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        collectMoneyPanelLayout.setVerticalGroup(
+            collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                .addGroup(collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(collectMoneyButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, collectMoneyPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(collectMoneyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+        );
+
         javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
         statisticsPanel.setLayout(statisticsPanelLayout);
         statisticsPanelLayout.setHorizontalGroup(
             statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(statisticsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(nutritionalStatisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(addNewItemPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statisticsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BevSnacksStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(32, 32, 32))
             .addGroup(statisticsPanelLayout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(addNewItemPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(collectMoneyPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nutritionalStatisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statisticsPanelLayout.createSequentialGroup()
+                .addGap(0, 22, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         statisticsPanelLayout.setVerticalGroup(
             statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(statisticsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(14, 14, 14)
                 .addComponent(addNewItemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(collectMoneyPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BevSnacksStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nutritionalStatisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addContainerGap())
         );
 
         frappuccinoImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/frappuccino.jpg"))); // NOI18N
@@ -2393,13 +2376,10 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(statisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(itemsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 2310, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(statisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(itemsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2975,6 +2955,11 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             pretzel.setCount(Integer.valueOf(countTextField.getText()));
         }
     }//GEN-LAST:event_addItemButtonActionPerformed
+
+    private void collectMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_collectMoneyButtonActionPerformed
+        // TODO add your handling code here:
+        collectMoneyTextField.setText(Double.toString(itemController.collectMoney()));
+    }//GEN-LAST:event_collectMoneyButtonActionPerformed
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3025,6 +3010,9 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JPanel cokeInfoPanel6;
     private javax.swing.JPanel cokePanel;
     private javax.swing.JTextField cokePriceTextField;
+    private javax.swing.JButton collectMoneyButton;
+    private javax.swing.JPanel collectMoneyPanel;
+    private javax.swing.JTextField collectMoneyTextField;
     private javax.swing.JButton cookieAddButton;
     private javax.swing.JTextField cookieCountTextField;
     private javax.swing.JLabel cookieImageLabel;
