@@ -341,6 +341,13 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         greekYogurtUpdateButton = new javax.swing.JButton();
         greekYogurtAddButton = new javax.swing.JButton();
         greekYogurtImageLabel = new javax.swing.JLabel();
+        collectMoneyPanel = new javax.swing.JPanel();
+        collectMoneyButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        collectMoneyTextField = new javax.swing.JTextField();
+        machine1CollectRadioButton = new javax.swing.JRadioButton();
+        machine2CollectRadioButton = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1898,20 +1905,106 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
 
         itemsScrollPanel.setViewportView(itemsPanel);
 
+        collectMoneyButton.setText("Collect Money");
+        collectMoneyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                collectMoneyButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coins.png"))); // NOI18N
+
+        machine1CollectRadioButton.setText("Machine 1");
+        machine1CollectRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine1CollectRadioButtonActionPerformed(evt);
+            }
+        });
+
+        machine2CollectRadioButton.setText("Machine 2");
+        machine2CollectRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine2CollectRadioButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 335, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout collectMoneyPanelLayout = new javax.swing.GroupLayout(collectMoneyPanel);
+        collectMoneyPanel.setLayout(collectMoneyPanelLayout);
+        collectMoneyPanelLayout.setHorizontalGroup(
+            collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(collectMoneyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(machine2CollectRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(machine1CollectRadioButton)
+                .addGap(115, 115, 115))
+            .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                        .addComponent(collectMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 64, Short.MAX_VALUE))
+        );
+        collectMoneyPanelLayout.setVerticalGroup(
+            collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, collectMoneyPanelLayout.createSequentialGroup()
+                        .addComponent(collectMoneyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, collectMoneyPanelLayout.createSequentialGroup()
+                        .addGroup(collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                                .addComponent(machine1CollectRadioButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2))
+                            .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                                .addComponent(machine2CollectRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(collectMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(74, 74, 74))))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(itemsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(itemsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(collectMoneyPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(itemsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(collectMoneyPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(itemsScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -2405,6 +2498,24 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         sendMessage("addtocount", 17, null);
     }//GEN-LAST:event_greekYogurtAddButtonActionPerformed
 
+    private void collectMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_collectMoneyButtonActionPerformed
+        // TODO add your handling code here:
+        if(machine1CollectRadioButton.isSelected())
+        collectMoneyTextField.setText(Double.toString(itemController.collectMoney(4201)));
+        else
+        collectMoneyTextField.setText(Double.toString(itemController.collectMoney(4202)));
+    }//GEN-LAST:event_collectMoneyButtonActionPerformed
+
+    private void machine1CollectRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1CollectRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_machine1CollectRadioButtonActionPerformed
+
+    private void machine2CollectRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2CollectRadioButtonActionPerformed
+        // TODO add your handling code here:
+        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine2")));
+        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine2")));
+    }//GEN-LAST:event_machine2CollectRadioButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2465,6 +2576,9 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JPanel cokeInfoPanel6;
     private javax.swing.JPanel cokeInfoPanel7;
     private javax.swing.JTextField cokePriceTextField;
+    private javax.swing.JButton collectMoneyButton;
+    private javax.swing.JPanel collectMoneyPanel;
+    private javax.swing.JTextField collectMoneyTextField;
     private javax.swing.JButton cookieAddButton;
     private javax.swing.JTextField cookieCountTextField;
     private javax.swing.JLabel cookieImageLabel;
@@ -2517,6 +2631,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -2543,11 +2658,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lemonadeCountTextField;
     private javax.swing.JLabel lemonadeImageLabel1;
     private javax.swing.JPanel lemonadePanel;
     private javax.swing.JTextField lemonadePriceTextField;
     private javax.swing.JButton lemonadeUpdateButton;
+    private javax.swing.JRadioButton machine1CollectRadioButton;
+    private javax.swing.JRadioButton machine2CollectRadioButton;
     private javax.swing.JButton nutsAddButton;
     private javax.swing.JTextField nutsCountTextField;
     private javax.swing.JLabel nutsImageLabel;

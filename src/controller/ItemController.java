@@ -128,5 +128,9 @@ public class ItemController implements Mediator {
     public int[] getCount(int machineID){
         return itemsTableModel.getCount(machineID);
     }
+    public int[] getInfo(String ID){
+        int[] nutritionalFacts = itemsTableModel.getInfo(Integer.valueOf(ID));
+        return nutritionalFacts;
+    }
     
 }
