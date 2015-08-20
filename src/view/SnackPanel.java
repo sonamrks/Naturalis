@@ -23,6 +23,7 @@ public class SnackPanel extends javax.swing.JPanel {
     private CustomerUI customerUI;
     private ItemController itemsController;
     private CartItemsController itemsCartController;
+    ArrayList<Double> priceList;
     /**
      * Creates new form SnackPanel
      */
@@ -32,6 +33,12 @@ public class SnackPanel extends javax.swing.JPanel {
         this.customerUI = customerUI;
         itemsController = customerUI.getItemController();
         itemsCartController = customerUI.getItemsCartController();
+        setCodeLabel();
+        setPriceLabel();
+    }
+    
+    public void receiveMessage(Integer index, Double value) {
+        priceList.set(index-9, value); 
         setCodeLabel();
         setPriceLabel();
     }
@@ -54,7 +61,7 @@ public class SnackPanel extends javax.swing.JPanel {
     }
     public void setPriceLabel(){
     
-        ArrayList<Double> priceList = itemsController.getPriceForMachine(machineID);
+        priceList = itemsController.getPriceForMachine(machineID);
         
         granolaPriceLabel.setText(Double.toString(priceList.get(0)));
         chipsPriceLabel.setText(Double.toString(priceList.get(1)));

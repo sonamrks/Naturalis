@@ -23,6 +23,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     private CustomerUI customerUI;
     private ItemController itemsController;
     private CartItemsController itemsCartController;
+    ArrayList<Double> priceList;
 
     /**
      * Creates new form BeveragePanel
@@ -37,6 +38,12 @@ public class BeveragePanel extends javax.swing.JPanel {
         setCodeLabel();
         setPriceLabel();
         //itemsController = new ItemsController(this);
+    }
+    
+    public void receiveMessage(Integer index, Double value) {
+        priceList.set(index, value); 
+        setCodeLabel();
+        setPriceLabel();
     }
     
     public void setCodeLabel(){
@@ -57,7 +64,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     }
     public void setPriceLabel(){
     
-        ArrayList<Double> priceList = itemsController.getPriceForMachine(machineID);
+        priceList = itemsController.getPriceForMachine(machineID);
         
         cokePriceLabel.setText(Double.toString(priceList.get(0)));
         orangeJuicePriceLabel.setText(Double.toString(priceList.get(1)));

@@ -112,7 +112,16 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     }
     
     public void receiveMessage(String type, Integer index, Double value) {
-      //  code.
+        if(type.equals("changeprice")) {
+            if(index < 9) {
+                beveragePanel = new BeveragePanel(this, machineID);
+                beveragePanel.receiveMessage(index, value);
+                
+            }
+            if(index >= 9) {
+            //    snackPanel.receiveMessage(index, value);
+            }
+        }
     }
  
 
@@ -635,7 +644,8 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
 
     private void selectBeverageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBeverageButtonActionPerformed
         // TODO add your handling code here:
-       cardLayout.show(itemsPanel,"Beverages");
+        
+        cardLayout.show(itemsPanel,"Beverages");
     }//GEN-LAST:event_selectBeverageButtonActionPerformed
 
     private void changeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeTextFieldActionPerformed
