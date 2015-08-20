@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author Sonam
  */
-public class Chips implements Snack {
+public class Chips implements SnackComponent {
     
 	private int code;
         
@@ -111,6 +111,13 @@ public class Chips implements Snack {
 	public void setCount(int count){
 		this.count = count;
 	}
-    
+        @Override
+	public  void addSnack(SnackComponent beverage){
+		
+	}
+        @Override
+	public  void removeSnack(SnackComponent beverage){
+		
+	}
 }
 

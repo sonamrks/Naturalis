@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author Sonam
  */
-public class Granola implements Snack {
+public class Granola implements SnackComponent {
 	
 	private int code;
         private String name;
@@ -109,6 +109,13 @@ public class Granola implements Snack {
 	public void setCount(int count){
 		this.count = count;
 	}
-        
+        @Override
+	public  void addSnack(SnackComponent beverage){
+		
+	}
+        @Override
+	public  void removeSnack(SnackComponent beverage){
+		
+	}
 }
 
