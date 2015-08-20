@@ -724,4 +724,30 @@ public class ItemTableModel {
         }
         return nutritionalFacts;
     }
+    
+    public void increaseItemCount(Integer count,Integer code){
+        
+        try {
+            String updateBalance = "UPDATE item SET count=? where code=?";
+            statement = connection.prepareStatement(updateBalance);
+            statement.setInt(1,count);
+            statement.setInt(2,code);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+    
+    public void updatePrice(Double price,Integer code){
+          try {
+            String updateBalance = "UPDATE item SET price=? where code=?";
+            statement = connection.prepareStatement(updateBalance);
+            statement.setDouble(1,price);
+            statement.setInt(2,code);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } 
+    } 
 }

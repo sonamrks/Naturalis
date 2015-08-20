@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.sql.SQLException;
 import view.Colleague;
 import java.util.ArrayList;
 import java.util.Map;
@@ -21,15 +22,20 @@ public class ItemController implements Mediator {
     private ItemTableModel itemsTableModel;
     private SuggestionsComponent suggestionsComponent;
     private Decorator decorator;
-   // private CustomerUI customerUI;
     private ArrayList <Colleague> colleagues = new ArrayList<Colleague>();
     
+    int[] nutritionalCount = new int[100];
+    public int[] lowCalCount = new int[100];
+    public String[] lowCalNames = new String[100];
+    public int[] highProteinCount = new int[100];
+    public String[] highProteinNames = new String[100];
+    public int[] lowSugarsCount = new int[100];
+    public String[] lowSugarsNames = new String[100];
     
     public ItemController(int machineID) {
-       
         itemsTableModel = new ItemTableModel(machineID);
-       
     }
+    
     public ItemController() {
        itemsTableModel = new ItemTableModel();
     }
@@ -52,8 +58,7 @@ public class ItemController implements Mediator {
                 decorator.filter();
             }
             System.out.println("after Size: " + suggestionsComponent.getSize());
-            return suggestionsComponent.getSuggestionString();
-        
+            return suggestionsComponent.getSuggestionString();  
     }
     
     public ArrayList<Integer> getCodeForMachine(Integer machineID) {
@@ -67,34 +72,39 @@ public class ItemController implements Mediator {
     public ArrayList<Integer> getCode(){
         return itemsTableModel.getCode();
     }
+    
     public ArrayList<Double> getPrice() {
         return itemsTableModel.getPrice();
     }
+    
     public String getCalorieRangeSuggestions(int low,int high){
         return itemsTableModel.getCalorieRangeSuggestions(low,high);
     }
-      public ArrayList<Integer> setProtein(){
+    
+    public ArrayList<Integer> setProtein(){
         return itemsTableModel.setProtein();
     }
+    
     public ArrayList<Integer> setSugars(){
         return itemsTableModel.setSugars();
     }
+    
     public ArrayList<Integer> setCarbohydrates(){
         return itemsTableModel.setCarbohydrates();
     }
+    
     public ArrayList<Integer> setCalories(){
         return itemsTableModel.setCalories();
     }
+    
     public ArrayList<Double> setPrice() {
         return itemsTableModel.setPrice();
     }
+    
     public ArrayList<Integer> setCount(){
         return itemsTableModel.setCount();
     }
-    public int getCategorySoldCount(String category){
-        return itemsTableModel.getCategorySoldCount(category);
-    }
-   
+    
     public int getCategorySoldCount(String category, String machine) {
         return itemsTableModel.getCategorySoldCount(category,machine);
     }
@@ -104,33 +114,56 @@ public class ItemController implements Mediator {
         return soldCount;
     }
     public int[] getNutritionalItemSoldCount(String machine){
-        return itemsTableModel.getNutritionalItemSoldCount(machine);
+        
+        nutritionalCount = itemsTableModel.getNutritionalItemSoldCount(machine);
+        
+        lowCalCount = itemsTableModel.getLowCalCount();
+        lowCalNames = itemsTableModel.getLowCalNames();
+        highProteinCount = itemsTableModel.getHighProteinCount();
+        highProteinNames = itemsTableModel.getHighProteinNames();
+        lowSugarsCount = itemsTableModel.getLowSugarsCount();
+        lowSugarsNames = itemsTableModel.getLowSugarsNames();
+        
+       // for(int i=0;i<5;i++)
+         //   System.out.println(lowCalNames[i]);
+        
+        return nutritionalCount;
     }
+       
     public void addNewItem(String[] itemInfo){
         itemsTableModel.addNewItem(itemInfo);
     }
     
     public void sendMessageToAll(Colleague sender, String type, Integer index, Double value) {
         for (int i = 0; i < colleagues.size(); ++i){
-                Colleague c = colleagues.get(i);
-                if (c != sender){
-                        c.receiveMessage(type, index, value);
-                }
+            Colleague c = colleagues.get(i);
+            if (c != sender){
+                c.receiveMessage(type, index, value);
+            }
         }
     }
     
     public void registerAColleague (Colleague c) {
         colleagues.add(c);
     }
+    
     public double collectMoney(Integer machineID){
         return itemsTableModel.collectMoney(machineID);
     }
+    
     public int[] getCount(int machineID){
         return itemsTableModel.getCount(machineID);
     }
+    
     public int[] getInfo(String ID){
         int[] nutritionalFacts = itemsTableModel.getInfo(Integer.valueOf(ID));
         return nutritionalFacts;
     }
-    
+     
+    public void increaseItemCount(Integer count, Integer code){
+       itemsTableModel.increaseItemCount(count,code);
+    }
+    public void updatePrice(Double price,Integer code){
+       itemsTableModel.updatePrice(price,code);
+    }
 }

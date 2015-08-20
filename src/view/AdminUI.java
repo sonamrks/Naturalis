@@ -6,7 +6,6 @@
 package view;
 
 import controller.ItemController;
-import controller.ManagerController;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
  * @author AshitaRaghu
  */
 public class AdminUI extends javax.swing.JFrame implements Colleague {
-    private ManagerController managerController;
     private ItemController itemController;
     ArrayList<Integer> countList;
     ArrayList<Double> priceList;
@@ -27,7 +25,6 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         initComponents();
         this.itemController = itemController;
         itemController.registerAColleague(this);
-        managerController = new ManagerController();
         setPrice();
         setCount();
     }
@@ -47,22 +44,24 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         setCount(); 
     }
     
-     public void setProtein(){
-        
-        ArrayList<Integer> proteinList = managerController.setProtein();
+    public void setProtein(){        
+        ArrayList<Integer> proteinList = itemController.setProtein();
     }
-    public void setSugars(){
-        
-        ArrayList<Integer> sugarsList = managerController.setSugars();
+     
+    public void setSugars(){        
+        ArrayList<Integer> sugarsList = itemController.setSugars();
     }
+    
     public void setCarbohydrates(){
-        ArrayList<Integer> carbohydratesList = managerController.setCarbohydrates();
+        ArrayList<Integer> carbohydratesList = itemController.setCarbohydrates();
     }
+    
     public void setCalories(){
-        ArrayList<Integer> caloriesList = managerController.setCalories();
+        ArrayList<Integer> caloriesList = itemController.setCalories();
     }
+    
     public void setPrice(){
-        priceList = managerController.setPrice();
+        priceList = itemController.setPrice();
         
         cokePriceTextField.setText(Double.toString(priceList.get(0)));
         orangePriceTextField.setText(Double.toString(priceList.get(1)));
@@ -85,7 +84,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));
     }
     public void setCount(){
-        countList = managerController.setCount();
+        countList = itemController.setCount();
         
         cokeCountTextField.setText(Integer.toString(countList.get(0)));
         if(countList.get(0)<=2){
@@ -2021,14 +2020,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void frappuccinoUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(frappuccinoPriceTextField.getText());
-        managerController.updatePrice(price,105);
+        itemController.updatePrice(price,105);
     }//GEN-LAST:event_frappuccinoUpdateButtonActionPerformed
 
     private void addFrappuccinoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFrappuccinoButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(frappuccinoCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,105);
+        itemController.increaseItemCount(count,105);
         frappuccinoCountTextField.setText(Integer.toString(count));
         if(count>2){
             frappuccinoCountTextField.setBackground(Color.white);
@@ -2048,16 +2047,16 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void orangeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(orangePriceTextField.getText());
-        managerController.updatePrice(price,102);
+        itemController.updatePrice(price,102);
     }//GEN-LAST:event_orangeUpdateButtonActionPerformed
 
     private void addOrangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrangeButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(orangeCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,102);
-        if(count>2){
-            orangeCountTextField.setBackground(Color.white);
+        itemController.increaseItemCount(count,102);
+        if(count>2){            orangeCountTextField.setBackground(Color.white);
+
             orangeCountTextField.setForeground(Color.black);
         }
         orangeCountTextField.setText(Integer.toString(count));
@@ -2076,14 +2075,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
 
         double price = Double.valueOf(lemonadePriceTextField.getText());
-        managerController.updatePrice(price,103);
+        itemController.updatePrice(price,103);
     }//GEN-LAST:event_lemonadeUpdateButtonActionPerformed
 
     private void addLemonadeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLemonadeButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(lemonadeCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,103);
+        itemController.increaseItemCount(count,103);
         lemonadeCountTextField.setText(Integer.toString(count));
         if(count>2){
             lemonadeCountTextField.setBackground(Color.white);
@@ -2103,14 +2102,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void gatoradeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(gatoradePriceTextField.getText());
-        managerController.updatePrice(price,104);
+        itemController.updatePrice(price,104);
     }//GEN-LAST:event_gatoradeUpdateButtonActionPerformed
 
     private void addGatoradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGatoradeButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(gatoradeCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,104);
+        itemController.increaseItemCount(count,104);
         gatoradeCountTextField.setText(Integer.toString(count));
         if(count>2){
             gatoradeCountTextField.setBackground(Color.white);
@@ -2130,14 +2129,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void coconutWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(coconutWaterPriceTextField.getText());
-        managerController.updatePrice(price,106);
+        itemController.updatePrice(price,106);
     }//GEN-LAST:event_coconutWaterUpdateButtonActionPerformed
 
     private void addCoconutWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCoconutWaterButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(coconutWaterCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,106);
+        itemController.increaseItemCount(count,106);
         System.out.println(count);
         coconutWaterCountTextField.setText(Integer.toString(count));
         if(count>2){
@@ -2158,14 +2157,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void sparklingWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(sparklingWaterPriceTextField.getText());
-        managerController.updatePrice(price,107);
+        itemController.updatePrice(price,107);
     }//GEN-LAST:event_sparklingWaterUpdateButtonActionPerformed
 
     private void addSparklingWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSparklingWaterButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(sparklingWaterCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,107);
+        itemController.increaseItemCount(count,107);
         sparklingWaterCountTextField.setText(Integer.toString(count));
          if(count>2){
             sparklingWaterCountTextField.setBackground(Color.white);
@@ -2185,14 +2184,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void updateCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCokeButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(cokePriceTextField.getText());
-        managerController.updatePrice(price,101);
+        itemController.updatePrice(price,101);
     }//GEN-LAST:event_updateCokeButtonActionPerformed
 
     private void addCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCokeButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(cokeCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,101);
+        itemController.increaseItemCount(count,101);
         if(count>2){
             cokeCountTextField.setBackground(Color.white);
             cokeCountTextField.setForeground(Color.black);
@@ -2212,14 +2211,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void updateProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProteinSmoothieButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(proteinSmoothiePriceTextField.getText());
-        managerController.updatePrice(price,108);
+        itemController.updatePrice(price,108);
     }//GEN-LAST:event_updateProteinSmoothieButtonActionPerformed
 
     private void addProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProteinSmoothieButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(proteinSmoothieCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,108);
+        itemController.increaseItemCount(count,108);
         proteinSmoothieCountTextField.setText(Integer.toString(count));
         if(count>2){
             proteinSmoothieCountTextField.setBackground(Color.white);
@@ -2239,14 +2238,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void granolaUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(granolaPriceTextField.getText());
-        managerController.updatePrice(price,201);
+        itemController.updatePrice(price,201);
     }//GEN-LAST:event_granolaUpdateButtonActionPerformed
 
     private void granolaAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(granolaCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,201);
+        itemController.increaseItemCount(count,201);
         granolaCountTextField.setText(Integer.toString(count));
         if(count>2){
             granolaCountTextField.setBackground(Color.white);
@@ -2266,14 +2265,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void proteinShakeUpdateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeUpdateButton1ActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(proteinShakePriceTextField1.getText());
-        managerController.updatePrice(price,109);
+        itemController.updatePrice(price,109);
     }//GEN-LAST:event_proteinShakeUpdateButton1ActionPerformed
 
     private void addproteinShakeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addproteinShakeButton1ActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(proteinShakeCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,109);
+        itemController.increaseItemCount(count,109);
         proteinShakeCountTextField.setText(Integer.toString(count));
         if(count>2){
             proteinShakeCountTextField.setBackground(Color.white);
@@ -2293,14 +2292,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void chipsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(chipsPriceTextField.getText());
-        managerController.updatePrice(price,202);
+        itemController.updatePrice(price,202);
     }//GEN-LAST:event_chipsUpdateButtonActionPerformed
 
     private void chipsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(chipsCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,202);
+        itemController.increaseItemCount(count,202);
         chipsCountTextField.setText(Integer.toString(count));
         if(count>2){
             chipsCountTextField.setBackground(Color.white);
@@ -2320,14 +2319,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void nutsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(nutsPriceTextField.getText());
-        managerController.updatePrice(price,203);
+        itemController.updatePrice(price,203);
     }//GEN-LAST:event_nutsUpdateButtonActionPerformed
 
     private void nutsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(nutsCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,203);
+        itemController.increaseItemCount(count,203);
         nutsCountTextField.setText(Integer.toString(count));
         if(count>2){
             nutsCountTextField.setBackground(Color.white);
@@ -2347,14 +2346,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void cookieUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(cookiePriceTextField.getText());
-        managerController.updatePrice(price,204);
+        itemController.updatePrice(price,204);
     }//GEN-LAST:event_cookieUpdateButtonActionPerformed
 
     private void cookieAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(cookieCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,204);
+        itemController.increaseItemCount(count,204);
         if(count>2){
             cookieCountTextField.setBackground(Color.white);
             cookieCountTextField.setForeground(Color.black);
@@ -2374,14 +2373,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void driedFruitsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(driedFruitsPriceTextField.getText());
-        managerController.updatePrice(price,205);
+        itemController.updatePrice(price,205);
     }//GEN-LAST:event_driedFruitsUpdateButtonActionPerformed
 
     private void driedFruitsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(driedFruitsCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,205);
+        itemController.increaseItemCount(count,205);
         if(count>2){
             driedFruitsCountTextField.setBackground(Color.white);
             driedFruitsCountTextField.setForeground(Color.black);
@@ -2401,14 +2400,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void popcornUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(popcornPriceTextField.getText());
-        managerController.updatePrice(price,206);
+        itemController.updatePrice(price,206);
     }//GEN-LAST:event_popcornUpdateButtonActionPerformed
 
     private void popcornAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(popcornCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,206);
+        itemController.increaseItemCount(count,206);
         popcornCountTextField.setText(Integer.toString(count));
         if(count>2){
             popcornCountTextField.setBackground(Color.white);
@@ -2428,14 +2427,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void crackersUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(crackersPriceTextField.getText());
-        managerController.updatePrice(price,207);
+        itemController.updatePrice(price,207);
     }//GEN-LAST:event_crackersUpdateButtonActionPerformed
 
     private void crackersAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(crackersCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,207);
+        itemController.increaseItemCount(count,207);
         crackersCountTextField.setText(Integer.toString(count));
         if(count>2){
             crackersCountTextField.setBackground(Color.white);
@@ -2455,14 +2454,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void veggieStrawsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(veggieStrawsPriceTextField.getText());
-        managerController.updatePrice(price,208);
+        itemController.updatePrice(price,208);
     }//GEN-LAST:event_veggieStrawsUpdateButtonActionPerformed
 
     private void veggieStrawsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(veggieStrawsCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,208);
+        itemController.increaseItemCount(count,208);
         veggieStrawsCountTextField.setText(Integer.toString(count));
         if(count>2){
             veggieStrawsCountTextField.setBackground(Color.white);
@@ -2482,14 +2481,14 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void greekYogurtUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(greekYogurtPriceTextField.getText());
-        managerController.updatePrice(price,209);
+        itemController.updatePrice(price,209);
     }//GEN-LAST:event_greekYogurtUpdateButtonActionPerformed
 
     private void greekYogurtAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtAddButtonActionPerformed
         // TODO add your handling code here:
         int count = Integer.valueOf(greekYogurtCountTextField.getText());
         count++;
-        managerController.increaseItemCount(count,209);
+        itemController.increaseItemCount(count,209);
         greekYogurtCountTextField.setText(Integer.toString(count));
         if(count>2){
             greekYogurtCountTextField.setBackground(Color.white);
@@ -2512,8 +2511,8 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
 
     private void machine2CollectRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2CollectRadioButtonActionPerformed
         // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine2")));
-        snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine2")));
+      //  beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine2")));
+      //  snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine2")));
     }//GEN-LAST:event_machine2CollectRadioButtonActionPerformed
 
     /**
