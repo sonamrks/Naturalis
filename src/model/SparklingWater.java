@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author Sonam
  */
-public class SparklingWater implements Beverage {
+public class SparklingWater implements BeverageComponent {
 	
         private int code;
 	private String name;
@@ -109,6 +109,17 @@ public class SparklingWater implements Beverage {
 	public void setCount(int count){
 		this.count = count;
 	}
+<<<<<<< HEAD
      
+=======
+        @Override
+	public  void addBeverage(BeverageComponent beverage){
+		
+	}
+        @Override
+	public  void removeBeverage(BeverageComponent beverage){
+		
+	}
+>>>>>>> parent of 5de48fc... composite unused methods  from beverage
 }
 

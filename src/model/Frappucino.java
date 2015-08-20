@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author Sonam
  */
-public class Frappucino implements Beverage {
+public class Frappucino implements BeverageComponent {
 	
 	private int code;
         private String name;
@@ -108,6 +108,14 @@ public class Frappucino implements Beverage {
 	}
 	public void setCount(int count){
 		this.count = count;
+	}
+        @Override
+	public  void addBeverage(BeverageComponent beverage){
+		
+	}
+        @Override
+	public  void removeBeverage(BeverageComponent beverage){
+		
 	}
 }
 
