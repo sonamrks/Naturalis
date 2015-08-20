@@ -661,12 +661,13 @@ public class ItemTableModel {
             System.out.println(ex.getMessage());
         }
     }
-    public double collectMoney(){
+    public double collectMoney(Integer machineID){
         double totalSales = 0;
         try {
-            String getTotalSales = "SELECT sum(sales) as total FROM item";
+            String getTotalSales = "SELECT sum(sales) as total FROM item where machineID=?";
             
             statement = connection.prepareStatement(getTotalSales);
+            statement.setInt(1, machineID);
             result = statement.executeQuery();
             
             while(result.next()){

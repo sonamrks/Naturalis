@@ -143,6 +143,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         itemsMachineButtonGroup = new javax.swing.ButtonGroup();
         nutritionalStatisticsButtonGroup = new javax.swing.ButtonGroup();
         allMachinesButtonGroup = new javax.swing.ButtonGroup();
+        collectMoneyButtonGroup = new javax.swing.ButtonGroup();
         statisticsPanel = new javax.swing.JPanel();
         BevSnacksStatisticsPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -160,7 +161,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         machine1RadioButton = new javax.swing.JRadioButton();
-        machine2RadioButton = new javax.swing.JRadioButton();
         allMachinesRadioButton = new javax.swing.JRadioButton();
         addNewItemPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -189,6 +189,8 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         collectMoneyButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         collectMoneyTextField = new javax.swing.JTextField();
+        machine1CollectRadioButton = new javax.swing.JRadioButton();
+        machine2CollectRadioButton = new javax.swing.JRadioButton();
         itemsScrollPane = new javax.swing.JScrollPane();
         itemsPanel = new javax.swing.JPanel();
         frappuccinoPanel = new javax.swing.JPanel();
@@ -503,14 +505,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             }
         });
 
-        allMachinesButtonGroup.add(machine2RadioButton);
-        machine2RadioButton.setText("Machine 2");
-        machine2RadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machine2RadioButtonActionPerformed(evt);
-            }
-        });
-
         allMachinesButtonGroup.add(allMachinesRadioButton);
         allMachinesRadioButton.setText("All Machines");
         allMachinesRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -528,9 +522,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(machine1RadioButton)
-                        .addGap(37, 37, 37)
-                        .addComponent(machine2RadioButton)
-                        .addGap(30, 30, 30)
+                        .addGap(140, 140, 140)
                         .addComponent(allMachinesRadioButton))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
@@ -545,7 +537,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(machine1RadioButton)
-                    .addComponent(machine2RadioButton)
                     .addComponent(allMachinesRadioButton)))
         );
 
@@ -683,18 +674,37 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coins.png"))); // NOI18N
 
+        allMachinesButtonGroup.add(machine1CollectRadioButton);
+        machine1CollectRadioButton.setText("Machine 1");
+        machine1CollectRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine1CollectRadioButtonActionPerformed(evt);
+            }
+        });
+
+        allMachinesButtonGroup.add(machine2CollectRadioButton);
+        machine2CollectRadioButton.setText("Machine 2");
+        machine2CollectRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine2CollectRadioButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout collectMoneyPanelLayout = new javax.swing.GroupLayout(collectMoneyPanel);
         collectMoneyPanel.setLayout(collectMoneyPanelLayout);
         collectMoneyPanelLayout.setHorizontalGroup(
             collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(collectMoneyPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(collectMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
+                .addGroup(collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(machine1CollectRadioButton)
+                    .addComponent(machine2CollectRadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(collectMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(collectMoneyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(collectMoneyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         collectMoneyPanelLayout.setVerticalGroup(
             collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -706,7 +716,13 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, collectMoneyPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(collectMoneyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGap(38, 38, 38))
+            .addGroup(collectMoneyPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(machine1CollectRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(machine2CollectRadioButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
@@ -2880,7 +2896,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         int[] nutritionalItemsSoldCount = new int[100];
         if(machine1RadioButton.isSelected())
             nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("machine1");
-        else if(machine2RadioButton.isSelected())
+        else if(machine2CollectRadioButton.isSelected())
             nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("machine2");
         else
            nutritionalItemsSoldCount = managerController.getNutritionalItemSoldCount("allMachines"); 
@@ -2906,11 +2922,11 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine1")));
     }//GEN-LAST:event_machine1RadioButtonActionPerformed
 
-    private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
+    private void machine2CollectRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2CollectRadioButtonActionPerformed
         // TODO add your handling code here:
         beveragesSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("beverage","machine2")));
         snacksSoldTextField.setText(Integer.toString(managerController.getCategorySoldCount("snack","machine2")));
-    }//GEN-LAST:event_machine2RadioButtonActionPerformed
+    }//GEN-LAST:event_machine2CollectRadioButtonActionPerformed
 
     private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
         // TODO add your handling code here:
@@ -2968,8 +2984,15 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void collectMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_collectMoneyButtonActionPerformed
         // TODO add your handling code here:
-        collectMoneyTextField.setText(Double.toString(itemController.collectMoney()));
+        if(machine1CollectRadioButton.isSelected())
+            collectMoneyTextField.setText(Double.toString(itemController.collectMoney(4201)));
+        else
+            collectMoneyTextField.setText(Double.toString(itemController.collectMoney(4202)));
     }//GEN-LAST:event_collectMoneyButtonActionPerformed
+
+    private void machine1CollectRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1CollectRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_machine1CollectRadioButtonActionPerformed
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3021,6 +3044,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JPanel cokePanel;
     private javax.swing.JTextField cokePriceTextField;
     private javax.swing.JButton collectMoneyButton;
+    private javax.swing.ButtonGroup collectMoneyButtonGroup;
     private javax.swing.JPanel collectMoneyPanel;
     private javax.swing.JTextField collectMoneyTextField;
     private javax.swing.JButton cookieAddButton;
@@ -3122,8 +3146,9 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JTextField lemonadePriceTextField;
     private javax.swing.JButton lemonadeUpdateButton;
     private javax.swing.JPanel lycheeJuicePanel;
+    private javax.swing.JRadioButton machine1CollectRadioButton;
     private javax.swing.JRadioButton machine1RadioButton;
-    private javax.swing.JRadioButton machine2RadioButton;
+    private javax.swing.JRadioButton machine2CollectRadioButton;
     private javax.swing.JLabel machineIDLabel;
     private javax.swing.JTextField machineIDTextField;
     private javax.swing.JLabel nameLabel;
