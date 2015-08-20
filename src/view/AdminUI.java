@@ -7,6 +7,8 @@ package view;
 
 import controller.ItemController;
 import controller.ManagerController;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 
 /**
@@ -86,24 +88,95 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         countList = managerController.setCount();
         
         cokeCountTextField.setText(Integer.toString(countList.get(0)));
+        if(countList.get(0)<=2){
+            cokeCountTextField.setBackground(Color.red);
+            cokeCountTextField.setForeground(Color.yellow);
+        } 
         orangeCountTextField.setText(Integer.toString(countList.get(1)));
+        if(countList.get(1)<=2){
+            orangeCountTextField.setBackground(Color.red);
+            orangeCountTextField.setForeground(Color.yellow);
+        } 
         lemonadeCountTextField.setText(Integer.toString(countList.get(2)));
+        if(countList.get(2)<=2){
+            lemonadeCountTextField.setBackground(Color.red);
+            lemonadeCountTextField.setForeground(Color.yellow);
+        } 
         gatoradeCountTextField.setText(Integer.toString(countList.get(3)));
+        if(countList.get(3)<=2){
+            gatoradeCountTextField.setBackground(Color.red);
+            gatoradeCountTextField.setForeground(Color.yellow);
+        } 
         frappuccinoCountTextField.setText(Integer.toString(countList.get(4)));
+        if(countList.get(4)<=2){
+            frappuccinoCountTextField.setBackground(Color.red);
+            frappuccinoCountTextField.setForeground(Color.yellow);
+        } 
         coconutWaterCountTextField.setText(Integer.toString(countList.get(5)));
+        if(countList.get(5)<=2){
+            coconutWaterCountTextField.setBackground(Color.red);
+            coconutWaterCountTextField.setForeground(Color.yellow);
+        } 
         sparklingWaterCountTextField.setText(Integer.toString(countList.get(6)));
+        if(countList.get(6)<=2){
+            sparklingWaterCountTextField.setBackground(Color.red);
+            sparklingWaterCountTextField.setForeground(Color.yellow);
+        } 
         proteinSmoothieCountTextField.setText(Integer.toString(countList.get(7)));
+        if(countList.get(7)<=2){
+            proteinSmoothieCountTextField.setBackground(Color.red);
+            proteinSmoothieCountTextField.setForeground(Color.yellow);
+        } 
         proteinShakeCountTextField.setText(Integer.toString(countList.get(8)));
-        
+        if(countList.get(8)<=2){
+            proteinShakeCountTextField.setBackground(Color.red);
+            proteinShakeCountTextField.setForeground(Color.yellow);
+        } 
         granolaCountTextField.setText(Integer.toString(countList.get(9)));
+        if(countList.get(9)<=2){
+            granolaCountTextField.setBackground(Color.red);
+            granolaCountTextField.setForeground(Color.yellow);
+        } 
         chipsCountTextField.setText(Integer.toString(countList.get(10)));
+        if(countList.get(10)<=2){
+            chipsCountTextField.setBackground(Color.red);
+            chipsCountTextField.setForeground(Color.yellow);
+        } 
         nutsCountTextField.setText(Integer.toString(countList.get(11)));
+        if(countList.get(11)<=2){
+            nutsCountTextField.setBackground(Color.red);
+            nutsCountTextField.setForeground(Color.yellow);
+        } 
         cookieCountTextField.setText(Integer.toString(countList.get(12)));
+        if(countList.get(12)<=2){
+            cookieCountTextField.setBackground(Color.red);
+            cookieCountTextField.setForeground(Color.yellow);
+        } 
         driedFruitsCountTextField.setText(Integer.toString(countList.get(13)));
+        if(countList.get(13)<=2){
+            driedFruitsCountTextField.setBackground(Color.red);
+            driedFruitsCountTextField.setForeground(Color.yellow);
+        } 
         popcornCountTextField.setText(Integer.toString(countList.get(14)));
+        if(countList.get(14)<=2){
+            popcornCountTextField.setBackground(Color.red);
+            popcornCountTextField.setForeground(Color.yellow);
+        } 
         crackersCountTextField.setText(Integer.toString(countList.get(15)));
+        if(countList.get(15)<=2){
+            crackersCountTextField.setBackground(Color.red);
+            crackersCountTextField.setForeground(Color.yellow);
+        } 
         veggieStrawsCountTextField.setText(Integer.toString(countList.get(16)));
+        if(countList.get(16)<=2){
+            veggieStrawsCountTextField.setBackground(Color.red);
+            veggieStrawsCountTextField.setForeground(Color.yellow);
+        } 
         greekYogurtCountTextField.setText(Integer.toString(countList.get(17)));
+        if(countList.get(17)<=2){
+            greekYogurtCountTextField.setBackground(Color.red);
+            greekYogurtCountTextField.setForeground(Color.yellow);
+        } 
     }
    
 
@@ -1864,6 +1937,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,105);
         frappuccinoCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            frappuccinoCountTextField.setBackground(Color.white);
+            frappuccinoCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 4, null);
     }//GEN-LAST:event_addFrappuccinoButtonActionPerformed
 
@@ -1886,6 +1963,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(orangeCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,102);
+        if(count>2){
+            orangeCountTextField.setBackground(Color.white);
+            orangeCountTextField.setForeground(Color.black);
+        }
         orangeCountTextField.setText(Integer.toString(count));
         sendMessage("addtocount", 1, null);
     }//GEN-LAST:event_addOrangeButtonActionPerformed
@@ -1911,6 +1992,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,103);
         lemonadeCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            lemonadeCountTextField.setBackground(Color.white);
+            lemonadeCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 2, null);
     }//GEN-LAST:event_addLemonadeButtonActionPerformed
 
@@ -1934,6 +2019,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,104);
         gatoradeCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            gatoradeCountTextField.setBackground(Color.white);
+            gatoradeCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 3, null);
     }//GEN-LAST:event_addGatoradeButtonActionPerformed
 
@@ -1958,6 +2047,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         managerController.increaseItemCount(count,106);
         System.out.println(count);
         coconutWaterCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            coconutWaterCountTextField.setBackground(Color.white);
+            coconutWaterCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 5, null);
     }//GEN-LAST:event_addCoconutWaterButtonActionPerformed
 
@@ -1980,8 +2073,11 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(sparklingWaterCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,107);
-        System.out.println(count);
         sparklingWaterCountTextField.setText(Integer.toString(count));
+         if(count>2){
+            sparklingWaterCountTextField.setBackground(Color.white);
+            sparklingWaterCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 6, null);
     }//GEN-LAST:event_addSparklingWaterButtonActionPerformed
 
@@ -2004,7 +2100,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(cokeCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,101);
-        System.out.println(count);
+        if(count>2){
+            cokeCountTextField.setBackground(Color.white);
+            cokeCountTextField.setForeground(Color.black);
+        }
         cokeCountTextField.setText(Integer.toString(count));
         sendMessage("addtocount", 0, null);
     }//GEN-LAST:event_addCokeButtonActionPerformed
@@ -2028,8 +2127,11 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(proteinSmoothieCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,108);
-        System.out.println(count);
         proteinSmoothieCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            proteinSmoothieCountTextField.setBackground(Color.white);
+            proteinSmoothieCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 7, null);
     }//GEN-LAST:event_addProteinSmoothieButtonActionPerformed
 
@@ -2052,8 +2154,11 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(granolaCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,201);
-        System.out.println(count);
         granolaCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            granolaCountTextField.setBackground(Color.white);
+            granolaCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 9, null);
     }//GEN-LAST:event_granolaAddButtonActionPerformed
 
@@ -2077,6 +2182,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,109);
         proteinShakeCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            proteinShakeCountTextField.setBackground(Color.white);
+            proteinShakeCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 8, null);
     }//GEN-LAST:event_addproteinShakeButton1ActionPerformed
 
@@ -2100,6 +2209,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,202);
         chipsCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            chipsCountTextField.setBackground(Color.white);
+            chipsCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 10, null);
     }//GEN-LAST:event_chipsAddButtonActionPerformed
 
@@ -2123,6 +2236,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,203);
         nutsCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            nutsCountTextField.setBackground(Color.white);
+            nutsCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 11, null);
     }//GEN-LAST:event_nutsAddButtonActionPerformed
 
@@ -2145,6 +2262,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(cookieCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,204);
+        if(count>2){
+            cookieCountTextField.setBackground(Color.white);
+            cookieCountTextField.setForeground(Color.black);
+        }
         cookieCountTextField.setText(Integer.toString(count));
         sendMessage("addtocount", 12, null);
     }//GEN-LAST:event_cookieAddButtonActionPerformed
@@ -2168,6 +2289,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(driedFruitsCountTextField.getText());
         count++;
         managerController.increaseItemCount(count,205);
+        if(count>2){
+            driedFruitsCountTextField.setBackground(Color.white);
+            driedFruitsCountTextField.setForeground(Color.black);
+        }
         driedFruitsCountTextField.setText(Integer.toString(count));
         sendMessage("addtocount", 13, null);
     }//GEN-LAST:event_driedFruitsAddButtonActionPerformed
@@ -2192,6 +2317,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,206);
         popcornCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            popcornCountTextField.setBackground(Color.white);
+            popcornCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 14, null);
     }//GEN-LAST:event_popcornAddButtonActionPerformed
 
@@ -2215,6 +2344,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,207);
         crackersCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            crackersCountTextField.setBackground(Color.white);
+            crackersCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 15, null);
     }//GEN-LAST:event_crackersAddButtonActionPerformed
 
@@ -2238,6 +2371,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,208);
         veggieStrawsCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            veggieStrawsCountTextField.setBackground(Color.white);
+            veggieStrawsCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 16, null);
     }//GEN-LAST:event_veggieStrawsAddButtonActionPerformed
 
@@ -2261,6 +2398,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         count++;
         managerController.increaseItemCount(count,209);
         greekYogurtCountTextField.setText(Integer.toString(count));
+        if(count>2){
+            greekYogurtCountTextField.setBackground(Color.white);
+            greekYogurtCountTextField.setForeground(Color.black);
+        }
         sendMessage("addtocount", 17, null);
     }//GEN-LAST:event_greekYogurtAddButtonActionPerformed
 
