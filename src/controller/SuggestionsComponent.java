@@ -30,7 +30,7 @@ public class SuggestionsComponent {
     
     public SuggestionsComponent(Item itemTableModel) {
         this.itemTableModel = itemTableModel;  
-        itemTableModel.getItemInfo();
+      //  itemTableModel.getItemInfo();
         codeList = itemTableModel.getCodeList();
         nameList = itemTableModel.getNameList();
         proteinList = itemTableModel.getProteinList();
