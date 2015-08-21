@@ -178,7 +178,7 @@ public class Item {
         
         try {
             
-            String getInfo = "SELECT price,count FROM item";
+            String getInfo = "SELECT price FROM item";
             
             PreparedStatement statement = connection.prepareStatement(getInfo);
             ResultSet result = statement.executeQuery();
@@ -186,7 +186,6 @@ public class Item {
             while(result.next()){
                
                 priceList.add(result.getDouble("price"));
-                countList.add(result.getInt("count"));
                 
             }
             
@@ -201,6 +200,26 @@ public class Item {
         return priceList;
     }
     public ArrayList<Integer> setCount(){
+         try {
+            
+            String getInfo = "SELECT count FROM item";
+            
+            PreparedStatement statement = connection.prepareStatement(getInfo);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next()){
+               
+                countList.add(result.getInt("count"));
+                
+            }
+            
+            statement = connection.prepareStatement(getInfo);
+            result = statement.executeQuery();
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
         
         return countList;
     }
