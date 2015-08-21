@@ -155,9 +155,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         dispenserPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         item1DispensedLabel = new javax.swing.JLabel();
-        item2DispensedLabel = new javax.swing.JLabel();
-        item3DispensedLabel = new javax.swing.JLabel();
-        item4DispensedLabel = new javax.swing.JLabel();
         changeSlotPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         changeTextField = new javax.swing.JTextField();
@@ -260,14 +257,8 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                         .addComponent(jLabel6))
                     .addGroup(dispenserPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(item1DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
-                            .addComponent(item3DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(item2DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                            .addComponent(item4DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(item1DispensedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         dispenserPanelLayout.setVerticalGroup(
             dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,17 +266,11 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addGap(22, 22, 22)
-                .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(item1DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(item2DispensedLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(item3DispensedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(item4DispensedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addComponent(item1DispensedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        leftPanel.add(dispenserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
+        leftPanel.add(dispenserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 190, -1));
 
         changeSlotPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -743,9 +728,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JCheckBox highProteinCheckBox;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JLabel item1DispensedLabel;
-    private javax.swing.JLabel item2DispensedLabel;
-    private javax.swing.JLabel item3DispensedLabel;
-    private javax.swing.JLabel item4DispensedLabel;
     private javax.swing.JTextField itemCodeTextField;
     private javax.swing.JPanel itemsPanel;
     private javax.swing.JLabel jLabel1;

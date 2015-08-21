@@ -162,7 +162,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="450" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="20" y="450" width="190" height="-1"/>
                 </Constraint>
               </Constraints>
 
@@ -177,18 +177,10 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="item1DispensedLabel" pref="72" max="32767" attributes="0"/>
-                                      <Component id="item3DispensedLabel" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="item2DispensedLabel" pref="78" max="32767" attributes="0"/>
-                                      <Component id="item4DispensedLabel" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="item1DispensedLabel" min="-2" pref="136" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                          <EmptySpace pref="40" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -198,16 +190,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="item1DispensedLabel" pref="39" max="32767" attributes="0"/>
-                              <Component id="item2DispensedLabel" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="item3DispensedLabel" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="item4DispensedLabel" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                          <Component id="item1DispensedLabel" min="-2" pref="114" max="-2" attributes="0"/>
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -219,12 +203,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="item1DispensedLabel">
-                </Component>
-                <Component class="javax.swing.JLabel" name="item2DispensedLabel">
-                </Component>
-                <Component class="javax.swing.JLabel" name="item3DispensedLabel">
-                </Component>
-                <Component class="javax.swing.JLabel" name="item4DispensedLabel">
                 </Component>
               </SubComponents>
             </Container>
