@@ -28,6 +28,7 @@ public class Item {
     ArrayList<Integer> carbohydratesList = new ArrayList<Integer>();
     ArrayList<Integer> caloriesList = new ArrayList<Integer>();
     ArrayList<Integer> countList = new ArrayList<Integer>();
+    ArrayList<Integer> soldCountList = new ArrayList<Integer>();
     
     private String getSoldCount;
     private int[] soldCount = new int[100];
@@ -292,272 +293,53 @@ public class Item {
         return soldCount;
     }
     
-    public int[] getItemSoldCount(String machine){
+    public ArrayList<Integer> getItemSoldCount(String machine){
+        ArrayList<Integer> machine1List = new ArrayList<Integer>();
+        ArrayList<Integer> machine2List = new ArrayList<Integer>();
         
         int sale=0;
-        String getCokeSold,getOrangeSold,getLemonadeSold,getGatoradeSold;
-        String getFrappuccinoSold,getCoconutWaterSold, getSparklingWaterSold,getProteinSmoothieSold,getProteinShakeSold;
-        String getGranolaSold,getNutsSold,getChipsSold,getCookieSold;
-        String getDriedFruitsSold,getPopcornSold,getCrackersSold,getVeggieStrawsSold,getGreekYogurtSold;
+        
         try {
-            if(machine.equals("machine1"))
-                getCokeSold = "SELECT soldCount FROM item where code=101 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getCokeSold = "SELECT soldCount FROM item where code=101 and machineID=4202";
-            else
-                getCokeSold = "SELECT soldCount FROM item where code=101";
-            statement = connection.prepareStatement(getCokeSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[0]=sale;
+            if(machine.equals("machine1")){
+                getSoldCount = "SELECT soldCount FROM item where machineID=4201";
+                statement = connection.prepareStatement(getSoldCount);
+                result = statement.executeQuery();
+                while(result.next()){
+                    soldCountList.add(result.getInt("soldCount"));
+                }
             }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getOrangeSold = "SELECT soldCount FROM item where code=102 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getOrangeSold = "SELECT soldCount FROM item where code=102 and machineID=4202";
-            else
-                getOrangeSold = "SELECT soldCount FROM item where code=102";
-            statement = connection.prepareStatement(getOrangeSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[1]=sale;
+                
+            else if(machine.equals("machine2")){
+                getSoldCount = "SELECT soldCount FROM item where machineID=4202";
+                statement = connection.prepareStatement(getSoldCount);
+                result = statement.executeQuery();
+                while(result.next()){
+                    soldCountList.add(result.getInt("soldCount"));
+                }
             }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getLemonadeSold = "SELECT soldCount FROM item where code=103 and machineID=4201";
-            else  if(machine.equals("machine2"))
-                getLemonadeSold = "SELECT soldCount FROM item where code=103 and machineID=4202";
-            else
-                getLemonadeSold = "SELECT soldCount FROM item where code=103";
-            statement = connection.prepareStatement(getLemonadeSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[2]=sale;
+            else{
+                getSoldCount = "SELECT soldCount FROM item where machineID=4201";
+                statement = connection.prepareStatement(getSoldCount);
+                result = statement.executeQuery();
+                while(result.next()){
+                    machine1List.add(result.getInt("soldCount"));
+                }
+                getSoldCount = "SELECT soldCount FROM item where machineID=4202";
+                statement = connection.prepareStatement(getSoldCount);
+                result = statement.executeQuery();
+                while(result.next()){
+                    machine2List.add(result.getInt("soldCount"));
+                }
+                int i=0;
+                while(i<machine1List.size()){
+                    soldCountList.add(machine1List.get(i) + machine2List.get(i));
+                    i++;
+                }
             }
-            sale = 0;
-            
-           if(machine.equals("machine1"))
-                getGatoradeSold = "SELECT soldCount FROM item where code=104 and machineID=4201";
-           else if(machine.equals("machine2"))
-                getGatoradeSold = "SELECT soldCount FROM item where code=104 and machineID=4202";
-           else
-               getGatoradeSold = "SELECT soldCount FROM item where code=104";
-            statement = connection.prepareStatement(getGatoradeSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[3]=sale;
-            }
-            sale = 0;
-            
-             if(machine.equals("machine1"))
-                getFrappuccinoSold = "SELECT soldCount FROM item where code=105 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getFrappuccinoSold = "SELECT soldCount FROM item where code=105 and machineID=4202";
-            else
-                getFrappuccinoSold = "SELECT soldCount FROM item where code=105";
-            statement = connection.prepareStatement(getFrappuccinoSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[4]=sale;
-            }
-            sale = 0;
-            
-            
-            if(machine.equals("machine1"))
-                getCoconutWaterSold = "SELECT soldCount FROM item where code=106 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getCoconutWaterSold = "SELECT soldCount FROM item where code=106 and machineID=4202";
-            else
-               getCoconutWaterSold = "SELECT soldCount FROM item where code=106";
-            statement = connection.prepareStatement(getCoconutWaterSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[5]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getSparklingWaterSold = "SELECT soldCount FROM item where code=107 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getSparklingWaterSold = "SELECT soldCount FROM item where code=107 and machineID=4202";
-            else
-               getSparklingWaterSold = "SELECT soldCount FROM item where code=107";
-            statement = connection.prepareStatement(getSparklingWaterSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[6]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getProteinSmoothieSold = "SELECT soldCount FROM item where code=108 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getProteinSmoothieSold = "SELECT soldCount FROM item where code=108 and machineID=4202";
-            else
-               getProteinSmoothieSold = "SELECT soldCount FROM item where code=108";
-            statement = connection.prepareStatement(getProteinSmoothieSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[7]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getProteinShakeSold = "SELECT soldCount FROM item where code=109 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getProteinShakeSold = "SELECT soldCount FROM item where code=109 and machineID=4202";
-            else
-               getProteinShakeSold = "SELECT soldCount FROM item where code=109";
-            statement = connection.prepareStatement(getProteinShakeSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[8]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getGranolaSold = "SELECT soldCount FROM item where code=201 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getGranolaSold = "SELECT soldCount FROM item where code=201 and machineID=4202";
-            else
-               getGranolaSold = "SELECT soldCount FROM item where code=201";
-            statement = connection.prepareStatement(getGranolaSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[9]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getChipsSold = "SELECT soldCount FROM item where code=202 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getChipsSold = "SELECT soldCount FROM item where code=202 and machineID=4202";
-            else
-               getChipsSold = "SELECT soldCount FROM item where code=202";
-            statement = connection.prepareStatement(getChipsSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[10]=sale;
-            }
-            sale = 0;
-           
-            if(machine.equals("machine1"))
-                getNutsSold = "SELECT soldCount FROM item where code=203 and machineID=4201";
-            else  if(machine.equals("machine2"))
-                getNutsSold = "SELECT soldCount FROM item where code=203 and machineID=4202";
-            else
-                getNutsSold = "SELECT soldCount FROM item where code=203";
-            statement = connection.prepareStatement(getNutsSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[11]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getCookieSold = "SELECT soldCount FROM item where code=204 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getCookieSold = "SELECT soldCount FROM item where code=204 and machineID=4202";
-            else
-                getCookieSold = "SELECT soldCount FROM item where code=204";
-            statement = connection.prepareStatement(getCookieSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[12]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getDriedFruitsSold = "SELECT soldCount FROM item where code=205 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getDriedFruitsSold = "SELECT soldCount FROM item where code=205 and machineID=4202";
-            else
-                getDriedFruitsSold = "SELECT soldCount FROM item where code=205";
-            statement = connection.prepareStatement(getDriedFruitsSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[13]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getPopcornSold = "SELECT soldCount FROM item where code=206 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getPopcornSold = "SELECT soldCount FROM item where code=206 and machineID=4202";
-            else
-                getPopcornSold = "SELECT soldCount FROM item where code=206";
-            statement = connection.prepareStatement(getPopcornSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[14]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getCrackersSold = "SELECT soldCount FROM item where code=207 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getCrackersSold = "SELECT soldCount FROM item where code=207 and machineID=4202";
-            else
-                getCrackersSold = "SELECT soldCount FROM item where code=207";
-            statement = connection.prepareStatement(getCrackersSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[15]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getVeggieStrawsSold = "SELECT soldCount FROM item where code=208 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getVeggieStrawsSold = "SELECT soldCount FROM item where code=208 and machineID=4202";
-            else
-                getVeggieStrawsSold = "SELECT soldCount FROM item where code=208";
-            statement = connection.prepareStatement(getVeggieStrawsSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[16]=sale;
-            }
-            sale = 0;
-            
-            if(machine.equals("machine1"))
-                getGreekYogurtSold = "SELECT soldCount FROM item where code=209 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getGreekYogurtSold = "SELECT soldCount FROM item where code=209 and machineID=4202";
-            else
-                getGreekYogurtSold = "SELECT soldCount FROM item where code=209";
-            statement = connection.prepareStatement(getGreekYogurtSold);
-            result = statement.executeQuery();
-            while(result.next()){
-                sale+= result.getInt("soldCount");
-                soldCount[17]=sale;
-            }
-            sale = 0;
-            
-            
         } catch (SQLException ex) {
             Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return soldCount;
+        return soldCountList;
     }
 
     int[] getNutritionalItemSoldCount(String machine) {

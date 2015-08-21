@@ -2001,7 +2001,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void itemsBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsBarChartButtonActionPerformed
         // TODO add your handling code here:
-        int[] itemsSoldCount = new int[100];
+        ArrayList<Integer> itemsSoldCount = new ArrayList<Integer>();
         if(machine1RadioButton.isSelected())
             itemsSoldCount = itemController.getItemSoldCount("machine1");
         else if(machine1RadioButton.isSelected())
@@ -2017,7 +2017,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void itemsPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsPieChartButtonActionPerformed
         // TODO add your handling code here:
-        int[] itemsSoldCount = new int[100];
+        ArrayList<Integer> itemsSoldCount = new ArrayList<Integer>();
         if(machine1RadioButton.isSelected())
             itemsSoldCount = itemController.getItemSoldCount("machine1");
         else if(machine1RadioButton.isSelected())

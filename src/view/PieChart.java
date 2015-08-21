@@ -8,6 +8,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -55,18 +56,18 @@ public class PieChart extends JFrame {
         setContentPane(bevSnackChartPanel);
     }
     
-     public void itemSoldPieChart(String appTitle,String chartTitle,int[] soldCount){
+     public void itemSoldPieChart(String appTitle,String chartTitle,ArrayList<Integer> soldCount){
         
         DefaultPieDataset beverageItemsDataset = new DefaultPieDataset();
-        beverageItemsDataset.setValue("coke", soldCount[0]);
-        beverageItemsDataset.setValue("orangeJuice", soldCount[1]);
-        beverageItemsDataset.setValue("lemonade", soldCount[2]);
-        beverageItemsDataset.setValue("gatorade", soldCount[3]);
-        beverageItemsDataset.setValue("frappuccino", soldCount[4]);
-        beverageItemsDataset.setValue("coconut water", soldCount[5]);
-        beverageItemsDataset.setValue("sparkling water", soldCount[6]);
-        beverageItemsDataset.setValue("protein smoothie", soldCount[7]);
-        beverageItemsDataset.setValue("protein shake", soldCount[8]);
+        beverageItemsDataset.setValue("coke", soldCount.get(0));
+        beverageItemsDataset.setValue("orangeJuice", soldCount.get(1));
+        beverageItemsDataset.setValue("lemonade", soldCount.get(2));
+        beverageItemsDataset.setValue("gatorade", soldCount.get(3));
+        beverageItemsDataset.setValue("frappuccino", soldCount.get(4));
+        beverageItemsDataset.setValue("coconut water", soldCount.get(5));
+        beverageItemsDataset.setValue("sparkling water", soldCount.get(6));
+        beverageItemsDataset.setValue("protein smoothie", soldCount.get(7));
+        beverageItemsDataset.setValue("protein shake", soldCount.get(8));
         
         
         JFreeChart beverageitemsChart = ChartFactory.createPieChart3D("Beverages", beverageItemsDataset, true, true, false);
@@ -76,15 +77,15 @@ public class PieChart extends JFrame {
         plot.setForegroundAlpha(0.8f);
         
         DefaultPieDataset snackItemsDataset = new DefaultPieDataset();
-        snackItemsDataset.setValue("granola", soldCount[9]);
-        snackItemsDataset.setValue("chips", soldCount[10]);
-        snackItemsDataset.setValue("nuts", soldCount[11]);
-        snackItemsDataset.setValue("cookie", soldCount[12]);
-        snackItemsDataset.setValue("dried fruits", soldCount[13]);
-        snackItemsDataset.setValue("popcorn", soldCount[14]);
-        snackItemsDataset.setValue("crackers", soldCount[15]);
-        snackItemsDataset.setValue("veggie straws", soldCount[16]);
-        snackItemsDataset.setValue("greek yogurt", soldCount[17]);
+        snackItemsDataset.setValue("granola", soldCount.get(9));
+        snackItemsDataset.setValue("chips", soldCount.get(10));
+        snackItemsDataset.setValue("nuts", soldCount.get(11));
+        snackItemsDataset.setValue("cookie", soldCount.get(12));
+        snackItemsDataset.setValue("dried fruits", soldCount.get(13));
+        snackItemsDataset.setValue("popcorn", soldCount.get(14));
+        snackItemsDataset.setValue("crackers", soldCount.get(15));
+        snackItemsDataset.setValue("veggie straws", soldCount.get(16));
+        snackItemsDataset.setValue("greek yogurt", soldCount.get(17));
         
         JFreeChart snackItemsChart = ChartFactory.createPieChart3D("Snacks", snackItemsDataset, true, true, false);
         PiePlot3D snackPlot = (PiePlot3D)snackItemsChart.getPlot(); 

@@ -7,6 +7,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
@@ -50,33 +51,33 @@ public class BarChart extends JFrame {
         setContentPane(bevSnackChartPanel);
     }
     
-    public void itemSoldBarChart(String appTitle,String chartTitle,int[] soldCount){
+    public void itemSoldBarChart(String appTitle,String chartTitle,ArrayList<Integer> soldCount){
         
         DefaultCategoryDataset beverageItemsDataset = new DefaultCategoryDataset();
-        beverageItemsDataset.setValue(soldCount[0],"Count sold", "Coke");
-        beverageItemsDataset.setValue(soldCount[1],"Count sold", "OrangeJuice");
-        beverageItemsDataset.setValue(soldCount[2],"Count sold", "Lemonade");
-        beverageItemsDataset.setValue(soldCount[3],"Count sold", "Gatorade");
-        beverageItemsDataset.setValue(soldCount[4],"Count sold", "Frappuccino");
-        beverageItemsDataset.setValue(soldCount[5],"Count sold", "Coconut Water");
-        beverageItemsDataset.setValue(soldCount[6],"Count sold", "Sparkling Water");
-        beverageItemsDataset.setValue(soldCount[7],"Count sold", "Protein Smoothie");
-        beverageItemsDataset.setValue(soldCount[8],"Count sold", "Protein Shake");
+        beverageItemsDataset.setValue(soldCount.get(0),"Count sold", "Coke");
+        beverageItemsDataset.setValue(soldCount.get(1),"Count sold", "OrangeJuice");
+        beverageItemsDataset.setValue(soldCount.get(2),"Count sold", "Lemonade");
+        beverageItemsDataset.setValue(soldCount.get(3),"Count sold", "Gatorade");
+        beverageItemsDataset.setValue(soldCount.get(4),"Count sold", "Frappuccino");
+        beverageItemsDataset.setValue(soldCount.get(5),"Count sold", "Coconut Water");
+        beverageItemsDataset.setValue(soldCount.get(6),"Count sold", "Sparkling Water");
+        beverageItemsDataset.setValue(soldCount.get(7),"Count sold", "Protein Smoothie");
+        beverageItemsDataset.setValue(soldCount.get(8),"Count sold", "Protein Shake");
         
         JFreeChart beverageItemschart = ChartFactory.createBarChart3D("Beverages", "Category", "Count sold", beverageItemsDataset, PlotOrientation.VERTICAL, true, true, false);
         CategoryPlot plot = beverageItemschart.getCategoryPlot();
         plot.setRangeGridlinePaint(Color.black);
         
         DefaultCategoryDataset snackItemsDataset = new DefaultCategoryDataset();
-        snackItemsDataset.setValue(soldCount[9],"Count sold", "Granola");
-        snackItemsDataset.setValue(soldCount[10],"Count sold", "Chips");
-        snackItemsDataset.setValue(soldCount[11],"Count sold", "Nuts");
-        snackItemsDataset.setValue(soldCount[12],"Count sold", "Cookie");
-        snackItemsDataset.setValue(soldCount[13],"Count sold", "Dried Fruits");
-        snackItemsDataset.setValue(soldCount[14],"Count sold", "Popcorn");
-        snackItemsDataset.setValue(soldCount[15],"Count sold", "Crackers");
-        snackItemsDataset.setValue(soldCount[16],"Count sold", "Veggie Straws");
-        snackItemsDataset.setValue(soldCount[17],"Count sold", "Greek Yogurt");
+        snackItemsDataset.setValue(soldCount.get(9),"Count sold", "Granola");
+        snackItemsDataset.setValue(soldCount.get(10),"Count sold", "Chips");
+        snackItemsDataset.setValue(soldCount.get(11),"Count sold", "Nuts");
+        snackItemsDataset.setValue(soldCount.get(12),"Count sold", "Cookie");
+        snackItemsDataset.setValue(soldCount.get(13),"Count sold", "Dried Fruits");
+        snackItemsDataset.setValue(soldCount.get(14),"Count sold", "Popcorn");
+        snackItemsDataset.setValue(soldCount.get(15),"Count sold", "Crackers");
+        snackItemsDataset.setValue(soldCount.get(16),"Count sold", "Veggie Straws");
+        snackItemsDataset.setValue(soldCount.get(17),"Count sold", "Greek Yogurt");
         
         JFreeChart snackItemschart = ChartFactory.createBarChart3D("Snacks", "Category", "Count sold", snackItemsDataset, PlotOrientation.VERTICAL, true, true, false);
         CategoryPlot snackPlot = snackItemschart.getCategoryPlot();
