@@ -170,4 +170,7 @@ public class ItemController implements Mediator {
     public void updatePrice(Double price,Integer code){
        itemsTableModel.updatePrice(price,code);
     }
+    public double getSales(int machineID){
+        return itemsTableModel.getSales(machineID);
+    }
 }

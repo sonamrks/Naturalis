@@ -38,6 +38,7 @@ public class Item {
     private String[] lowCalNames = new String[100];
     private String[] highProteinNames = new String[100];
     private String[] lowSugarsNames = new String[100];
+    private double sales;
     
     DatabaseConnection dbConnection = DatabaseConnection.getInstance();
     Connection connection = dbConnection.getConnection();
@@ -767,4 +768,21 @@ public class Item {
             System.out.println(ex.getMessage());
         } 
     } 
+    public double getSales(int machineID){
+         try {
+            String getTotalSales = "SELECT sum(sales) as total FROM item where machineID=?";
+
+            statement = connection.prepareStatement(getTotalSales);
+            statement.setInt(1, machineID);
+            result = statement.executeQuery();
+            
+            while(result.next()){
+                sales = result.getDouble("total");
+            }
+            return sales;
+        } catch (SQLException ex) {
+            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sales;
+    }
 }

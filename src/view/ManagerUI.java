@@ -106,6 +106,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         jLabel5 = new javax.swing.JLabel();
         machine1RadioButton = new javax.swing.JRadioButton();
         allMachinesRadioButton = new javax.swing.JRadioButton();
+        machine2CollectRadioButton = new javax.swing.JRadioButton();
         addNewItemPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         codeLabel = new javax.swing.JLabel();
@@ -134,7 +135,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         jLabel2 = new javax.swing.JLabel();
         collectMoneyTextField = new javax.swing.JTextField();
         machine1CollectRadioButton = new javax.swing.JRadioButton();
-        machine2CollectRadioButton = new javax.swing.JRadioButton();
         itemsScrollPane = new javax.swing.JScrollPane();
         itemsPanel = new javax.swing.JPanel();
         frappuccinoPanel = new javax.swing.JPanel();
@@ -403,6 +403,14 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             }
         });
 
+        allMachinesButtonGroup.add(machine2CollectRadioButton);
+        machine2CollectRadioButton.setText("Machine 2");
+        machine2CollectRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine2CollectRadioButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -412,7 +420,9 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(machine1RadioButton)
-                        .addGap(140, 140, 140)
+                        .addGap(27, 27, 27)
+                        .addComponent(machine2CollectRadioButton)
+                        .addGap(40, 40, 40)
                         .addComponent(allMachinesRadioButton))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
@@ -427,7 +437,8 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(machine1RadioButton)
-                    .addComponent(allMachinesRadioButton)))
+                    .addComponent(allMachinesRadioButton)
+                    .addComponent(machine2CollectRadioButton)))
         );
 
         jLabel6.setText("Add new item");
@@ -572,24 +583,14 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             }
         });
 
-        allMachinesButtonGroup.add(machine2CollectRadioButton);
-        machine2CollectRadioButton.setText("Machine 2");
-        machine2CollectRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machine2CollectRadioButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout collectMoneyPanelLayout = new javax.swing.GroupLayout(collectMoneyPanel);
         collectMoneyPanel.setLayout(collectMoneyPanelLayout);
         collectMoneyPanelLayout.setHorizontalGroup(
             collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(collectMoneyPanelLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(collectMoneyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(machine1CollectRadioButton)
-                    .addComponent(machine2CollectRadioButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(machine1CollectRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(collectMoneyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -610,8 +611,6 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             .addGroup(collectMoneyPanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(machine1CollectRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(machine2CollectRadioButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -674,14 +673,15 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         cokeInfoPanel1Layout.setHorizontalGroup(
             cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(frappuccinoPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(frappuccinoUpdateButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel11)
+                .addGroup(cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(frappuccinoPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(frappuccinoUpdateButton))
+                    .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel11)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cokeInfoPanel1Layout.setVerticalGroup(
@@ -740,14 +740,15 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         cokeInfoPanel2Layout.setHorizontalGroup(
             cokeInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokeInfoPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(orangePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(orangeUpdateButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(cokeInfoPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel13)
+                .addGroup(cokeInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cokeInfoPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(orangePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(orangeUpdateButton))
+                    .addGroup(cokeInfoPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel13)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cokeInfoPanel2Layout.setVerticalGroup(
@@ -868,14 +869,15 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         cokeInfoPanel4Layout.setHorizontalGroup(
             cokeInfoPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(gatoradePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(gatoradeUpdateButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel17)
+                .addGroup(cokeInfoPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(gatoradePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(gatoradeUpdateButton))
+                    .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel17)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cokeInfoPanel4Layout.setVerticalGroup(
@@ -934,14 +936,15 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         cokeInfoPanel5Layout.setHorizontalGroup(
             cokeInfoPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokeInfoPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(coconutWaterPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(coconutWaterUpdateButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(cokeInfoPanel5Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel19)
+                .addGroup(cokeInfoPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cokeInfoPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(coconutWaterPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(coconutWaterUpdateButton))
+                    .addGroup(cokeInfoPanel5Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel19)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cokeInfoPanel5Layout.setVerticalGroup(
@@ -1000,14 +1003,15 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         cokeInfoPanel6Layout.setHorizontalGroup(
             cokeInfoPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokeInfoPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sparklingWaterPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sparklingWaterUpdateButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(cokeInfoPanel6Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel21)
+                .addGroup(cokeInfoPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cokeInfoPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(sparklingWaterPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sparklingWaterUpdateButton))
+                    .addGroup(cokeInfoPanel6Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel21)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cokeInfoPanel6Layout.setVerticalGroup(
