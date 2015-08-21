@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 public class NavigationPanel extends javax.swing.JPanel {
     
     private LoginPanel loginPanel;
-    private String username;
+    private static String username;
     private String password;
     private ItemController itemController;
     private AccessUserController accessUserController;
@@ -36,12 +36,16 @@ public class NavigationPanel extends javax.swing.JPanel {
         accessUserController = new AccessUserController();
         userLogController = new UserLogController();
     }
+    
     public void setLoginStrategy(LoginStrategy strategy){
         this.strategy = strategy;
     }
     public boolean validate(String username, String password, String role,AccessUserController accessUserController){
         boolean validateOK = strategy.validate(username,password,role,accessUserController);
         return validateOK;
+    }
+    public String getUserName(){
+        return this.username;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -110,7 +114,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             //boolean validateOK = accessUserController.validateAccess(username, password, "admin");
             if(validateOK == true) {
                 System.out.println("Login valid");
-                userLogController.addLogEntry(username,password,"admin");
+                userLogController.addLogInEntry(username,"admin");
                 Main.setActivityType(1);
                 Main.getCardLayout().show(Main.getCards(),"Machines");
             }
@@ -133,7 +137,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             
             boolean validateOK = accessUserController.validateAccess(username, password, "manager");
             if(validateOK == true) {
-                userLogController.addLogEntry(username,password,"manager");
+                userLogController.addLogInEntry(username,"manager");
                 Main.setActivityType(2);
                 new ManagerUI(itemController).setVisible(true);
             }

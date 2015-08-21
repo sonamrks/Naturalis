@@ -22,10 +22,15 @@ public class UserLogController {
     }
     
     
-    public void addLogEntry(String username, String password,String role){
+    public void addLogInEntry(String username,String role){
        Date date= new Date();
        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-       singleAccessLog.addLogEntry(username,password,role,timeStamp); 
+       singleAccessLog.addLogInEntry(username,role,timeStamp); 
+    }
+    public void addLogOutEntry(String username,String role){
+       Date date= new Date();
+       String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+       singleAccessLog.addLogOutEntry(username,role,timeStamp); 
     }
     
 }

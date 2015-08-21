@@ -6,6 +6,7 @@
 package view;
 
 import controller.ItemController;
+import controller.UserLogController;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
 
@@ -16,8 +17,10 @@ import java.util.ArrayList;
 public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private ItemController itemController;
+    private UserLogController userLogController;
     ArrayList<Double> priceList;
     ArrayList<Integer> countList;
+    
     /**
      * Creates new form AdminUI
      */
@@ -25,6 +28,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         initComponents();
         this.itemController = itemController;
         itemController.registerAColleague(this);
+        userLogController = new UserLogController();
         
         lycheeJuicePanel.setVisible(false);
         dietPepsiPanel.setVisible(false);
@@ -2114,7 +2118,9 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+       this.dispose();
+       NavigationPanel nav = new NavigationPanel(itemController);
+       userLogController.addLogOutEntry(nav.getUserName(),"manager");
     }//GEN-LAST:event_logOutButtonActionPerformed
   
 

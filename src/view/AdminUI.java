@@ -6,6 +6,7 @@
 package view;
 
 import controller.ItemController;
+import controller.UserLogController;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class AdminUI extends javax.swing.JFrame implements Colleague {
     private ItemController itemController;
+    private UserLogController userLogController;
     ArrayList<Integer> countList;
     ArrayList<Double> priceList;
     private static double salesCollected;
@@ -26,6 +28,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     public AdminUI(ItemController itemController) {
         initComponents();
         this.itemController = itemController;
+        userLogController = new UserLogController();
         itemController.registerAColleague(this);
         //setPrice();
         setCount();
@@ -2002,6 +2005,8 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        NavigationPanel nav = new NavigationPanel(itemController);
+        userLogController.addLogOutEntry(nav.getUserName(),"admin");
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     /**

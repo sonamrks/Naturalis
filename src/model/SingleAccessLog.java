@@ -35,14 +35,30 @@ public class SingleAccessLog {
    private SingleAccessLog() {
   
     }	
-   public void addLogEntry(String username, String password, String role,String timeStamp){
+   public void addLogInEntry(String username, String role,String timeStamp){
        try {
            String getInfo;
            getInfo = "INSERT into userlog VALUES(?,'login',?,?)";
            PreparedStatement statement = connection.prepareStatement(getInfo);
            statement.setString(1,timeStamp);
            statement.setString(2,username);
-           statement.setString(3,password);
+           statement.setString(3,role);
+           statement.executeUpdate(); 
+           
+           
+       } catch (SQLException ex) {
+           Logger.getLogger(SingleAccessLog.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       
+   }
+   public void addLogOutEntry(String username, String role,String timeStamp){
+       try {
+           String getInfo;
+           getInfo = "INSERT into userlog VALUES(?,'logout',?,?)";
+           PreparedStatement statement = connection.prepareStatement(getInfo);
+           statement.setString(1,timeStamp);
+           statement.setString(2,username);
+           statement.setString(3,role);
            statement.executeUpdate(); 
            
            
