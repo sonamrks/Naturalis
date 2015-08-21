@@ -49,15 +49,15 @@ public class SnackPanel extends javax.swing.JPanel {
         
         ArrayList<Integer> codeList = itemsController.getCodeForMachine(machineID);
         
-        granolaCodeLabel.setText(Integer.toString(codeList.get(0)));
-        chipsCodeLabel.setText(Integer.toString(codeList.get(1)));
-        nutsCodeLabel.setText(Integer.toString(codeList.get(2)));
-        cookieCodeLabel.setText(Integer.toString(codeList.get(3)));
-        driedFruitsCodeLabel.setText(Integer.toString(codeList.get(4)));
-        popcornCodeLabel.setText(Integer.toString(codeList.get(5)));
-        crackersCodeLabel.setText(Integer.toString(codeList.get(6)));
-        veggieStrawsCodeLabel.setText(Integer.toString(codeList.get(7)));
-        greekYogurtCodeLabel.setText(Integer.toString(codeList.get(8)));
+        granolaCodeLabel.setText(Integer.toString(codeList.get(9)));
+        chipsCodeLabel.setText(Integer.toString(codeList.get(10)));
+        nutsCodeLabel.setText(Integer.toString(codeList.get(11)));
+        cookieCodeLabel.setText(Integer.toString(codeList.get(12)));
+        driedFruitsCodeLabel.setText(Integer.toString(codeList.get(13)));
+        popcornCodeLabel.setText(Integer.toString(codeList.get(14)));
+        crackersCodeLabel.setText(Integer.toString(codeList.get(15)));
+        veggieStrawsCodeLabel.setText(Integer.toString(codeList.get(16)));
+        greekYogurtCodeLabel.setText(Integer.toString(codeList.get(17)));
         
         
     }
