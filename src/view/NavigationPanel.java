@@ -134,6 +134,7 @@ public class NavigationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_customerButtonActionPerformed
 
     private void managerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managerButtonActionPerformed
+       
         int result  = JOptionPane.showConfirmDialog(null, loginPanel,"Please Enter User Name and Password", JOptionPane.OK_CANCEL_OPTION);
         if (result == JOptionPane.OK_OPTION) {
             username = loginPanel.getUserName();
