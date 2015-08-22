@@ -6,6 +6,9 @@
 package view;
 
 import controller.ItemController;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,11 +17,16 @@ import controller.ItemController;
 public class MachinesPanel extends javax.swing.JPanel {
 
     private ItemController itemController;
+    ImageIcon image;
+    Image bg;
     /**
      * Creates new form machinesListPanel
      */
     public MachinesPanel(ItemController itemController) {
         initComponents();
+        image = new ImageIcon(this.getClass().getResource("/images/scmap.png"));
+        bg = (new ImageIcon(image.getImage().getScaledInstance(1024, 800, java.awt.Image.SCALE_SMOOTH))).getImage();
+        repaint();
         this.itemController = itemController;
     }
 
@@ -31,23 +39,9 @@ public class MachinesPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        machine1Button = new javax.swing.JButton();
-        machine2Button = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
-
-        machine1Button.setText("Machine 1");
-        machine1Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machine1ButtonActionPerformed(evt);
-            }
-        });
-
-        machine2Button.setText("Machine 2");
-        machine2Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machine2ButtonActionPerformed(evt);
-            }
-        });
+        machine2Button = new javax.swing.JButton();
+        machine1Button = new javax.swing.JButton();
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -56,31 +50,52 @@ public class MachinesPanel extends javax.swing.JPanel {
             }
         });
 
+        machine2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vendingMachine.png"))); // NOI18N
+        machine2Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine2ButtonActionPerformed(evt);
+            }
+        });
+
+        machine1Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vendingMachine.png"))); // NOI18N
+        machine1Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machine1ButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(machine1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120)
-                .addComponent(machine2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(204, 204, 204)
+                .addComponent(machine1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(machine2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(136, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+                .addGap(82, 82, 82)
+                .addComponent(machine2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(148, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(machine2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(machine1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(machine1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -101,7 +116,10 @@ public class MachinesPanel extends javax.swing.JPanel {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         Main.getCardLayout().show(Main.getCards(),"Navigation");
     }//GEN-LAST:event_backButtonActionPerformed
-
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
