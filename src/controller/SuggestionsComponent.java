@@ -30,16 +30,15 @@ public class SuggestionsComponent {
     
     public SuggestionsComponent(Item itemTableModel) {
         this.itemTableModel = itemTableModel;  
-      //  itemTableModel.getItemInfo();
-        codeList = itemTableModel.getCodeList();
-        nameList = itemTableModel.getNameList();
+        itemTableModel.generateItemInfo(4201);
+        codeList = itemTableModel.getCodeForMachine();
+        nameList = itemTableModel.getNameListForMachine();
         proteinList = itemTableModel.getProteinList();
         sugarsList = itemTableModel.getSugarsList();
         caloriesList = itemTableModel.getCaloriesList(); 
     }
     
-    public void filter() {
- 
+    public void filter() { 
     }
     
     public ArrayList<Integer> getCodeList() {

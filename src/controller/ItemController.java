@@ -89,9 +89,15 @@ public class ItemController implements Mediator {
                 decorator = new LowSugarsDecorator(suggestionsComponent);
                 decorator.filter();
             }
+            if(checkedList[0] == false && checkedList[0] == false && checkedList[0] == false) {
+                return null; 
+            }
             System.out.println("after Size: " + suggestionsComponent.getSize());
             return suggestionsComponent.getSuggestionString();  
     }
+    
+    
+    
   
     public String getCalorieRangeSuggestions(int low,int high){
         return itemsTableModel.getCalorieRangeSuggestions(low,high);

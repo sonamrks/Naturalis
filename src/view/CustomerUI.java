@@ -357,6 +357,11 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 lowCaloriesCheckBoxItemStateChanged(evt);
             }
         });
+        lowCaloriesCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lowCaloriesCheckBoxActionPerformed(evt);
+            }
+        });
         displayPanel.add(lowCaloriesCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
         suggestionsTextArea.setColumns(20);
@@ -690,23 +695,27 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
 
     private void highProteinCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_highProteinCheckBoxItemStateChanged
         if(highProteinCheckBox.isSelected()){
-            checkedList[0] = true;
+            checkedList[1] = true;
         }
         else{
-            checkedList[0] = false;
+            checkedList[1] = false;
         }
         suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
     }//GEN-LAST:event_highProteinCheckBoxItemStateChanged
 
     private void lowSugarsCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lowSugarsCheckBoxItemStateChanged
         if(lowSugarsCheckBox.isSelected()){
-            checkedList[0] = true;
+            checkedList[2] = true;
         }
         else{
-            checkedList[0] = false;
+            checkedList[2] = false;
         }
         suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
     }//GEN-LAST:event_lowSugarsCheckBoxItemStateChanged
+
+    private void lowCaloriesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lowCaloriesCheckBoxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Name;
