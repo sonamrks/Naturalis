@@ -201,14 +201,16 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             }
 
             @Override
-            public Product next() {
-                    return cartItems.get(currentIndex++);
+            public Integer next() {
+                    return itemCodes.get(currentIndex++);
             }
             
             @Override
             public void removeItem(Integer code) {
                 while(hasNext()) {
-                    if(next().getCode()== code) {
+               //     System.out.println("hello1: " + next().getCode());
+                    if(next().equals(code)) {
+                        System.out.println("hello2");
                         price = cartItems.get(currentIndex).getPrice();
                         itemCodes.remove(--currentIndex);
                         itemNames.remove(currentIndex);             
