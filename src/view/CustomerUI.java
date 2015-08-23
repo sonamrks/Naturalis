@@ -113,9 +113,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
        timer = new Timer(1000, timerHandler);
        timer.setRepeats(true);
        timer.start();
-            
         }
-         //item1DispensedLabel.setIcon(new ImageIcon(this.getClass().getResource(itemPicturePaths.get(0))));
     class TimerHandler implements ActionListener {
         public void actionPerformed(ActionEvent e) {
            List<String> itemPicturePaths = itemsCartController.getPicturePath();

@@ -24,7 +24,6 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     ArrayList<Double> beveragePriceList;
     ArrayList<Integer> snackCountList;
     ArrayList<Double> snackPriceList;
-    private static double salesCollected;
     
     /**
      * Creates new form LimitedView
@@ -1984,20 +1983,23 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             JOptionPane.showMessageDialog(collectMoneyPanel,"The machine does not have the specified amount");
         }
         collectMoneyTextField.setText(Double.toString(amountToBeCollected));
-        salesCollected =  amountToBeCollected;
         double moneyLeft = amountInMachine - amountToBeCollected;
         moneyTextField.setText(Double.toString(moneyLeft));
     }//GEN-LAST:event_collectMoneyButtonActionPerformed
 
     private void machine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1RadioButtonActionPerformed
         // TODO add your handling code here:
-        double moneyInMachine = itemController.getSales(4201)-salesCollected;
+        double moneyInMachine = itemController.getSales(4201);
+        amountToBeCollectedTextField.setText("");
+        collectMoneyTextField.setText("");
         moneyTextField.setText(Double.toString(moneyInMachine));
     }//GEN-LAST:event_machine1RadioButtonActionPerformed
 
     private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
         // TODO add your handling code here:
-      double moneyInMachine = itemController.getSales(4202)-salesCollected;
+      double moneyInMachine = itemController.getSales(4202);
+      amountToBeCollectedTextField.setText("");
+      collectMoneyTextField.setText("");
       moneyTextField.setText(Double.toString(moneyInMachine));
     }//GEN-LAST:event_machine2RadioButtonActionPerformed
 
