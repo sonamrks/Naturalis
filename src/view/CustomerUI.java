@@ -28,7 +28,6 @@ import javax.swing.Timer;
 public class CustomerUI extends javax.swing.JFrame implements Colleague {
     
     private Integer machineID;
-    private JTable suggestionsTable;
  //   private PriceController priceController;
     private ItemController itemController;
     private CartItemsController itemsCartController;
@@ -40,7 +39,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private WelcomePanel welcomePanel;
     private BeveragePanel beveragePanel;
     private SnackPanel snackPanel;
-    private List<String> dispenserItemPicturePaths;
     private Timer timer;
     private int index=0;
     
@@ -123,6 +121,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 item1DispensedLabel.setIcon(null);
                 giveChange(Double.toString(0));
                 itemsCartController.removeAllItems();
+                index = 0;
             }
             else { 
                 item1DispensedLabel.setIcon(new ImageIcon(this.getClass().getResource(dispenserItemPicturePaths.get(index++))));

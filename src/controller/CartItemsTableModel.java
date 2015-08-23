@@ -29,7 +29,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private List<Double> itemPrices;
     private int numcols, numrows;
     private double totalPrice;
-    private String name, s;
+    private String name;
     private Product item;
     private int soldCount,count;
     private List<String> itemPicturePaths;
