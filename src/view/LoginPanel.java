@@ -24,6 +24,12 @@ public class LoginPanel extends javax.swing.JPanel {
     public String getPassword(){
         return passwordTextField.getText();
     }
+     public void setUserName(){
+        userNameTextField.setText("");
+    }
+    public void setPassword(){
+        passwordTextField.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

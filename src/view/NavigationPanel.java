@@ -116,15 +116,17 @@ public class NavigationPanel extends javax.swing.JPanel {
             setLoginStrategy(new MultipleLoginAttempts());
             boolean validateOK = validate(username,password,"admin",accessUserController);
             
-            //boolean validateOK = accessUserController.validateAccess(username, password, "admin");
             if(validateOK == true) {
-                System.out.println("Login valid");
+                loginPanel.setUserName();
+                loginPanel.setPassword();
                 userLogController.addLogInEntry(username,"admin");
                 Main.setActivityType(1);
                 Main.getCardLayout().show(Main.getCards(),"Machines");
             }
             else {
+                loginPanel.setPassword();
                 JOptionPane.showMessageDialog(loginPanel, "Invalid username/password");
+                
             }
         }  
     }//GEN-LAST:event_adminButtonActionPerformed
@@ -141,14 +143,20 @@ public class NavigationPanel extends javax.swing.JPanel {
             username = loginPanel.getUserName();
             password = loginPanel.getPassword();
             
-            boolean validateOK = accessUserController.validateAccess(username, password, "manager");
+            setLoginStrategy(new MultipleLoginAttempts());
+            boolean validateOK = validate(username,password,"admin",accessUserController);
+            
             if(validateOK == true) {
+                loginPanel.setUserName();
+                loginPanel.setPassword();
                 userLogController.addLogInEntry(username,"manager");
                 Main.setActivityType(2);
                 new ManagerUI(itemController).setVisible(true);
             }
             else {
+                loginPanel.setPassword();
                 JOptionPane.showMessageDialog(loginPanel, "Invalid username/password");
+                
             }
         } 
     }//GEN-LAST:event_managerButtonActionPerformed
