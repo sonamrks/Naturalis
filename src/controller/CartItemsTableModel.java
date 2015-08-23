@@ -124,7 +124,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
                 soldCount = result.getInt("soldCount");
             }
             String getPrice = "SELECT price from item where code=?";
-            statement = connection.prepareStatement(getCount);
+            statement = connection.prepareStatement(getPrice);
             statement.setInt(1,code);
             result = statement.executeQuery();
             while(result.next()){
@@ -207,14 +207,12 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             
             @Override
             public void removeItem(Integer code) {
-                itemCodes.remove(code);
-                itemNames.remove("name");
-
-                
                 while(hasNext()) {
                     if(next().getCode()== code) {
                         price = cartItems.get(currentIndex).getPrice();
-                        cartItems.remove(--currentIndex);
+                        itemCodes.remove(--currentIndex);
+                        itemNames.remove(currentIndex);             
+                        cartItems.remove(currentIndex);
                         break;
                     }
                 }
