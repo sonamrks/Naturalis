@@ -144,7 +144,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             password = loginPanel.getPassword();
             
             setLoginStrategy(new MultipleLoginAttempts());
-            boolean validateOK = validate(username,password,"admin",accessUserController);
+            boolean validateOK = validate(username,password,"manager",accessUserController);
             
             if(validateOK == true) {
                 loginPanel.setUserName();
