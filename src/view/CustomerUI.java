@@ -113,7 +113,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         TimerHandler timerHandler = new TimerHandler();
         timer = new Timer(1000, timerHandler);
         timer.start();
-        
     }
     class TimerHandler implements ActionListener {
         List<String> dispenserItemPicturePaths = itemsCartController.getPicturePath(); 
@@ -122,6 +121,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
             if(index >= size) {
                 timer.stop();
                 item1DispensedLabel.setIcon(null);
+                itemsCartController.removeAllItems();
             }
             else { 
                 item1DispensedLabel.setIcon(new ImageIcon(this.getClass().getResource(dispenserItemPicturePaths.get(index++))));

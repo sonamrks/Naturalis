@@ -233,6 +233,16 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
         }
 	return totalPrice;
     }
+    
+    public void removeAllItems() {
+        itemCodes.clear();
+        itemNames.clear();
+        itemPicturePaths.clear();
+        itemPrices.clear();
+        cartItems.clear(); 
+        
+        fireTableRowsDeleted(itemCodes.size(), numcols-1);
+    }
   /*        
     public void addPrice(double price) {       
         totalPrice += price;

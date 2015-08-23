@@ -84,6 +84,10 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         return itemsCartTableModel.getTotalPrice();
     }
     
+    public void removeAllItems() {
+        itemsCartTableModel.removeAllItems();
+    }
+    
     public double deductPrice(double price, double deductable){
         double remainingPrice = price - deductable;
         return remainingPrice;
