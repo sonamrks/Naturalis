@@ -53,6 +53,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         initComponents();    
                  
         this.machineID= machineID;
+        machineIDLabel.setText("Machine ID : "+machineID);
       //  priceController = new PriceController(this, machineID);
         itemsCartController = new CartItemsController(this);
       //  itemController = new ItemController(machineID);
@@ -160,6 +161,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         changeTextField = new javax.swing.JTextField();
         coinsImageLabel = new javax.swing.JLabel();
         itemsPanel = new javax.swing.JPanel();
+        machineIDLabel = new javax.swing.JLabel();
         middlePanel = new javax.swing.JPanel();
         displayPanel = new javax.swing.JPanel();
         lowSugarsCheckBox = new javax.swing.JCheckBox();
@@ -237,7 +239,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanel.add(selectButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        leftPanel.add(selectButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
         dispenserPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -324,6 +326,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         );
 
         leftPanel.add(itemsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 390, 280));
+        leftPanel.add(machineIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 20));
 
         middlePanel.setBackground(new java.awt.Color(251, 247, 229));
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -754,6 +757,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JPanel leftPanel;
     private javax.swing.JCheckBox lowCaloriesCheckBox;
     private javax.swing.JCheckBox lowSugarsCheckBox;
+    private javax.swing.JLabel machineIDLabel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel middlePanel;
     private javax.swing.JPanel nutritionFactsPanel;

@@ -33,6 +33,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         initComponents();
         this.itemController = itemController;
         this.machineID = machineID;
+        machineIDLabel.setText("Machine ID : "+machineID);
         userLogController = new UserLogController();
         itemController.registerAColleague(this);
         itemController.generateCategoryItemInfo(machineID, "beverage");
@@ -286,6 +287,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         greekYogurtCountTextField = new javax.swing.JTextField();
         greekYogurtAddButton = new javax.swing.JButton();
         greekYogurtImageLabel = new javax.swing.JLabel();
+        machineIDLabel = new javax.swing.JLabel();
         collectMoneyPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         machine1RadioButton = new javax.swing.JRadioButton();
@@ -701,9 +703,9 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         cokeInfoPanel7Layout.setHorizontalGroup(
             cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
+                .addContainerGap()
                 .addComponent(cokeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(36, 36, 36)
                 .addGroup(cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
                         .addComponent(cokeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -715,17 +717,16 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         cokeInfoPanel7Layout.setVerticalGroup(
             cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cokeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cokeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addCokeButton))))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cokeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addCokeButton))
+                .addGap(20, 20, 20))
+            .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
+                .addComponent(cokeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jLabel8.setText("Count");
@@ -1277,13 +1278,16 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
                 .addGap(248, 248, 248))
             .addGroup(itemsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cokeInfoPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(machineIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cokeInfoPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         itemsPanelLayout.setVerticalGroup(
             itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(itemsPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addComponent(machineIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cokeInfoPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(orangePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2101,6 +2105,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JRadioButton machine1RadioButton;
     private javax.swing.JRadioButton machine2RadioButton;
     private javax.swing.ButtonGroup machineButtonGroup;
+    private javax.swing.JLabel machineIDLabel;
     private javax.swing.JTextField moneyTextField;
     private javax.swing.JButton nutsAddButton;
     private javax.swing.JTextField nutsCountTextField;
