@@ -15,6 +15,7 @@ public class LowSugarsDecorator extends Decorator {
         super(suggestionsComponent);
     }
     
+    @Override
     public void filter() {
         suggestionsComponent.filter();
         lowSugarsFilter();

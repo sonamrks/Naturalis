@@ -89,7 +89,7 @@ public class ItemController implements Mediator {
                 decorator = new LowSugarsDecorator(suggestionsComponent);
                 decorator.filter();
             }
-            if(checkedList[0] == false && checkedList[0] == false && checkedList[0] == false) {
+            if(checkedList[0] == false && checkedList[1] == false && checkedList[2] == false) {
                 return null; 
             }
             System.out.println("after Size: " + suggestionsComponent.getSize());

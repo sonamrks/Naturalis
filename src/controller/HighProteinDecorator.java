@@ -15,6 +15,7 @@ public class HighProteinDecorator extends Decorator {
         super(suggestionsComponent);
     }
     
+    @Override
     public void filter() {
         suggestionsComponent.filter();
         highProteinFilter();
@@ -22,7 +23,8 @@ public class HighProteinDecorator extends Decorator {
     
     public void highProteinFilter() {
         int size = suggestionsComponent.getCodeList().size();
-        for(int i = 0; i < size; i++) {
+        int i = 0;
+        while(i < size) {
             if(suggestionsComponent.getProteinList().get(i) < 4) {
                 suggestionsComponent.getCaloriesList().remove(i);
                 suggestionsComponent.getNameList().remove(i);
@@ -32,7 +34,7 @@ public class HighProteinDecorator extends Decorator {
                 size--;
             }
             else {
-                i++;    
+                i+=1;    
             } 
         }       
     }   
