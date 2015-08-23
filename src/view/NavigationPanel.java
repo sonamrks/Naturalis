@@ -75,7 +75,7 @@ public class NavigationPanel extends javax.swing.JPanel {
             }
         });
 
-        managerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager.jpg"))); // NOI18N
+        managerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manager.png"))); // NOI18N
         managerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 managerButtonActionPerformed(evt);
