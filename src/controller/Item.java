@@ -127,6 +127,62 @@ public class Item {
         return count;
     }
     
+    public ArrayList<Integer> getSnackCodeForMachine(Integer machineID){  
+        ArrayList<Integer> snackCodeList = new ArrayList<Integer>();
+        try {         
+            String getCode = "SELECT code FROM item where category='snack' and machineID = ?";
+            PreparedStatement statement = connection.prepareStatement(getCode);
+            statement.setInt(1, machineID);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next()){
+                snackCodeList.add(result.getInt("code"));
+            }            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return snackCodeList;
+    }
+    
+    public ArrayList<Double> getSnackPriceForMachine(Integer machineID){  
+        ArrayList<Double> snackPriceList = new ArrayList<Double>();
+        try {         
+            String getPrice = "SELECT price FROM item where category='snack' and machineID = ?";
+            PreparedStatement statement = connection.prepareStatement(getPrice);
+            statement.setInt(1, machineID);
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next()){
+                snackPriceList.add(result.getDouble("price"));
+            }            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return snackPriceList;
+    }
+    
+        
+    public ArrayList<Integer> getSnackCount(int machineID){
+        ArrayList<Integer> count = new ArrayList<Integer>();
+        try {
+            String getCount = "SELECT count FROM item where category='snack' and machineID=?";
+            PreparedStatement statement = connection.prepareStatement(getCount);
+            statement.setInt(1, machineID);
+            ResultSet result = statement.executeQuery();
+            int i=0;
+            while(result.next())
+            {
+                count.add(result.getInt("count"));
+                i++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return count;
+    }
+    
   /*  public void getItemInfo(){
         try {
             String getInfo;

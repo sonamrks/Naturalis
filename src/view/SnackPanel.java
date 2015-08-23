@@ -25,6 +25,8 @@ public class SnackPanel extends javax.swing.JPanel {
     private ItemController itemsController;
     private CartItemsController itemsCartController;
     ArrayList<Double> priceList;
+    ArrayList<Integer> count;
+    
     /**
      * Creates new form SnackPanel
      */
@@ -47,23 +49,23 @@ public class SnackPanel extends javax.swing.JPanel {
 
     public void setCodeLabel(){
         
-        ArrayList<Integer> codeList = itemsController.getCodeForMachine(machineID);
+        ArrayList<Integer> codeList = itemsController.getSnackCodeForMachine(machineID);
         
-        granolaCodeLabel.setText(Integer.toString(codeList.get(9)));
-        chipsCodeLabel.setText(Integer.toString(codeList.get(10)));
-        nutsCodeLabel.setText(Integer.toString(codeList.get(11)));
-        cookieCodeLabel.setText(Integer.toString(codeList.get(12)));
-        driedFruitsCodeLabel.setText(Integer.toString(codeList.get(13)));
-        popcornCodeLabel.setText(Integer.toString(codeList.get(14)));
-        crackersCodeLabel.setText(Integer.toString(codeList.get(15)));
-        veggieStrawsCodeLabel.setText(Integer.toString(codeList.get(16)));
-        greekYogurtCodeLabel.setText(Integer.toString(codeList.get(17)));
+        granolaCodeLabel.setText(Integer.toString(codeList.get(0)));
+        chipsCodeLabel.setText(Integer.toString(codeList.get(1)));
+        nutsCodeLabel.setText(Integer.toString(codeList.get(2)));
+        cookieCodeLabel.setText(Integer.toString(codeList.get(3)));
+        driedFruitsCodeLabel.setText(Integer.toString(codeList.get(4)));
+        popcornCodeLabel.setText(Integer.toString(codeList.get(5)));
+        crackersCodeLabel.setText(Integer.toString(codeList.get(6)));
+        veggieStrawsCodeLabel.setText(Integer.toString(codeList.get(7)));
+        greekYogurtCodeLabel.setText(Integer.toString(codeList.get(8)));
         
         
     }
     public void setPriceLabel(){
     
-        priceList = itemsController.getPriceForMachine(machineID);
+        priceList = itemsController.getSnackPriceForMachine(machineID);
         
         granolaPriceLabel.setText(Double.toString(priceList.get(0)));
         chipsPriceLabel.setText(Double.toString(priceList.get(1)));
@@ -75,26 +77,27 @@ public class SnackPanel extends javax.swing.JPanel {
         veggieStrawsPriceLabel.setText(Double.toString(priceList.get(7)));
          greekYogurtPriceLabel.setText(Double.toString(priceList.get(8)));
     }
-      public void getCount(){
-        int[] count = itemsController.getCount(machineID);
-        System.out.println(count[0]);
-        if(count[0]==0)
+     
+    public void getCount(){
+        count = itemsController.getSnackCount(machineID);
+     //   System.out.println(count[0]);
+        if(count.get(0)==0)
             granolaPanel.setBackground(Color.red);
-        if(count[1]==0)
+        if(count.get(1)==0)
             chipsPanel.setBackground(Color.red);
-        if(count[2]==0)
+        if(count.get(2)==0)
             nutsPanel.setBackground(Color.red);
-        if(count[3]==0)
+        if(count.get(3)==0)
             cookiePanel.setBackground(Color.red);
-        if(count[4]==0)
+        if(count.get(4)==0)
             driedFruitPanel.setBackground(Color.red);
-        if(count[5]==0)
+        if(count.get(5)==0)
             popcornPanel.setBackground(Color.red);
-        if(count[6]==0)
+        if(count.get(6)==0)
             crackersPanel.setBackground(Color.red);
-        if(count[7]==0)
+        if(count.get(7)==0)
             veggieStrawsPanel.setBackground(Color.red);
-        if(count[8]==0)
+        if(count.get(8)==0)
             greekYogurtPanel.setBackground(Color.red);
     }
 
