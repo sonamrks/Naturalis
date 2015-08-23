@@ -25,6 +25,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     private ItemController itemsController;
     private CartItemsController itemsCartController;
     ArrayList<Double> priceList;
+    ArrayList<Integer> count;
 
     /**
      * Creates new form BeveragePanel
@@ -51,7 +52,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     
     public void setCodeLabel(){
         
-        ArrayList<Integer> codeList = itemsController.getCodeForMachine(machineID);
+        ArrayList<Integer> codeList = itemsController.getBeverageCodeForMachine(machineID);
         
         cokeCodeLabel.setText(Integer.toString(codeList.get(0)));
         orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
@@ -67,7 +68,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     }
     public void setPriceLabel(){
     
-        priceList = itemsController.getPriceForMachine(machineID);
+        priceList = itemsController.getBeveragePriceForMachine(machineID);
         
         cokePriceLabel.setText(Double.toString(priceList.get(0)));
         orangeJuicePriceLabel.setText(Double.toString(priceList.get(1)));
@@ -79,26 +80,27 @@ public class BeveragePanel extends javax.swing.JPanel {
         proteinSmoothiePriceLabel.setText(Double.toString(priceList.get(7)));
         proteinShakePriceLabel.setText(Double.toString(priceList.get(8)));
     }
+    
     public void getCount(){
-        int[] count = itemsController.getCount(machineID);
-        System.out.println(count[0]);
-        if(count[0]==0)
+        count = itemsController.getBeverageCount(machineID);
+      //  System.out.println(count[0]);
+        if(count.get(0)==0)
             cokePanel.setBackground(Color.red);
-        if(count[1]==0)
+        if(count.get(1)==0)
             orangePanel.setBackground(Color.red);
-        if(count[2]==0)
+        if(count.get(2)==0)
             lemonadePanel.setBackground(Color.red);
-        if(count[3]==0)
+        if(count.get(3)==0)
             gatoradePanel.setBackground(Color.red);
-        if(count[4]==0)
+        if(count.get(4)==0)
             frappuccinoPanel.setBackground(Color.red);
-        if(count[5]==0)
+        if(count.get(5)==0)
             coconutWaterPanel.setBackground(Color.red);
-        if(count[6]==0)
+        if(count.get(6)==0)
             sparklingWaterPanel.setBackground(Color.red);
-        if(count[7]==0)
+        if(count.get(7)==0)
             proteinSmoothiePanel.setBackground(Color.red);
-        if(count[8]==0)
+        if(count.get(8)==0)
             proteinShakePanel.setBackground(Color.red);
     }
     /**

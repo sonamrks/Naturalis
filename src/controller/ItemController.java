@@ -40,6 +40,14 @@ public class ItemController implements Mediator {
        itemsTableModel = new Item();
     }
     
+    public ArrayList<Integer> getBeverageCodeForMachine(Integer machineID) {
+        return itemsTableModel.getBeverageCodeForMachine(machineID);
+    }
+    
+    public ArrayList<Double> getBeveragePriceForMachine(Integer machineID) {
+        return itemsTableModel.getBeveragePriceForMachine(machineID);
+    }
+    
     public String getSuggestionList(Boolean[] checkedList){
             suggestionsComponent = new SuggestionsComponent(itemsTableModel);
            
@@ -61,9 +69,7 @@ public class ItemController implements Mediator {
             return suggestionsComponent.getSuggestionString();  
     }
     
-    public ArrayList<Integer> getCodeForMachine(Integer machineID) {
-        return itemsTableModel.getCodeForMachine(machineID);
-    }
+
     
     public ArrayList<Double> getPriceForMachine(Integer machineID) {
         return itemsTableModel.getPriceForMachine(machineID);
@@ -156,8 +162,8 @@ public class ItemController implements Mediator {
         return itemsTableModel.collectMoney(machineID);
     }
     
-    public int[] getCount(int machineID){
-        return itemsTableModel.getCount(machineID);
+    public ArrayList<Integer> getBeverageCount(int machineID){
+        return itemsTableModel.getBeverageCount(machineID);
     }
     
     public int[] getInfo(String ID){
