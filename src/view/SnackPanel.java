@@ -655,47 +655,47 @@ public class SnackPanel extends javax.swing.JPanel {
 
     private void granolaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaButtonActionPerformed
         itemsCartController.addItem(granolaCodeLabel.getText());  
-        customerUI.sendMessage("addtocart", 9, null);
+        customerUI.sendMessage("addtocart", "snack", 9, null);
     }//GEN-LAST:event_granolaButtonActionPerformed
 
     private void cookieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieButtonActionPerformed
         itemsCartController.addItem(cookieCodeLabel.getText());  
-        customerUI.sendMessage("addtocart", 12, null);
+        customerUI.sendMessage("addtocart", "snack", 12, null);
     }//GEN-LAST:event_cookieButtonActionPerformed
 
     private void veggieStrawsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsButtonActionPerformed
         itemsCartController.addItem(veggieStrawsCodeLabel.getText());  
-        customerUI.sendMessage("addtocart", 16, null);
+        customerUI.sendMessage("addtocart", "snack", 16, null);
     }//GEN-LAST:event_veggieStrawsButtonActionPerformed
 
     private void greekYogurtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtButtonActionPerformed
         itemsCartController.addItem(greekYogurtCodeLabel.getText()); 
-        customerUI.sendMessage("addtocart", 17, null);
+        customerUI.sendMessage("addtocart", "snack", 17, null);
     }//GEN-LAST:event_greekYogurtButtonActionPerformed
 
     private void nutsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsButtonActionPerformed
         itemsCartController.addItem(nutsCodeLabel.getText());  
-        customerUI.sendMessage("addtocart", 11, null);
+        customerUI.sendMessage("addtocart", "snack", 11, null);
     }//GEN-LAST:event_nutsButtonActionPerformed
 
     private void driedFruitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitButtonActionPerformed
         itemsCartController.addItem(driedFruitsCodeLabel.getText()); 
-        customerUI.sendMessage("addtocart", 13, null);
+        customerUI.sendMessage("addtocart", "snack", 13, null);
     }//GEN-LAST:event_driedFruitButtonActionPerformed
 
     private void popcornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornButtonActionPerformed
         itemsCartController.addItem(popcornCodeLabel.getText());  
-        customerUI.sendMessage("addtocart", 14, null);
+        customerUI.sendMessage("addtocart", "snack", 14, null);
     }//GEN-LAST:event_popcornButtonActionPerformed
 
     private void crackersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersButtonActionPerformed
         itemsCartController.addItem(crackersCodeLabel.getText());  
-        customerUI.sendMessage("addtocart", 15, null);
+        customerUI.sendMessage("addtocart", "snack", 15, null);
     }//GEN-LAST:event_crackersButtonActionPerformed
 
     private void chipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsButtonActionPerformed
         itemsCartController.addItem(chipsCodeLabel.getText());  
-        customerUI.sendMessage("addtocart", 10, null);
+        customerUI.sendMessage("addtocart", "snack", 10, null);
     }//GEN-LAST:event_chipsButtonActionPerformed
 
 

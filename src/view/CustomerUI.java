@@ -128,16 +128,16 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
             }
         }
    }
-    public void sendMessage(String type, Integer index, Double value) {
-        itemController.sendMessageToAll(this, type, index, value);
+    public void sendMessage(String type, String product, Integer index, Double value) {
+        itemController.sendMessageToAll(this, type, product, index, value);
     }
     
-    public void receiveMessage(String type, Integer index, Double value) {
+    public void receiveMessage(String type, String product, Integer index, Double value) {
         if(type.equals("changeprice")) {
-            if(index < 9) {
+            if(product.equals("beverage")) {
                 beveragePanel.changePrice(index, value);
             }
-            if(index >= 9) {
+            if(product.equals("snack")) {
                 snackPanel.changePrice(index, value);
             }
         }

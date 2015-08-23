@@ -49,18 +49,27 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         setCount();
     }
     
-    public void sendMessage(String type, Integer index, Double value) {
-        itemController.sendMessageToAll(this, type, index, value);
+    public void sendMessage(String type, String product, Integer index, Double value) {
+        itemController.sendMessageToAll(this, type, product, index, value);
     }
     
-    public void receiveMessage(String type, Integer index, Double value) {
-        if(type.equals("addtocart")) 
-        //    countList.set(index, countList.get(index)-1);
-        if(type.equals("removefromcart"))
-        //    countList.set(index, countList.get(index)+1);
-        if(type.equals("changeprice"))
-        //    priceList.set(index, value); 
-       // setPrice();
+    public void receiveMessage(String type, String product, Integer index, Double value) {
+        if(type.equals("addtocart")) {
+            if(product.equals("beverage")) {
+                beverageCountList.set(index, beverageCountList.get(index)-1);
+            }
+            if(product.equals("snack")) {
+                snackCountList.set(index, snackCountList.get(index)-1);
+            }
+        }
+        if(type.equals("removefromcart")) {
+            if(product.equals("beverage")) {
+                beverageCountList.set(index, beverageCountList.get(index)+1);
+            }
+            if(product.equals("snack")) {
+                snackCountList.set(index, snackCountList.get(index)+1);
+            }
+        }   
         setCount(); 
     }
     
@@ -1514,7 +1523,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             frappuccinoCountTextField.setBackground(Color.white);
             frappuccinoCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 4, null);
+        sendMessage("addtocount", "beverage", 4, null);
     }//GEN-LAST:event_addFrappuccinoButtonActionPerformed
 
     private void orangePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangePriceTextFieldActionPerformed
@@ -1541,7 +1550,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             orangeCountTextField.setForeground(Color.black);
         }
         orangeCountTextField.setText(Integer.toString(count));
-        sendMessage("addtocount", 1, null);
+        sendMessage("addtocount", "beverage", 1, null);
     }//GEN-LAST:event_addOrangeButtonActionPerformed
 
     private void lemonadePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadePriceTextFieldActionPerformed
@@ -1569,7 +1578,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             lemonadeCountTextField.setBackground(Color.white);
             lemonadeCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 2, null);
+        sendMessage("addtocount", "beverage", 2, null);
     }//GEN-LAST:event_addLemonadeButtonActionPerformed
 
     private void gatoradePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradePriceTextFieldActionPerformed
@@ -1596,7 +1605,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             gatoradeCountTextField.setBackground(Color.white);
             gatoradeCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 3, null);
+        sendMessage("addtocount", "beverage", 3, null);
     }//GEN-LAST:event_addGatoradeButtonActionPerformed
 
     private void coconutWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterPriceTextFieldActionPerformed
@@ -1624,7 +1633,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             coconutWaterCountTextField.setBackground(Color.white);
             coconutWaterCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 5, null);
+        sendMessage("addtocount", "beverage", 5, null);
     }//GEN-LAST:event_addCoconutWaterButtonActionPerformed
 
     private void sparklingWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterPriceTextFieldActionPerformed
@@ -1651,7 +1660,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             sparklingWaterCountTextField.setBackground(Color.white);
             sparklingWaterCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 6, null);
+        sendMessage("addtocount", "beverage", 6, null);
     }//GEN-LAST:event_addSparklingWaterButtonActionPerformed
 
     private void cokePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokePriceTextFieldActionPerformed
@@ -1678,7 +1687,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             cokeCountTextField.setForeground(Color.black);
         }
         cokeCountTextField.setText(Integer.toString(count));
-        sendMessage("addtocount", 0, null);
+        sendMessage("addtocount", "beverage", 0, null);
     }//GEN-LAST:event_addCokeButtonActionPerformed
 
     private void proteinSmoothiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothiePriceTextFieldActionPerformed
@@ -1705,7 +1714,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             proteinSmoothieCountTextField.setBackground(Color.white);
             proteinSmoothieCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 7, null);
+        sendMessage("addtocount", "beverage", 7, null);
     }//GEN-LAST:event_addProteinSmoothieButtonActionPerformed
 
     private void granolaPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaPriceTextFieldActionPerformed
@@ -1732,7 +1741,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             granolaCountTextField.setBackground(Color.white);
             granolaCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 9, null);
+        sendMessage("addtocount", "snack", 9, null);
     }//GEN-LAST:event_granolaAddButtonActionPerformed
 
     private void proteinShakePriceTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakePriceTextField1ActionPerformed
@@ -1759,7 +1768,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             proteinShakeCountTextField.setBackground(Color.white);
             proteinShakeCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 8, null);
+        sendMessage("addtocount", "beverage", 8, null);
     }//GEN-LAST:event_addproteinShakeButton1ActionPerformed
 
     private void chipsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsPriceTextFieldActionPerformed
@@ -1786,7 +1795,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             chipsCountTextField.setBackground(Color.white);
             chipsCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 10, null);
+        sendMessage("addtocount", "snack", 10, null);
     }//GEN-LAST:event_chipsAddButtonActionPerformed
 
     private void nutsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsPriceTextFieldActionPerformed
@@ -1813,7 +1822,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             nutsCountTextField.setBackground(Color.white);
             nutsCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 11, null);
+        sendMessage("addtocount", "snack", 11, null);
     }//GEN-LAST:event_nutsAddButtonActionPerformed
 
     private void cookiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookiePriceTextFieldActionPerformed
@@ -1840,7 +1849,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             cookieCountTextField.setForeground(Color.black);
         }
         cookieCountTextField.setText(Integer.toString(count));
-        sendMessage("addtocount", 12, null);
+        sendMessage("addtocount", "snack", 12, null);
     }//GEN-LAST:event_cookieAddButtonActionPerformed
 
     private void driedFruitsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsPriceTextFieldActionPerformed
@@ -1867,7 +1876,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             driedFruitsCountTextField.setForeground(Color.black);
         }
         driedFruitsCountTextField.setText(Integer.toString(count));
-        sendMessage("addtocount", 13, null);
+        sendMessage("addtocount", "snack", 13, null);
     }//GEN-LAST:event_driedFruitsAddButtonActionPerformed
 
     private void popcornPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornPriceTextFieldActionPerformed
@@ -1894,7 +1903,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             popcornCountTextField.setBackground(Color.white);
             popcornCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 14, null);
+        sendMessage("addtocount", "snack", 14, null);
     }//GEN-LAST:event_popcornAddButtonActionPerformed
 
     private void crackersPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersPriceTextFieldActionPerformed
@@ -1921,7 +1930,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             crackersCountTextField.setBackground(Color.white);
             crackersCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 15, null);
+        sendMessage("addtocount", "snack", 15, null);
     }//GEN-LAST:event_crackersAddButtonActionPerformed
 
     private void veggieStrawsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsPriceTextFieldActionPerformed
@@ -1948,7 +1957,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             veggieStrawsCountTextField.setBackground(Color.white);
             veggieStrawsCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 16, null);
+        sendMessage("addtocount", "snack", 16, null);
     }//GEN-LAST:event_veggieStrawsAddButtonActionPerformed
 
     private void greekYogurtPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtPriceTextFieldActionPerformed
@@ -1975,7 +1984,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             greekYogurtCountTextField.setBackground(Color.white);
             greekYogurtCountTextField.setForeground(Color.black);
         }
-        sendMessage("addtocount", 17, null);
+        sendMessage("addtocount", "snack", 17, null);
     }//GEN-LAST:event_greekYogurtAddButtonActionPerformed
 
     private void collectMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_collectMoneyButtonActionPerformed

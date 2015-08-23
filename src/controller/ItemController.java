@@ -137,11 +137,11 @@ public class ItemController implements Mediator {
         itemsTableModel.addNewItem(itemInfo);
     }
     
-    public void sendMessageToAll(Colleague sender, String type, Integer index, Double value) {
+    public void sendMessageToAll(Colleague sender, String type, String product, Integer index, Double value) {
         for (int i = 0; i < colleagues.size(); ++i){
             Colleague c = colleagues.get(i);
             if (c != sender){
-                c.receiveMessage(type, index, value);
+                c.receiveMessage(type, product, index, value);
             }
         }
     }
@@ -153,9 +153,7 @@ public class ItemController implements Mediator {
     public double collectMoney(Integer machineID){
         return itemsTableModel.collectMoney(machineID);
     }
-    
-
-    
+  
     public int[] getInfo(String ID){
         int[] nutritionalFacts = itemsTableModel.getInfo(Integer.valueOf(ID));
         return nutritionalFacts;
