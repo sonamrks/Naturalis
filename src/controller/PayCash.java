@@ -14,6 +14,6 @@ public class PayCash implements PaymentStrategy{
     
     public double pay(double price,double deductable){
        double remainingPrice = price - deductable;
-       return remainingPrice;
+       return (double) Math.round(remainingPrice * 100) / 100;
     }
 }
