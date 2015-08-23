@@ -223,14 +223,14 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="itemsPieChartButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                       <Component id="itemsBarChartButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="188" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -239,11 +239,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="itemsBarChartButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="itemsPieChartButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="itemsBarChartButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -642,12 +643,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="lycheeJuicePanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cornPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="pretzelPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="dietPepsiPanel" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="lycheeJuicePanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cornPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pretzelPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="dietPepsiPanel" alignment="0" max="32767" attributes="0"/>
                           <Component id="frappuccinoPanel" alignment="0" max="32767" attributes="0"/>
                           <Component id="coconutWaterPanel" alignment="0" max="32767" attributes="0"/>
                           <Component id="sparlkingWaterPanel" alignment="0" max="32767" attributes="0"/>

@@ -158,7 +158,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         changeSlotPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         changeTextField = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
         coinsImageLabel = new javax.swing.JLabel();
         itemsPanel = new javax.swing.JPanel();
         middlePanel = new javax.swing.JPanel();
@@ -203,8 +202,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         leftPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        selectButtonPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
         selectBeverageButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/beverageLogo_burned.jpg"))); // NOI18N
         selectBeverageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,22 +239,20 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
 
         leftPanel.add(selectButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
-        dispenserPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        dispenserPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel6.setText("Item Dispenser");
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setText("Collect Your Items ");
 
         javax.swing.GroupLayout dispenserPanelLayout = new javax.swing.GroupLayout(dispenserPanel);
         dispenserPanel.setLayout(dispenserPanelLayout);
         dispenserPanelLayout.setHorizontalGroup(
             dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dispenserPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(dispenserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dispenserPanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel6))
-                    .addGroup(dispenserPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(item1DispensedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(item1DispensedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dispenserPanelLayout.setVerticalGroup(
@@ -270,19 +265,18 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanel.add(dispenserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 160, 150));
+        leftPanel.add(dispenserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 160, 160));
 
-        changeSlotPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        changeSlotPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel7.setText("Change Slot");
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel7.setText("Collect Your Change");
 
         changeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeTextFieldActionPerformed(evt);
             }
         });
-
-        jLabel16.setText("Your change :");
 
         coinsImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coins.png"))); // NOI18N
 
@@ -291,16 +285,16 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         changeSlotPanelLayout.setHorizontalGroup(
             changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(changeSlotPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(changeSlotPanelLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(coinsImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(changeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)))
-                    .addComponent(jLabel7))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(changeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(changeSlotPanelLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel7)))
+                .addGap(13, 21, Short.MAX_VALUE))
         );
         changeSlotPanelLayout.setVerticalGroup(
             changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,14 +304,13 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addGap(18, 18, 18)
                 .addGroup(changeSlotPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(changeSlotPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(25, 25, 25)
                         .addComponent(changeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(coinsImageLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanel.add(changeSlotPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 210, 150));
+        leftPanel.add(changeSlotPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, 210, 160));
 
         javax.swing.GroupLayout itemsPanelLayout = new javax.swing.GroupLayout(itemsPanel);
         itemsPanel.setLayout(itemsPanelLayout);
@@ -336,42 +329,49 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         middlePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        displayPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         displayPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lowSugarsCheckBox.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lowSugarsCheckBox.setText("Low Sugars");
         lowSugarsCheckBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 lowSugarsCheckBoxItemStateChanged(evt);
             }
         });
-        displayPanel.add(lowSugarsCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+        displayPanel.add(lowSugarsCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
 
+        highProteinCheckBox.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         highProteinCheckBox.setText("High Protein");
         highProteinCheckBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 highProteinCheckBoxItemStateChanged(evt);
             }
         });
-        displayPanel.add(highProteinCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+        displayPanel.add(highProteinCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
 
+        lowCaloriesCheckBox.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lowCaloriesCheckBox.setText("Low Calories");
         lowCaloriesCheckBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 lowCaloriesCheckBoxItemStateChanged(evt);
             }
         });
-        displayPanel.add(lowCaloriesCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        displayPanel.add(lowCaloriesCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
         suggestionsTextArea.setColumns(20);
         suggestionsTextArea.setRows(5);
         jScrollPane1.setViewportView(suggestionsTextArea);
 
-        displayPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 410, 130));
+        displayPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 430, 130));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setText("Specify Calorie Range");
 
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel17.setText("To :");
 
+        jLabel18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel18.setText("From:");
 
         suggestionsButton.setText("Suggestions");
@@ -416,7 +416,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        displayPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, -1));
+        displayPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         jLabel3.setText("OR");
         displayPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 92, -1, -1));
@@ -451,6 +451,9 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
 
         middlePanel.add(cartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 450, 130));
 
+        infoPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Item Code :");
 
         itemCodeTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -466,8 +469,10 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel11.setText("Protein:");
 
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel13.setText("Carbs:");
 
         proteinTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -476,8 +481,10 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel12.setText("Sugars:");
 
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel14.setText("Calories :");
 
         sugarsTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -496,20 +503,20 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                     .addGroup(nutritionFactsPanelLayout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(proteinTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sugarsTextField))
+                        .addComponent(proteinTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(nutritionFactsPanelLayout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(carbohydratesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(caloriesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26))
+                        .addComponent(carbohydratesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(nutritionFactsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel14))
+                .addGap(18, 18, 18)
+                .addGroup(nutritionFactsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sugarsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caloriesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
         );
         nutritionFactsPanelLayout.setVerticalGroup(
             nutritionFactsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,16 +543,16 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(nutritionFactsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(79, 79, 79)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(itemCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(getInfoButton)))
-                .addContainerGap(164, Short.MAX_VALUE))
+                        .addComponent(getInfoButton))
+                    .addGroup(infoPanelLayout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(nutritionFactsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -560,7 +567,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        middlePanel.add(infoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 450, -1));
+        middlePanel.add(infoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 460, -1));
 
         rightPanel.setBackground(new java.awt.Color(251, 247, 229));
         rightPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -723,7 +730,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
