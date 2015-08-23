@@ -40,6 +40,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private WelcomePanel welcomePanel;
     private BeveragePanel beveragePanel;
     private SnackPanel snackPanel;
+    private List<String> dispenserItemPicturePaths;
     private Timer timer;
     private int index=0;
     
@@ -109,15 +110,22 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     }
      
     public void dispense() {
-       TimerHandler timerHandler = new TimerHandler();
-       timer = new Timer(1000, timerHandler);
-       timer.setRepeats(true);
-       timer.start();
-        }
+        TimerHandler timerHandler = new TimerHandler();
+        timer = new Timer(1000, timerHandler);
+        timer.start();
+        
+    }
     class TimerHandler implements ActionListener {
+        List<String> dispenserItemPicturePaths = itemsCartController.getPicturePath(); 
+        int size =dispenserItemPicturePaths.size();
         public void actionPerformed(ActionEvent e) {
-           List<String> itemPicturePaths = itemsCartController.getPicturePath();
-           item1DispensedLabel.setIcon(new ImageIcon(this.getClass().getResource(itemPicturePaths.get(index++))));
+            if(index >= size) {
+                timer.stop();
+                item1DispensedLabel.setIcon(null);
+            }
+            else { 
+                item1DispensedLabel.setIcon(new ImageIcon(this.getClass().getResource(dispenserItemPicturePaths.get(index++))));
+            }
         }
    }
     public void sendMessage(String type, Integer index, Double value) {
