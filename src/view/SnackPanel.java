@@ -36,6 +36,7 @@ public class SnackPanel extends javax.swing.JPanel {
         this.customerUI = customerUI;
         itemsController = customerUI.getItemController();
         itemsCartController = customerUI.getItemsCartController();
+        itemsController.generateCategoryItemInfo(machineID, "snack");
         setCodeLabel();
         setPriceLabel();
         getCount();
@@ -47,9 +48,8 @@ public class SnackPanel extends javax.swing.JPanel {
         setPriceLabel();
     }
 
-    public void setCodeLabel(){
-        
-        ArrayList<Integer> codeList = itemsController.getCategoryCodeForMachine(machineID, "snack");
+    public void setCodeLabel(){       
+        ArrayList<Integer> codeList = itemsController.getCategoryCodeForMachine();
         
         granolaCodeLabel.setText(Integer.toString(codeList.get(0)));
         chipsCodeLabel.setText(Integer.toString(codeList.get(1)));
@@ -59,13 +59,11 @@ public class SnackPanel extends javax.swing.JPanel {
         popcornCodeLabel.setText(Integer.toString(codeList.get(5)));
         crackersCodeLabel.setText(Integer.toString(codeList.get(6)));
         veggieStrawsCodeLabel.setText(Integer.toString(codeList.get(7)));
-        greekYogurtCodeLabel.setText(Integer.toString(codeList.get(8)));
-        
-        
+        greekYogurtCodeLabel.setText(Integer.toString(codeList.get(8)));  
     }
-    public void setPriceLabel(){
     
-        priceList = itemsController.getCategoryPriceForMachine(machineID, "snack");
+    public void setPriceLabel(){    
+        priceList = itemsController.getCategoryPriceForMachine();
         
         granolaPriceLabel.setText(Double.toString(priceList.get(0)));
         chipsPriceLabel.setText(Double.toString(priceList.get(1)));
@@ -79,7 +77,7 @@ public class SnackPanel extends javax.swing.JPanel {
     }
      
     public void getCount(){
-        count = itemsController.getCategoryCount(machineID, "snack");
+        count = itemsController.getCategoryCountForMachine();
      //   System.out.println(count[0]);
         if(count.get(0)==0)
             granolaPanel.setBackground(Color.red);

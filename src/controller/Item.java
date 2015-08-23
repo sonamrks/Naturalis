@@ -83,6 +83,10 @@ public class Item {
     public ArrayList<Double> getPriceForMachine(){        
         return priceList;
     }
+           
+    public ArrayList<Integer> getCountListForMachine() {
+        return countList;
+    }
 
     public ArrayList<Integer> getProteinList() {
         return proteinList;
@@ -100,12 +104,7 @@ public class Item {
         return caloriesList;
     }
     
-    public ArrayList<Integer> getCountListForMachine() {
-        return countList;
-    }
-    
-    public ArrayList<Integer> getCategoryCodeForMachine(Integer machineID, String category){  
-        ArrayList<Integer> beverageCodeList = new ArrayList<Integer>();
+    public void generateCategoryItemInfo(Integer machineID, String category) {
         try {         
             String getCode = "SELECT code FROM item where category=? and machineID = ?";
             PreparedStatement statement = connection.prepareStatement(getCode);
@@ -114,52 +113,25 @@ public class Item {
             ResultSet result = statement.executeQuery();
             
             while(result.next()){
-                beverageCodeList.add(result.getInt("code"));
+                codeList.add(result.getInt("code"));
+                priceList.add(result.getDouble("price"));
+                countList.add(result.getInt("count"));
             }            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-
         }
-        return beverageCodeList;
     }
     
-    public ArrayList<Double> getCategoryPriceForMachine(Integer machineID, String category){  
-        ArrayList<Double> beveragePriceList = new ArrayList<Double>();
-        try {         
-            String getPrice = "SELECT price FROM item where category=? and machineID = ?";
-            PreparedStatement statement = connection.prepareStatement(getPrice);
-            statement.setString(1, category);
-            statement.setInt(2, machineID);
-            ResultSet result = statement.executeQuery();
-            
-            while(result.next()){
-                beveragePriceList.add(result.getDouble("price"));
-            }            
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-
-        }
-        return beveragePriceList;
+    public ArrayList<Integer> getCategoryCodeForMachine(){  
+        return codeList;
+    }
+    
+    public ArrayList<Double> getCategoryPriceForMachine(){  
+        return priceList;
     }
          
-    public ArrayList<Integer> getCategoryCount(int machineID, String category){
-        ArrayList<Integer> count = new ArrayList<Integer>();
-        try {
-            String getCount = "SELECT count FROM item where category=? and machineID=?";
-            PreparedStatement statement = connection.prepareStatement(getCount);
-            statement.setString(1, category);
-            statement.setInt(2, machineID);
-            ResultSet result = statement.executeQuery();
-            int i=0;
-            while(result.next())
-            {
-                count.add(result.getInt("count"));
-                i++;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return count;
+    public ArrayList<Integer> getCategoryCountForMachine(){
+        return countList;
     }
     
   /*  public void getItemInfo(){

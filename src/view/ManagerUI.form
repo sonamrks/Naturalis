@@ -483,11 +483,13 @@
                       <EmptySpace pref="16" max="32767" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="codeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="codeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="caloriesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="caloriesTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="codeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="caloriesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="caloriesTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -511,11 +513,13 @@
                           <Component id="categoryTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="carbohydratesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="carbohydratesTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="machineIDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="machineIDTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="carbohydratesTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="machineIDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="machineIDTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="addItemButton" min="-2" max="-2" attributes="0"/>

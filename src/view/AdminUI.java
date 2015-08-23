@@ -19,18 +19,28 @@ import javax.swing.JOptionPane;
 public class AdminUI extends javax.swing.JFrame implements Colleague {
     private ItemController itemController;
     private UserLogController userLogController;
-    Integer machineId;
-    ArrayList<Integer> countList;
-    ArrayList<Double> priceList;
+    Integer machineID;
+    ArrayList<Integer> beverageCountList;
+    ArrayList<Double> beveragePriceList;
+    ArrayList<Integer> snackCountList;
+    ArrayList<Double> snackPriceList;
     private static double salesCollected;
+    
     /**
      * Creates new form LimitedView
      */
-    public AdminUI(ItemController itemController) {
+    public AdminUI(ItemController itemController, Integer machineID) {
         initComponents();
         this.itemController = itemController;
+        this.machineID = machineID;
         userLogController = new UserLogController();
         itemController.registerAColleague(this);
+        itemController.generateCategoryItemInfo(machineID, "beverage");
+        beverageCountList = itemController.getCategoryCountForMachine();
+        beveragePriceList = itemController.getCategoryPriceForMachine();
+        itemController.generateCategoryItemInfo(machineID, "snack");
+        snackCountList = itemController.getCategoryCountForMachine();
+        snackPriceList = itemController.getCategoryPriceForMachine();
         //setPrice();
         getCount();
     }
@@ -41,11 +51,11 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     
     public void receiveMessage(String type, Integer index, Double value) {
         if(type.equals("addtocart")) 
-            countList.set(index, countList.get(index)-1);
+        //    countList.set(index, countList.get(index)-1);
         if(type.equals("removefromcart"))
-            countList.set(index, countList.get(index)+1);
+        //    countList.set(index, countList.get(index)+1);
         if(type.equals("changeprice"))
-            priceList.set(index, value); 
+        //    priceList.set(index, value); 
        // setPrice();
         getCount(); 
     }
@@ -73,95 +83,95 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         veggieStrawsPriceTextField.setText(Double.toString(priceList.get(16)));
         greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));*/
     }
+    
     public void getCount(){
-        countList = itemController.getCountListForMachine(machineId);
-        cokeCountTextField.setText(Integer.toString(countList.get(0)));
-        if(countList.get(0)<=2){
+        cokeCountTextField.setText(Integer.toString(beverageCountList.get(0)));
+        if(beverageCountList.get(0)<=2){
             cokeCountTextField.setBackground(Color.red);
             cokeCountTextField.setForeground(Color.yellow);
         } 
-        orangeCountTextField.setText(Integer.toString(countList.get(1)));
-        if(countList.get(1)<=2){
+        orangeCountTextField.setText(Integer.toString(beverageCountList.get(1)));
+        if(beverageCountList.get(1)<=2){
             orangeCountTextField.setBackground(Color.red);
             orangeCountTextField.setForeground(Color.yellow);
         } 
-        lemonadeCountTextField.setText(Integer.toString(countList.get(2)));
-        if(countList.get(2)<=2){
+        lemonadeCountTextField.setText(Integer.toString(beverageCountList.get(2)));
+        if(beverageCountList.get(2)<=2){
             lemonadeCountTextField.setBackground(Color.red);
             lemonadeCountTextField.setForeground(Color.yellow);
         } 
-        gatoradeCountTextField.setText(Integer.toString(countList.get(3)));
-        if(countList.get(3)<=2){
+        gatoradeCountTextField.setText(Integer.toString(beverageCountList.get(3)));
+        if(beverageCountList.get(3)<=2){
             gatoradeCountTextField.setBackground(Color.red);
             gatoradeCountTextField.setForeground(Color.yellow);
         } 
-        frappuccinoCountTextField.setText(Integer.toString(countList.get(4)));
-        if(countList.get(4)<=2){
+        frappuccinoCountTextField.setText(Integer.toString(beverageCountList.get(4)));
+        if(beverageCountList.get(4)<=2){
             frappuccinoCountTextField.setBackground(Color.red);
             frappuccinoCountTextField.setForeground(Color.yellow);
         } 
-        coconutWaterCountTextField.setText(Integer.toString(countList.get(5)));
-        if(countList.get(5)<=2){
+        coconutWaterCountTextField.setText(Integer.toString(beverageCountList.get(5)));
+        if(beverageCountList.get(5)<=2){
             coconutWaterCountTextField.setBackground(Color.red);
             coconutWaterCountTextField.setForeground(Color.yellow);
         } 
-        sparklingWaterCountTextField.setText(Integer.toString(countList.get(6)));
-        if(countList.get(6)<=2){
+        sparklingWaterCountTextField.setText(Integer.toString(beverageCountList.get(6)));
+        if(beverageCountList.get(6)<=2){
             sparklingWaterCountTextField.setBackground(Color.red);
             sparklingWaterCountTextField.setForeground(Color.yellow);
         } 
-        proteinSmoothieCountTextField.setText(Integer.toString(countList.get(7)));
-        if(countList.get(7)<=2){
+        proteinSmoothieCountTextField.setText(Integer.toString(beverageCountList.get(7)));
+        if(beverageCountList.get(7)<=2){
             proteinSmoothieCountTextField.setBackground(Color.red);
             proteinSmoothieCountTextField.setForeground(Color.yellow);
         } 
-        proteinShakeCountTextField.setText(Integer.toString(countList.get(8)));
-        if(countList.get(8)<=2){
+        proteinShakeCountTextField.setText(Integer.toString(beverageCountList.get(8)));
+        if(beverageCountList.get(8)<=2){
             proteinShakeCountTextField.setBackground(Color.red);
             proteinShakeCountTextField.setForeground(Color.yellow);
         } 
-        granolaCountTextField.setText(Integer.toString(countList.get(9)));
-        if(countList.get(9)<=2){
+        granolaCountTextField.setText(Integer.toString(snackCountList.get(0)));
+        if(snackCountList.get(9)<=2){
             granolaCountTextField.setBackground(Color.red);
             granolaCountTextField.setForeground(Color.yellow);
         } 
-        chipsCountTextField.setText(Integer.toString(countList.get(10)));
-        if(countList.get(10)<=2){
+        chipsCountTextField.setText(Integer.toString(snackCountList.get(1)));
+        if(snackCountList.get(10)<=2){
             chipsCountTextField.setBackground(Color.red);
             chipsCountTextField.setForeground(Color.yellow);
         } 
-        nutsCountTextField.setText(Integer.toString(countList.get(11)));
-        if(countList.get(11)<=2){
+        nutsCountTextField.setText(Integer.toString(snackCountList.get(2)));
+        if(snackCountList.get(11)<=2){
             nutsCountTextField.setBackground(Color.red);
             nutsCountTextField.setForeground(Color.yellow);
         } 
-        cookieCountTextField.setText(Integer.toString(countList.get(12)));
-        if(countList.get(12)<=2){
+        cookieCountTextField.setText(Integer.toString(snackCountList.get(3)));
+        if(snackCountList.get(12)<=2){
             cookieCountTextField.setBackground(Color.red);
             cookieCountTextField.setForeground(Color.yellow);
         } 
-        driedFruitsCountTextField.setText(Integer.toString(countList.get(13)));
-        if(countList.get(13)<=2){
+        driedFruitsCountTextField.setText(Integer.toString(snackCountList.get(4)));
+        if(snackCountList.get(13)<=2){
             driedFruitsCountTextField.setBackground(Color.red);
             driedFruitsCountTextField.setForeground(Color.yellow);
         } 
-        popcornCountTextField.setText(Integer.toString(countList.get(14)));
-        if(countList.get(14)<=2){
+        popcornCountTextField.setText(Integer.toString(snackCountList.get(5)));
+        if(snackCountList.get(14)<=2){
             popcornCountTextField.setBackground(Color.red);
             popcornCountTextField.setForeground(Color.yellow);
         } 
-        crackersCountTextField.setText(Integer.toString(countList.get(15)));
-        if(countList.get(15)<=2){
+        crackersCountTextField.setText(Integer.toString(snackCountList.get(6)));
+        if(snackCountList.get(15)<=2){
             crackersCountTextField.setBackground(Color.red);
             crackersCountTextField.setForeground(Color.yellow);
         } 
-        veggieStrawsCountTextField.setText(Integer.toString(countList.get(16)));
-        if(countList.get(16)<=2){
+        veggieStrawsCountTextField.setText(Integer.toString(snackCountList.get(7)));
+        if(snackCountList.get(16)<=2){
             veggieStrawsCountTextField.setBackground(Color.red);
             veggieStrawsCountTextField.setForeground(Color.yellow);
         } 
-        greekYogurtCountTextField.setText(Integer.toString(countList.get(17)));
-        if(countList.get(17)<=2){
+        greekYogurtCountTextField.setText(Integer.toString(snackCountList.get(8)));
+        if(snackCountList.get(17)<=2){
             greekYogurtCountTextField.setBackground(Color.red);
             greekYogurtCountTextField.setForeground(Color.yellow);
         } 

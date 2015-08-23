@@ -43,21 +43,33 @@ public class ItemController implements Mediator {
     public ArrayList<Integer> getCodeForMachine(){
         return itemsTableModel.getCodeForMachine();
     }
+    
+    public ArrayList<String> getNameListForMachine() {
+        return itemsTableModel.getNameListForMachine();
+    }
         
     public ArrayList<Double> getPriceForMachine() {
         return itemsTableModel.getPriceForMachine();
     }
+    
+    public ArrayList<Integer> getCountListForMachine() {
+        return itemsTableModel.getCountListForMachine();
+    }
+    
+    public void generateCategoryItemInfo(Integer machineID, String category) {
+        itemsTableModel.generateCategoryItemInfo(machineID, category);
+    }
      
-    public ArrayList<Integer> getCategoryCodeForMachine(Integer machineID, String category) {
-        return itemsTableModel.getCategoryCodeForMachine(machineID, category);
+    public ArrayList<Integer> getCategoryCodeForMachine() {
+        return itemsTableModel.getCategoryCodeForMachine();
     }
     
-    public ArrayList<Double> getCategoryPriceForMachine(Integer machineID, String category) {
-        return itemsTableModel.getCategoryPriceForMachine(machineID, category);
+    public ArrayList<Double> getCategoryPriceForMachine() {
+        return itemsTableModel.getCategoryPriceForMachine();
     }
     
-    public ArrayList<Integer> getCategoryCount(int machineID, String category){
-        return itemsTableModel.getCategoryCount(machineID, category);
+    public ArrayList<Integer> getCategoryCountForMachine(){
+        return itemsTableModel.getCategoryCountForMachine();
     }
 
     public String getSuggestionList(Boolean[] checkedList){
@@ -83,10 +95,6 @@ public class ItemController implements Mediator {
   
     public String getCalorieRangeSuggestions(int low,int high){
         return itemsTableModel.getCalorieRangeSuggestions(low,high);
-    }
-
-    public ArrayList<Integer> getCountListForMachine(){
-        return itemsTableModel.getCountListForMachine();
     }
     
     public int getCategorySoldCount(String category) {
