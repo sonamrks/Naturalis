@@ -89,7 +89,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             itemPicturePaths.add(item.getPicturePath());
             itemPrices.add(item.getPrice());
             cartItems.add(item);            
-            addPrice(item.getPrice());
+        //    addPrice(item.getPrice());
             numrows++;  
             notifyObservers();
         }
@@ -211,8 +211,9 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
                //     System.out.println("hello1: " + next().getCode());
                     if(next().equals(code)) {
                         itemCodes.remove(--currentIndex);
-                        itemNames.remove(currentIndex);   
-                        subtractPrice(itemPrices.get(currentIndex));
+                        itemNames.remove(currentIndex);  
+                        System.out.println("Price to be subr: " + itemPrices.get(currentIndex));
+                    //    subtractPrice(itemPrices.get(currentIndex));
                         itemPrices.remove(currentIndex);   
                         itemPicturePaths.remove(currentIndex); 
                         cartItems.remove(currentIndex);
@@ -224,6 +225,24 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
                 fireTableRowsDeleted(itemCodes.size(), numcols-1); 
             }
     }
+         
+    public double getTotalPrice() {
+        totalPrice = 0;
+        for(Double price : itemPrices) {
+            totalPrice = totalPrice + price;
+        }
+	return totalPrice;
+    }
+  /*        
+    public void addPrice(double price) {       
+        totalPrice += price;
+    }
+    
+    public void subtractPrice(double price) {
+        System.out.println("Price total: " + totalPrice);
+        totalPrice -= price;
+        System.out.println("Price total: " + totalPrice);
+    }*/
     
   /*  public void removeItem(Integer code) {
         try {
@@ -324,20 +343,6 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
         
     public List<Product> getCartItems() {
         return this.cartItems;
-    }
-    
-    public double getTotalPrice() {
-	return this.totalPrice;
-    }
-    
-    public void addPrice(double price) {
-        
-        this.totalPrice += price;
-        System.out.println("Price inside addprice:" + totalPrice);
-    }
-    
-    public void subtractPrice(double price) {
-        this.totalPrice -= price;
     }
        
     @Override

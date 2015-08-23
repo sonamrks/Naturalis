@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author Sonam
  */
-public class PaymentPanel extends javax.swing.JPanel  implements Observer {
+public class PaymentPanel extends javax.swing.JPanel implements Observer {
 
     private CustomerUI customerUI;
     private static CartItemsController itemsCartController;
@@ -40,6 +40,7 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         priceTextField.setValue(price);
     }*/
         
+    @Override
     public void update(){
         priceTextField.setValue(itemsCartController.getTotalPrice());
     }
