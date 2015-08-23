@@ -443,6 +443,9 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         double remainingPrice = context.pay(price, 5);
         if(remainingPrice>0)
         priceTextField.setText(Double.toString(remainingPrice));
+        else if(remainingPrice>0){
+            customerUI.giveChange("0.0");
+        }
         else{
             priceTextField.setText("0");
             //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
@@ -456,12 +459,16 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         double price = Double.parseDouble(priceTextField.getText());
         double remainingPrice = context.pay(price, 1);
         priceTextField.setText(Double.toString(remainingPrice));
-        if(remainingPrice>=0)
+        if(remainingPrice>0)
         priceTextField.setText(Double.toString(remainingPrice));
+        else if(remainingPrice>0){
+            customerUI.giveChange("0.0");
+        }
         else{
             priceTextField.setText("0");
             //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+            customerUI.dispense();
         }
     }//GEN-LAST:event_dollar1ButtonActionPerformed
 
@@ -470,12 +477,16 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         double price = Double.parseDouble(priceTextField.getText());
         double remainingPrice = context.pay(price, 0.50);
         priceTextField.setText(Double.toString(remainingPrice));
-        if(remainingPrice>=0)
+        if(remainingPrice>0)
         priceTextField.setText(Double.toString(remainingPrice));
+        else if(remainingPrice>0){
+            customerUI.giveChange("0.0");
+        }
         else{
             priceTextField.setText("0");
             //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+            customerUI.dispense();
         }
     }//GEN-LAST:event_cent50ButtonActionPerformed
 
@@ -484,12 +495,16 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         double price = Double.parseDouble(priceTextField.getText());
         double remainingPrice = context.pay(price, 0.25);
         priceTextField.setText(Double.toString(remainingPrice));
-        if(remainingPrice>=0)
+        if(remainingPrice>0)
         priceTextField.setText(Double.toString(remainingPrice));
+        else if(remainingPrice>0){
+            customerUI.giveChange("0.0");
+        }
         else{
             priceTextField.setText("0");
             //   changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+            customerUI.dispense();
         }
     }//GEN-LAST:event_cent25ButtonActionPerformed
 
@@ -498,12 +513,17 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         price = Double.parseDouble(priceTextField.getText());
         double remainingPrice = context.pay(price, 0.10);
         priceTextField.setText(Double.toString(remainingPrice));
-        if(remainingPrice>=0)
-        priceTextField.setText(Double.toString(remainingPrice));
+        if(remainingPrice>0){
+            priceTextField.setText(Double.toString(remainingPrice));
+        }
+        else if(remainingPrice>0){
+            customerUI.giveChange("0.0");
+        }
         else{
             priceTextField.setText("0");
             //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
+            customerUI.dispense();
         }
     }//GEN-LAST:event_cent10ButtonActionPerformed
 
