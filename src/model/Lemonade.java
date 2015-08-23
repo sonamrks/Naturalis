@@ -20,6 +20,7 @@ public class Lemonade implements Beverage{
         private int carbohydrates;
         private int calories;
 	private double price;
+        private String picturePath;
 	private int count;
           
         Statement statement;
@@ -42,6 +43,7 @@ public class Lemonade implements Beverage{
                     calories= result.getInt("calories");
                     price = result.getDouble("price");
                     count = result.getInt("count");
+                    picturePath = result.getString("picturePath");
                 }
                 
                 result.close();
@@ -102,6 +104,12 @@ public class Lemonade implements Beverage{
 	}
 	public void setPrice(double price){
 		this.price = price;
+	}
+        public String getPicturePath(){
+		return picturePath;
+	}
+	public void setPicturePath(String picturePath){
+		this.picturePath = picturePath;
 	}
         public int getCount(){
 		return count;

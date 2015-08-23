@@ -26,10 +26,10 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private List<Product> cartItems;
     private List<Integer> itemCodes;
     private List<String> itemNames;
+    private List<Double> itemPrices;
     private int numcols, numrows;
     private double totalPrice;
-    private String name, s, picturePath;
-    private double price;
+    private String name, s;
     private Product item;
     private int soldCount,count;
     private List<String> itemPicturePaths;
@@ -46,20 +46,22 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     
     public CartItemsTableModel() {
   //   cartItems = new HashMap<Integer,Item>();
-     cartItems = new ArrayList<Product>();
      itemCodes = new ArrayList<Integer>();
      itemNames = new ArrayList<String>();
+     itemPrices = new ArrayList<Double>();
      itemPicturePaths = new ArrayList<String>();
+     cartItems = new ArrayList<Product>();
 //     observers = new HashSet<Observer>();
      numrows = itemCodes.size();
      numcols = 2;    
     }
     
-    public CartItemsTableModel(List list1, List list2, List list3, List list4,double price)  {
+    public CartItemsTableModel(List list1, List list2, List list3, List list4, List list5, double price)  {
         itemCodes = list1;
         itemNames = list2;
-        itemPicturePaths = list3;
-        cartItems = list4;
+        itemPrices = list3;
+        itemPicturePaths = list4;
+        cartItems = list5;
         totalPrice = price;
         numrows = itemCodes.size();
         numcols = 2;     
@@ -67,8 +69,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     
     public void addItem(Integer code) {
         try {
-            itemCodes.add(code);
-            String getName = "SELECT name,picturePath FROM item WHERE code=?";
+            String getName = "SELECT name FROM item WHERE code=?";
             
             statement = connection.prepareStatement(getName);
             statement.setInt(1,code);
@@ -76,20 +77,19 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
 
             while(result.next()){
                 name = result.getString("name");
-                picturePath = result.getString("picturePath");
             }
-
-            itemNames.add(name);
-            itemPicturePaths.add(picturePath);
-
             s = "model." + name;
-            
             if(code < 200) 
-                item = beverageFactory.createItem(s);
+                item = (model.Beverage) beverageFactory.createItem(s);
             else if(code > 200)
-                item = snackFactory.createItem(s);
+                item = (model.Snack) snackFactory.createItem(s);
+            
+            itemCodes.add(code);
+            itemNames.add(name);
+            itemPicturePaths.add(item.getPicturePath());
+            itemPrices.add(item.getPrice());
+            cartItems.add(item);            
             addPrice(item.getPrice());
-            cartItems.add(item);
             numrows++;  
             notifyObservers();
         }
@@ -210,18 +210,16 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
                 while(hasNext()) {
                //     System.out.println("hello1: " + next().getCode());
                     if(next().equals(code)) {
-                        System.out.println("hello2");
-                        price = cartItems.get(currentIndex).getPrice();
                         itemCodes.remove(--currentIndex);
-                        itemNames.remove(currentIndex);             
+                        itemNames.remove(currentIndex);   
+                        subtractPrice(itemPrices.get(currentIndex));
+                        itemPrices.remove(currentIndex);   
+                        itemPicturePaths.remove(currentIndex); 
                         cartItems.remove(currentIndex);
                         break;
                     }
                 }
                 currentIndex = 0;
-                                
-                subtractPrice(price);
-                System.out.println("price " + price + "total " + totalPrice);
 
                 fireTableRowsDeleted(itemCodes.size(), numcols-1); 
             }
@@ -315,10 +313,15 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     public List getItemNames() {
 	return this.itemNames;
     }
+    
     public List getPicturePath() {
 	return this.itemPicturePaths;
     }
     
+    public List getItemPrices() {
+	return this.itemPrices;
+    }
+        
     public List<Product> getCartItems() {
         return this.cartItems;
     }

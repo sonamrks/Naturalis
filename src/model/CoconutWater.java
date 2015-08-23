@@ -21,6 +21,7 @@ public class CoconutWater implements Beverage {
         private int calories;
 	private double price;
 	private int count;
+        private String picturePath;
           
         Statement statement;
         String query;
@@ -42,6 +43,7 @@ public class CoconutWater implements Beverage {
                     calories= result.getInt("calories");
                     price = result.getDouble("price");
                     count = result.getInt("count");
+                    picturePath = result.getString("picturePath");
                 }
                 
                 result.close();
@@ -108,6 +110,12 @@ public class CoconutWater implements Beverage {
 	}
 	public void setCount(int count){
 		this.count = count;
+	}        
+        public String getPicturePath(){
+		return picturePath;
+	}
+	public void setPicturePath(String picturePath){
+		this.picturePath = picturePath;
 	}
 }
 

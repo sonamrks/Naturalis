@@ -18,6 +18,7 @@ public interface Product {
 	public void setCalories(int calories);
 	public double getPrice();
 	public void setPrice(double price);
+        public String getPicturePath();
         public int getCount();
 	public void setCount(int count);
 

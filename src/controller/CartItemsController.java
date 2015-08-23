@@ -52,12 +52,11 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     public void tableChanged(TableModelEvent e) {
        try {
             // create a new table model with the new data
-            itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(), itemsCartTableModel.getItemNames(),itemsCartTableModel.getPicturePath(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
+            itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(),itemsCartTableModel.getItemNames(),itemsCartTableModel.getItemPrices(),itemsCartTableModel.getPicturePath(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
             itemsCartTableModel.addTableModelListener(this);
             // update the JTable with the data
             customerUI.getCartItemsPanel().update();	 
             customerUI.getPaymentPanel().update();
-                            System.out.println("hello");
     } catch(Exception exp) {
             exp.getMessage();
             exp.printStackTrace();
