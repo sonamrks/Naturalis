@@ -18,7 +18,9 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private ItemController itemController;
     private UserLogController userLogController;
+    ArrayList<Integer> beverageCodeList;
     ArrayList<Double> beveragePriceList;
+    ArrayList<Integer> snackCodeList;
     ArrayList<Double> snackPriceList;
     
     /**
@@ -31,8 +33,10 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         userLogController = new UserLogController();
         
         itemController.generateCategoryItemInfo(4201, "beverage");
+        beverageCodeList = itemController.getCategoryCodeForMachine();
         beveragePriceList = itemController.getCategoryPriceForMachine();
         itemController.generateCategoryItemInfo(4201, "snack");
+        snackCodeList = itemController.getCategoryCodeForMachine();
         snackPriceList = itemController.getCategoryPriceForMachine();
         
         lycheeJuicePanel.setVisible(false);
@@ -1750,14 +1754,14 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(proteinSmoothiePriceTextField.getText());
         sendMessage("changePrice", 7, price);
-        itemController.updatePrice(price,108);
+        itemController.updatePrice(price,beverageCodeList.get(7));
     }//GEN-LAST:event_updateProteinSmoothieButtonActionPerformed
 
     private void frappuccinoUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoUpdateButtonActionPerformed
         // TODO add your handling code here:
         double price = Double.valueOf(frappuccinoPriceTextField.getText());
         sendMessage("changeprice", 4, price);
-        itemController.updatePrice(price,105);
+        itemController.updatePrice(price,beverageCodeList.get(4));
     }//GEN-LAST:event_frappuccinoUpdateButtonActionPerformed
 
     private void lemonadePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadePriceTextFieldActionPerformed
@@ -1768,7 +1772,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:        
         double price = Double.valueOf(lemonadePriceTextField.getText());
         sendMessage("changeprice", 2, price);
-        itemController.updatePrice(price,103);
+        itemController.updatePrice(price,beverageCodeList.get(2));
     }//GEN-LAST:event_lemonadeUpdateButtonActionPerformed
 
     private void gatoradePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradePriceTextFieldActionPerformed
@@ -1779,7 +1783,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(gatoradePriceTextField.getText());
         sendMessage("changeprice", 3, price);
-        itemController.updatePrice(price,104);
+        itemController.updatePrice(price,beverageCodeList.get(3));
     }//GEN-LAST:event_gatoradeUpdateButtonActionPerformed
 
     private void coconutWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterPriceTextFieldActionPerformed
@@ -1790,7 +1794,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(coconutWaterPriceTextField.getText());
         sendMessage("changeprice", 5, price);
-        itemController.updatePrice(price,106);
+        itemController.updatePrice(price,beverageCodeList.get(5));
     }//GEN-LAST:event_coconutWaterUpdateButtonActionPerformed
 
     private void sparklingWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterPriceTextFieldActionPerformed
@@ -1801,7 +1805,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(sparklingWaterPriceTextField.getText());
         sendMessage("changeprice", 6, price);
-        itemController.updatePrice(price,107);
+        itemController.updatePrice(price,beverageCodeList.get(6));
     }//GEN-LAST:event_sparklingWaterUpdateButtonActionPerformed
 
     private void cokePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokePriceTextFieldActionPerformed
@@ -1812,7 +1816,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(cokePriceTextField.getText());
         sendMessage("changeprice", 0, price);
-        itemController.updatePrice(price,101);
+        itemController.updatePrice(price,beverageCodeList.get(1));
     }//GEN-LAST:event_updateCokeButtonActionPerformed
 
     private void granolaPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaPriceTextFieldActionPerformed
@@ -1823,7 +1827,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(granolaPriceTextField.getText());
         sendMessage("changeprice", 9, price);
-        itemController.updatePrice(price,201);
+        itemController.updatePrice(price,snackCodeList.get(0));
     }//GEN-LAST:event_granolaUpdateButtonActionPerformed
 
     private void chipsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsPriceTextFieldActionPerformed
@@ -1834,7 +1838,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(chipsPriceTextField.getText());
         sendMessage("changeprice", 10, price);
-        itemController.updatePrice(price,202);
+        itemController.updatePrice(price,snackCodeList.get(1));
     }//GEN-LAST:event_chipsUpdateButtonActionPerformed
 
     private void nutsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsPriceTextFieldActionPerformed
@@ -1845,7 +1849,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(nutsPriceTextField.getText());
         sendMessage("changeprice", 11, price);
-        itemController.updatePrice(price,203);
+        itemController.updatePrice(price,snackCodeList.get(2));
     }//GEN-LAST:event_nutsUpdateButtonActionPerformed
 
     private void cookiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookiePriceTextFieldActionPerformed
@@ -1856,7 +1860,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(cookiePriceTextField.getText());
         sendMessage("changeprice", 12, price);
-        itemController.updatePrice(price,204);
+        itemController.updatePrice(price,snackCodeList.get(3));
     }//GEN-LAST:event_cookieUpdateButtonActionPerformed
 
     private void driedFruitsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsPriceTextFieldActionPerformed
@@ -1867,7 +1871,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(driedFruitsPriceTextField.getText());
         sendMessage("changeprice", 13, price);
-        itemController.updatePrice(price,205);
+        itemController.updatePrice(price,snackCodeList.get(4));
     }//GEN-LAST:event_driedFruitsUpdateButtonActionPerformed
 
     private void popcornPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornPriceTextFieldActionPerformed
@@ -1878,7 +1882,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(popcornPriceTextField.getText());
         sendMessage("changeprice", 14, price);
-        itemController.updatePrice(price,206);
+        itemController.updatePrice(price,snackCodeList.get(5));
     }//GEN-LAST:event_popcornUpdateButtonActionPerformed
 
     private void crackersPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersPriceTextFieldActionPerformed
@@ -1889,7 +1893,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(crackersPriceTextField.getText());
         sendMessage("changeprice", 15, price);
-        itemController.updatePrice(price,207);
+        itemController.updatePrice(price,snackCodeList.get(6));
     }//GEN-LAST:event_crackersUpdateButtonActionPerformed
 
     private void veggieStrawsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsPriceTextFieldActionPerformed
@@ -1900,7 +1904,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(veggieStrawsPriceTextField.getText());
         sendMessage("changeprice", 16, price);
-        itemController.updatePrice(price,208);
+        itemController.updatePrice(price,snackCodeList.get(7));
     }//GEN-LAST:event_veggieStrawsUpdateButtonActionPerformed
 
     private void greekYogurtPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtPriceTextFieldActionPerformed
@@ -1911,7 +1915,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         double price = Double.valueOf(greekYogurtPriceTextField.getText());
         sendMessage("changeprice", 17, price);
-        itemController.updatePrice(price,209);
+        itemController.updatePrice(price,snackCodeList.get(8));
     }//GEN-LAST:event_greekYogurtUpdateButtonActionPerformed
 
     private void beveragesSoldTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beveragesSoldTextFieldActionPerformed

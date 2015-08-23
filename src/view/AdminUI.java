@@ -20,8 +20,10 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
     private ItemController itemController;
     private UserLogController userLogController;
     Integer machineID;
+    ArrayList<Integer> beverageCodeList;
     ArrayList<Integer> beverageCountList;
     ArrayList<Double> beveragePriceList;
+    ArrayList<Integer> snackCodeList;
     ArrayList<Integer> snackCountList;
     ArrayList<Double> snackPriceList;
     
@@ -36,11 +38,13 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         userLogController = new UserLogController();
         itemController.registerAColleague(this);
         itemController.generateCategoryItemInfo(machineID, "beverage");
+        beverageCodeList = itemController.getCategoryCodeForMachine();
         beverageCountList = itemController.getCategoryCountForMachine();
         beveragePriceList = itemController.getCategoryPriceForMachine();
         itemController.generateCategoryItemInfo(machineID, "snack");
         snackCountList = itemController.getCategoryCountForMachine();
         snackPriceList = itemController.getCategoryPriceForMachine();
+        snackCodeList = itemController.getCategoryCodeForMachine();
         //setPrice();
         setCount();
     }
@@ -1504,7 +1508,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(frappuccinoCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,105);
+        itemController.increaseItemCount(count,beverageCodeList.get(4));
         frappuccinoCountTextField.setText(Integer.toString(count));
         if(count>2){
             frappuccinoCountTextField.setBackground(Color.white);
@@ -1531,7 +1535,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(orangeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,102);
+        itemController.increaseItemCount(count,beverageCodeList.get(1));
         if(count>2){            
             orangeCountTextField.setBackground(Color.white);
             orangeCountTextField.setForeground(Color.black);
@@ -1559,7 +1563,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(lemonadeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,103);
+        itemController.increaseItemCount(count,beverageCodeList.get(2));
         lemonadeCountTextField.setText(Integer.toString(count));
         if(count>2){
             lemonadeCountTextField.setBackground(Color.white);
@@ -1586,7 +1590,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(gatoradeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,104);
+        itemController.increaseItemCount(count,beverageCodeList.get(3));
         gatoradeCountTextField.setText(Integer.toString(count));
         if(count>2){
             gatoradeCountTextField.setBackground(Color.white);
@@ -1613,7 +1617,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(coconutWaterCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,106);
+        itemController.increaseItemCount(count,beverageCodeList.get(5));
         System.out.println(count);
         coconutWaterCountTextField.setText(Integer.toString(count));
         if(count>2){
@@ -1641,7 +1645,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(sparklingWaterCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,107);
+        itemController.increaseItemCount(count,beverageCodeList.get(6));
         sparklingWaterCountTextField.setText(Integer.toString(count));
          if(count>2){
             sparklingWaterCountTextField.setBackground(Color.white);
@@ -1668,7 +1672,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(cokeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,101);
+        itemController.increaseItemCount(count,beverageCodeList.get(0));
         if(count>2){
             cokeCountTextField.setBackground(Color.white);
             cokeCountTextField.setForeground(Color.black);
@@ -1695,7 +1699,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(proteinSmoothieCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,108);
+        itemController.increaseItemCount(count,beverageCodeList.get(7));
         proteinSmoothieCountTextField.setText(Integer.toString(count));
         if(count>2){
             proteinSmoothieCountTextField.setBackground(Color.white);
@@ -1722,7 +1726,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(granolaCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,201);
+        itemController.increaseItemCount(count,snackCodeList.get(0));
         granolaCountTextField.setText(Integer.toString(count));
         if(count>2){
             granolaCountTextField.setBackground(Color.white);
@@ -1749,7 +1753,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(proteinShakeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,109);
+        itemController.increaseItemCount(count,beverageCodeList.get(8));
         proteinShakeCountTextField.setText(Integer.toString(count));
         if(count>2){
             proteinShakeCountTextField.setBackground(Color.white);
@@ -1776,7 +1780,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(chipsCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,202);
+        itemController.increaseItemCount(count,snackCodeList.get(1));
         chipsCountTextField.setText(Integer.toString(count));
         if(count>2){
             chipsCountTextField.setBackground(Color.white);
@@ -1803,7 +1807,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(nutsCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,203);
+        itemController.increaseItemCount(count,snackCodeList.get(2));
         nutsCountTextField.setText(Integer.toString(count));
         if(count>2){
             nutsCountTextField.setBackground(Color.white);
@@ -1830,7 +1834,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(cookieCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,204);
+        itemController.increaseItemCount(count,snackCodeList.get(3));
         if(count>2){
             cookieCountTextField.setBackground(Color.white);
             cookieCountTextField.setForeground(Color.black);
@@ -1857,7 +1861,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(driedFruitsCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,205);
+        itemController.increaseItemCount(count,snackCodeList.get(4));
         if(count>2){
             driedFruitsCountTextField.setBackground(Color.white);
             driedFruitsCountTextField.setForeground(Color.black);
@@ -1884,7 +1888,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(popcornCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,206);
+        itemController.increaseItemCount(count,snackCodeList.get(5));
         popcornCountTextField.setText(Integer.toString(count));
         if(count>2){
             popcornCountTextField.setBackground(Color.white);
@@ -1911,7 +1915,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(crackersCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,207);
+        itemController.increaseItemCount(count,snackCodeList.get(6));
         crackersCountTextField.setText(Integer.toString(count));
         if(count>2){
             crackersCountTextField.setBackground(Color.white);
@@ -1938,7 +1942,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(veggieStrawsCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,208);
+        itemController.increaseItemCount(count,snackCodeList.get(7));
         veggieStrawsCountTextField.setText(Integer.toString(count));
         if(count>2){
             veggieStrawsCountTextField.setBackground(Color.white);
@@ -1965,7 +1969,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         // TODO add your handling code here:
         int count = Integer.valueOf(greekYogurtCountTextField.getText());
         count++;
-        itemController.increaseItemCount(count,209);
+        itemController.increaseItemCount(count,snackCodeList.get(8));
         greekYogurtCountTextField.setText(Integer.toString(count));
         if(count>2){
             greekYogurtCountTextField.setBackground(Color.white);
