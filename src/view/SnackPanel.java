@@ -50,7 +50,7 @@ public class SnackPanel extends javax.swing.JPanel {
 
     public void setCodeLabel(){       
         ArrayList<Integer> codeList = itemsController.getCategoryCodeForMachine();
-        
+
         granolaCodeLabel.setText(Integer.toString(codeList.get(0)));
         chipsCodeLabel.setText(Integer.toString(codeList.get(1)));
         nutsCodeLabel.setText(Integer.toString(codeList.get(2)));

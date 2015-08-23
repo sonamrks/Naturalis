@@ -20,15 +20,15 @@ import model.DatabaseConnection;
  */
 public class Item {
     
-    ArrayList<Integer> codeList = new ArrayList<Integer>();
-    ArrayList<String> nameList = new ArrayList<String>();
-    ArrayList<Double> priceList = new ArrayList<Double>();
-    ArrayList<Integer> proteinList = new ArrayList<Integer>();
-    ArrayList<Integer> sugarsList = new ArrayList<Integer>();
-    ArrayList<Integer> carbohydratesList = new ArrayList<Integer>();
-    ArrayList<Integer> caloriesList = new ArrayList<Integer>();
-    ArrayList<Integer> countList = new ArrayList<Integer>();
-    ArrayList<Integer> soldCountList = new ArrayList<Integer>();
+    ArrayList<Integer> codeList;
+    ArrayList<String> nameList;
+    ArrayList<Double> priceList;
+    ArrayList<Integer> proteinList;
+    ArrayList<Integer> sugarsList;
+    ArrayList<Integer> carbohydratesList;
+    ArrayList<Integer> caloriesList;
+    ArrayList<Integer> countList;
+    ArrayList<Integer> soldCountList;
     
     private String getSoldCount;
     private int[] soldCount = new int[100];
@@ -48,9 +48,24 @@ public class Item {
     ResultSet result;
 
     public Item() {
+        codeList = new ArrayList<Integer>();
+        nameList = new ArrayList<String>();
+        priceList = new ArrayList<Double>();
+        proteinList = new ArrayList<Integer>();
+        sugarsList = new ArrayList<Integer>();
+        carbohydratesList = new ArrayList<Integer>();
+        caloriesList = new ArrayList<Integer>();
+        countList = new ArrayList<Integer>();
+        soldCountList = new ArrayList<Integer>();
     }    
      
     public void generateItemInfo(Integer machineId) {
+        codeList = new ArrayList<Integer>();
+        nameList = new ArrayList<String>();
+        proteinList = new ArrayList<Integer>();
+        sugarsList = new ArrayList<Integer>();
+        caloriesList = new ArrayList<Integer>();
+        
         this.machineId = machineId;
         try {
             String getInfo;
@@ -105,9 +120,13 @@ public class Item {
     }
     
     public void generateCategoryItemInfo(Integer machineID, String category) {
+        codeList = new ArrayList<Integer>();
+        priceList = new ArrayList<Double>();
+        countList = new ArrayList<Integer>();
+        
         try {         
-            String getCode = "SELECT code FROM item where category=? and machineID = ?";
-            PreparedStatement statement = connection.prepareStatement(getCode);
+            String getInfo = "SELECT code, price, count FROM item where category=? and machineID = ?";
+            PreparedStatement statement = connection.prepareStatement(getInfo);
             statement.setString(1, category);
             statement.setInt(2, machineID);
             ResultSet result = statement.executeQuery();
@@ -116,7 +135,8 @@ public class Item {
                 codeList.add(result.getInt("code"));
                 priceList.add(result.getDouble("price"));
                 countList.add(result.getInt("count"));
-            }            
+            }     
+            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
