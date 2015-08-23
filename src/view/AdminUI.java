@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 public class AdminUI extends javax.swing.JFrame implements Colleague {
     private ItemController itemController;
     private UserLogController userLogController;
+    Integer machineId;
     ArrayList<Integer> countList;
     ArrayList<Double> priceList;
     private static double salesCollected;
@@ -31,7 +32,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         userLogController = new UserLogController();
         itemController.registerAColleague(this);
         //setPrice();
-        setCount();
+        getCount();
     }
     
     public void sendMessage(String type, Integer index, Double value) {
@@ -46,7 +47,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         if(type.equals("changeprice"))
             priceList.set(index, value); 
        // setPrice();
-        setCount(); 
+        getCount(); 
     }
     
     public void setPrice(){
@@ -72,8 +73,8 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         veggieStrawsPriceTextField.setText(Double.toString(priceList.get(16)));
         greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));*/
     }
-    public void setCount(){
-        countList = itemController.setCount();
+    public void getCount(){
+        countList = itemController.getCountListForMachine(machineId);
         cokeCountTextField.setText(Integer.toString(countList.get(0)));
         if(countList.get(0)<=2){
             cokeCountTextField.setBackground(Color.red);

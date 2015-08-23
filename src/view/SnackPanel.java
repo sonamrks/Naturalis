@@ -49,7 +49,7 @@ public class SnackPanel extends javax.swing.JPanel {
 
     public void setCodeLabel(){
         
-        ArrayList<Integer> codeList = itemsController.getSnackCodeForMachine(machineID);
+        ArrayList<Integer> codeList = itemsController.getCategoryCodeForMachine(machineID, "snack");
         
         granolaCodeLabel.setText(Integer.toString(codeList.get(0)));
         chipsCodeLabel.setText(Integer.toString(codeList.get(1)));
@@ -65,7 +65,7 @@ public class SnackPanel extends javax.swing.JPanel {
     }
     public void setPriceLabel(){
     
-        priceList = itemsController.getSnackPriceForMachine(machineID);
+        priceList = itemsController.getCategoryPriceForMachine(machineID, "snack");
         
         granolaPriceLabel.setText(Double.toString(priceList.get(0)));
         chipsPriceLabel.setText(Double.toString(priceList.get(1)));
@@ -79,7 +79,7 @@ public class SnackPanel extends javax.swing.JPanel {
     }
      
     public void getCount(){
-        count = itemsController.getSnackCount(machineID);
+        count = itemsController.getCategoryCount(machineID, "snack");
      //   System.out.println(count[0]);
         if(count.get(0)==0)
             granolaPanel.setBackground(Color.red);

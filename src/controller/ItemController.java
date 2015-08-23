@@ -32,38 +32,34 @@ public class ItemController implements Mediator {
     public int[] lowSugarsCount = new int[100];
     public String[] lowSugarsNames = new String[100];
     
-    public ItemController(int machineID) {
-        itemsTableModel = new Item(machineID);
-    }
-    
     public ItemController() {
        itemsTableModel = new Item();
     }
     
-    public ArrayList<Integer> getBeverageCodeForMachine(Integer machineID) {
-        return itemsTableModel.getBeverageCodeForMachine(machineID);
+    public void generateItemInfo(Integer machineId) {
+        itemsTableModel.generateItemInfo(machineId);
     }
     
-    public ArrayList<Double> getBeveragePriceForMachine(Integer machineID) {
-        return itemsTableModel.getBeveragePriceForMachine(machineID);
+    public ArrayList<Integer> getCodeForMachine(){
+        return itemsTableModel.getCodeForMachine();
+    }
+        
+    public ArrayList<Double> getPriceForMachine() {
+        return itemsTableModel.getPriceForMachine();
+    }
+     
+    public ArrayList<Integer> getCategoryCodeForMachine(Integer machineID, String category) {
+        return itemsTableModel.getCategoryCodeForMachine(machineID, category);
     }
     
-    public ArrayList<Integer> getBeverageCount(int machineID){
-        return itemsTableModel.getBeverageCount(machineID);
+    public ArrayList<Double> getCategoryPriceForMachine(Integer machineID, String category) {
+        return itemsTableModel.getCategoryPriceForMachine(machineID, category);
     }
     
-    public ArrayList<Integer> getSnackCodeForMachine(Integer machineID) {
-        return itemsTableModel.getSnackCodeForMachine(machineID);
+    public ArrayList<Integer> getCategoryCount(int machineID, String category){
+        return itemsTableModel.getCategoryCount(machineID, category);
     }
-    
-    public ArrayList<Double> getSnackPriceForMachine(Integer machineID) {
-        return itemsTableModel.getSnackPriceForMachine(machineID);
-    }
-    
-    public ArrayList<Integer> getSnackCount(int machineID){
-        return itemsTableModel.getSnackCount(machineID);
-    }
-    
+
     public String getSuggestionList(Boolean[] checkedList){
             suggestionsComponent = new SuggestionsComponent(itemsTableModel);
            
@@ -84,47 +80,13 @@ public class ItemController implements Mediator {
             System.out.println("after Size: " + suggestionsComponent.getSize());
             return suggestionsComponent.getSuggestionString();  
     }
-    
-
-    
-    public ArrayList<Double> getPriceForMachine(Integer machineID) {
-        return itemsTableModel.getPriceForMachine(machineID);
-    }
-    
-    public ArrayList<Integer> getCode(){
-        return itemsTableModel.getCode();
-    }
-    
-    public ArrayList<Double> getPrice() {
-        return itemsTableModel.getPrice();
-    }
-    
+  
     public String getCalorieRangeSuggestions(int low,int high){
         return itemsTableModel.getCalorieRangeSuggestions(low,high);
     }
-    
-    public ArrayList<Integer> setProtein(){
-        return itemsTableModel.setProtein();
-    }
-    
-    public ArrayList<Integer> setSugars(){
-        return itemsTableModel.setSugars();
-    }
-    
-    public ArrayList<Integer> setCarbohydrates(){
-        return itemsTableModel.setCarbohydrates();
-    }
-    
-    public ArrayList<Integer> setCalories(){
-        return itemsTableModel.setCalories();
-    }
-    
-    public ArrayList<Double> setPrice() {
-        return itemsTableModel.setPrice();
-    }
-    
-    public ArrayList<Integer> setCount(){
-        return itemsTableModel.setCount();
+
+    public ArrayList<Integer> getCountListForMachine(){
+        return itemsTableModel.getCountListForMachine();
     }
     
     public int getCategorySoldCount(String category) {

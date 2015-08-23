@@ -52,7 +52,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     
     public void setCodeLabel(){
         
-        ArrayList<Integer> codeList = itemsController.getBeverageCodeForMachine(machineID);
+        ArrayList<Integer> codeList = itemsController.getCategoryCodeForMachine(machineID, "beverage");
         
         cokeCodeLabel.setText(Integer.toString(codeList.get(0)));
         orangeJuiceCodeLabel.setText(Integer.toString(codeList.get(1)));
@@ -68,7 +68,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     }
     public void setPriceLabel(){
     
-        priceList = itemsController.getBeveragePriceForMachine(machineID);
+        priceList = itemsController.getCategoryPriceForMachine(machineID, "beverage");
         
         cokePriceLabel.setText(Double.toString(priceList.get(0)));
         orangeJuicePriceLabel.setText(Double.toString(priceList.get(1)));
@@ -82,7 +82,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     }
     
     public void getCount(){
-        count = itemsController.getBeverageCount(machineID);
+        count = itemsController.getCategoryCount(machineID, "beverage");
       //  System.out.println(count[0]);
         if(count.get(0)==0)
             cokePanel.setBackground(Color.red);
