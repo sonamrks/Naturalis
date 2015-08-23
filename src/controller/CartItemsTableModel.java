@@ -78,7 +78,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             while(result.next()){
                 name = result.getString("name");
             }
-            s = "model." + name;
+            String s = "model." + name;
             if(code < 200) 
                 item = (model.Beverage) beverageFactory.createItem(s);
             else if(code > 200)

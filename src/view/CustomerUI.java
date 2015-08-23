@@ -121,6 +121,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
             if(index >= size) {
                 timer.stop();
                 item1DispensedLabel.setIcon(null);
+                giveChange(Double.toString(0));
                 itemsCartController.removeAllItems();
             }
             else { 
