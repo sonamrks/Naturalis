@@ -42,7 +42,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         snackCountList = itemController.getCategoryCountForMachine();
         snackPriceList = itemController.getCategoryPriceForMachine();
         //setPrice();
-        getCount();
+        setCount();
     }
     
     public void sendMessage(String type, Integer index, Double value) {
@@ -57,7 +57,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         if(type.equals("changeprice"))
         //    priceList.set(index, value); 
        // setPrice();
-        getCount(); 
+        setCount(); 
     }
     
     public void setPrice(){
@@ -84,7 +84,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));*/
     }
     
-    public void getCount(){
+    public void setCount(){
         cokeCountTextField.setText(Integer.toString(beverageCountList.get(0)));
         if(beverageCountList.get(0)<=2){
             cokeCountTextField.setBackground(Color.red);
@@ -131,47 +131,47 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
             proteinShakeCountTextField.setForeground(Color.yellow);
         } 
         granolaCountTextField.setText(Integer.toString(snackCountList.get(0)));
-        if(snackCountList.get(9)<=2){
+        if(snackCountList.get(0)<=2){
             granolaCountTextField.setBackground(Color.red);
             granolaCountTextField.setForeground(Color.yellow);
         } 
         chipsCountTextField.setText(Integer.toString(snackCountList.get(1)));
-        if(snackCountList.get(10)<=2){
+        if(snackCountList.get(1)<=2){
             chipsCountTextField.setBackground(Color.red);
             chipsCountTextField.setForeground(Color.yellow);
         } 
         nutsCountTextField.setText(Integer.toString(snackCountList.get(2)));
-        if(snackCountList.get(11)<=2){
+        if(snackCountList.get(2)<=2){
             nutsCountTextField.setBackground(Color.red);
             nutsCountTextField.setForeground(Color.yellow);
         } 
         cookieCountTextField.setText(Integer.toString(snackCountList.get(3)));
-        if(snackCountList.get(12)<=2){
+        if(snackCountList.get(3)<=2){
             cookieCountTextField.setBackground(Color.red);
             cookieCountTextField.setForeground(Color.yellow);
         } 
         driedFruitsCountTextField.setText(Integer.toString(snackCountList.get(4)));
-        if(snackCountList.get(13)<=2){
+        if(snackCountList.get(4)<=2){
             driedFruitsCountTextField.setBackground(Color.red);
             driedFruitsCountTextField.setForeground(Color.yellow);
         } 
         popcornCountTextField.setText(Integer.toString(snackCountList.get(5)));
-        if(snackCountList.get(14)<=2){
+        if(snackCountList.get(5)<=2){
             popcornCountTextField.setBackground(Color.red);
             popcornCountTextField.setForeground(Color.yellow);
         } 
         crackersCountTextField.setText(Integer.toString(snackCountList.get(6)));
-        if(snackCountList.get(15)<=2){
+        if(snackCountList.get(6)<=2){
             crackersCountTextField.setBackground(Color.red);
             crackersCountTextField.setForeground(Color.yellow);
         } 
         veggieStrawsCountTextField.setText(Integer.toString(snackCountList.get(7)));
-        if(snackCountList.get(16)<=2){
+        if(snackCountList.get(7)<=2){
             veggieStrawsCountTextField.setBackground(Color.red);
             veggieStrawsCountTextField.setForeground(Color.yellow);
         } 
         greekYogurtCountTextField.setText(Integer.toString(snackCountList.get(8)));
-        if(snackCountList.get(17)<=2){
+        if(snackCountList.get(8)<=2){
             greekYogurtCountTextField.setBackground(Color.red);
             greekYogurtCountTextField.setForeground(Color.yellow);
         } 
@@ -1529,8 +1529,8 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         int count = Integer.valueOf(orangeCountTextField.getText());
         count++;
         itemController.increaseItemCount(count,102);
-        if(count>2){            orangeCountTextField.setBackground(Color.white);
-
+        if(count>2){            
+            orangeCountTextField.setBackground(Color.white);
             orangeCountTextField.setForeground(Color.black);
         }
         orangeCountTextField.setText(Integer.toString(count));

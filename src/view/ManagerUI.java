@@ -18,8 +18,8 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private ItemController itemController;
     private UserLogController userLogController;
-    ArrayList<Double> priceList;
-    ArrayList<Integer> countList;
+    ArrayList<Double> beveragePriceList;
+    ArrayList<Double> snackPriceList;
     
     /**
      * Creates new form AdminUI
@@ -29,6 +29,11 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         this.itemController = itemController;
         itemController.registerAColleague(this);
         userLogController = new UserLogController();
+        
+        itemController.generateCategoryItemInfo(4201, "beverage");
+        beveragePriceList = itemController.getCategoryPriceForMachine();
+        itemController.generateCategoryItemInfo(4201, "snack");
+        snackPriceList = itemController.getCategoryPriceForMachine();
         
         lycheeJuicePanel.setVisible(false);
         dietPepsiPanel.setVisible(false);
@@ -44,37 +49,34 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     }
     
     public void receiveMessage(String type, Integer index, Double value) {
-        if(type.equals("addtocart")) 
-            countList.set(index, countList.get(index)-1);
+     /*   if(type.equals("addtocart")) 
+     //       countList.set(index, countList.get(index)-1);
         if(type.equals("removefromcart"))
-            countList.set(index, countList.get(index)+1);
+     //       countList.set(index, countList.get(index)+1);
         if(type.equals("addtocount"))
-            countList.set(index, countList.get(index)+1);
+     //       countList.set(index, countList.get(index)+1);*/
     }
     
-    public void setPrice(){
+    public void setPrice(){               
+        cokePriceTextField.setText(Double.toString(beveragePriceList.get(0)));
+        orangePriceTextField.setText(Double.toString(beveragePriceList.get(1)));
+        lemonadePriceTextField.setText(Double.toString(beveragePriceList.get(2)));
+        gatoradePriceTextField.setText(Double.toString(beveragePriceList.get(3)));
+        frappuccinoPriceTextField.setText(Double.toString(beveragePriceList.get(4)));
+        coconutWaterPriceTextField.setText(Double.toString(beveragePriceList.get(5)));
+        sparklingWaterPriceTextField.setText(Double.toString(beveragePriceList.get(6)));
+        proteinSmoothiePriceTextField.setText(Double.toString(beveragePriceList.get(7)));
+        proteinShakePriceTextField1.setText(Double.toString(beveragePriceList.get(8)));
         
-        priceList = itemController.setPrice();
-        
-        cokePriceTextField.setText(Double.toString(priceList.get(0)));
-        orangePriceTextField.setText(Double.toString(priceList.get(1)));
-        lemonadePriceTextField.setText(Double.toString(priceList.get(2)));
-        gatoradePriceTextField.setText(Double.toString(priceList.get(3)));
-        frappuccinoPriceTextField.setText(Double.toString(priceList.get(4)));
-        coconutWaterPriceTextField.setText(Double.toString(priceList.get(5)));
-        sparklingWaterPriceTextField.setText(Double.toString(priceList.get(6)));
-        proteinSmoothiePriceTextField.setText(Double.toString(priceList.get(7)));
-        proteinShakePriceTextField1.setText(Double.toString(priceList.get(8)));
-        
-        granolaPriceTextField.setText(Double.toString(priceList.get(9)));
-        chipsPriceTextField.setText(Double.toString(priceList.get(10)));
-        nutsPriceTextField.setText(Double.toString(priceList.get(11)));
-        cookiePriceTextField.setText(Double.toString(priceList.get(12)));
-        driedFruitsPriceTextField.setText(Double.toString(priceList.get(13)));
-        popcornPriceTextField.setText(Double.toString(priceList.get(14)));
-        crackersPriceTextField.setText(Double.toString(priceList.get(15)));
-        veggieStrawsPriceTextField.setText(Double.toString(priceList.get(16)));
-        greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));   
+        granolaPriceTextField.setText(Double.toString(snackPriceList.get(0)));
+        chipsPriceTextField.setText(Double.toString(snackPriceList.get(1)));
+        nutsPriceTextField.setText(Double.toString(snackPriceList.get(2)));
+        cookiePriceTextField.setText(Double.toString(snackPriceList.get(3)));
+        driedFruitsPriceTextField.setText(Double.toString(snackPriceList.get(4)));
+        popcornPriceTextField.setText(Double.toString(snackPriceList.get(5)));
+        crackersPriceTextField.setText(Double.toString(snackPriceList.get(6)));
+        veggieStrawsPriceTextField.setText(Double.toString(snackPriceList.get(7)));
+        greekYogurtPriceTextField.setText(Double.toString(snackPriceList.get(8)));   
     }
    
 
