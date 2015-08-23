@@ -50,14 +50,14 @@ public class MachinesPanel extends javax.swing.JPanel {
             }
         });
 
-        machine2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vendingMachine.png"))); // NOI18N
+        machine2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/machine2.png"))); // NOI18N
         machine2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 machine2ButtonActionPerformed(evt);
             }
         });
 
-        machine1Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vendingMachine.png"))); // NOI18N
+        machine1Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/machine1.png"))); // NOI18N
         machine1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 machine1ButtonActionPerformed(evt);
