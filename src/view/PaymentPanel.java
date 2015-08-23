@@ -446,7 +446,10 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
         insertCardMessageTextField.setEditable(false);
         double price = Double.parseDouble(priceTextField.getText());
         double cardNumber = Double.parseDouble(cardNumberTextField.getText());
-
+        System.out.println(cardNumber);
+        if(cardNumber<300000 || cardNumber>400000){
+            JOptionPane.showMessageDialog(paymentPanel,"Enter a valid card number");
+        }
         double remainingBalance = context.pay(price,cardNumber);
         //double remainingBalance = smartCardController.payUsingCard(price,cardNumber);
         if(remainingBalance>=0)
@@ -528,6 +531,9 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
     private void dollar10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar10ButtonActionPerformed
         // TODO add your handling code here:
         String name = nameTextField.getText();
+        if(name.equals(""))
+            JOptionPane.showMessageDialog(paymentPanel,"Please enter a name");
+
         Integer cardNumber = smartCardController.addNewCard(name, 10);
         JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your current balance is $10");
 
@@ -536,6 +542,8 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
     private void dollar20ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar20ButtonActionPerformed
         // TODO add your handling code here:
         String name = nameTextField.getText();
+         if(name.equals(""))
+            JOptionPane.showMessageDialog(paymentPanel,"Please enter a name");
         Integer cardNumber = smartCardController.addNewCard(name, 20);
         JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your current balance is $20");
     }//GEN-LAST:event_dollar20ButtonActionPerformed
@@ -543,6 +551,8 @@ public class PaymentPanel extends javax.swing.JPanel  implements Observer {
     private void dollar50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar50ButtonActionPerformed
         // TODO add your handling code here:
         String name = nameTextField.getText();
+         if(name.equals(""))
+            JOptionPane.showMessageDialog(paymentPanel,"Please enter a name");
         Integer cardNumber = smartCardController.addNewCard(name, 50);
         JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your current balance is $50");
     }//GEN-LAST:event_dollar50ButtonActionPerformed

@@ -94,7 +94,8 @@ public class Main extends javax.swing.JFrame {
             public void run() {
                 Main main = new Main();
                 main.setContentPane(cards);
-                main.setSize(675, 500);
+                main.setLocationRelativeTo(null);
+                main.setSize(750, 500);
                 main.setVisible(true);
             }
         });
