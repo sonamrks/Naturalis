@@ -199,6 +199,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        leftPanel.setBackground(new java.awt.Color(251, 247, 229));
         leftPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         leftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -326,11 +327,12 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         );
         itemsPanelLayout.setVerticalGroup(
             itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+            .addGap(0, 280, Short.MAX_VALUE)
         );
 
-        leftPanel.add(itemsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 390, 290));
+        leftPanel.add(itemsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 390, 280));
 
+        middlePanel.setBackground(new java.awt.Color(251, 247, 229));
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         middlePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -434,20 +436,20 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         jLabel23.setText("Calories");
         displayPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, -1, -1));
 
-        middlePanel.add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 420, 330));
+        middlePanel.add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 460, 330));
 
         javax.swing.GroupLayout cartPanelLayout = new javax.swing.GroupLayout(cartPanel);
         cartPanel.setLayout(cartPanelLayout);
         cartPanelLayout.setHorizontalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 235, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
         cartPanelLayout.setVerticalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 128, Short.MAX_VALUE)
+            .addGap(0, 130, Short.MAX_VALUE)
         );
 
-        middlePanel.add(cartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 13, -1, -1));
+        middlePanel.add(cartPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 450, 130));
 
         jLabel1.setText("Item Code :");
 
@@ -534,32 +536,33 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
             .addGroup(infoPanelLayout.createSequentialGroup()
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addGap(42, 42, 42)
+                        .addComponent(nutritionFactsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(infoPanelLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(itemCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(getInfoButton))
-                    .addGroup(infoPanelLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(nutritionFactsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(getInfoButton)))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         infoPanelLayout.setVerticalGroup(
             infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infoPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addGroup(infoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
                     .addComponent(itemCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getInfoButton)
-                    .addComponent(jLabel1))
+                    .addComponent(getInfoButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nutritionFactsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        middlePanel.add(infoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 300, -1));
+        middlePanel.add(infoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 450, -1));
 
+        rightPanel.setBackground(new java.awt.Color(251, 247, 229));
         rightPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
@@ -581,9 +584,10 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap()
                 .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(middlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(middlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
