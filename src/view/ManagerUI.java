@@ -9,6 +9,7 @@ import controller.ItemController;
 import controller.UserLogController;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -244,7 +245,12 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         proteinShakeUpdateButton1 = new javax.swing.JButton();
         proteinShakeImageLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         BevSnacksStatisticsPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -2111,6 +2117,13 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
        NavigationPanel nav = new NavigationPanel(itemController);
        userLogController.addLogOutEntry(nav.getUserName(),"manager");
     }//GEN-LAST:event_logOutButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Confirm close", JOptionPane.YES_NO_OPTION);
+        if (i == 0) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_formWindowClosing
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

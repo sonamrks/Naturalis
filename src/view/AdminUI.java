@@ -314,8 +314,13 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         collectMoneyTextField = new javax.swing.JTextField();
         logOutButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(251, 247, 229));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         itemsPanel.setBackground(new java.awt.Color(114, 148, 36));
 
@@ -2026,6 +2031,13 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         NavigationPanel nav = new NavigationPanel(itemController);
         userLogController.addLogOutEntry(nav.getUserName(),"admin");
     }//GEN-LAST:event_logOutButtonActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Confirm close", JOptionPane.YES_NO_OPTION);
+        if (i == 0) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
