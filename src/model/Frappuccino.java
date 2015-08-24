@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author Sonam
  */
-public class Frappucino implements Beverage{
+public class Frappuccino implements Beverage{
 	
 	private int code;
         private String name;
@@ -27,7 +27,7 @@ public class Frappucino implements Beverage{
         String query;
         ResultSet result;
 	
-	public Frappucino(){
+	public Frappuccino(){
             try {
                 DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
                 Connection connection = dbConnection.getConnection();
