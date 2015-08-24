@@ -27,12 +27,12 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private List<Integer> itemCodes;
     private List<String> itemNames;
     private List<Double> itemPrices;
+    private List<String> itemPicturePaths;
     private int numcols, numrows;
     private double totalPrice;
     private String name;
     private Product item;
     private int soldCount,count;
-    private List<String> itemPicturePaths;
  //   private Set<Observer> observers;
     
     ItemFactory beverageFactory = new BeverageFactory();
@@ -102,6 +102,10 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
        
     public void updateCartTable() {
         fireTableRowsInserted(itemCodes.size()-1, numcols-1);
+    }
+    
+    public void updateItemsCartTable(int size, int cols) {
+        fireTableRowsDeleted(size, cols);
     }
     
     public void updateSoldCount(Integer code,String action){
@@ -184,46 +188,8 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
 
     @Override
     public Iterator createIterator() {
-      return new CartIterator();
+      return new CartIterator(this);
      //   return null;
-    }
-
-    class CartIterator implements Iterator {
-            int currentIndex = 0;
-
-            @Override
-            public boolean hasNext() {
-                    if (currentIndex >= cartItems.size()) {
-                            return false;
-                    } else {
-                            return true;
-                    }
-            }
-
-            @Override
-            public Integer next() {
-                    return itemCodes.get(currentIndex++);
-            }
-            
-            @Override
-            public void removeItem(Integer code) {
-                while(hasNext()) {
-               //     System.out.println("hello1: " + next().getCode());
-                    if(next().equals(code)) {
-                        itemCodes.remove(--currentIndex);
-                        itemNames.remove(currentIndex);  
-                        System.out.println("Price to be subr: " + itemPrices.get(currentIndex));
-                    //    subtractPrice(itemPrices.get(currentIndex));
-                        itemPrices.remove(currentIndex);   
-                        itemPicturePaths.remove(currentIndex); 
-                        cartItems.remove(currentIndex);
-                        break;
-                    }
-                }
-                currentIndex = 0;
-
-                fireTableRowsDeleted(itemCodes.size(), numcols-1); 
-            }
     }
          
     public double getTotalPrice() {
