@@ -36,7 +36,7 @@ public class BeveragePanel extends javax.swing.JPanel {
         this.machineID = machineID;
         this.customerUI = customerUI;
         itemsController = customerUI.getItemController();
-        itemsCartController = customerUI.getItemsCartController();
+        itemsCartController = customerUI.getCartItemsController();
         itemsController.generateCategoryItemInfo(machineID, "beverage");
         setCodeLabel();
         setPriceLabel();

@@ -35,7 +35,7 @@ public class SnackPanel extends javax.swing.JPanel {
         this.machineID = machineID;
         this.customerUI = customerUI;
         itemsController = customerUI.getItemController();
-        itemsCartController = customerUI.getItemsCartController();
+        itemsCartController = customerUI.getCartItemsController();
         itemsController.generateCategoryItemInfo(machineID, "snack");
         setCodeLabel();
         setPriceLabel();

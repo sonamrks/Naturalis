@@ -30,7 +30,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private Integer machineID;
  //   private PriceController priceController;
     private ItemController itemController;
-    private CartItemsController itemsCartController;
+    private CartItemsController cartItemsController;
     private SmartCardController smartCardController;
   //  private double price;
     private CartItemsPanel cartItemsPanel;
@@ -53,13 +53,13 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         initComponents();    
                  
       //  priceController = new PriceController(this, machineID);
-        itemsCartController = new CartItemsController(this);
+        cartItemsController = new CartItemsController(this);
       //  itemController = new ItemController(machineID);
         this.itemController = itemController;
         smartCardController = new SmartCardController(this);
         
-        cartItemsPanel = new CartItemsPanel(itemsCartController);
-        paymentPanel = new PaymentPanel(this, itemsCartController);
+        cartItemsPanel = new CartItemsPanel(cartItemsController);
+        paymentPanel = new PaymentPanel(this, cartItemsController);
         cartPanel.setLayout(new FlowLayout());
         cartPanel.add(cartItemsPanel);
         rightPanel.setLayout(new FlowLayout());
@@ -86,8 +86,8 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         return itemController;
     }
     
-    public CartItemsController getItemsCartController() { 
-        return itemsCartController;
+    public CartItemsController getCartItemsController() { 
+        return cartItemsController;
     }
     
     public CartItemsPanel getCartItemsPanel() {
@@ -113,14 +113,14 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         paymentPanel.setPaymentPanel();
     }
     class TimerHandler implements ActionListener {
-        List<String> dispenserItemPicturePaths = itemsCartController.getPicturePath(); 
+        List<String> dispenserItemPicturePaths = cartItemsController.getPicturePath(); 
         int size =dispenserItemPicturePaths.size();
         public void actionPerformed(ActionEvent e) {
             if(index >= size) {
                 timer.stop();
                 item1DispensedLabel.setIcon(null);
                 giveChange(Double.toString(0));
-                itemsCartController.removeAllItems();
+                cartItemsController.removeAllItems();
                 index = 0;
             }
             else { 
@@ -753,6 +753,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Confirm close", JOptionPane.YES_NO_OPTION);
         if (i == 0) {
+            cartItemsController.removeAllItems();
             this.dispose();
         }
     }//GEN-LAST:event_formWindowClosing
