@@ -9,14 +9,16 @@ package controller;
  *
  * @author Sonam
  */
-public class Decorator extends SuggestionsComponent {  
+public class Decorator implements Component {  
     SuggestionsComponent suggestionsComponent;
   
-   public Decorator(SuggestionsComponent suggestionsComponent) { 
+    public Decorator(SuggestionsComponent suggestionsComponent) { 
         this.suggestionsComponent = suggestionsComponent;
     }
    
-    
+    @Override
+    public void filter() {
+    }
     /*public SuggestionsComponent getSuggestionsComponent() {
 //        return suggestionsComponent;
     }*/

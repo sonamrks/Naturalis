@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Sonam
  */
-public class SuggestionsComponent {
+public class SuggestionsComponent implements Component{
     private Item item;
     
     private ArrayList<Integer> codeList;
