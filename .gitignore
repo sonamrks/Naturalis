@@ -1,2 +1,3 @@
 /bin/
 src/model/SnackComponent.java
+src/controller/Component.java
