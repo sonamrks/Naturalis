@@ -21,22 +21,22 @@ import view.CartItemsPanel;
 import view.PaymentPanel;
 
 public class CartItemsController implements ListSelectionListener, TableModelListener {
-    private CartItemsTableModel itemsCartTableModel;
+    private CartItemsTableModel cartItemsTableModel;
     private CustomerUI customerUI;
     Iterator iterator;
     
     public CartItemsController(CustomerUI customerUI) {
         this.customerUI = customerUI;
-        itemsCartTableModel = new CartItemsTableModel();
-        itemsCartTableModel.addTableModelListener(this);
-        iterator = itemsCartTableModel.createIterator();
+        cartItemsTableModel = new CartItemsTableModel();
+        cartItemsTableModel.addTableModelListener(this);
+        iterator = cartItemsTableModel.createIterator();
                 
      //   itemsCartTableModel.attachObserver(cartItemsPanel);
      //   itemsCartTableModel.attachObserver(paymentPanel);
     }
         
     public TableModel getTableModel() {
-            return itemsCartTableModel;
+            return cartItemsTableModel;
     }
 
     @Override
@@ -44,16 +44,16 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         ListSelectionModel selectModel = (ListSelectionModel) e.getSource();
         int firstIndex = selectModel.getMinSelectionIndex();
 		
-        customerUI.setItemCodeTextField((String) itemsCartTableModel.getValueAt(firstIndex, 0));
-        customerUI.getCartItemsPanel().setItemCodeTextField((String) itemsCartTableModel.getValueAt(firstIndex, 0));
+        customerUI.setItemCodeTextField((String) cartItemsTableModel.getValueAt(firstIndex, 0));
+        customerUI.getCartItemsPanel().setItemCodeTextField((String) cartItemsTableModel.getValueAt(firstIndex, 0));
     }   
 
     @Override
     public void tableChanged(TableModelEvent e) {
        try {
             // create a new table model with the new data
-            itemsCartTableModel = new CartItemsTableModel(itemsCartTableModel.getItemCodes(),itemsCartTableModel.getItemNames(),itemsCartTableModel.getItemPrices(),itemsCartTableModel.getPicturePath(),itemsCartTableModel.getCartItems(),itemsCartTableModel.getTotalPrice());
-            itemsCartTableModel.addTableModelListener(this);
+            cartItemsTableModel = new CartItemsTableModel(cartItemsTableModel.getItemCodes(),cartItemsTableModel.getItemNames(),cartItemsTableModel.getItemPrices(),cartItemsTableModel.getPicturePath(),cartItemsTableModel.getCartItems(),cartItemsTableModel.getTotalPrice());
+            cartItemsTableModel.addTableModelListener(this);
             // update the JTable with the data
             customerUI.getCartItemsPanel().update();	 
             customerUI.getPaymentPanel().update();
@@ -65,8 +65,8 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
 
     public void addItem(String ID){
      //   itemsCartTableModel.addRow(Integer.valueOf(ID));	
-        itemsCartTableModel.addItem(Integer.valueOf(ID));
-        itemsCartTableModel.updateSoldCount(Integer.valueOf(ID),"add");
+        cartItemsTableModel.addItem(Integer.valueOf(ID));
+        cartItemsTableModel.updateSoldCount(Integer.valueOf(ID),"add");
     }
 
     public void removeItem(String ID){
@@ -76,16 +76,16 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
          //   itemsCartTableModel.deleteRow(Integer.valueOf(ID));
             iterator.removeItem(Integer.valueOf(ID));
      //       itemsCartTableModel.removeItem(Integer.valueOf(ID));
-            itemsCartTableModel.updateSoldCount(Integer.valueOf(ID),"remove");
+            cartItemsTableModel.updateSoldCount(Integer.valueOf(ID),"remove");
         }
     }	
     
     public double getTotalPrice() {
-        return itemsCartTableModel.getTotalPrice();
+        return cartItemsTableModel.getTotalPrice();
     }
     
     public void removeAllItems() {
-        itemsCartTableModel.removeAllItems();
+        cartItemsTableModel.removeAllItems();
     }
     
     public double deductPrice(double price, double deductable){
@@ -93,7 +93,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         return remainingPrice;
     }
     public List<String> getPicturePath(){
-        return itemsCartTableModel.getPicturePath();
+        return cartItemsTableModel.getPicturePath();
     }
 	
 }

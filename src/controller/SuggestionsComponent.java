@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Sonam
  */
 public class SuggestionsComponent {
-    private Item itemTableModel;
+    private Item item;
     
     private ArrayList<Integer> codeList;
     private ArrayList<String> nameList;
@@ -29,7 +29,7 @@ public class SuggestionsComponent {
     }
     
     public SuggestionsComponent(Item itemTableModel) {
-        this.itemTableModel = itemTableModel;  
+        this.item = itemTableModel;  
         itemTableModel.generateItemInfo(4201);
         codeList = itemTableModel.getCodeForMachine();
         nameList = itemTableModel.getNameListForMachine();

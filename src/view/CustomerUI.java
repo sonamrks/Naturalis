@@ -49,10 +49,9 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
      * Creates new form CustomerUI
      */
     public CustomerUI(ItemController itemController, Integer machineID) { 
+        this.machineID= machineID;
         initComponents();    
                  
-        this.machineID= machineID;
-        machineIDLabel.setText("Machine ID : "+machineID);
       //  priceController = new PriceController(this, machineID);
         itemsCartController = new CartItemsController(this);
       //  itemController = new ItemController(machineID);
@@ -168,7 +167,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         changeTextField = new javax.swing.JTextField();
         coinsImageLabel = new javax.swing.JLabel();
         itemsPanel = new javax.swing.JPanel();
-        machineIDLabel = new javax.swing.JLabel();
         middlePanel = new javax.swing.JPanel();
         displayPanel = new javax.swing.JPanel();
         lowSugarsCheckBox = new javax.swing.JCheckBox();
@@ -208,6 +206,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         rightPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Machine ID: " + machineID);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -253,7 +252,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanel.add(selectButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        leftPanel.add(selectButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         dispenserPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -281,7 +280,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanel.add(dispenserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 160, 160));
+        leftPanel.add(dispenserPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 160, 160));
 
         changeSlotPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -326,21 +325,20 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanel.add(changeSlotPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 210, 160));
+        leftPanel.add(changeSlotPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, 210, 160));
 
         javax.swing.GroupLayout itemsPanelLayout = new javax.swing.GroupLayout(itemsPanel);
         itemsPanel.setLayout(itemsPanelLayout);
         itemsPanelLayout.setHorizontalGroup(
             itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
         itemsPanelLayout.setVerticalGroup(
             itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 370, Short.MAX_VALUE)
         );
 
-        leftPanel.add(itemsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 390, 370));
-        leftPanel.add(machineIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 20));
+        leftPanel.add(itemsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 420, 370));
 
         middlePanel.setBackground(new java.awt.Color(251, 247, 229));
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -621,7 +619,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         rightPanel.setLayout(rightPanelLayout);
         rightPanelLayout.setHorizontalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 276, Short.MAX_VALUE)
+            .addGap(0, 282, Short.MAX_VALUE)
         );
         rightPanelLayout.setVerticalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -633,8 +631,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(middlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -655,9 +652,8 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -800,7 +796,6 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JPanel leftPanel;
     private javax.swing.JCheckBox lowCaloriesCheckBox;
     private javax.swing.JCheckBox lowSugarsCheckBox;
-    private javax.swing.JLabel machineIDLabel;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel middlePanel;
     private javax.swing.JPanel nutritionFactsPanel;

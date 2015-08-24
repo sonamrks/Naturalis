@@ -19,7 +19,7 @@ import view.CustomerUI;
  */
 public class ItemController implements Mediator {
     
-    private Item itemsTableModel;
+    private Item item;
     private SuggestionsComponent suggestionsComponent;
     private Decorator decorator;
     private ArrayList <Colleague> colleagues = new ArrayList<Colleague>();
@@ -33,47 +33,47 @@ public class ItemController implements Mediator {
     public String[] lowSugarsNames = new String[100];
     
     public ItemController() {
-       itemsTableModel = new Item();
+       item = new Item();
     }
     
     public void generateItemInfo(Integer machineId) {
-        itemsTableModel.generateItemInfo(machineId);
+        item.generateItemInfo(machineId);
     }
     
     public ArrayList<Integer> getCodeForMachine(){
-        return itemsTableModel.getCodeForMachine();
+        return item.getCodeForMachine();
     }
     
     public ArrayList<String> getNameListForMachine() {
-        return itemsTableModel.getNameListForMachine();
+        return item.getNameListForMachine();
     }
         
     public ArrayList<Double> getPriceForMachine() {
-        return itemsTableModel.getPriceForMachine();
+        return item.getPriceForMachine();
     }
     
     public ArrayList<Integer> getCountListForMachine() {
-        return itemsTableModel.getCountListForMachine();
+        return item.getCountListForMachine();
     }
     
     public void generateCategoryItemInfo(Integer machineID, String category) {
-        itemsTableModel.generateCategoryItemInfo(machineID, category);
+        item.generateCategoryItemInfo(machineID, category);
     }
      
     public ArrayList<Integer> getCategoryCodeForMachine() {
-        return itemsTableModel.getCategoryCodeForMachine();
+        return item.getCategoryCodeForMachine();
     }
     
     public ArrayList<Double> getCategoryPriceForMachine() {
-        return itemsTableModel.getCategoryPriceForMachine();
+        return item.getCategoryPriceForMachine();
     }
     
     public ArrayList<Integer> getCategoryCountForMachine(){
-        return itemsTableModel.getCategoryCountForMachine();
+        return item.getCategoryCountForMachine();
     }
 
     public String getSuggestionList(Boolean[] checkedList){
-            suggestionsComponent = new SuggestionsComponent(itemsTableModel);
+            suggestionsComponent = new SuggestionsComponent(item);
            
             System.out.println("before Size: " + suggestionsComponent.getSize());
             
@@ -100,32 +100,32 @@ public class ItemController implements Mediator {
     
   
     public String getCalorieRangeSuggestions(int low,int high){
-        return itemsTableModel.getCalorieRangeSuggestions(low,high);
+        return item.getCalorieRangeSuggestions(low,high);
     }
     
     public int getCategorySoldCount(String category) {
-        return itemsTableModel.getCategorySoldCount(category);
+        return item.getCategorySoldCount(category);
     }
     
     public int getCategorySoldCount(String category, String machine) {
-        return itemsTableModel.getCategorySoldCount(category,machine);
+        return item.getCategorySoldCount(category,machine);
     }
     
     public ArrayList<Integer> getItemSoldCount(String machine){
         ArrayList<Integer> soldCount =  new ArrayList<Integer>();
-        soldCount =  itemsTableModel.getItemSoldCount(machine);
+        soldCount =  item.getItemSoldCount(machine);
         return soldCount;
     }
     public int[] getNutritionalItemSoldCount(String machine){
         
-        nutritionalCount = itemsTableModel.getNutritionalItemSoldCount(machine);
+        nutritionalCount = item.getNutritionalItemSoldCount(machine);
         
-        lowCalCount = itemsTableModel.getLowCalCount();
-        lowCalNames = itemsTableModel.getLowCalNames();
-        highProteinCount = itemsTableModel.getHighProteinCount();
-        highProteinNames = itemsTableModel.getHighProteinNames();
-        lowSugarsCount = itemsTableModel.getLowSugarsCount();
-        lowSugarsNames = itemsTableModel.getLowSugarsNames();
+        lowCalCount = item.getLowCalCount();
+        lowCalNames = item.getLowCalNames();
+        highProteinCount = item.getHighProteinCount();
+        highProteinNames = item.getHighProteinNames();
+        lowSugarsCount = item.getLowSugarsCount();
+        lowSugarsNames = item.getLowSugarsNames();
         
        // for(int i=0;i<5;i++)
          //   System.out.println(lowCalNames[i]);
@@ -134,7 +134,7 @@ public class ItemController implements Mediator {
     }
        
     public void addNewItem(String[] itemInfo){
-        itemsTableModel.addNewItem(itemInfo);
+        item.addNewItem(itemInfo);
     }
     
     public void sendMessageToAll(Colleague sender, String type, String product, Integer index, Double value) {
@@ -151,21 +151,21 @@ public class ItemController implements Mediator {
     }
     
     public double collectMoney(Integer machineID){
-        return itemsTableModel.collectMoney(machineID);
+        return item.collectMoney(machineID);
     }
   
     public int[] getInfo(String ID){
-        int[] nutritionalFacts = itemsTableModel.getInfo(Integer.valueOf(ID));
+        int[] nutritionalFacts = item.getInfo(Integer.valueOf(ID));
         return nutritionalFacts;
     }
      
     public void increaseItemCount(Integer count, Integer code){
-       itemsTableModel.increaseItemCount(count,code);
+       item.increaseItemCount(count,code);
     }
     public void updatePrice(Double price,Integer code){
-       itemsTableModel.updatePrice(price,code);
+       item.updatePrice(price,code);
     }
     public double getSales(int machineID){
-        return itemsTableModel.getSales(machineID);
+        return item.getSales(machineID);
     }
 }
