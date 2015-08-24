@@ -5,6 +5,7 @@
  */
 package view;
 
+import main.Main;
 import controller.ItemController;
 import java.awt.Graphics;
 import java.awt.Image;

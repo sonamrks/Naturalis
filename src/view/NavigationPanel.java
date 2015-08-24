@@ -5,6 +5,7 @@
  */
 package view;
 
+import main.Main;
 import controller.AccessUserController;
 import controller.ItemController;
 import controller.LoginStrategy;
