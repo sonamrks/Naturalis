@@ -204,7 +204,12 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         caloriesTextField = new javax.swing.JTextField();
         rightPanel = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         leftPanel.setBackground(new java.awt.Color(251, 247, 229));
         leftPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -725,6 +730,13 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     private void lowCaloriesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lowCaloriesCheckBoxActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close?", "Confirm close", JOptionPane.YES_NO_OPTION);
+        if (i == 0) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Name;
