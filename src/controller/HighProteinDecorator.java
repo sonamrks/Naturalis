@@ -11,26 +11,26 @@ package controller;
  */
 public class HighProteinDecorator extends Decorator {
      
-    public HighProteinDecorator(SuggestionsComponent suggestionsComponent) {
-        super(suggestionsComponent);
+    public HighProteinDecorator(Component component) {
+        super(component);
     }
     
     @Override
     public void filter() {
-        suggestionsComponent.filter();
+        component.filter();
         highProteinFilter();
     }
     
     public void highProteinFilter() {
-        int size = suggestionsComponent.getCodeList().size();
+        int size = component.getCodeList().size();
         int i = 0;
         while(i < size) {
-            if(suggestionsComponent.getProteinList().get(i) < 4) {
-                suggestionsComponent.getCaloriesList().remove(i);
-                suggestionsComponent.getNameList().remove(i);
-                suggestionsComponent.getCodeList().remove(i);
-                suggestionsComponent.getProteinList().remove(i);
-                suggestionsComponent.getSugarsList().remove(i);  
+            if(component.getProteinList().get(i) < 4) {
+                component.getCaloriesList().remove(i);
+                component.getNameList().remove(i);
+                component.getCodeList().remove(i);
+                component.getProteinList().remove(i);
+                component.getSugarsList().remove(i);  
                 size--;
             }
             else {

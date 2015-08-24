@@ -11,26 +11,26 @@ package controller;
  */
 public class LowSugarsDecorator extends Decorator {
      
-    public LowSugarsDecorator(SuggestionsComponent suggestionsComponent) {
-        super(suggestionsComponent);
+    public LowSugarsDecorator(Component component) {
+        super(component);
     }
     
     @Override
     public void filter() {
-        suggestionsComponent.filter();
+        component.filter();
         lowSugarsFilter();
     }
     
     public void lowSugarsFilter() {
-        int size = suggestionsComponent.getCodeList().size();
+        int size = component.getCodeList().size();
         int i = 0;
         while(i < size) {
-            if(suggestionsComponent.getSugarsList().get(i) > 20) {
-                suggestionsComponent.getCaloriesList().remove(i);
-                suggestionsComponent.getNameList().remove(i);
-                suggestionsComponent.getCodeList().remove(i);
-                suggestionsComponent.getProteinList().remove(i);
-                suggestionsComponent.getSugarsList().remove(i);  
+            if(component.getSugarsList().get(i) > 20) {
+                component.getCaloriesList().remove(i);
+                component.getNameList().remove(i);
+                component.getCodeList().remove(i);
+                component.getProteinList().remove(i);
+                component.getSugarsList().remove(i);  
                 size--;
             }
             else {

@@ -10,10 +10,10 @@ package controller;
  * @author Sonam
  */
 public class Decorator extends SuggestionsComponent {  
-    SuggestionsComponent suggestionsComponent;
+    Component component;
   
-   public Decorator(SuggestionsComponent suggestionsComponent) { 
-        this.suggestionsComponent = suggestionsComponent;
+   public Decorator(Component component) { 
+        this.component = component;
     }
    
     

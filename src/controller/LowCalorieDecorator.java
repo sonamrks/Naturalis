@@ -10,15 +10,15 @@ package controller;
  */
 public class LowCalorieDecorator extends Decorator {
      
-    public LowCalorieDecorator(SuggestionsComponent suggestionsComponent) {
-          super(suggestionsComponent);
+    public LowCalorieDecorator(Component component) {
+          super(component);
           
       //  this.suggestionsComponent = suggestionsComponent;
     }
     
     @Override
     public void filter() {
-        suggestionsComponent.filter();
+        component.filter();
         lowCalorieFilter();
     }
     
@@ -38,15 +38,15 @@ public class LowCalorieDecorator extends Decorator {
     }*/
     
       public void lowCalorieFilter() {
-        int size = suggestionsComponent.getCodeList().size();
+        int size = component.getCodeList().size();
         int i = 0;
         while(i < size) {
-            if(suggestionsComponent.getCaloriesList().get(i) > 120) {
-                suggestionsComponent.getCaloriesList().remove(i);
-                suggestionsComponent.getNameList().remove(i);
-                suggestionsComponent.getCodeList().remove(i);
-                suggestionsComponent.getProteinList().remove(i);
-                suggestionsComponent.getSugarsList().remove(i); 
+            if(component.getCaloriesList().get(i) > 120) {
+                component.getCaloriesList().remove(i);
+                component.getNameList().remove(i);
+                component.getCodeList().remove(i);
+                component.getProteinList().remove(i);
+                component.getSugarsList().remove(i); 
                 size--;
             }
             else {
