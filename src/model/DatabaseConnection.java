@@ -18,7 +18,7 @@ public class DatabaseConnection {
 private static final String DB_URL = "jdbc:mysql://localhost/designPatternsDB";
 private static final String USER = "root";
 private static final String PASS = "password";
-protected static DatabaseConnection dbConnectionInstance;
+private static DatabaseConnection dbConnectionInstance;
 private static Connection connection;
 
 public static DatabaseConnection getInstance(){
