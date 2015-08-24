@@ -80,23 +80,23 @@ public class SnackPanel extends javax.swing.JPanel {
         count = itemsController.getCategoryCountForMachine();
      //   System.out.println(count[0]);
         if(count.get(0)==0)
-            granolaPanel.setBackground(Color.red);
+            granolaPanel.setBackground(new Color(212,204,209));
         if(count.get(1)==0)
-            chipsPanel.setBackground(Color.red);
+            chipsPanel.setBackground(new Color(212,204,209));
         if(count.get(2)==0)
-            nutsPanel.setBackground(Color.red);
+            nutsPanel.setBackground(new Color(212,204,209));
         if(count.get(3)==0)
-            cookiePanel.setBackground(Color.red);
+            cookiePanel.setBackground(new Color(212,204,209));
         if(count.get(4)==0)
-            driedFruitPanel.setBackground(Color.red);
+            driedFruitPanel.setBackground(new Color(212,204,209));
         if(count.get(5)==0)
-            popcornPanel.setBackground(Color.red);
+            popcornPanel.setBackground(new Color(212,204,209));
         if(count.get(6)==0)
-            crackersPanel.setBackground(Color.red);
+            crackersPanel.setBackground(new Color(212,204,209));
         if(count.get(7)==0)
-            veggieStrawsPanel.setBackground(Color.red);
+            veggieStrawsPanel.setBackground(new Color(212,204,209));
         if(count.get(8)==0)
-            greekYogurtPanel.setBackground(Color.red);
+            greekYogurtPanel.setBackground(new Color(212,204,209));
     }
 
     /**

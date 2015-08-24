@@ -82,24 +82,25 @@ public class BeveragePanel extends javax.swing.JPanel {
     public void getCount(){
         count = itemsController.getCategoryCountForMachine();
       //  System.out.println(count[0]);
-        if(count.get(0)==0)
-            cokePanel.setBackground(Color.red);
+        if(count.get(0)==0){
+            cokePanel.setBackground(new Color(212,204,209));
+        }
         if(count.get(1)==0)
-            orangePanel.setBackground(Color.red);
+            orangePanel.setBackground(new Color(212,204,209));
         if(count.get(2)==0)
-            lemonadePanel.setBackground(Color.red);
+            lemonadePanel.setBackground(new Color(212,204,209));
         if(count.get(3)==0)
-            gatoradePanel.setBackground(Color.red);
+            gatoradePanel.setBackground(new Color(212,204,209));
         if(count.get(4)==0)
-            frappuccinoPanel.setBackground(Color.red);
+            frappuccinoPanel.setBackground(new Color(212,204,209));
         if(count.get(5)==0)
-            coconutWaterPanel.setBackground(Color.red);
+            coconutWaterPanel.setBackground(new Color(212,204,209));
         if(count.get(6)==0)
-            sparklingWaterPanel.setBackground(Color.red);
+            sparklingWaterPanel.setBackground(new Color(212,204,209));
         if(count.get(7)==0)
-            proteinSmoothiePanel.setBackground(Color.red);
+            proteinSmoothiePanel.setBackground(new Color(212,204,209));
         if(count.get(8)==0)
-            proteinShakePanel.setBackground(Color.red);
+            proteinShakePanel.setBackground(new Color(212,204,209));
     }
     /**
      * This method is called from within the constructor to initialize the form.
