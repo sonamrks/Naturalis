@@ -18,20 +18,20 @@ import javax.swing.JTable;
 public class CartItemsPanel extends javax.swing.JPanel implements Observer {
     
     private JTable cartTable; 
-    private static CartItemsController itemsCartController;
+    private CartItemsController cartItemsController;
 
     /**
      * Creates new form CartItemsPanel
      */
-    public CartItemsPanel(CartItemsController itemsCartController) {
+    public CartItemsPanel(CartItemsController cartItemsController) {
         initComponents();   
-        this.itemsCartController = itemsCartController;
+        this.cartItemsController = cartItemsController;
         addCartTable();
     }
         
     public void addCartTable() {
-        cartTable = new JTable(itemsCartController.getTableModel());
-        cartTable.getSelectionModel().addListSelectionListener(itemsCartController);
+        cartTable = new JTable(cartItemsController.getTableModel());
+        cartTable.getSelectionModel().addListSelectionListener(cartItemsController);
         JScrollPane cartScrollPane = new JScrollPane(cartTable);
         cartItemsPanel.setLayout(new BorderLayout());
         cartItemsPanel.add(cartScrollPane, BorderLayout.CENTER);       
@@ -41,7 +41,7 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
     }*/
        
     public void update(){
-        cartTable.setModel(itemsCartController.getTableModel());
+        cartTable.setModel(cartItemsController.getTableModel());
     }
     
     public void setItemCodeTextField(String s) {
@@ -126,7 +126,7 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
     }// </editor-fold>//GEN-END:initComponents
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-        itemsCartController.removeItem(hiddenTextField.getText());
+        cartItemsController.removeItem(hiddenTextField.getText());
     }//GEN-LAST:event_removeButtonActionPerformed
 
 
