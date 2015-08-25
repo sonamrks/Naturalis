@@ -2133,7 +2133,7 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
       amountToBeCollectedTextField.setText("");
       collectMoneyTextField.setText("");
       double roundOff = Math.round(moneyInMachine * 100.0) / 100.0;
-      moneyTextField.setText(Double.toString(moneyInMachine));
+      moneyTextField.setText(Double.toString(roundOff));
     }//GEN-LAST:event_machine2RadioButtonActionPerformed
 
     private void amountToBeCollectedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountToBeCollectedTextFieldActionPerformed
