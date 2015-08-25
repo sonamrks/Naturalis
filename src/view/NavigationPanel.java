@@ -9,7 +9,10 @@ import main.Main;
 import controller.AccessUserController;
 import controller.ItemController;
 import controller.LoginStrategy;
+import controller.ManagerRole;
 import controller.MultipleLoginAttempts;
+import controller.Person;
+import controller.Role;
 import controller.UserLogController;
 import javax.swing.JOptionPane;
 
@@ -31,8 +34,8 @@ public class NavigationPanel extends javax.swing.JPanel {
      * Creates new form NavigationPage
      */
     public NavigationPanel(ItemController itemController) {
+        this.itemController = itemController;        
         initComponents();
-        this.itemController = itemController;
         loginPanel = new LoginPanel();
         accessUserController = new AccessUserController();
         userLogController = new UserLogController();
@@ -152,6 +155,10 @@ public class NavigationPanel extends javax.swing.JPanel {
                 loginPanel.setPassword();
                 userLogController.addLogInEntry(username,"manager");
                 Main.setActivityType(2);
+            /*    Role managerRole = new ManagerRole(itemController);
+                Person person = new Person();
+                person.setRole(managerRole);
+                person.filterView(); */
                 new ManagerUI(itemController).setVisible(true);
             }
             else {
