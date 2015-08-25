@@ -252,7 +252,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        leftPanel.add(selectButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+        leftPanel.add(selectButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, -1, 100));
 
         dispenserPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -335,10 +335,10 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         );
         itemsPanelLayout.setVerticalGroup(
             itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
 
-        leftPanel.add(itemsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 420, 370));
+        leftPanel.add(itemsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 420, 390));
 
         middlePanel.setBackground(new java.awt.Color(251, 247, 229));
         middlePanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

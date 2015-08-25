@@ -96,7 +96,7 @@
             <Container class="javax.swing.JPanel" name="selectButtonPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="90" y="10" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="90" y="0" width="-1" height="100"/>
                 </Constraint>
               </Constraints>
 
@@ -278,7 +278,7 @@
             <Container class="javax.swing.JPanel" name="itemsPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="130" width="420" height="370"/>
+                  <AbsoluteConstraints x="20" y="110" width="420" height="390"/>
                 </Constraint>
               </Constraints>
 
@@ -290,7 +290,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="370" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="390" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
