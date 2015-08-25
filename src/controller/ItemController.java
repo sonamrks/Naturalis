@@ -132,6 +132,30 @@ public class ItemController implements Mediator {
         
         return nutritionalCount;
     }
+    
+    public int[] getLowCalCount() {
+        return lowCalCount;
+    }
+
+    public String[] getLowCalNames() {
+        return lowCalNames;
+    }
+
+    public int[] getHighProteinCount() {
+        return highProteinCount;
+    }
+
+    public String[] getHighProteinNames() {
+        return highProteinNames;
+    }
+
+    public int[] getLowSugarsCount() {
+        return lowSugarsCount;
+    }
+
+    public String[] getLowSugarsNames() {
+        return lowSugarsNames;
+    }
        
     public void addNewItem(String[] itemInfo){
         item.addNewItem(itemInfo);

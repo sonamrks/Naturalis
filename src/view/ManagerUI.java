@@ -2009,7 +2009,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         PieChart pieChart = new PieChart();
         //for(int i=0;i<15;i++)
             //System.out.println(managerController.lowCalNames[i]);
-        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount,itemController.lowCalCount,itemController.lowCalNames,itemController.highProteinCount,itemController.highProteinNames,itemController.lowSugarsCount,itemController.lowSugarsNames);
+        pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount,itemController.getLowCalCount(),itemController.getLowCalNames(),itemController.getHighProteinCount(),itemController.getHighProteinNames(),itemController.getLowSugarsCount(),itemController.getLowSugarsNames());
         pieChart.pack();
         pieChart.setVisible(true);
     }//GEN-LAST:event_nutritionalStatisticsButtonActionPerformed
