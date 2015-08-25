@@ -21,5 +21,6 @@ public interface Product {
         public String getPicturePath();
         public int getCount();
 	public void setCount(int count);
+        public String getType();
 
 }

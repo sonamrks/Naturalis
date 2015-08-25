@@ -25,7 +25,8 @@ public class Cookie implements Snack{
 	private double price;
 	private int count;
         private String picturePath;
-          
+        private String itemType;
+        
         Statement statement;
         String query;
         ResultSet result;
@@ -47,6 +48,7 @@ public class Cookie implements Snack{
                     price = result.getDouble("price");
                     count = result.getInt("count");
                     picturePath = result.getString("picturePath");
+                    itemType = result.getString("category");
                 }
                 
                 result.close();
@@ -120,4 +122,7 @@ public class Cookie implements Snack{
 	public void setPicturePath(String picturePath){
 		this.picturePath = picturePath;
 	}   
+        public String getType() {
+            return itemType;
+        }
 }

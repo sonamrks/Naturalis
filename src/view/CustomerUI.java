@@ -58,7 +58,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
       //  itemController = new ItemController(machineID);
         smartCardController = new SmartCardController(this);
         
-        cartItemsPanel = new CartItemsPanel(cartItemsController, itemController);
+        cartItemsPanel = new CartItemsPanel(this, cartItemsController, itemController);
         paymentPanel = new PaymentPanel(this, cartItemsController);
         cartPanel.setLayout(new FlowLayout());
         cartPanel.add(cartItemsPanel);
@@ -128,10 +128,13 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
             }
         }
    }
+    
+    @Override
     public void sendMessage(String type, String product, Integer index, Double value) {
         itemController.sendMessageToAll(this, type, product, index, value);
     }
     
+    @Override
     public void receiveMessage(String type, String product, Integer index, Double value) {
         if(type.equals("changeprice")) {
             if(product.equals("beverage")) {

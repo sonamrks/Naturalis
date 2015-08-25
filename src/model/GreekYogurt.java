@@ -23,6 +23,7 @@ public class GreekYogurt implements Snack{
         private int calories;
 	private double price;
         private String picturePath;
+        private String itemType;
 	private int count;
           
         Statement statement;
@@ -46,6 +47,7 @@ public class GreekYogurt implements Snack{
                     price = result.getDouble("price");
                     count = result.getInt("count");
                     picturePath = result.getString("picturePath");
+                    itemType = result.getString("category");
                 }
                 
                 result.close();
@@ -119,4 +121,7 @@ public class GreekYogurt implements Snack{
 	public void setCount(int count){
 		this.count = count;
 	}
+        public String getType() {
+            return itemType;
+        }
 }

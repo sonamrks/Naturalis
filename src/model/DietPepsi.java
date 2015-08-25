@@ -17,6 +17,7 @@ public class DietPepsi implements Beverage {
 	private double price;
 	private int count;
         private String picturePath;
+        private String itemType;
           
         Statement statement;
         String query;
@@ -39,6 +40,7 @@ public class DietPepsi implements Beverage {
                     price = result.getDouble("price");
                     count = result.getInt("count");
                     picturePath = result.getString("picturePath");
+                    itemType = result.getString("category");
                 }
                 
                 result.close();
@@ -113,4 +115,7 @@ public class DietPepsi implements Beverage {
 	public void setPicturePath(String picturePath){
 		this.picturePath = picturePath;
 	}
+        public String getType() {
+            return itemType;
+        }
 }

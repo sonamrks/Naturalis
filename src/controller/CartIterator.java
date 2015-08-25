@@ -19,6 +19,7 @@ public class CartIterator implements Iterator {
     private List<Integer> itemCodes;
     private List<String> itemNames;
     private List<Double> itemPrices;
+    private List<String> itemTypes;
     private List<String> itemPicturePaths;
     private int numcols;
     private int currentIndex = 0;
@@ -29,6 +30,7 @@ public class CartIterator implements Iterator {
         itemNames = cartItemsTableModel.getItemNames();
         itemPrices = cartItemsTableModel.getItemPrices();
         itemPicturePaths = cartItemsTableModel.getPicturePath();
+        itemTypes = cartItemsTableModel.getItemTypes();
         cartItems = cartItemsTableModel.getCartItems();
         numcols = cartItemsTableModel.getColumnCount();
     }
@@ -54,7 +56,8 @@ public class CartIterator implements Iterator {
                 itemCodes.remove(--currentIndex);
                 itemNames.remove(currentIndex);  
                 System.out.println("Price to be subr: " + itemPrices.get(currentIndex));
-                itemPrices.remove(currentIndex);   
+                itemPrices.remove(currentIndex);  
+                itemTypes.remove(currentIndex);
                 itemPicturePaths.remove(currentIndex); 
                 cartItems.remove(currentIndex);
                 break;

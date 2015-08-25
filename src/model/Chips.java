@@ -23,6 +23,7 @@ public class Chips implements Snack {
 	private double price;
 	private int count;
         private String picturePath;
+        private String itemType;
           
         Statement statement;
         String query;
@@ -45,6 +46,7 @@ public class Chips implements Snack {
                     price = result.getDouble("price");
                     count = result.getInt("count");
                     picturePath = result.getString("picturePath");
+                    itemType = result.getString("category");
                 }
                 
                 result.close();
@@ -118,5 +120,8 @@ public class Chips implements Snack {
 	public void setPicturePath(String picturePath){
 		this.picturePath = picturePath;
 	} 
+        public String getType() {
+            return itemType;
+        }
 }
 

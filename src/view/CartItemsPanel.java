@@ -18,6 +18,7 @@ import javax.swing.JTable;
  */
 public class CartItemsPanel extends javax.swing.JPanel implements Observer {
     
+    private CustomerUI customerUI;
     private JTable cartTable; 
     private CartItemsController cartItemsController;
     private ItemController itemController;
@@ -25,8 +26,9 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
     /**
      * Creates new form CartItemsPanel
      */
-    public CartItemsPanel(CartItemsController cartItemsController,ItemController itemController) {
-        initComponents();   
+    public CartItemsPanel(CustomerUI customerUI, CartItemsController cartItemsController,ItemController itemController) {
+        initComponents();  
+        this.customerUI = customerUI;
         this.itemController = itemController;
         this.cartItemsController = cartItemsController;
         addCartTable();
@@ -130,6 +132,8 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         itemController.increaseItemCount(Integer.valueOf(hiddenTextField.getText()));
+        String type = cartItemsController.getType(Integer.valueOf(hiddenTextField.getText()));
+        customerUI.sendMessage("removefromcart", type, Integer.valueOf(hiddenTextField.getText()), null);
         cartItemsController.removeItem(hiddenTextField.getText());
     }//GEN-LAST:event_removeButtonActionPerformed
 

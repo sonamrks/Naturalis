@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -262,7 +262,7 @@ public class Item {
         return soldCountList;
     }
 
-    int[] getNutritionalItemSoldCount(String machine) {
+    public int[] getNutritionalItemSoldCount(String machine) {
         int sale=0;
         String getHighProteinSold,getLowCaloriesSold,getLowSugarsSold;
         try {
@@ -334,7 +334,7 @@ public class Item {
         return soldCount;
     }
     
-    String getCalorieRangeSuggestions(int low, int high) {
+    public String getCalorieRangeSuggestions(int low, int high) {
         String suggestions="";
         try {
             String getSuggestions = "SELECT code,name,protein,sugars,calories FROM item where calories>? and calories<? and machineID=4201";

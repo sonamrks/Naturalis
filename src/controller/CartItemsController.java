@@ -51,7 +51,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     public void tableChanged(TableModelEvent e) {
        try {
             // create a new table model with the new data
-            cartItemsTableModel = new CartItemsTableModel(cartItemsTableModel.getItemCodes(),cartItemsTableModel.getItemNames(),cartItemsTableModel.getItemPrices(),cartItemsTableModel.getPicturePath(),cartItemsTableModel.getCartItems(),cartItemsTableModel.getTotalPrice());
+            cartItemsTableModel = new CartItemsTableModel(cartItemsTableModel.getItemCodes(),cartItemsTableModel.getItemNames(),cartItemsTableModel.getItemPrices(),cartItemsTableModel.getPicturePath(),cartItemsTableModel.getItemTypes(),cartItemsTableModel.getCartItems(),cartItemsTableModel.getTotalPrice());
             cartItemsTableModel.addTableModelListener(this);
             // update the JTable with the data
             customerUI.getCartItemsPanel().update();	 
@@ -85,6 +85,10 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     
     public void removeAllItems() {
         cartItemsTableModel.removeAllItems();
+    }
+    
+    public String getType(Integer code) {
+        return cartItemsTableModel.getType(code);
     }
     
     public double deductPrice(double price, double deductable){

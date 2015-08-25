@@ -22,7 +22,8 @@ public class Coke implements Beverage{
 	private double price;
         private String picturePath;
 	private int count;
-          
+        private String itemType;
+        
         Statement statement;
         String query;
         ResultSet result;
@@ -44,6 +45,7 @@ public class Coke implements Beverage{
                     price = result.getDouble("price");
                     count = result.getInt("count");
                     picturePath = result.getString("picturePath");
+                    itemType = result.getString("category");
                 }
                 
                 result.close();
@@ -118,6 +120,8 @@ public class Coke implements Beverage{
 	public void setCount(int count){
 		this.count = count;
 	}
-        
+        public String getType() {
+            return itemType;
+        }        
 }
 

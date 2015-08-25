@@ -5,6 +5,7 @@
  */
 package controller;
 
+import model.Item;
 import java.util.ArrayList;
 
 /**

@@ -5,6 +5,7 @@
  */
 package controller;
 
+import model.Item;
 import java.sql.SQLException;
 import view.Colleague;
 import java.util.ArrayList;

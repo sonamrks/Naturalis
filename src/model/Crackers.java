@@ -25,6 +25,7 @@ public class Crackers implements Snack{
 	private double price;
 	private int count;
         private String picturePath;
+        private String itemType;
           
         Statement statement;
         String query;
@@ -47,6 +48,7 @@ public class Crackers implements Snack{
                     price = result.getDouble("price");
                     count = result.getInt("count");
                     picturePath = result.getString("picturePath");
+                    itemType = result.getString("category");
                 }
                 
                 result.close();
@@ -120,5 +122,7 @@ public class Crackers implements Snack{
 	public void setPicturePath(String picturePath){
 		this.picturePath = picturePath;
 	}
-        
+        public String getType() {
+            return itemType;
+        }        
 }

@@ -28,6 +28,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private List<String> itemNames;
     private List<Double> itemPrices;
     private List<String> itemPicturePaths;
+    private List<String> itemTypes;
     private int numcols, numrows;
     private double totalPrice;
     private String name;
@@ -50,18 +51,20 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
      itemNames = new ArrayList<String>();
      itemPrices = new ArrayList<Double>();
      itemPicturePaths = new ArrayList<String>();
+     itemTypes = new ArrayList<String>();
      cartItems = new ArrayList<Product>();
 //     observers = new HashSet<Observer>();
      numrows = itemCodes.size();
      numcols = 2;    
     }
     
-    public CartItemsTableModel(List list1, List list2, List list3, List list4, List list5, double price)  {
+    public CartItemsTableModel(List list1, List list2, List list3, List list4, List list5, List list6, double price)  {
         itemCodes = list1;
         itemNames = list2;
         itemPrices = list3;
         itemPicturePaths = list4;
-        cartItems = list5;
+        itemTypes = list5;
+        cartItems = list6;
         totalPrice = price;
         numrows = itemCodes.size();
         numcols = 2;     
@@ -87,6 +90,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             itemCodes.add(code);
             itemNames.add(name);
             itemPicturePaths.add(item.getPicturePath());
+            itemTypes.add(item.getType());
             itemPrices.add(item.getPrice());
             cartItems.add(item);            
         //    addPrice(item.getPrice());
@@ -127,6 +131,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
         itemNames.clear();
         itemPicturePaths.clear();
         itemPrices.clear();
+        itemTypes.clear();
         cartItems.clear(); 
         
         fireTableRowsDeleted(itemCodes.size(), numcols-1);
@@ -235,12 +240,20 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
 	return this.itemPicturePaths;
     }
     
+    public List getItemTypes() {
+	return this.itemTypes;
+    }
+    
     public List getItemPrices() {
 	return this.itemPrices;
     }
         
     public List<Product> getCartItems() {
         return this.cartItems;
+    }
+    
+    public String getType(Integer code) {
+        return itemTypes.get(itemCodes.indexOf(code));
     }
        
     @Override

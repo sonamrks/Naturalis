@@ -64,9 +64,11 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         }
         if(type.equals("removefromcart")) {
             if(product.equals("beverage")) {
+                index = index-101;
                 beverageCountList.set(index, beverageCountList.get(index)+1);
             }
             if(product.equals("snack")) {
+                index = index-201;
                 snackCountList.set(index, snackCountList.get(index)+1);
             }
         }   
