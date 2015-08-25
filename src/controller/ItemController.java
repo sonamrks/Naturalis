@@ -24,13 +24,13 @@ public class ItemController implements Mediator {
     private Decorator decorator;
     private ArrayList <Colleague> colleagues = new ArrayList<Colleague>();
     
-    int[] nutritionalCount = new int[100];
-    public int[] lowCalCount = new int[100];
-    public String[] lowCalNames = new String[100];
-    public int[] highProteinCount = new int[100];
-    public String[] highProteinNames = new String[100];
-    public int[] lowSugarsCount = new int[100];
-    public String[] lowSugarsNames = new String[100];
+    private int[] nutritionalCount = new int[100];
+    private int[] lowCalCount = new int[100];
+    private String[] lowCalNames = new String[100];
+    private int[] highProteinCount = new int[100];
+    private String[] highProteinNames = new String[100];
+    private int[] lowSugarsCount = new int[100];
+    private String[] lowSugarsNames = new String[100];
     
     public ItemController() {
        item = new Item();
