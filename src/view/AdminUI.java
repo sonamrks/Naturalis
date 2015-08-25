@@ -2114,7 +2114,8 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         }
         collectMoneyTextField.setText(Double.toString(amountToBeCollected));
         double moneyLeft = amountInMachine - amountToBeCollected;
-        moneyTextField.setText(Double.toString(moneyLeft));
+         double roundOff = Math.round(moneyLeft * 100.0) / 100.0;
+        moneyTextField.setText(Double.toString(roundOff));
     }//GEN-LAST:event_collectMoneyButtonActionPerformed
 
     private void machine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1RadioButtonActionPerformed
@@ -2122,7 +2123,8 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         double moneyInMachine = itemController.getSales(4201);
         amountToBeCollectedTextField.setText("");
         collectMoneyTextField.setText("");
-        moneyTextField.setText(Double.toString(moneyInMachine));
+        double roundOff = Math.round(moneyInMachine * 100.0) / 100.0;
+        moneyTextField.setText(Double.toString(roundOff));
     }//GEN-LAST:event_machine1RadioButtonActionPerformed
 
     private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
@@ -2130,6 +2132,7 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
       double moneyInMachine = itemController.getSales(4202);
       amountToBeCollectedTextField.setText("");
       collectMoneyTextField.setText("");
+      double roundOff = Math.round(moneyInMachine * 100.0) / 100.0;
       moneyTextField.setText(Double.toString(moneyInMachine));
     }//GEN-LAST:event_machine2RadioButtonActionPerformed
 
