@@ -33,7 +33,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private double totalPrice;
     private String name;
     private Product item;
-    private int soldCount,count;
+ //   private int soldCount,count;
  //   private Set<Observer> observers;
     
     ItemFactory beverageFactory = new BeverageFactory();
@@ -104,11 +104,11 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
         }
     }
        
-    public void updateCartTable() {
+    public void updateAddToCartTable() {
         fireTableRowsInserted(itemCodes.size()-1, numcols-1);
     }
     
-    public void updateItemsCartTable(int size, int cols) {
+    public void updateRemoveFromCartTable(int size, int cols) {
         fireTableRowsDeleted(size, cols);
     }
 
@@ -266,6 +266,6 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     
     @Override
     public void notifyObservers() {
-        updateCartTable();
+        updateAddToCartTable();
     }
 }

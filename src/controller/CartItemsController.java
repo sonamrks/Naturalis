@@ -23,7 +23,7 @@ import view.PaymentPanel;
 public class CartItemsController implements ListSelectionListener, TableModelListener {
     private CartItemsTableModel cartItemsTableModel;
     private CustomerUI customerUI;
-    Iterator iterator;
+    private Iterator iterator;
     
     public CartItemsController(CustomerUI customerUI) {
         this.customerUI = customerUI;
@@ -91,10 +91,10 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         return cartItemsTableModel.getType(code);
     }
     
-    public double deductPrice(double price, double deductable){
+  /*  public double deductPrice(double price, double deductable){
         double remainingPrice = price - deductable;
         return remainingPrice;
-    }
+    }*/
     public List<String> getPicturePath(){
         return cartItemsTableModel.getPicturePath();
     }

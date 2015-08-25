@@ -55,7 +55,6 @@ public class CartIterator implements Iterator {
             if(next().equals(code)) {
                 itemCodes.remove(--currentIndex);
                 itemNames.remove(currentIndex);  
-                System.out.println("Price to be subr: " + itemPrices.get(currentIndex));
                 itemPrices.remove(currentIndex);  
                 itemTypes.remove(currentIndex);
                 itemPicturePaths.remove(currentIndex); 
@@ -65,6 +64,6 @@ public class CartIterator implements Iterator {
         }
         currentIndex = 0;
 
-        cartItemsTableModel.updateItemsCartTable(itemCodes.size(), numcols-1);
+        cartItemsTableModel.updateRemoveFromCartTable(itemCodes.size(), numcols-1);
     }
 }
