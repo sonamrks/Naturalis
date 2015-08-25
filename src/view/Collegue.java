@@ -11,7 +11,7 @@ import controller.Mediator;
  *
  * @author Sonam
  */
-public interface Colleague {
+public interface Collegue {
     public void sendMessage(String type, String product, Integer index, Double value);
     public void receiveMessage(String type, String product, Integer index, Double value);
   //  public void addMediator (Mediator mediator);

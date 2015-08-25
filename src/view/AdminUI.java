@@ -16,16 +16,14 @@ import javax.swing.JOptionPane;
  *
  * @author AshitaRaghu
  */
-public class AdminUI extends javax.swing.JFrame implements Colleague {
+public class AdminUI extends javax.swing.JFrame implements Collegue {
     private ItemController itemController;
     private UserLogController userLogController;
     Integer machineID;
     ArrayList<Integer> beverageCodeList;
     ArrayList<Integer> beverageCountList;
-    ArrayList<Double> beveragePriceList;
     ArrayList<Integer> snackCodeList;
     ArrayList<Integer> snackCountList;
-    ArrayList<Double> snackPriceList;
     
     /**
      * Creates new form LimitedView
@@ -36,14 +34,12 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         this.machineID = machineID;
         machineIDLabel.setText("Machine ID : "+machineID);
         userLogController = new UserLogController();
-        itemController.registerAColleague(this);
+        itemController.registerACollegue(this);
         itemController.generateCategoryItemInfo(machineID, "beverage");
         beverageCodeList = itemController.getCategoryCodeForMachine();
         beverageCountList = itemController.getCategoryCountForMachine();
-        beveragePriceList = itemController.getCategoryPriceForMachine();
         itemController.generateCategoryItemInfo(machineID, "snack");
         snackCountList = itemController.getCategoryCountForMachine();
-        snackPriceList = itemController.getCategoryPriceForMachine();
         snackCodeList = itemController.getCategoryCodeForMachine();
         //setPrice();
         setCount();
@@ -75,7 +71,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         setCount(); 
     }
     
-    public void setPrice(){
+   // public void setPrice(){
         //priceList = itemController.setPrice();
         
         /*cokePriceTextField.setText(Double.toString(priceList.get(0)));
@@ -97,7 +93,7 @@ public class AdminUI extends javax.swing.JFrame implements Colleague {
         crackersPriceTextField.setText(Double.toString(priceList.get(15)));
         veggieStrawsPriceTextField.setText(Double.toString(priceList.get(16)));
         greekYogurtPriceTextField.setText(Double.toString(priceList.get(17)));*/
-    }
+  //  }
     
     public void setCount(){
         cokeCountTextField.setText(Integer.toString(beverageCountList.get(0)));

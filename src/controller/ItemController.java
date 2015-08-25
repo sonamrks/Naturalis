@@ -7,7 +7,7 @@ package controller;
 
 import model.Item;
 import java.sql.SQLException;
-import view.Colleague;
+import view.Collegue;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
@@ -23,7 +23,7 @@ public class ItemController implements Mediator {
     private Item item;
     private Component component;
     private Decorator decorator;
-    private ArrayList <Colleague> colleagues = new ArrayList<Colleague>();
+    private ArrayList <Collegue> collegues;
     
     private int[] nutritionalCount = new int[100];
     private int[] lowCalCount = new int[100];
@@ -35,6 +35,7 @@ public class ItemController implements Mediator {
     
     public ItemController() {
        item = new Item();
+       collegues = new ArrayList<Collegue>();
     }
     
     public void generateItemInfo(Integer machineId) {
@@ -162,17 +163,17 @@ public class ItemController implements Mediator {
         item.addNewItem(itemInfo);
     }
     
-    public void sendMessageToAll(Colleague sender, String type, String product, Integer index, Double value) {
-        for (int i = 0; i < colleagues.size(); ++i){
-            Colleague c = colleagues.get(i);
+    public void sendMessageToAll(Collegue sender, String type, String product, Integer index, Double value) {
+        for (int i = 0; i < collegues.size(); ++i){
+            Collegue c = collegues.get(i);
             if (c != sender){
                 c.receiveMessage(type, product, index, value);
             }
         }
     }
     
-    public void registerAColleague (Colleague c) {
-        colleagues.add(c);
+    public void registerACollegue (Collegue c) {
+        collegues.add(c);
     }
     
     public double collectMoney(Integer machineID){

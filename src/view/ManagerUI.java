@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author AshitaRaghu
  */
-public class ManagerUI extends javax.swing.JFrame implements Colleague {
+public class ManagerUI extends javax.swing.JFrame implements Collegue {
 
     private ItemController itemController;
     private UserLogController userLogController;
@@ -30,7 +30,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     public ManagerUI(ItemController itemController) {
         initComponents();
         this.itemController = itemController;
-        itemController.registerAColleague(this);
+        itemController.registerACollegue(this);
         userLogController = new UserLogController();
         
         itemController.generateCategoryItemInfo(4201, "beverage");

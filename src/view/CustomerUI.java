@@ -25,7 +25,7 @@ import javax.swing.Timer;
  *
  * @author AshitaRaghu
  */
-public class CustomerUI extends javax.swing.JFrame implements Colleague {
+public class CustomerUI extends javax.swing.JFrame implements Collegue {
     
     private Integer machineID;
  //   private PriceController priceController;
@@ -74,7 +74,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
         itemsPanel.add(beveragePanel,"Beverages");
         itemsPanel.add(snackPanel,"Snacks");
 
-        itemController.registerAColleague(this);
+        itemController.registerACollegue(this);
         
     //    paymentController = new PaymentController(this);
         checkedList[0] = false;

@@ -46,7 +46,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     
     public void changePrice(Integer index, Double value) {
         priceList.set(index, value); 
-        setCodeLabel();
+      //  setCodeLabel();
         setPriceLabel();        
     }
     

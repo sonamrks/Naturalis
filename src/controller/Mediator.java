@@ -5,13 +5,13 @@
  */
 package controller;
 
-import view.Colleague;
+import view.Collegue;
 
 /**
  *
  * @author Sonam
  */
 public interface Mediator {
-    public void sendMessageToAll(Colleague sender, String type, String product, Integer index, Double value);
-    public void registerAColleague (Colleague c);
+    public void sendMessageToAll(Collegue sender, String type, String product, Integer index, Double value);
+    public void registerACollegue (Collegue c);
 }
