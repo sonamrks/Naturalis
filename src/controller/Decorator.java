@@ -5,18 +5,50 @@
  */
 package controller;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Sonam
  */
-public class Decorator extends SuggestionsComponent {  
-    private Component component;
+public class Decorator implements Component {  
+    Component component;
   
-   public Decorator(Component component) { 
+    public Decorator(Component component) { 
         this.component = component;
     }
-   
     
+    @Override
+    public void filter() {
+    }
+    @Override
+    public ArrayList<Integer> getCodeList() {
+        return null;
+    }
+    @Override
+    public ArrayList<String> getNameList() {
+        return null;
+    }
+    @Override
+    public ArrayList<Integer> getProteinList() {
+        return null;
+    }
+    @Override
+    public ArrayList<Integer> getSugarsList() {
+        return null;    
+    }
+    @Override
+    public ArrayList<Integer> getCaloriesList() {
+        return null;    
+    }
+    @Override
+    public int getSize() {
+        return 0;
+    }
+    @Override
+    public String getSuggestionString() {
+        return null;
+    }
     /*public SuggestionsComponent getSuggestionsComponent() {
 //        return suggestionsComponent;
     }*/

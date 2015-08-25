@@ -20,7 +20,7 @@ import view.CustomerUI;
 public class ItemController implements Mediator {
     
     private Item item;
-    private SuggestionsComponent suggestionsComponent;
+    private Component component;
     private Decorator decorator;
     private ArrayList <Colleague> colleagues = new ArrayList<Colleague>();
     
@@ -73,27 +73,27 @@ public class ItemController implements Mediator {
     }
 
     public String getSuggestionList(Boolean[] checkedList){
-            suggestionsComponent = new SuggestionsComponent(item);
+            component = new SuggestionsComponent(item);
            
-            System.out.println("before Size: " + suggestionsComponent.getSize());
+            System.out.println("before Size: " + component.getSize());
             
             if(checkedList[0] == true) {
-                decorator = new LowCalorieDecorator(suggestionsComponent);
+                decorator = new LowCalorieDecorator(component);
                 decorator.filter();
             }
             if(checkedList[1] == true){ 
-                decorator = new HighProteinDecorator(suggestionsComponent);
+                decorator = new HighProteinDecorator(component);
                 decorator.filter();
             }
             if(checkedList[2] == true){  
-                decorator = new LowSugarsDecorator(suggestionsComponent);
+                decorator = new LowSugarsDecorator(component);
                 decorator.filter();
             }
             if(checkedList[0] == false && checkedList[1] == false && checkedList[2] == false) {
                 return null; 
             }
-            System.out.println("after Size: " + suggestionsComponent.getSize());
-            return suggestionsComponent.getSuggestionString();  
+            System.out.println("after Size: " + component.getSize());
+            return component.getSuggestionString();  
     }
     
     
