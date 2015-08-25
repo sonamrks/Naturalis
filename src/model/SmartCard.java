@@ -112,6 +112,7 @@ public class SmartCard {
         while(result.next()){
             cardNumber = result.getInt("number");
         }
+        System.out.println(cardNumber);
     } 
     catch (SQLException ex) {
         System.out.println(ex.getMessage());

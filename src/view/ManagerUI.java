@@ -1935,7 +1935,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private void bevSnackPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bevSnackPieChartButtonActionPerformed
         // TODO add your handling code here:
         
-        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+        if(machine1RadioButton.isSelected()== false &&  machine2RadioButton.isSelected()==false && allMachinesRadioButton.isSelected()==false){
              JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
         }
         int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
@@ -1954,7 +1954,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
 
     private void bevSnackBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bevSnackBarChartButtonActionPerformed
         // TODO add your handling code here:
-        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+        if(machine1RadioButton.isSelected()==false &&  machine2RadioButton.isSelected()==false && allMachinesRadioButton.isSelected()==false){
              JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
         }
         int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
@@ -1972,7 +1972,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
 
     private void itemsBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsBarChartButtonActionPerformed
         // TODO add your handling code here:
-        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+        if(machine1RadioButton.isSelected()==false && machine2RadioButton.isSelected()==false && allMachinesRadioButton.isSelected()==false){
              JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
         }
         ArrayList<Integer> itemsSoldCount = new ArrayList<Integer>();
@@ -1991,7 +1991,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
 
     private void itemsPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsPieChartButtonActionPerformed
         // TODO add your handling code here:
-        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+        if(machine1RadioButton.isSelected()==false && machine2RadioButton.isSelected()==false && allMachinesRadioButton.isSelected()==false){
              JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
         }
         ArrayList<Integer> itemsSoldCount = new ArrayList<Integer>();
@@ -2010,7 +2010,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
 
     private void nutritionalStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionalStatisticsButtonActionPerformed
         // TODO add your handling code here:
-        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+        if(machine1RadioButton.isSelected()==false && machine2RadioButton.isSelected()==false && allMachinesRadioButton.isSelected()==false){
              JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
         }
         int[] nutritionalItemsSoldCount = new int[100];

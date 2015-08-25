@@ -31,7 +31,7 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         initComponents();   
         this.customerUI = customerUI;
         this.itemsCartController = itemsCartController;
-        smartCardController = new SmartCardController();
+        smartCardController = new SmartCardController(customerUI);
         insertCoinPanel.setVisible(false);
         insertCardPanel.setVisible(false);
     }
@@ -544,7 +544,10 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
             JOptionPane.showMessageDialog(paymentPanel,"Please enter a name");
 
         Integer cardNumber = smartCardController.addNewCard(name, 10);
+         System.out.println(cardNumber);
+         
         JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your current balance is $10");
+        nameTextField.setText("");
 
     }//GEN-LAST:event_dollar10ButtonActionPerformed
 
@@ -555,6 +558,7 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
             JOptionPane.showMessageDialog(paymentPanel,"Please enter a name");
         Integer cardNumber = smartCardController.addNewCard(name, 20);
         JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your current balance is $20");
+        nameTextField.setText("");
     }//GEN-LAST:event_dollar20ButtonActionPerformed
 
     private void dollar50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar50ButtonActionPerformed
