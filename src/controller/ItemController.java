@@ -183,9 +183,14 @@ public class ItemController implements Mediator {
         return nutritionalFacts;
     }
      
-    public void increaseItemCount(Integer count, Integer code){
-       item.increaseItemCount(count,code);
+    public void decreaseItemCount(Integer code){
+       item.decreaseItemCount(code);
     }
+    
+    public void increaseItemCount(Integer code){
+       item.increaseItemCount(code);
+    }
+        
     public void updatePrice(Double price,Integer code){
        item.updatePrice(price,code);
     }

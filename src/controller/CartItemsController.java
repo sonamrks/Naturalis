@@ -36,14 +36,13 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     }
         
     public TableModel getTableModel() {
-            return cartItemsTableModel;
+        return cartItemsTableModel;
     }
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
         ListSelectionModel selectModel = (ListSelectionModel) e.getSource();
         int firstIndex = selectModel.getMinSelectionIndex();
-		
         customerUI.setItemCodeTextField((String) cartItemsTableModel.getValueAt(firstIndex, 0));
         customerUI.getCartItemsPanel().setItemCodeTextField((String) cartItemsTableModel.getValueAt(firstIndex, 0));
     }   
@@ -66,7 +65,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     public void addItem(String ID){
      //   itemsCartTableModel.addRow(Integer.valueOf(ID));	
         cartItemsTableModel.addItem(Integer.valueOf(ID));
-        cartItemsTableModel.updateSoldCount(Integer.valueOf(ID),"add");
+      //  cartItemsTableModel.updateSoldCount(Integer.valueOf(ID),"add");
     }
 
     public void removeItem(String ID){
@@ -76,7 +75,7 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
          //   itemsCartTableModel.deleteRow(Integer.valueOf(ID));
             iterator.removeItem(Integer.valueOf(ID));
      //       itemsCartTableModel.removeItem(Integer.valueOf(ID));
-            cartItemsTableModel.updateSoldCount(Integer.valueOf(ID),"remove");
+         //   cartItemsTableModel.updateSoldCount(Integer.valueOf(ID),"remove");
         }
     }	
     

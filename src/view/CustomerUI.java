@@ -51,14 +51,14 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     public CustomerUI(ItemController itemController, Integer machineID) { 
         this.machineID= machineID;
         initComponents();    
-                 
+ 
+        this.itemController = itemController;
       //  priceController = new PriceController(this, machineID);
         cartItemsController = new CartItemsController(this);
       //  itemController = new ItemController(machineID);
-        this.itemController = itemController;
         smartCardController = new SmartCardController(this);
         
-        cartItemsPanel = new CartItemsPanel(cartItemsController);
+        cartItemsPanel = new CartItemsPanel(cartItemsController, itemController);
         paymentPanel = new PaymentPanel(this, cartItemsController);
         cartPanel.setLayout(new FlowLayout());
         cartPanel.add(cartItemsPanel);
@@ -99,7 +99,7 @@ public class CustomerUI extends javax.swing.JFrame implements Colleague {
     }
      
     public void setItemCodeTextField(String code) {
-         itemCodeTextField.setText(code);
+        itemCodeTextField.setText(code);
      }
      
     public void giveChange(String change) {

@@ -446,18 +446,27 @@ public class Item {
         return nutritionalFacts;
     }
     
-    public void increaseItemCount(Integer count,Integer code){
-        
+    public void decreaseItemCount(Integer code){       
         try {
-            String updateBalance = "UPDATE item SET count=? where code=?";
+            String updateBalance = "UPDATE item SET count=count-1 where code=?";
             statement = connection.prepareStatement(updateBalance);
-            statement.setInt(1,count);
-            statement.setInt(2,code);
+            statement.setInt(1,code);
             statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+       
+    }
+    
+    public void increaseItemCount(Integer code){
+        try {
+            String updateBalance = "UPDATE item SET count=count+1 where code=?";
+            statement = connection.prepareStatement(updateBalance);
+            statement.setInt(1,code);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
     public void updatePrice(Double price,Integer code){

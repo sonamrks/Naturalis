@@ -6,6 +6,7 @@
 package view;
 
 import controller.CartItemsController;
+import controller.ItemController;
 import controller.Observer;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
@@ -19,12 +20,14 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
     
     private JTable cartTable; 
     private CartItemsController cartItemsController;
+    private ItemController itemController;
 
     /**
      * Creates new form CartItemsPanel
      */
-    public CartItemsPanel(CartItemsController cartItemsController) {
+    public CartItemsPanel(CartItemsController cartItemsController,ItemController itemController) {
         initComponents();   
+        this.itemController = itemController;
         this.cartItemsController = cartItemsController;
         addCartTable();
     }
@@ -126,6 +129,7 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
     }// </editor-fold>//GEN-END:initComponents
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        itemController.increaseItemCount(Integer.valueOf(hiddenTextField.getText()));
         cartItemsController.removeItem(hiddenTextField.getText());
     }//GEN-LAST:event_removeButtonActionPerformed
 

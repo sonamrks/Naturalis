@@ -693,6 +693,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void orangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeButtonActionPerformed
+        itemsController.decreaseItemCount(Integer.valueOf(orangeJuiceCodeLabel.getText()));
         itemsCartController.addItem(orangeJuiceCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "beverage", 1, null);
     }//GEN-LAST:event_orangeButtonActionPerformed
