@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="paymentButtonGroup">
+    </Component>
+  </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -241,6 +245,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="cashRadioButton">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="paymentButtonGroup"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cash"/>
           </Properties>
           <Events>
@@ -249,6 +256,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="cardRadioButton">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="paymentButtonGroup"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Card"/>
           </Properties>
           <Events>

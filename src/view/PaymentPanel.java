@@ -54,11 +54,13 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
     public void setPaymentPanel(){
        insertCoinPanel.setVisible(false);
        insertCardPanel.setVisible(false); 
+       paymentButtonGroup.clearSelection();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        paymentButtonGroup = new javax.swing.ButtonGroup();
         paymentPanel = new javax.swing.JPanel();
         insertCoinPanel = new javax.swing.JPanel();
         insertCoinLabel = new javax.swing.JLabel();
@@ -193,6 +195,7 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
             }
         });
 
+        paymentButtonGroup.add(cashRadioButton);
         cashRadioButton.setText("Cash");
         cashRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,6 +203,7 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
             }
         });
 
+        paymentButtonGroup.add(cardRadioButton);
         cardRadioButton.setText("Card");
         cardRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -588,6 +592,7 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JButton payCardButton;
+    private javax.swing.ButtonGroup paymentButtonGroup;
     private javax.swing.JPanel paymentPanel;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JFormattedTextField priceTextField;
