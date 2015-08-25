@@ -117,7 +117,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         jLabel5 = new javax.swing.JLabel();
         machine1RadioButton = new javax.swing.JRadioButton();
         allMachinesRadioButton = new javax.swing.JRadioButton();
-        machine2CollectRadioButton = new javax.swing.JRadioButton();
+        machine2RadioButton = new javax.swing.JRadioButton();
         addNewItemPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         codeLabel = new javax.swing.JLabel();
@@ -419,11 +419,11 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
             }
         });
 
-        allMachinesButtonGroup.add(machine2CollectRadioButton);
-        machine2CollectRadioButton.setText("Machine 2");
-        machine2CollectRadioButton.addActionListener(new java.awt.event.ActionListener() {
+        allMachinesButtonGroup.add(machine2RadioButton);
+        machine2RadioButton.setText("Machine 2");
+        machine2RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machine2CollectRadioButtonActionPerformed(evt);
+                machine2RadioButtonActionPerformed(evt);
             }
         });
 
@@ -437,7 +437,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(machine2CollectRadioButton)
+                        .addComponent(machine2RadioButton)
                         .addGap(30, 30, 30)
                         .addComponent(allMachinesRadioButton))
                     .addComponent(jLabel5))
@@ -450,7 +450,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(allMachinesRadioButton)
-                    .addComponent(machine2CollectRadioButton)
+                    .addComponent(machine2RadioButton)
                     .addComponent(machine1RadioButton))
                 .addContainerGap())
         );
@@ -1934,6 +1934,10 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void bevSnackPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bevSnackPieChartButtonActionPerformed
         // TODO add your handling code here:
+        
+        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+             JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
+        }
         int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
         int snacksSold = Integer.parseInt(snacksSoldTextField.getText());
         double totalSale = beveragesSold+snacksSold;
@@ -1950,6 +1954,9 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void bevSnackBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bevSnackBarChartButtonActionPerformed
         // TODO add your handling code here:
+        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+             JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
+        }
         int beveragesSold = Integer.parseInt(beveragesSoldTextField.getText());
         int snacksSold = Integer.parseInt(snacksSoldTextField.getText());
         double totalSale = beveragesSold+snacksSold;
@@ -1965,6 +1972,9 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void itemsBarChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsBarChartButtonActionPerformed
         // TODO add your handling code here:
+        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+             JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
+        }
         ArrayList<Integer> itemsSoldCount = new ArrayList<Integer>();
         if(machine1RadioButton.isSelected())
             itemsSoldCount = itemController.getItemSoldCount("machine1");
@@ -1981,6 +1991,9 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void itemsPieChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsPieChartButtonActionPerformed
         // TODO add your handling code here:
+        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+             JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
+        }
         ArrayList<Integer> itemsSoldCount = new ArrayList<Integer>();
         if(machine1RadioButton.isSelected())
             itemsSoldCount = itemController.getItemSoldCount("machine1");
@@ -1997,10 +2010,13 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
 
     private void nutritionalStatisticsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutritionalStatisticsButtonActionPerformed
         // TODO add your handling code here:
+        if(machine1RadioButton.isSelected()==false || machine2RadioButton.isSelected()==false || allMachinesRadioButton.isSelected()==false){
+             JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
+        }
         int[] nutritionalItemsSoldCount = new int[100];
         if(machine1RadioButton.isSelected())
             nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("machine1");
-        else if(machine2CollectRadioButton.isSelected())
+        else if(machine2RadioButton.isSelected())
             nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("machine2");
         else
            nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("allMachines"); 
@@ -2026,11 +2042,11 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
         snacksSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("snack","machine1")));
     }//GEN-LAST:event_machine1RadioButtonActionPerformed
 
-    private void machine2CollectRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2CollectRadioButtonActionPerformed
+    private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
         // TODO add your handling code here:
         beveragesSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("beverage","machine2")));
         snacksSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("snack","machine2")));
-    }//GEN-LAST:event_machine2CollectRadioButtonActionPerformed
+    }//GEN-LAST:event_machine2RadioButtonActionPerformed
 
     private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
         // TODO add your handling code here:
@@ -2231,7 +2247,7 @@ public class ManagerUI extends javax.swing.JFrame implements Colleague {
     private javax.swing.JButton logOutButton;
     private javax.swing.JPanel lycheeJuicePanel;
     private javax.swing.JRadioButton machine1RadioButton;
-    private javax.swing.JRadioButton machine2CollectRadioButton;
+    private javax.swing.JRadioButton machine2RadioButton;
     private javax.swing.JLabel machineIDLabel;
     private javax.swing.JTextField machineIDTextField;
     private javax.swing.JLabel nameLabel;

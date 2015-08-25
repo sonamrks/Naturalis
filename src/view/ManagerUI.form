@@ -335,7 +335,7 @@
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="machine2CollectRadioButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="machine2RadioButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="allMachinesRadioButton" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -352,7 +352,7 @@
                       <EmptySpace pref="11" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="allMachinesRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="machine2CollectRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="machine2RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="machine1RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -391,7 +391,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="allMachinesRadioButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="machine2CollectRadioButton">
+            <Component class="javax.swing.JRadioButton" name="machine2RadioButton">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="allMachinesButtonGroup"/>
@@ -399,7 +399,7 @@
                 <Property name="text" type="java.lang.String" value="Machine 2"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="machine2CollectRadioButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="machine2RadioButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
