@@ -14,11 +14,11 @@ import model.DatabaseConnection;
  */
 public class BeverageFactory implements ItemFactory {
     
-    private static ItemFactory bevrageFactory;
+    private static ItemFactory beverageFactory;
     
     public static ItemFactory getBeverageFactoryInstance(){
-        bevrageFactory = new BeverageFactory();
-        return bevrageFactory;
+        beverageFactory = new BeverageFactory();
+        return beverageFactory;
     }
     private BeverageFactory(){
         
