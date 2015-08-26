@@ -17,7 +17,6 @@ import view.NavigationPanel;
  */
 public class Main extends javax.swing.JFrame {
 
-    private ItemController itemController;
     static private CardLayout cardLayout;
     static private JPanel cards;
     private NavigationPanel navigationPanel;
@@ -28,11 +27,10 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         setTitle("Naturalis");
-        itemController= new ItemController();
         cardLayout = new CardLayout();
         cards = new JPanel(cardLayout);
-        navigationPanel = new NavigationPanel(itemController);
-        machinesPanel = new MachinesPanel(itemController);
+        navigationPanel = new NavigationPanel();
+        machinesPanel = new MachinesPanel();
         cards.add(navigationPanel, "Navigation");
         cards.add(machinesPanel,"Machines");
         

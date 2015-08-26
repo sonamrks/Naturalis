@@ -20,6 +20,7 @@ import view.CustomerUI;
  */
 public class ItemController implements Mediator {
     
+    private static ItemController itemControllerInstance;
     private Item item;
     private Component component;
     private Decorator decorator;
@@ -33,9 +34,14 @@ public class ItemController implements Mediator {
     private int[] lowSugarsCount = new int[100];
     private String[] lowSugarsNames = new String[100];
     
-    public ItemController() {
+    protected ItemController() {
        item = new Item();
        collegues = new ArrayList<Collegue>();
+    }
+    
+    public static ItemController getItemControllerInstance(){
+        itemControllerInstance = new ItemController();
+        return itemControllerInstance;
     }
     
     public void generateItemInfo(Integer machineId) {

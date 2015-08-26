@@ -15,14 +15,14 @@ import java.sql.SQLException;
  */
 public class DatabaseConnection {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-private static final String DB_URL = "jdbc:mysql://localhost/designPatternsDB";
+private static final String DB_URL = "jdbc:mysql://localhost/mydb";
 private static final String USER = "root";
-private static final String PASS = "password";
+private static final String PASS = "sonam123";
 private static DatabaseConnection dbConnectionInstance;
 private static Connection connection;
 
 public static DatabaseConnection getDatabaseConnectionInstance(){
-        dbConnectionInstance = new DatabaseConnection();
+    dbConnectionInstance = new DatabaseConnection();
     return dbConnectionInstance;
 } 
 

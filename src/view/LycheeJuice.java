@@ -18,7 +18,7 @@ public class LycheeJuice extends javax.swing.JPanel {
      */
     public LycheeJuice() {
         initComponents();
-        itemController = new ItemController();
+        itemController = itemController = ItemController.getItemControllerInstance();
     }
      public void setPrice(double price){
         lycheePriceTextField.setText(Double.toString(price));

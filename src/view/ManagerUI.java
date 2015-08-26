@@ -10,6 +10,7 @@ import controller.UserLogController;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import main.Main;
 
 /**
  *
@@ -27,9 +28,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     /**
      * Creates new form AdminUI
      */
-    public ManagerUI(ItemController itemController) {
+    public ManagerUI() {
         initComponents();
-        this.itemController = itemController;
+        this.itemController = ItemController.getItemControllerInstance();
         itemController.registerACollegue(this);
         userLogController = new UserLogController();
         
@@ -2127,8 +2128,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         // TODO add your handling code here:
        this.dispose();
-       NavigationPanel nav = new NavigationPanel(itemController);
-       userLogController.addLogOutEntry(nav.getUserName(),"manager");
+       Main.getCardLayout().show(Main.getCards(),"Navigation");
+      // NavigationPanel nav = new NavigationPanel(itemController);
+     //  userLogController.addLogOutEntry(nav.getUserName(),"manager");
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

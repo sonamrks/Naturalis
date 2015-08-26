@@ -8,6 +8,7 @@ package view;
 import controller.ItemController;
 import controller.UserLogController;
 import javax.swing.JOptionPane;
+import main.Main;
 
 /**
  *
@@ -241,8 +242,9 @@ public class AdminControlPanel extends javax.swing.JPanel {
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         // TODO add your handling code here:
     //  this.dispose();
-        NavigationPanel nav = new NavigationPanel(itemController);
-        userLogController.addLogOutEntry(nav.getUserName(),"admin");
+        Main.getCardLayout().show(Main.getCards(),"Navigation");
+      //  NavigationPanel nav = new NavigationPanel(itemController);
+      //  userLogController.addLogOutEntry(nav.getUserName(),"admin");
     }//GEN-LAST:event_logOutButtonActionPerformed
 
 

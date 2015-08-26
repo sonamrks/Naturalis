@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import main.Main;
 
 /**
  *
@@ -28,9 +29,9 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
     /**
      * Creates new form LimitedView
      */
-    public AdminUI(ItemController itemController, Integer machineID) {
+    public AdminUI(Integer machineID) {
         initComponents();
-        this.itemController = itemController;
+        this.itemController = ItemController.getItemControllerInstance();
         this.machineID = machineID;
         machineIDLabel.setText("Machine ID : "+machineID);
         userLogController = new UserLogController();
@@ -2143,8 +2144,9 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        NavigationPanel nav = new NavigationPanel(itemController);
-        userLogController.addLogOutEntry(nav.getUserName(),"admin");
+        Main.getCardLayout().show(Main.getCards(),"Navigation");
+      //  NavigationPanel nav = new NavigationPanel(itemController);
+      //  userLogController.addLogOutEntry(nav.getUserName(),"admin");
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

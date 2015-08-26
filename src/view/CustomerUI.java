@@ -48,11 +48,11 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
     /**
      * Creates new form CustomerUI
      */
-    public CustomerUI(ItemController itemController, Integer machineID) { 
+    public CustomerUI(Integer machineID) { 
         this.machineID= machineID;
         initComponents();    
  
-        this.itemController = itemController;
+        this.itemController = ItemController.getItemControllerInstance();
       //  priceController = new PriceController(this, machineID);
         cartItemsController = new CartItemsController(this);
       //  itemController = new ItemController(machineID);

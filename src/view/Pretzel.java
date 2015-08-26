@@ -18,7 +18,7 @@ public class Pretzel extends javax.swing.JPanel {
      */
     public Pretzel() {
         initComponents();
-        itemController = new ItemController();
+        itemController = ItemController.getItemControllerInstance();
     }
     public void setPrice(double price){
         pretzelPriceTextField.setText(Double.toString(price));

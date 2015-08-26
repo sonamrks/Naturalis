@@ -19,7 +19,7 @@ public class Corn extends javax.swing.JPanel {
     public Corn() {
         initComponents();
         
-        itemController = new ItemController();
+        itemController = ItemController.getItemControllerInstance();
     }
     public void setPrice(double price){
         cornPriceTextField.setText(Double.toString(price));

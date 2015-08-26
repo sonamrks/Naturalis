@@ -17,18 +17,16 @@ import javax.swing.ImageIcon;
  */
 public class MachinesPanel extends javax.swing.JPanel {
 
-    private ItemController itemController;
     ImageIcon image;
     Image bg;
     /**
      * Creates new form machinesListPanel
      */
-    public MachinesPanel(ItemController itemController) {
+    public MachinesPanel() {
         initComponents();
         image = new ImageIcon(this.getClass().getResource("/images/scmap.png"));
         bg = (new ImageIcon(image.getImage().getScaledInstance(1024, 800, java.awt.Image.SCALE_SMOOTH))).getImage();
         repaint();
-        this.itemController = itemController;
     }
 
     /**
@@ -102,16 +100,16 @@ public class MachinesPanel extends javax.swing.JPanel {
 
     private void machine1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1ButtonActionPerformed
         if(Main.getActivityType() == 0)
-            new CustomerUI(itemController, 4201).setVisible(true);  
+            new CustomerUI(4201).setVisible(true);  
         else 
-            new AdminUI(itemController, 4201).setVisible(true);
+            new AdminUI(4201).setVisible(true);
     }//GEN-LAST:event_machine1ButtonActionPerformed
 
     private void machine2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2ButtonActionPerformed
         if(Main.getActivityType() == 0)
-            new CustomerUI(itemController, 4202).setVisible(true);
+            new CustomerUI(4202).setVisible(true);
         else if(Main.getActivityType() == 1)
-            new AdminUI(itemController, 4202).setVisible(true);            
+            new AdminUI(4202).setVisible(true);            
     }//GEN-LAST:event_machine2ButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

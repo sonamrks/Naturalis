@@ -18,7 +18,7 @@ public class DietPepsi extends javax.swing.JPanel {
      */
     public DietPepsi() {
         initComponents();
-        itemController = new ItemController();
+        itemController = itemController = ItemController.getItemControllerInstance();
     }
     public void setPrice(double price){
         dietPepsiPriceTextField.setText(Double.toString(price));
