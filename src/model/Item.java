@@ -192,16 +192,13 @@ public class Item {
         return soldCount;
     }
     
-    public int getCategorySoldCount(String category,String machine){
+    public int getCategorySoldCount(String category,Integer machineID){
         int soldCount=0;
         try {
-            if(machine.equals("machine1"))
-                getSoldCount = "SELECT soldCount FROM item where category=? and machineID=4201";
-            else
-                getSoldCount = "SELECT soldCount FROM item where category=? and machineID=4202";
-    
+            getSoldCount = "SELECT soldCount FROM item where category=? and machineID=?";   
             PreparedStatement statement = connection.prepareStatement(getSoldCount);
             statement.setString(1,category);
+            statement.setInt(2,machineID);
             ResultSet result = statement.executeQuery();
             
             while(result.next()){

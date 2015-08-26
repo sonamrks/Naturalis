@@ -2035,14 +2035,14 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
 
     private void machine1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine1RadioButtonActionPerformed
         // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("beverage","machine1")));
-        snacksSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("snack","machine1")));
+        beveragesSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("beverage",4201)));
+        snacksSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("snack",4201)));
     }//GEN-LAST:event_machine1RadioButtonActionPerformed
 
     private void machine2RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machine2RadioButtonActionPerformed
         // TODO add your handling code here:
-        beveragesSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("beverage","machine2")));
-        snacksSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("snack","machine2")));
+        beveragesSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("beverage",4202)));
+        snacksSoldTextField.setText(Integer.toString(itemController.getCategorySoldCount("snack",4202)));
     }//GEN-LAST:event_machine2RadioButtonActionPerformed
 
     private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed

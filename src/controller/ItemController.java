@@ -109,8 +109,8 @@ public class ItemController implements Mediator {
         return item.getCategorySoldCount(category);
     }
     
-    public int getCategorySoldCount(String category, String machine) {
-        return item.getCategorySoldCount(category,machine);
+    public int getCategorySoldCount(String category, Integer machineID) {
+        return item.getCategorySoldCount(category,machineID);
     }
     
     public ArrayList<Integer> getItemSoldCount(String machine){
