@@ -16,7 +16,7 @@ public class BeverageFactory implements ItemFactory {
     
     private static ItemFactory bevrageFactory;
     
-    public static ItemFactory getInstance(){
+    public static ItemFactory getBeverageFactoryInstance(){
         bevrageFactory = new BeverageFactory();
         return bevrageFactory;
     }

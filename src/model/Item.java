@@ -41,7 +41,7 @@ public class Item {
     private String[] lowSugarsNames = new String[100];
     private double sales;
     
-    DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+    DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
     Connection connection = dbConnection.getConnection();
     
     PreparedStatement statement;
@@ -374,7 +374,7 @@ public class Item {
     }
     public void addNewItem(String[] itemInfo){
         try {
-            DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+            DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
     Connection connection = dbConnection.getConnection();
             String getInfo;
             getInfo = "INSERT into item VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -422,7 +422,7 @@ public class Item {
         nutritionalFacts = new int[4];
         try {
           
-            DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+            DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
             Connection connection = dbConnection.getConnection();
             String getName = "SELECT protein,sugars,carbohydrates,calories FROM item WHERE code=?";
 

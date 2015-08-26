@@ -21,7 +21,7 @@ private static final String PASS = "password";
 private static DatabaseConnection dbConnectionInstance;
 private static Connection connection;
 
-public static DatabaseConnection getInstance(){
+public static DatabaseConnection getDatabaseConnectionInstance(){
         dbConnectionInstance = new DatabaseConnection();
     return dbConnectionInstance;
 } 

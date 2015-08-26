@@ -30,7 +30,7 @@ public class CoconutWater implements Beverage {
 	
 	public CoconutWater(){
             try {
-                DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
+                DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();   
                 Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
                 query = "SELECT * FROM item WHERE code = 106";

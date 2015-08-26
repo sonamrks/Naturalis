@@ -30,7 +30,7 @@ public class Coke implements Beverage{
 	
 	public Coke(){
             try {
-                DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
+                DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();   
                 Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
                 query = "SELECT * FROM item WHERE code = 101";

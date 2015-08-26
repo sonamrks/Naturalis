@@ -30,7 +30,7 @@ public class Granola implements Snack {
 	
 	public Granola(){
             try {
-                DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
+                DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();   
                 Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
                 query = "SELECT * FROM item WHERE code = 201";

@@ -22,7 +22,7 @@ public class SingleAccessLog {
     
    private static SingleAccessLog singleAccessLog;
    
-   DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+   DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
     Connection connection = dbConnection.getConnection();
     
     PreparedStatement statement;

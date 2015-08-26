@@ -19,7 +19,7 @@ public class AccessUser {
     private String[] userNameList = new String[10];
     private String[] passwordList = new String[10];
     
-    DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+    DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
     Connection connection = dbConnection.getConnection();
     
     PreparedStatement statement;

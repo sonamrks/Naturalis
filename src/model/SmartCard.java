@@ -19,7 +19,7 @@ public class SmartCard {
     private String name;
     private Double balance;
     
-    DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+    DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
     Connection connection = dbConnection.getConnection();
     PreparedStatement statement;
   

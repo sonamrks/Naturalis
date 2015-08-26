@@ -32,7 +32,7 @@ public class Popcorn implements Snack{
 	
 	public Popcorn(){
             try {
-                DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
+                DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();   
                 Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
                 query = "SELECT * FROM item WHERE code = 206";

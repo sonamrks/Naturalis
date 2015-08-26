@@ -33,7 +33,7 @@ public class DriedFruits implements Snack{
 	
 	public DriedFruits(){
             try {
-                DatabaseConnection dbConnection = DatabaseConnection.getInstance();   
+                DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();   
                 Connection connection = dbConnection.getConnection();
                 statement = connection.createStatement();
                 query = "SELECT * FROM item WHERE code = 205";
