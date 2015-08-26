@@ -27,6 +27,7 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Main() {
+        setTitle("Naturalis");
         itemController= new ItemController();
         cardLayout = new CardLayout();
         cards = new JPanel(cardLayout);
