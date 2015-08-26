@@ -36,8 +36,8 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
  //   private int soldCount,count;
  //   private Set<Observer> observers;
     
-    ItemFactory beverageFactory = new BeverageFactory();
-    ItemFactory snackFactory = new SnackFactory();
+    ItemFactory beverageFactory = BeverageFactory.getInstance();
+    ItemFactory snackFactory = SnackFactory.getInstance();
 
     DatabaseConnection dbConnection = DatabaseConnection.getInstance();
     Connection connection = dbConnection.getConnection();

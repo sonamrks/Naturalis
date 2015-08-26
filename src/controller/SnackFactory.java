@@ -13,6 +13,15 @@ import model.Snack;
  * @author Sonam
  */
 public class SnackFactory implements ItemFactory {
+    private static ItemFactory snackFactory;
+    
+    public static ItemFactory getInstance(){
+        snackFactory = new SnackFactory();
+        return snackFactory;
+    }
+    private SnackFactory(){
+        
+    }
     public Product createItem(String name){
 		Snack snack = null;
 		

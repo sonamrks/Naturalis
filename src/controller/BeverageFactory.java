@@ -6,12 +6,23 @@ import model.Product;
 import model.Beverage;
 import java.lang.reflect.Constructor;
 import model.Coke;
+import model.DatabaseConnection;
 
 /**
  *
  * @author Sonam
  */
 public class BeverageFactory implements ItemFactory {
+    
+    private static ItemFactory bevrageFactory;
+    
+    public static ItemFactory getInstance(){
+        bevrageFactory = new BeverageFactory();
+        return bevrageFactory;
+    }
+    private BeverageFactory(){
+        
+    }
     
     public Product createItem(String name){
 		Beverage beverage = null;
