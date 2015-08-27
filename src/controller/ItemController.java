@@ -80,6 +80,9 @@ public class ItemController implements Mediator {
         return item.getCategoryCountForMachine();
     }
 
+    public ArrayList<String> getCategoryPicturePathForMachine(){
+        return item.getCategoryPicturePathForMachine();
+    }
     public String getSuggestionList(Boolean[] checkedList){
             component = new SuggestionsComponent(item);
            
@@ -192,8 +195,8 @@ public class ItemController implements Mediator {
        item.decreaseItemCount(code);
     }
     
-    public void increaseItemCount(Integer code){
-       item.increaseItemCount(code);
+    public void increaseItemCount(Integer code, Integer machineID){
+       item.increaseItemCount(code, machineID);
     }
         
     public void updatePrice(Double price,Integer code){

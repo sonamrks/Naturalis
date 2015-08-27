@@ -28,6 +28,7 @@ public class Item {
     ArrayList<Integer> carbohydratesList;
     ArrayList<Integer> caloriesList;
     ArrayList<Integer> countList;
+    ArrayList<String> picturePathList;
     ArrayList<Integer> soldCountList;
     
     private String getSoldCount;
@@ -56,6 +57,7 @@ public class Item {
         carbohydratesList = new ArrayList<Integer>();
         caloriesList = new ArrayList<Integer>();
         countList = new ArrayList<Integer>();
+        picturePathList = new ArrayList<String>();
         soldCountList = new ArrayList<Integer>();
     }    
      
@@ -63,7 +65,7 @@ public class Item {
         codeList = new ArrayList<Integer>();
         nameList = new ArrayList<String>();
         proteinList = new ArrayList<Integer>();
-        sugarsList = new ArrayList<Integer>();
+        sugarsList= new ArrayList<Integer>();
         caloriesList = new ArrayList<Integer>();
         
         this.machineId = machineId;
@@ -123,9 +125,10 @@ public class Item {
         codeList = new ArrayList<Integer>();
         priceList = new ArrayList<Double>();
         countList = new ArrayList<Integer>();
+        picturePathList = new ArrayList<String>();
         
         try {         
-            String getInfo = "SELECT code, price, count FROM item where category=? and machineID = ?";
+            String getInfo = "SELECT code, price, count, picturePath FROM item where category=? and machineID =?";
             PreparedStatement statement = connection.prepareStatement(getInfo);
             statement.setString(1, category);
             statement.setInt(2, machineID);
@@ -135,6 +138,7 @@ public class Item {
                 codeList.add(result.getInt("code"));
                 priceList.add(result.getDouble("price"));
                 countList.add(result.getInt("count"));
+                picturePathList.add(result.getString("picturePath"));
             }     
             
         } catch (SQLException ex) {
@@ -154,6 +158,9 @@ public class Item {
         return countList;
     }
     
+    public ArrayList<String> getCategoryPicturePathForMachine(){
+        return picturePathList;
+    }
  
     public int getCategorySoldCount(String category){
         int soldCount=0;
@@ -433,11 +440,12 @@ public class Item {
        
     }
     
-    public void increaseItemCount(Integer code){
+    public void increaseItemCount(Integer code, Integer machineID){
         try {
-            String updateBalance = "UPDATE item SET count=count+1 where code=?";
+            String updateBalance = "UPDATE item SET count=count+1 where code=? and machineID =?";
             statement = connection.prepareStatement(updateBalance);
             statement.setInt(1,code);
+            statement.setInt(2,machineID);
             statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
