@@ -15,18 +15,22 @@ import java.sql.SQLException;
  */
 public class DatabaseConnection {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-private static final String DB_URL = "jdbc:mysql://localhost/mydb";
-private static final String USER = "root";
-private static final String PASS = "sonam123";
-private static DatabaseConnection dbConnectionInstance;
-private static Connection connection;
-
+    private static final String DB_URL = "jdbc:mysql://localhost/mydb";
+    private static final String USER = "root";
+    private static final String PASS = "sonam123";
+    private static DatabaseConnection dbConnectionInstance = new DatabaseConnection();
+    private static Connection connection;
+/*
 public static DatabaseConnection getDatabaseConnectionInstance(){
     dbConnectionInstance = new DatabaseConnection();
     return dbConnectionInstance;
-} 
+} */
 
-public static Connection getConnection(){
+public static DatabaseConnection getDatabaseConnectionInstance(){
+    return dbConnectionInstance;
+}
+
+public Connection getConnection(){
     return connection;
 } 
 
