@@ -9,7 +9,11 @@ import controller.ItemController;
 import controller.UserLogController;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import main.Main;
 
 /**
@@ -22,30 +26,42 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private UserLogController userLogController;
     ArrayList<Integer> beverageCodeList;
     ArrayList<Double> beveragePriceList;
+    ArrayList<String> beveragePictureList;
     ArrayList<Integer> snackCodeList;
-    ArrayList<Double> snackPriceList;
+    ArrayList<Double> snackPriceList; 
+    ArrayList<String> snackPictureList; 
+    ArrayList<JLabel> itemLabels;
+    ArrayList<JTextField> itemTextFields;
+    ArrayList<JButton> itemButtons;
     
     /**
      * Creates new form AdminUI
      */
     public ManagerUI() {
+        itemLabels = new ArrayList<JLabel>();
+        itemTextFields = new ArrayList<JTextField>();
+        itemButtons = new ArrayList<JButton>();
         initComponents();
         this.itemController = ItemController.getItemControllerInstance();
         itemController.registerACollegue(this);
         userLogController = new UserLogController();
         
+        // Information about price in any machine is the same. Hence can be obtained from any machine.
         itemController.generateCategoryItemInfo(4201, "beverage");
         beverageCodeList = itemController.getCategoryCodeForMachine();
         beveragePriceList = itemController.getCategoryPriceForMachine();
+        beveragePictureList = itemController.getCategoryPicturePathForMachine();
         itemController.generateCategoryItemInfo(4201, "snack");
         snackCodeList = itemController.getCategoryCodeForMachine();
         snackPriceList = itemController.getCategoryPriceForMachine();
+        snackPictureList = itemController.getCategoryPicturePathForMachine();
         
         lycheeJuicePanel.setVisible(false);
         dietPepsiPanel.setVisible(false);
         pretzelPanel.setVisible(false);
         cornPanel.setVisible(false);
         
+        setPicture();
         setPrice();  
     }
     
@@ -63,26 +79,28 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         */
     }
     
-    public void setPrice(){               
-        cokePriceTextField.setText(Double.toString(beveragePriceList.get(0)));
-        orangePriceTextField.setText(Double.toString(beveragePriceList.get(1)));
-        lemonadePriceTextField.setText(Double.toString(beveragePriceList.get(2)));
-        gatoradePriceTextField.setText(Double.toString(beveragePriceList.get(3)));
-        frappuccinoPriceTextField.setText(Double.toString(beveragePriceList.get(4)));
-        coconutWaterPriceTextField.setText(Double.toString(beveragePriceList.get(5)));
-        sparklingWaterPriceTextField.setText(Double.toString(beveragePriceList.get(6)));
-        proteinSmoothiePriceTextField.setText(Double.toString(beveragePriceList.get(7)));
-        proteinShakePriceTextField1.setText(Double.toString(beveragePriceList.get(8)));
-        
-        granolaPriceTextField.setText(Double.toString(snackPriceList.get(0)));
-        chipsPriceTextField.setText(Double.toString(snackPriceList.get(1)));
-        nutsPriceTextField.setText(Double.toString(snackPriceList.get(2)));
-        cookiePriceTextField.setText(Double.toString(snackPriceList.get(3)));
-        driedFruitsPriceTextField.setText(Double.toString(snackPriceList.get(4)));
-        popcornPriceTextField.setText(Double.toString(snackPriceList.get(5)));
-        crackersPriceTextField.setText(Double.toString(snackPriceList.get(6)));
-        veggieStrawsPriceTextField.setText(Double.toString(snackPriceList.get(7)));
-        greekYogurtPriceTextField.setText(Double.toString(snackPriceList.get(8)));   
+    public void setPicture(){
+       int i = 0, j;
+       for(j=0; j<beveragePictureList.size(); j++) {
+            itemLabels.get(i).setIcon(new ImageIcon(this.getClass().getResource(beveragePictureList.get(j))));
+            i+=1;
+        }
+        for(j=0; j<snackPictureList.size(); j++) {
+            itemLabels.get(i).setIcon(new ImageIcon(this.getClass().getResource(snackPictureList.get(j))));
+            i+=1;
+        }
+    }
+    
+    public void setPrice(){  
+        int i = 0, j;
+        for(j=0; j<beveragePriceList.size(); j++) {
+            itemTextFields.get(i).setText(Double.toString(beveragePriceList.get(j)));
+            i+=1;
+        }
+        for(j=0; j<snackPriceList.size(); j++) {
+            itemTextFields.get(i).setText(Double.toString(snackPriceList.get(j)));
+            i+=1;
+        }
     }
    
 
@@ -146,105 +164,121 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         itemsScrollPane = new javax.swing.JScrollPane();
         itemsPanel = new javax.swing.JPanel();
         frappuccinoPanel = new javax.swing.JPanel();
-        frappuccinoImageLabel = new javax.swing.JLabel();
+        ImageLabel5 = new javax.swing.JLabel();
         cokeInfoPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        frappuccinoPriceTextField = new javax.swing.JTextField();
-        frappuccinoUpdateButton = new javax.swing.JButton();
+        priceTextField5 = new javax.swing.JTextField();
+        updateButton5 = new javax.swing.JButton();
         orangePanel = new javax.swing.JPanel();
-        orangeImageLabel = new javax.swing.JLabel();
+        ImageLabel2 = new javax.swing.JLabel();
         cokeInfoPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        orangePriceTextField = new javax.swing.JTextField();
-        orangeUpdateButton = new javax.swing.JButton();
+        priceTextField2 = new javax.swing.JTextField();
+        updateButton2 = new javax.swing.JButton();
         lemonadePanel = new javax.swing.JPanel();
         cokeInfoPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        lemonadePriceTextField = new javax.swing.JTextField();
-        lemonadeUpdateButton = new javax.swing.JButton();
-        lemonadeImageLabel1 = new javax.swing.JLabel();
+        priceTextField3 = new javax.swing.JTextField();
+        updateButton3 = new javax.swing.JButton();
+        ImageLabel3 = new javax.swing.JLabel();
         gatoradePanel1 = new javax.swing.JPanel();
-        gatoradeImageLabel1 = new javax.swing.JLabel();
+        ImageLabel4 = new javax.swing.JLabel();
         cokeInfoPanel4 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        gatoradePriceTextField = new javax.swing.JTextField();
-        gatoradeUpdateButton = new javax.swing.JButton();
+        priceTextField4 = new javax.swing.JTextField();
+        updateButton4 = new javax.swing.JButton();
         coconutWaterPanel = new javax.swing.JPanel();
-        coconutWaterImageLabel = new javax.swing.JLabel();
+        ImageLabel6 = new javax.swing.JLabel();
         cokeInfoPanel5 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        coconutWaterPriceTextField = new javax.swing.JTextField();
-        coconutWaterUpdateButton = new javax.swing.JButton();
+        priceTextField6 = new javax.swing.JTextField();
+        updateButton6 = new javax.swing.JButton();
         sparlkingWaterPanel = new javax.swing.JPanel();
-        sparklingWaterImageLabel = new javax.swing.JLabel();
+        ImageLabel7 = new javax.swing.JLabel();
         cokeInfoPanel6 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        sparklingWaterPriceTextField = new javax.swing.JTextField();
-        sparklingWaterUpdateButton = new javax.swing.JButton();
+        priceTextField7 = new javax.swing.JTextField();
+        updateButton7 = new javax.swing.JButton();
         cokePanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        cokePriceTextField = new javax.swing.JTextField();
-        updateCokeButton = new javax.swing.JButton();
-        cokeImageLabel1 = new javax.swing.JLabel();
+        priceTextField1 = new javax.swing.JTextField();
+        updateButton1 = new javax.swing.JButton();
+        ImageLabel1 = new javax.swing.JLabel();
         proteinSmoothiePanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        proteinSmoothiePriceTextField = new javax.swing.JTextField();
-        updateProteinSmoothieButton = new javax.swing.JButton();
-        proteinSmoothieImageLabel = new javax.swing.JLabel();
+        priceTextField8 = new javax.swing.JTextField();
+        updateButton8 = new javax.swing.JButton();
+        ImageLabel8 = new javax.swing.JLabel();
         granolaShakePanel = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        granolaPriceTextField = new javax.swing.JTextField();
-        granolaUpdateButton = new javax.swing.JButton();
-        granolaShakeImageLabel = new javax.swing.JLabel();
+        priceTextField10 = new javax.swing.JTextField();
+        updateButton10 = new javax.swing.JButton();
+        ImageLabel10 = new javax.swing.JLabel();
         chipsShakePanel = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
-        chipsPriceTextField = new javax.swing.JTextField();
-        chipsUpdateButton = new javax.swing.JButton();
-        chipsImageLabel = new javax.swing.JLabel();
+        priceTextField11 = new javax.swing.JTextField();
+        updateButton11 = new javax.swing.JButton();
+        ImageLabel11 = new javax.swing.JLabel();
         nutsShakePanel = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        nutsPriceTextField = new javax.swing.JTextField();
-        nutsUpdateButton = new javax.swing.JButton();
-        nutsImageLabel = new javax.swing.JLabel();
+        priceTextField12 = new javax.swing.JTextField();
+        updateButton12 = new javax.swing.JButton();
+        ImageLabel12 = new javax.swing.JLabel();
         cookieShakePanel = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
-        cookiePriceTextField = new javax.swing.JTextField();
-        cookieUpdateButton = new javax.swing.JButton();
-        cookieImageLabel = new javax.swing.JLabel();
+        priceTextField13 = new javax.swing.JTextField();
+        updateButton13 = new javax.swing.JButton();
+        ImageLabel13 = new javax.swing.JLabel();
         driedFruitsPanel = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
-        driedFruitsPriceTextField = new javax.swing.JTextField();
-        driedFruitsUpdateButton = new javax.swing.JButton();
-        driedFruitsImageLabel = new javax.swing.JLabel();
+        priceTextField14 = new javax.swing.JTextField();
+        updateButton14 = new javax.swing.JButton();
+        ImageLabel14 = new javax.swing.JLabel();
         popcornPanel = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
-        popcornPriceTextField = new javax.swing.JTextField();
-        popcornUpdateButton = new javax.swing.JButton();
-        popcornImageLabel = new javax.swing.JLabel();
+        priceTextField15 = new javax.swing.JTextField();
+        updateButton15 = new javax.swing.JButton();
+        ImageLabel15 = new javax.swing.JLabel();
         crackersPanel = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        crackersPriceTextField = new javax.swing.JTextField();
-        crackersUpdateButton = new javax.swing.JButton();
-        crackersImageLabel = new javax.swing.JLabel();
+        priceTextField16 = new javax.swing.JTextField();
+        updateButton16 = new javax.swing.JButton();
+        ImageLabel16 = new javax.swing.JLabel();
         veggieStrawsPanel = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
-        veggieStrawsPriceTextField = new javax.swing.JTextField();
-        veggieStrawsUpdateButton = new javax.swing.JButton();
-        veggieStrawsImageLabel = new javax.swing.JLabel();
+        priceTextField17 = new javax.swing.JTextField();
+        updateButton17 = new javax.swing.JButton();
+        ImageLabel17 = new javax.swing.JLabel();
         greekYogurtPanel = new javax.swing.JPanel();
         jLabel41 = new javax.swing.JLabel();
-        greekYogurtPriceTextField = new javax.swing.JTextField();
-        greekYogurtUpdateButton = new javax.swing.JButton();
-        greekYogurtImageLabel = new javax.swing.JLabel();
+        priceTextField18 = new javax.swing.JTextField();
+        updateButton18 = new javax.swing.JButton();
+        ImageLabel18 = new javax.swing.JLabel();
         dietPepsiPanel = new javax.swing.JPanel();
+        ImageLabel20 = new javax.swing.JLabel();
+        priceTextField20 = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
+        updateButton20 = new javax.swing.JButton();
         pretzelPanel = new javax.swing.JPanel();
+        ImageLabel21 = new javax.swing.JLabel();
+        priceTextField21 = new javax.swing.JTextField();
+        jLabel44 = new javax.swing.JLabel();
+        updateButton21 = new javax.swing.JButton();
         cornPanel = new javax.swing.JPanel();
+        ImageLabel22 = new javax.swing.JLabel();
+        priceTextField22 = new javax.swing.JTextField();
+        jLabel45 = new javax.swing.JLabel();
+        updateButton22 = new javax.swing.JButton();
         lycheeJuicePanel = new javax.swing.JPanel();
+        ImageLabel19 = new javax.swing.JLabel();
+        priceTextField19 = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        updateButton19 = new javax.swing.JButton();
         proteinShakePanel1 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
-        proteinShakePriceTextField1 = new javax.swing.JTextField();
-        proteinShakeUpdateButton1 = new javax.swing.JButton();
-        proteinShakeImageLabel1 = new javax.swing.JLabel();
+        priceTextField9 = new javax.swing.JTextField();
+        updateButton9 = new javax.swing.JButton();
+        ImageLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -628,20 +662,17 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
 
         itemsPanel.setBackground(new java.awt.Color(114, 148, 36));
 
-        frappuccinoImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/frappuccino.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel5);
 
         jLabel11.setText("Price");
 
-        frappuccinoPriceTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frappuccinoPriceTextFieldActionPerformed(evt);
-            }
-        });
+        itemTextFields.add(priceTextField5);
 
-        frappuccinoUpdateButton.setText("update");
-        frappuccinoUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton5.setText("update");
+        itemButtons.add(updateButton5);
+        updateButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frappuccinoUpdateButtonActionPerformed(evt);
+                updateButton5ActionPerformed(evt);
             }
         });
 
@@ -653,9 +684,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGroup(cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(frappuccinoPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(frappuccinoUpdateButton))
+                        .addComponent(updateButton5))
                     .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel11)))
@@ -667,11 +698,11 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(frappuccinoPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(priceTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(frappuccinoUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -681,7 +712,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             frappuccinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(frappuccinoPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(frappuccinoImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(ImageLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(cokeInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -692,23 +723,25 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addContainerGap()
                 .addComponent(cokeInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
-            .addComponent(frappuccinoImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ImageLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        orangeImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/orange.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel2);
 
         jLabel13.setText("Price");
 
-        orangePriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField2);
+        priceTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orangePriceTextFieldActionPerformed(evt);
+                priceTextField2ActionPerformed(evt);
             }
         });
 
-        orangeUpdateButton.setText("update");
-        orangeUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton2.setText("update");
+        itemButtons.add(updateButton2);
+        updateButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orangeUpdateButtonActionPerformed(evt);
+                updateButton2ActionPerformed(evt);
             }
         });
 
@@ -720,9 +753,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGroup(cokeInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cokeInfoPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(orangePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(orangeUpdateButton))
+                        .addComponent(updateButton2))
                     .addGroup(cokeInfoPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel13)))
@@ -735,8 +768,8 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cokeInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(orangePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(orangeUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(priceTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -745,8 +778,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         orangePanelLayout.setHorizontalGroup(
             orangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(orangePanelLayout.createSequentialGroup()
-                .addComponent(orangeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(ImageLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(cokeInfoPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -755,23 +789,27 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             .addGroup(orangePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(orangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(orangeImageLabel)
-                    .addComponent(cokeInfoPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(orangePanelLayout.createSequentialGroup()
+                        .addComponent(cokeInfoPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 5, Short.MAX_VALUE))
+                    .addComponent(ImageLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jLabel15.setText("Price");
 
-        lemonadePriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField3);
+        priceTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lemonadePriceTextFieldActionPerformed(evt);
+                priceTextField3ActionPerformed(evt);
             }
         });
 
-        lemonadeUpdateButton.setText("update");
-        lemonadeUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton3.setText("update");
+        itemButtons.add(updateButton3);
+        updateButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lemonadeUpdateButtonActionPerformed(evt);
+                updateButton3ActionPerformed(evt);
             }
         });
 
@@ -783,9 +821,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGroup(cokeInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cokeInfoPanel3Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(lemonadePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lemonadeUpdateButton))
+                        .addComponent(updateButton3))
                     .addGroup(cokeInfoPanel3Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel15)))
@@ -800,12 +838,12 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(cokeInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lemonadeUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lemonadePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(updateButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        lemonadeImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lemonade.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel3);
 
         javax.swing.GroupLayout lemonadePanelLayout = new javax.swing.GroupLayout(lemonadePanel);
         lemonadePanel.setLayout(lemonadePanelLayout);
@@ -813,7 +851,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             lemonadePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lemonadePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lemonadeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ImageLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cokeInfoPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -825,24 +863,26 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(cokeInfoPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lemonadePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lemonadeImageLabel1))
+                .addContainerGap()
+                .addComponent(ImageLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        gatoradeImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gatorade.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel4);
 
         jLabel17.setText("Price");
 
-        gatoradePriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField4);
+        priceTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gatoradePriceTextFieldActionPerformed(evt);
+                priceTextField4ActionPerformed(evt);
             }
         });
 
-        gatoradeUpdateButton.setText("update");
-        gatoradeUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton4.setText("update");
+        itemButtons.add(updateButton4);
+        updateButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gatoradeUpdateButtonActionPerformed(evt);
+                updateButton4ActionPerformed(evt);
             }
         });
 
@@ -854,9 +894,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGroup(cokeInfoPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(gatoradePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(gatoradeUpdateButton))
+                        .addComponent(updateButton4))
                     .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel17)))
@@ -868,11 +908,11 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(gatoradePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(priceTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(gatoradeUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -881,7 +921,8 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         gatoradePanel1Layout.setHorizontalGroup(
             gatoradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gatoradePanel1Layout.createSequentialGroup()
-                .addComponent(gatoradeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(ImageLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cokeInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -891,25 +932,29 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             .addGroup(gatoradePanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(gatoradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(gatoradeImageLabel1)
-                    .addComponent(cokeInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(gatoradePanel1Layout.createSequentialGroup()
+                        .addComponent(cokeInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addComponent(ImageLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        coconutWaterImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coconutWater.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel6);
 
         jLabel19.setText("Price");
 
-        coconutWaterPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField6);
+        priceTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coconutWaterPriceTextFieldActionPerformed(evt);
+                priceTextField6ActionPerformed(evt);
             }
         });
 
-        coconutWaterUpdateButton.setText("update");
-        coconutWaterUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton6.setText("update");
+        itemButtons.add(updateButton6);
+        updateButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coconutWaterUpdateButtonActionPerformed(evt);
+                updateButton6ActionPerformed(evt);
             }
         });
 
@@ -921,9 +966,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGroup(cokeInfoPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cokeInfoPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(coconutWaterPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(coconutWaterUpdateButton))
+                        .addComponent(updateButton6))
                     .addGroup(cokeInfoPanel5Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel19)))
@@ -935,11 +980,11 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(coconutWaterPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(priceTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(coconutWaterUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -949,7 +994,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             coconutWaterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(coconutWaterPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(coconutWaterImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(ImageLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(cokeInfoPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -960,23 +1005,25 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addContainerGap()
                 .addComponent(cokeInfoPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
-            .addComponent(coconutWaterImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ImageLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        sparklingWaterImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sparklingWater.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel7);
 
         jLabel21.setText("Price");
 
-        sparklingWaterPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField7);
+        priceTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sparklingWaterPriceTextFieldActionPerformed(evt);
+                priceTextField7ActionPerformed(evt);
             }
         });
 
-        sparklingWaterUpdateButton.setText("update");
-        sparklingWaterUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton7.setText("update");
+        itemButtons.add(updateButton7);
+        updateButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sparklingWaterUpdateButtonActionPerformed(evt);
+                updateButton7ActionPerformed(evt);
             }
         });
 
@@ -988,9 +1035,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGroup(cokeInfoPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cokeInfoPanel6Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(sparklingWaterPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sparklingWaterUpdateButton))
+                        .addComponent(updateButton7))
                     .addGroup(cokeInfoPanel6Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel21)))
@@ -1002,11 +1049,11 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sparklingWaterPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(priceTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(sparklingWaterUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1016,7 +1063,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             sparlkingWaterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sparlkingWaterPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(sparklingWaterImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(ImageLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(cokeInfoPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1027,25 +1074,27 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addContainerGap()
                 .addComponent(cokeInfoPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
-            .addComponent(sparklingWaterImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ImageLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel9.setText("Price");
 
-        cokePriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField1);
+        priceTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cokePriceTextFieldActionPerformed(evt);
+                priceTextField1ActionPerformed(evt);
             }
         });
 
-        updateCokeButton.setText("update");
-        updateCokeButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton1.setText("update");
+        itemButtons.add(updateButton1);
+        updateButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateCokeButtonActionPerformed(evt);
+                updateButton1ActionPerformed(evt);
             }
         });
 
-        cokeImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/coke.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel1);
 
         javax.swing.GroupLayout cokePanelLayout = new javax.swing.GroupLayout(cokePanel);
         cokePanel.setLayout(cokePanelLayout);
@@ -1053,13 +1102,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokePanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(cokeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 50, Short.MAX_VALUE)
+                .addComponent(ImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cokePanelLayout.createSequentialGroup()
-                        .addComponent(cokePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(updateCokeButton))
+                        .addComponent(updateButton1))
                     .addComponent(jLabel9))
                 .addContainerGap())
         );
@@ -1068,33 +1117,30 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             .addGroup(cokePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cokeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(cokePanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(cokePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(updateCokeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cokePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(updateButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(priceTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
         jLabel7.setText("Price");
 
-        proteinSmoothiePriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField8);
+
+        updateButton8.setText("update");
+        itemButtons.add(updateButton8);
+        updateButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proteinSmoothiePriceTextFieldActionPerformed(evt);
+                updateButton8ActionPerformed(evt);
             }
         });
 
-        updateProteinSmoothieButton.setText("update");
-        updateProteinSmoothieButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateProteinSmoothieButtonActionPerformed(evt);
-            }
-        });
-
-        proteinSmoothieImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/proteinSmoothie.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel8);
 
         javax.swing.GroupLayout proteinSmoothiePanelLayout = new javax.swing.GroupLayout(proteinSmoothiePanel);
         proteinSmoothiePanel.setLayout(proteinSmoothiePanelLayout);
@@ -1102,13 +1148,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(proteinSmoothiePanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(proteinSmoothieImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(ImageLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(proteinSmoothiePanelLayout.createSequentialGroup()
-                        .addComponent(proteinSmoothiePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(updateProteinSmoothieButton))
+                        .addComponent(updateButton8))
                     .addComponent(jLabel7))
                 .addContainerGap())
         );
@@ -1119,28 +1165,30 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(proteinSmoothiePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateProteinSmoothieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(priceTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(proteinSmoothieImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+            .addComponent(ImageLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
         );
 
         jLabel23.setText("Price");
 
-        granolaPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField10);
+        priceTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                granolaPriceTextFieldActionPerformed(evt);
+                priceTextField10ActionPerformed(evt);
             }
         });
 
-        granolaUpdateButton.setText("update");
-        granolaUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton10.setText("update");
+        itemButtons.add(updateButton10);
+        updateButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                granolaUpdateButtonActionPerformed(evt);
+                updateButton10ActionPerformed(evt);
             }
         });
 
-        granolaShakeImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/granola.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel10);
 
         javax.swing.GroupLayout granolaShakePanelLayout = new javax.swing.GroupLayout(granolaShakePanel);
         granolaShakePanel.setLayout(granolaShakePanelLayout);
@@ -1148,45 +1196,46 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(granolaShakePanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(granolaShakeImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ImageLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(granolaShakePanelLayout.createSequentialGroup()
-                        .addComponent(granolaPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(granolaUpdateButton))
+                        .addComponent(updateButton10))
                     .addComponent(jLabel23))
                 .addContainerGap())
         );
         granolaShakePanelLayout.setVerticalGroup(
             granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(granolaShakeImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(granolaShakePanelLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(granolaUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(granolaPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(updateButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(ImageLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel27.setText("Price");
 
-        chipsPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField11);
+        priceTextField11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chipsPriceTextFieldActionPerformed(evt);
+                priceTextField11ActionPerformed(evt);
             }
         });
 
-        chipsUpdateButton.setText("update");
-        chipsUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton11.setText("update");
+        itemButtons.add(updateButton11);
+        updateButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chipsUpdateButtonActionPerformed(evt);
+                updateButton11ActionPerformed(evt);
             }
         });
 
-        chipsImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chips.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel11);
 
         javax.swing.GroupLayout chipsShakePanelLayout = new javax.swing.GroupLayout(chipsShakePanel);
         chipsShakePanel.setLayout(chipsShakePanelLayout);
@@ -1194,13 +1243,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             chipsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(chipsShakePanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(chipsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ImageLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(chipsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(chipsShakePanelLayout.createSequentialGroup()
-                        .addComponent(chipsPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chipsUpdateButton))
+                        .addComponent(updateButton11))
                     .addComponent(jLabel27))
                 .addContainerGap())
         );
@@ -1211,28 +1260,29 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(chipsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chipsPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chipsUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(chipsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(priceTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(ImageLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel29.setText("Price");
 
-        nutsPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField12);
+        priceTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutsPriceTextFieldActionPerformed(evt);
+                priceTextField12ActionPerformed(evt);
             }
         });
 
-        nutsUpdateButton.setText("update");
-        nutsUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton12.setText("update");
+        itemButtons.add(updateButton12);
+        updateButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutsUpdateButtonActionPerformed(evt);
+                updateButton12ActionPerformed(evt);
             }
         });
 
-        nutsImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nuts.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel2);
 
         javax.swing.GroupLayout nutsShakePanelLayout = new javax.swing.GroupLayout(nutsShakePanel);
         nutsShakePanel.setLayout(nutsShakePanelLayout);
@@ -1240,13 +1290,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             nutsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nutsShakePanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(nutsImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ImageLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(nutsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nutsShakePanelLayout.createSequentialGroup()
-                        .addComponent(nutsPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nutsUpdateButton))
+                        .addComponent(updateButton12))
                     .addComponent(jLabel29))
                 .addContainerGap())
         );
@@ -1257,28 +1307,29 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(nutsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nutsPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nutsUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(nutsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(priceTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(ImageLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel31.setText("Price");
 
-        cookiePriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField13);
+        priceTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cookiePriceTextFieldActionPerformed(evt);
+                priceTextField13ActionPerformed(evt);
             }
         });
 
-        cookieUpdateButton.setText("update");
-        cookieUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton13.setText("update");
+        itemButtons.add(updateButton13);
+        updateButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cookieUpdateButtonActionPerformed(evt);
+                updateButton13ActionPerformed(evt);
             }
         });
 
-        cookieImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cookie.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel13);
 
         javax.swing.GroupLayout cookieShakePanelLayout = new javax.swing.GroupLayout(cookieShakePanel);
         cookieShakePanel.setLayout(cookieShakePanelLayout);
@@ -1286,13 +1337,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             cookieShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cookieShakePanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(cookieImageLabel)
+                .addComponent(ImageLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(cookieShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cookieShakePanelLayout.createSequentialGroup()
-                        .addComponent(cookiePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cookieUpdateButton))
+                        .addComponent(updateButton13))
                     .addComponent(jLabel31))
                 .addContainerGap())
         );
@@ -1303,28 +1354,29 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cookieShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cookiePriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cookieUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(cookieImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(priceTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(ImageLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel33.setText("Price");
 
-        driedFruitsPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField14);
+        priceTextField14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                driedFruitsPriceTextFieldActionPerformed(evt);
+                priceTextField14ActionPerformed(evt);
             }
         });
 
-        driedFruitsUpdateButton.setText("update");
-        driedFruitsUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton14.setText("update");
+        itemButtons.add(updateButton14);
+        updateButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                driedFruitsUpdateButtonActionPerformed(evt);
+                updateButton14ActionPerformed(evt);
             }
         });
 
-        driedFruitsImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driedFruits.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel14);
 
         javax.swing.GroupLayout driedFruitsPanelLayout = new javax.swing.GroupLayout(driedFruitsPanel);
         driedFruitsPanel.setLayout(driedFruitsPanelLayout);
@@ -1332,13 +1384,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             driedFruitsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(driedFruitsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(driedFruitsImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ImageLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(driedFruitsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(driedFruitsPanelLayout.createSequentialGroup()
-                        .addComponent(driedFruitsPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(driedFruitsUpdateButton))
+                        .addComponent(updateButton14))
                     .addComponent(jLabel33))
                 .addContainerGap())
         );
@@ -1349,28 +1401,32 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel33)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(driedFruitsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(driedFruitsPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(driedFruitsUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(priceTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(driedFruitsPanelLayout.createSequentialGroup()
+                .addComponent(ImageLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(driedFruitsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel35.setText("Price");
 
-        popcornPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField15);
+        priceTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                popcornPriceTextFieldActionPerformed(evt);
+                priceTextField15ActionPerformed(evt);
             }
         });
 
-        popcornUpdateButton.setText("update");
-        popcornUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton15.setText("update");
+        itemButtons.add(updateButton15);
+        updateButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                popcornUpdateButtonActionPerformed(evt);
+                updateButton15ActionPerformed(evt);
             }
         });
 
-        popcornImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/popcorn.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel5);
 
         javax.swing.GroupLayout popcornPanelLayout = new javax.swing.GroupLayout(popcornPanel);
         popcornPanel.setLayout(popcornPanelLayout);
@@ -1378,13 +1434,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popcornPanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(popcornImageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ImageLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(popcornPanelLayout.createSequentialGroup()
-                        .addComponent(popcornPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(popcornUpdateButton))
+                        .addComponent(updateButton15))
                     .addComponent(jLabel35))
                 .addContainerGap())
         );
@@ -1395,28 +1451,29 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel35)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(popcornPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(popcornUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(popcornImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(priceTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(ImageLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel37.setText("Price");
 
-        crackersPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField16);
+        priceTextField16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crackersPriceTextFieldActionPerformed(evt);
+                priceTextField16ActionPerformed(evt);
             }
         });
 
-        crackersUpdateButton.setText("update");
-        crackersUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton16.setText("update");
+        itemButtons.add(updateButton16);
+        updateButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crackersUpdateButtonActionPerformed(evt);
+                updateButton16ActionPerformed(evt);
             }
         });
 
-        crackersImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/crackers.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel16);
 
         javax.swing.GroupLayout crackersPanelLayout = new javax.swing.GroupLayout(crackersPanel);
         crackersPanel.setLayout(crackersPanelLayout);
@@ -1424,13 +1481,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(crackersPanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(crackersImageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ImageLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(crackersPanelLayout.createSequentialGroup()
-                        .addComponent(crackersPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(crackersUpdateButton))
+                        .addComponent(updateButton16))
                     .addComponent(jLabel37))
                 .addContainerGap())
         );
@@ -1441,28 +1498,29 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(crackersPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crackersUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(crackersImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(priceTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(ImageLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel39.setText("Price");
 
-        veggieStrawsPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField17);
+        priceTextField17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                veggieStrawsPriceTextFieldActionPerformed(evt);
+                priceTextField17ActionPerformed(evt);
             }
         });
 
-        veggieStrawsUpdateButton.setText("update");
-        veggieStrawsUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton17.setText("update");
+        itemButtons.add(updateButton17);
+        updateButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                veggieStrawsUpdateButtonActionPerformed(evt);
+                updateButton17ActionPerformed(evt);
             }
         });
 
-        veggieStrawsImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/veggieStraws.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel17);
 
         javax.swing.GroupLayout veggieStrawsPanelLayout = new javax.swing.GroupLayout(veggieStrawsPanel);
         veggieStrawsPanel.setLayout(veggieStrawsPanelLayout);
@@ -1470,13 +1528,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(veggieStrawsImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ImageLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
-                        .addComponent(veggieStrawsPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(veggieStrawsUpdateButton))
+                        .addComponent(updateButton17))
                     .addComponent(jLabel39))
                 .addContainerGap())
         );
@@ -1487,42 +1545,43 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel39)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(veggieStrawsPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(veggieStrawsUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(veggieStrawsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(priceTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(ImageLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jLabel41.setText("Price");
 
-        greekYogurtPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField18);
+        priceTextField18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtPriceTextFieldActionPerformed(evt);
+                priceTextField18ActionPerformed(evt);
             }
         });
 
-        greekYogurtUpdateButton.setText("update");
-        greekYogurtUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        updateButton18.setText("update");
+        itemButtons.add(updateButton18);
+        updateButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtUpdateButtonActionPerformed(evt);
+                updateButton18ActionPerformed(evt);
             }
         });
 
-        greekYogurtImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greekYogurt.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel18);
 
         javax.swing.GroupLayout greekYogurtPanelLayout = new javax.swing.GroupLayout(greekYogurtPanel);
         greekYogurtPanel.setLayout(greekYogurtPanelLayout);
         greekYogurtPanelLayout.setHorizontalGroup(
             greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(greekYogurtPanelLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(greekYogurtImageLabel)
+                .addContainerGap()
+                .addComponent(ImageLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(greekYogurtPanelLayout.createSequentialGroup()
-                        .addComponent(greekYogurtPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(greekYogurtUpdateButton))
+                        .addComponent(priceTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(updateButton18))
                     .addComponent(jLabel41))
                 .addContainerGap())
         );
@@ -1533,72 +1592,231 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel41)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(greekYogurtPriceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(greekYogurtUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(greekYogurtImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(priceTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 27, Short.MAX_VALUE))
+            .addGroup(greekYogurtPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ImageLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        itemLabels.add(ImageLabel20);
+
+        itemTextFields.add(priceTextField20);
+        priceTextField20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceTextField20ActionPerformed(evt);
+            }
+        });
+
+        jLabel43.setText("Price");
+
+        updateButton20.setText("update");
+        itemButtons.add(updateButton20);
+        updateButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButton20ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout dietPepsiPanelLayout = new javax.swing.GroupLayout(dietPepsiPanel);
         dietPepsiPanel.setLayout(dietPepsiPanelLayout);
         dietPepsiPanelLayout.setHorizontalGroup(
             dietPepsiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(dietPepsiPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ImageLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(dietPepsiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dietPepsiPanelLayout.createSequentialGroup()
+                        .addComponent(priceTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(updateButton20))
+                    .addComponent(jLabel43))
+                .addContainerGap())
         );
         dietPepsiPanelLayout.setVerticalGroup(
             dietPepsiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 271, Short.MAX_VALUE)
+            .addGroup(dietPepsiPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(dietPepsiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
+            .addGroup(dietPepsiPanelLayout.createSequentialGroup()
+                .addComponent(ImageLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        itemLabels.add(ImageLabel21);
+
+        itemTextFields.add(priceTextField21);
+        priceTextField21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceTextField21ActionPerformed(evt);
+            }
+        });
+
+        jLabel44.setText("Price");
+
+        updateButton21.setText("update");
+        itemButtons.add(updateButton21);
+        updateButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButton21ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pretzelPanelLayout = new javax.swing.GroupLayout(pretzelPanel);
         pretzelPanel.setLayout(pretzelPanelLayout);
         pretzelPanelLayout.setHorizontalGroup(
             pretzelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(pretzelPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ImageLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pretzelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pretzelPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pretzelPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(priceTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(updateButton21)
+                .addContainerGap())
         );
         pretzelPanelLayout.setVerticalGroup(
             pretzelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 154, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pretzelPanelLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jLabel44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pretzelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
+            .addGroup(pretzelPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ImageLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        itemLabels.add(ImageLabel22);
+
+        itemTextFields.add(priceTextField22);
+        priceTextField22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceTextField22ActionPerformed(evt);
+            }
+        });
+
+        jLabel45.setText("Price");
+
+        updateButton22.setText("update");
+        itemButtons.add(updateButton22);
+        updateButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButton22ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cornPanelLayout = new javax.swing.GroupLayout(cornPanel);
         cornPanel.setLayout(cornPanelLayout);
         cornPanelLayout.setHorizontalGroup(
             cornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(cornPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ImageLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(cornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cornPanelLayout.createSequentialGroup()
+                        .addComponent(priceTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(updateButton22))
+                    .addComponent(jLabel45))
+                .addContainerGap())
         );
         cornPanelLayout.setVerticalGroup(
             cornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 169, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cornPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(cornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39))
+            .addComponent(ImageLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        itemLabels.add(ImageLabel19);
+
+        itemTextFields.add(priceTextField19);
+        priceTextField19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priceTextField19ActionPerformed(evt);
+            }
+        });
+
+        jLabel42.setText("Price");
+
+        updateButton19.setText("update");
+        itemButtons.add(updateButton19);
+        updateButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButton19ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout lycheeJuicePanelLayout = new javax.swing.GroupLayout(lycheeJuicePanel);
         lycheeJuicePanel.setLayout(lycheeJuicePanelLayout);
         lycheeJuicePanelLayout.setHorizontalGroup(
             lycheeJuicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(lycheeJuicePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ImageLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(lycheeJuicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lycheeJuicePanelLayout.createSequentialGroup()
+                        .addComponent(priceTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(updateButton19))
+                    .addComponent(jLabel42))
+                .addContainerGap())
         );
         lycheeJuicePanelLayout.setVerticalGroup(
             lycheeJuicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
+            .addComponent(ImageLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lycheeJuicePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(lycheeJuicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(updateButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45))
         );
 
         jLabel25.setText("Price");
 
-        proteinShakePriceTextField1.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(priceTextField9);
+        priceTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proteinShakePriceTextField1ActionPerformed(evt);
+                priceTextField9ActionPerformed(evt);
             }
         });
 
-        proteinShakeUpdateButton1.setText("update");
-        proteinShakeUpdateButton1.addActionListener(new java.awt.event.ActionListener() {
+        updateButton9.setText("update");
+        itemButtons.add(updateButton9);
+        updateButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proteinShakeUpdateButton1ActionPerformed(evt);
+                updateButton9ActionPerformed(evt);
             }
         });
 
-        proteinShakeImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/proteinShake.jpg"))); // NOI18N
+        itemLabels.add(ImageLabel9);
 
         javax.swing.GroupLayout proteinShakePanel1Layout = new javax.swing.GroupLayout(proteinShakePanel1);
         proteinShakePanel1.setLayout(proteinShakePanel1Layout);
@@ -1606,18 +1824,15 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(proteinShakePanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(proteinShakeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ImageLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, proteinShakePanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(proteinShakePriceTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(proteinShakeUpdateButton1)
-                        .addContainerGap())
                     .addGroup(proteinShakePanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(priceTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(updateButton9))
+                    .addComponent(jLabel25))
+                .addContainerGap())
         );
         proteinShakePanel1Layout.setVerticalGroup(
             proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1626,10 +1841,10 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(proteinShakePriceTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(proteinShakeUpdateButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(updateButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(37, Short.MAX_VALUE))
-            .addComponent(proteinShakeImageLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ImageLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout itemsPanelLayout = new javax.swing.GroupLayout(itemsPanel);
@@ -1639,43 +1854,44 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             .addGroup(itemsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lycheeJuicePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cornPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pretzelPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(dietPepsiPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(frappuccinoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(coconutWaterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sparlkingWaterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(granolaShakePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(gatoradePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orangePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lemonadePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(proteinSmoothiePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(proteinShakePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(chipsShakePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(nutsShakePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cookieShakePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(driedFruitsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(popcornPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(crackersPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(greekYogurtPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(330, Short.MAX_VALUE))
+                    .addComponent(orangePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(gatoradePanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(frappuccinoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(coconutWaterPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(proteinShakePanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(proteinSmoothiePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(sparlkingWaterPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(chipsShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(granolaShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(nutsShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cookieShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(driedFruitsPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(popcornPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(crackersPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(greekYogurtPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cornPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pretzelPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dietPepsiPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lycheeJuicePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(595, Short.MAX_VALUE))
             .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(itemsPanelLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(cokePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(331, Short.MAX_VALUE)))
+                    .addContainerGap(597, Short.MAX_VALUE)))
         );
         itemsPanelLayout.setVerticalGroup(
             itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(itemsPanelLayout.createSequentialGroup()
                 .addGap(126, 126, 126)
-                .addComponent(orangePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(orangePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lemonadePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(gatoradePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gatoradePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(frappuccinoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1704,20 +1920,20 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                 .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(greekYogurtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lycheeJuicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dietPepsiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dietPepsiPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pretzelPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cornPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(2905, Short.MAX_VALUE))
+                .addContainerGap(3576, Short.MAX_VALUE))
             .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(itemsPanelLayout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(cokePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(5627, Short.MAX_VALUE)))
+                    .addContainerGap(5859, Short.MAX_VALUE)))
         );
 
         itemsScrollPane.setViewportView(itemsPanel);
@@ -1737,190 +1953,183 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(statisticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(itemsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 2726, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void proteinSmoothiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothiePriceTextFieldActionPerformed
+    private void updateButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_proteinSmoothiePriceTextFieldActionPerformed
-
-    private void frappuccinoPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoPriceTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_frappuccinoPriceTextFieldActionPerformed
-
-    private void updateProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProteinSmoothieButtonActionPerformed
-        // TODO add your handling code here:
-        double price = Double.valueOf(proteinSmoothiePriceTextField.getText());
+        double price = Double.valueOf(priceTextField8.getText());
         sendMessage("changePrice", "beverage", 7, price);
         itemController.updatePrice(price,beverageCodeList.get(7));
-    }//GEN-LAST:event_updateProteinSmoothieButtonActionPerformed
+    }//GEN-LAST:event_updateButton8ActionPerformed
 
-    private void frappuccinoUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoUpdateButtonActionPerformed
+    private void updateButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton5ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(frappuccinoPriceTextField.getText());
+        double price = Double.valueOf(priceTextField5.getText());
         sendMessage("changeprice", "beverage", 4, price);
         itemController.updatePrice(price,beverageCodeList.get(4));
-    }//GEN-LAST:event_frappuccinoUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton5ActionPerformed
 
-    private void lemonadePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadePriceTextFieldActionPerformed
+    private void priceTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lemonadePriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField3ActionPerformed
 
-    private void lemonadeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeUpdateButtonActionPerformed
+    private void updateButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton3ActionPerformed
         // TODO add your handling code here:        
-        double price = Double.valueOf(lemonadePriceTextField.getText());
+        double price = Double.valueOf(priceTextField3.getText());
         sendMessage("changeprice", "beverage", 2, price);
         itemController.updatePrice(price,beverageCodeList.get(2));
-    }//GEN-LAST:event_lemonadeUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton3ActionPerformed
 
-    private void gatoradePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradePriceTextFieldActionPerformed
+    private void priceTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_gatoradePriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField4ActionPerformed
 
-    private void gatoradeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeUpdateButtonActionPerformed
+    private void updateButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton4ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(gatoradePriceTextField.getText());
+        double price = Double.valueOf(priceTextField4.getText());
         sendMessage("changeprice", "beverage", 3, price);
         itemController.updatePrice(price,beverageCodeList.get(3));
-    }//GEN-LAST:event_gatoradeUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton4ActionPerformed
 
-    private void coconutWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterPriceTextFieldActionPerformed
+    private void priceTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_coconutWaterPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField6ActionPerformed
 
-    private void coconutWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterUpdateButtonActionPerformed
+    private void updateButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton6ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(coconutWaterPriceTextField.getText());
+        double price = Double.valueOf(priceTextField6.getText());
         sendMessage("changeprice", "beverage", 5, price);
         itemController.updatePrice(price,beverageCodeList.get(5));
-    }//GEN-LAST:event_coconutWaterUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton6ActionPerformed
 
-    private void sparklingWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterPriceTextFieldActionPerformed
+    private void priceTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sparklingWaterPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField7ActionPerformed
 
-    private void sparklingWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterUpdateButtonActionPerformed
+    private void updateButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton7ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(sparklingWaterPriceTextField.getText());
+        double price = Double.valueOf(priceTextField7.getText());
         sendMessage("changeprice", "beverage", 6, price);
         itemController.updatePrice(price,beverageCodeList.get(6));
-    }//GEN-LAST:event_sparklingWaterUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton7ActionPerformed
 
-    private void cokePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokePriceTextFieldActionPerformed
+    private void priceTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cokePriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField1ActionPerformed
 
-    private void updateCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCokeButtonActionPerformed
+    private void updateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton1ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(cokePriceTextField.getText());
+        double price = Double.valueOf(priceTextField1.getText());
         sendMessage("changeprice", "beverage", 0, price);
-        itemController.updatePrice(price,beverageCodeList.get(1));
-    }//GEN-LAST:event_updateCokeButtonActionPerformed
+        itemController.updatePrice(price,beverageCodeList.get(0));
+    }//GEN-LAST:event_updateButton1ActionPerformed
 
-    private void granolaPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaPriceTextFieldActionPerformed
+    private void priceTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_granolaPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField10ActionPerformed
 
-    private void granolaUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaUpdateButtonActionPerformed
+    private void updateButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton10ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(granolaPriceTextField.getText());
+        double price = Double.valueOf(priceTextField10.getText());
+
         sendMessage("changeprice", "snack", 9, price);
         itemController.updatePrice(price,snackCodeList.get(0));
-    }//GEN-LAST:event_granolaUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton10ActionPerformed
 
-    private void chipsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsPriceTextFieldActionPerformed
+    private void priceTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField11ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chipsPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField11ActionPerformed
 
-    private void chipsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsUpdateButtonActionPerformed
+    private void updateButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton11ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(chipsPriceTextField.getText());
+        double price = Double.valueOf(priceTextField11.getText());
         sendMessage("changeprice", "snack", 10, price);
         itemController.updatePrice(price,snackCodeList.get(1));
-    }//GEN-LAST:event_chipsUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton11ActionPerformed
 
-    private void nutsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsPriceTextFieldActionPerformed
+    private void priceTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nutsPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField12ActionPerformed
 
-    private void nutsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsUpdateButtonActionPerformed
+    private void updateButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton12ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(nutsPriceTextField.getText());
+        double price = Double.valueOf(priceTextField12.getText());
         sendMessage("changeprice", "snack", 11, price);
         itemController.updatePrice(price,snackCodeList.get(2));
-    }//GEN-LAST:event_nutsUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton12ActionPerformed
 
-    private void cookiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookiePriceTextFieldActionPerformed
+    private void priceTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cookiePriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField13ActionPerformed
 
-    private void cookieUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieUpdateButtonActionPerformed
+    private void updateButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton13ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(cookiePriceTextField.getText());
+        double price = Double.valueOf(priceTextField13.getText());
         sendMessage("changeprice", "snack", 12, price);
         itemController.updatePrice(price,snackCodeList.get(3));
-    }//GEN-LAST:event_cookieUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton13ActionPerformed
 
-    private void driedFruitsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsPriceTextFieldActionPerformed
+    private void priceTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField14ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_driedFruitsPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField14ActionPerformed
 
-    private void driedFruitsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsUpdateButtonActionPerformed
+    private void updateButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton14ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(driedFruitsPriceTextField.getText());
+        double price = Double.valueOf(priceTextField14.getText());
         sendMessage("changeprice", "snack", 13, price);
         itemController.updatePrice(price,snackCodeList.get(4));
-    }//GEN-LAST:event_driedFruitsUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton14ActionPerformed
 
-    private void popcornPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornPriceTextFieldActionPerformed
+    private void priceTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField15ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_popcornPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField15ActionPerformed
 
-    private void popcornUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornUpdateButtonActionPerformed
+    private void updateButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton15ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(popcornPriceTextField.getText());
+        double price = Double.valueOf(priceTextField15.getText());
         sendMessage("changeprice", "snack", 14, price);
         itemController.updatePrice(price,snackCodeList.get(5));
-    }//GEN-LAST:event_popcornUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton15ActionPerformed
 
-    private void crackersPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersPriceTextFieldActionPerformed
+    private void priceTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField16ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_crackersPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField16ActionPerformed
 
-    private void crackersUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersUpdateButtonActionPerformed
+    private void updateButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton16ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(crackersPriceTextField.getText());
+        double price = Double.valueOf(priceTextField16.getText());
         sendMessage("changeprice", "snack", 15, price);
         itemController.updatePrice(price,snackCodeList.get(6));
-    }//GEN-LAST:event_crackersUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton16ActionPerformed
 
-    private void veggieStrawsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsPriceTextFieldActionPerformed
+    private void priceTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField17ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_veggieStrawsPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField17ActionPerformed
 
-    private void veggieStrawsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsUpdateButtonActionPerformed
+    private void updateButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton17ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(veggieStrawsPriceTextField.getText());
+        double price = Double.valueOf(priceTextField17.getText());
         sendMessage("changeprice", "snack", 16, price);
         itemController.updatePrice(price,snackCodeList.get(7));
-    }//GEN-LAST:event_veggieStrawsUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton17ActionPerformed
 
-    private void greekYogurtPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtPriceTextFieldActionPerformed
+    private void priceTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField18ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_greekYogurtPriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField18ActionPerformed
 
-    private void greekYogurtUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtUpdateButtonActionPerformed
+    private void updateButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton18ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(greekYogurtPriceTextField.getText());
+        double price = Double.valueOf(priceTextField18.getText());
         sendMessage("changeprice", "snack", 17, price);
         itemController.updatePrice(price,snackCodeList.get(8));
-    }//GEN-LAST:event_greekYogurtUpdateButtonActionPerformed
+    }//GEN-LAST:event_updateButton18ActionPerformed
 
     private void beveragesSoldTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beveragesSoldTextFieldActionPerformed
         // TODO add your handling code here:
@@ -2104,26 +2313,26 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         // TODO add your handling code here:
     }//GEN-LAST:event_machine1CollectRadioButtonActionPerformed
 
-    private void orangeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeUpdateButtonActionPerformed
+    private void updateButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton2ActionPerformed
         // TODO add your handling code here:
-        double price = Double.valueOf(orangePriceTextField.getText());
+        double price = Double.valueOf(priceTextField2.getText());
         sendMessage("changeprice", "beverage", 1, price);
-        itemController.updatePrice(price,102);
-    }//GEN-LAST:event_orangeUpdateButtonActionPerformed
+        itemController.updatePrice(price,beverageCodeList.get(1));
+    }//GEN-LAST:event_updateButton2ActionPerformed
 
-    private void orangePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangePriceTextFieldActionPerformed
+    private void priceTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_orangePriceTextFieldActionPerformed
+    }//GEN-LAST:event_priceTextField2ActionPerformed
 
-    private void proteinShakeUpdateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeUpdateButton1ActionPerformed
-        double price = Double.valueOf(proteinShakePriceTextField1.getText());
+    private void updateButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton9ActionPerformed
+        double price = Double.valueOf(priceTextField9.getText());
         sendMessage("changePrice", "beverage", 8, price);
-        itemController.updatePrice(price,109);
-    }//GEN-LAST:event_proteinShakeUpdateButton1ActionPerformed
+        itemController.updatePrice(price,beverageCodeList.get(8));
+    }//GEN-LAST:event_updateButton9ActionPerformed
 
-    private void proteinShakePriceTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakePriceTextField1ActionPerformed
+    private void priceTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_proteinShakePriceTextField1ActionPerformed
+    }//GEN-LAST:event_priceTextField9ActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         // TODO add your handling code here:
@@ -2139,10 +2348,64 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             this.dispose();
         }
     }//GEN-LAST:event_formWindowClosing
+
+    private void priceTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_priceTextField19ActionPerformed
+
+    private void priceTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_priceTextField20ActionPerformed
+
+    private void priceTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_priceTextField21ActionPerformed
+
+    private void priceTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceTextField22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_priceTextField22ActionPerformed
+
+    private void updateButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateButton19ActionPerformed
+
+    private void updateButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateButton20ActionPerformed
+
+    private void updateButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateButton21ActionPerformed
+
+    private void updateButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateButton22ActionPerformed
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BevSnacksStatisticsPanel;
+    private javax.swing.JLabel ImageLabel1;
+    private javax.swing.JLabel ImageLabel10;
+    private javax.swing.JLabel ImageLabel11;
+    private javax.swing.JLabel ImageLabel12;
+    private javax.swing.JLabel ImageLabel13;
+    private javax.swing.JLabel ImageLabel14;
+    private javax.swing.JLabel ImageLabel15;
+    private javax.swing.JLabel ImageLabel16;
+    private javax.swing.JLabel ImageLabel17;
+    private javax.swing.JLabel ImageLabel18;
+    private javax.swing.JLabel ImageLabel19;
+    private javax.swing.JLabel ImageLabel2;
+    private javax.swing.JLabel ImageLabel20;
+    private javax.swing.JLabel ImageLabel21;
+    private javax.swing.JLabel ImageLabel22;
+    private javax.swing.JLabel ImageLabel3;
+    private javax.swing.JLabel ImageLabel4;
+    private javax.swing.JLabel ImageLabel5;
+    private javax.swing.JLabel ImageLabel6;
+    private javax.swing.JLabel ImageLabel7;
+    private javax.swing.JLabel ImageLabel8;
+    private javax.swing.JLabel ImageLabel9;
     private javax.swing.JButton addItemButton;
     private javax.swing.JPanel addNewItemPanel;
     private javax.swing.ButtonGroup allMachinesButtonGroup;
@@ -2157,17 +2420,10 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private javax.swing.JTextField carbohydratesTextField;
     private javax.swing.JLabel categoryLabel;
     private javax.swing.JTextField categoryTextField;
-    private javax.swing.JLabel chipsImageLabel;
-    private javax.swing.JTextField chipsPriceTextField;
     private javax.swing.JPanel chipsShakePanel;
-    private javax.swing.JButton chipsUpdateButton;
-    private javax.swing.JLabel coconutWaterImageLabel;
     private javax.swing.JPanel coconutWaterPanel;
-    private javax.swing.JTextField coconutWaterPriceTextField;
-    private javax.swing.JButton coconutWaterUpdateButton;
     private javax.swing.JLabel codeLabel;
     private javax.swing.JTextField codeTextField;
-    private javax.swing.JLabel cokeImageLabel1;
     private javax.swing.JPanel cokeInfoPanel1;
     private javax.swing.JPanel cokeInfoPanel2;
     private javax.swing.JPanel cokeInfoPanel3;
@@ -2175,40 +2431,18 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private javax.swing.JPanel cokeInfoPanel5;
     private javax.swing.JPanel cokeInfoPanel6;
     private javax.swing.JPanel cokePanel;
-    private javax.swing.JTextField cokePriceTextField;
     private javax.swing.ButtonGroup collectMoneyButtonGroup;
-    private javax.swing.JLabel cookieImageLabel;
-    private javax.swing.JTextField cookiePriceTextField;
     private javax.swing.JPanel cookieShakePanel;
-    private javax.swing.JButton cookieUpdateButton;
     private javax.swing.JPanel cornPanel;
     private javax.swing.JLabel countLabel;
     private javax.swing.JTextField countTextField;
-    private javax.swing.JLabel crackersImageLabel;
     private javax.swing.JPanel crackersPanel;
-    private javax.swing.JTextField crackersPriceTextField;
-    private javax.swing.JButton crackersUpdateButton;
     private javax.swing.JPanel dietPepsiPanel;
-    private javax.swing.JLabel driedFruitsImageLabel;
     private javax.swing.JPanel driedFruitsPanel;
-    private javax.swing.JTextField driedFruitsPriceTextField;
-    private javax.swing.JButton driedFruitsUpdateButton;
-    private javax.swing.JLabel frappuccinoImageLabel;
     private javax.swing.JPanel frappuccinoPanel;
-    private javax.swing.JTextField frappuccinoPriceTextField;
-    private javax.swing.JButton frappuccinoUpdateButton;
-    private javax.swing.JLabel gatoradeImageLabel1;
     private javax.swing.JPanel gatoradePanel1;
-    private javax.swing.JTextField gatoradePriceTextField;
-    private javax.swing.JButton gatoradeUpdateButton;
-    private javax.swing.JTextField granolaPriceTextField;
-    private javax.swing.JLabel granolaShakeImageLabel;
     private javax.swing.JPanel granolaShakePanel;
-    private javax.swing.JButton granolaUpdateButton;
-    private javax.swing.JLabel greekYogurtImageLabel;
     private javax.swing.JPanel greekYogurtPanel;
-    private javax.swing.JTextField greekYogurtPriceTextField;
-    private javax.swing.JButton greekYogurtUpdateButton;
     private javax.swing.JButton itemsBarChartButton;
     private javax.swing.ButtonGroup itemsMachineButtonGroup;
     private javax.swing.JPanel itemsPanel;
@@ -2233,16 +2467,17 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lemonadeImageLabel1;
     private javax.swing.JPanel lemonadePanel;
-    private javax.swing.JTextField lemonadePriceTextField;
-    private javax.swing.JButton lemonadeUpdateButton;
     private javax.swing.JButton logOutButton;
     private javax.swing.JPanel lycheeJuicePanel;
     private javax.swing.JRadioButton machine1RadioButton;
@@ -2254,43 +2489,65 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private javax.swing.JButton nutritionalStatisticsButton;
     private javax.swing.ButtonGroup nutritionalStatisticsButtonGroup;
     private javax.swing.JPanel nutritionalStatisticsPanel;
-    private javax.swing.JLabel nutsImageLabel;
-    private javax.swing.JTextField nutsPriceTextField;
     private javax.swing.JPanel nutsShakePanel;
-    private javax.swing.JButton nutsUpdateButton;
-    private javax.swing.JLabel orangeImageLabel;
     private javax.swing.JPanel orangePanel;
-    private javax.swing.JTextField orangePriceTextField;
-    private javax.swing.JButton orangeUpdateButton;
-    private javax.swing.JLabel popcornImageLabel;
     private javax.swing.JPanel popcornPanel;
-    private javax.swing.JTextField popcornPriceTextField;
-    private javax.swing.JButton popcornUpdateButton;
     private javax.swing.JPanel pretzelPanel;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JTextField priceTextField;
+    private javax.swing.JTextField priceTextField1;
+    private javax.swing.JTextField priceTextField10;
+    private javax.swing.JTextField priceTextField11;
+    private javax.swing.JTextField priceTextField12;
+    private javax.swing.JTextField priceTextField13;
+    private javax.swing.JTextField priceTextField14;
+    private javax.swing.JTextField priceTextField15;
+    private javax.swing.JTextField priceTextField16;
+    private javax.swing.JTextField priceTextField17;
+    private javax.swing.JTextField priceTextField18;
+    private javax.swing.JTextField priceTextField19;
+    private javax.swing.JTextField priceTextField2;
+    private javax.swing.JTextField priceTextField20;
+    private javax.swing.JTextField priceTextField21;
+    private javax.swing.JTextField priceTextField22;
+    private javax.swing.JTextField priceTextField3;
+    private javax.swing.JTextField priceTextField4;
+    private javax.swing.JTextField priceTextField5;
+    private javax.swing.JTextField priceTextField6;
+    private javax.swing.JTextField priceTextField7;
+    private javax.swing.JTextField priceTextField8;
+    private javax.swing.JTextField priceTextField9;
     private javax.swing.JLabel proteinLabel;
-    private javax.swing.JLabel proteinShakeImageLabel1;
     private javax.swing.JPanel proteinShakePanel1;
-    private javax.swing.JTextField proteinShakePriceTextField1;
-    private javax.swing.JButton proteinShakeUpdateButton1;
-    private javax.swing.JLabel proteinSmoothieImageLabel;
     private javax.swing.JPanel proteinSmoothiePanel;
-    private javax.swing.JTextField proteinSmoothiePriceTextField;
     private javax.swing.JTextField proteinTextField;
     private javax.swing.JTextField snacksSoldTextField;
-    private javax.swing.JLabel sparklingWaterImageLabel;
-    private javax.swing.JTextField sparklingWaterPriceTextField;
-    private javax.swing.JButton sparklingWaterUpdateButton;
     private javax.swing.JPanel sparlkingWaterPanel;
     private javax.swing.JPanel statisticsPanel;
     private javax.swing.JLabel sugarsLabel;
     private javax.swing.JTextField sugarsTextField;
-    private javax.swing.JButton updateCokeButton;
-    private javax.swing.JButton updateProteinSmoothieButton;
-    private javax.swing.JLabel veggieStrawsImageLabel;
+    private javax.swing.JButton updateButton1;
+    private javax.swing.JButton updateButton10;
+    private javax.swing.JButton updateButton11;
+    private javax.swing.JButton updateButton12;
+    private javax.swing.JButton updateButton13;
+    private javax.swing.JButton updateButton14;
+    private javax.swing.JButton updateButton15;
+    private javax.swing.JButton updateButton16;
+    private javax.swing.JButton updateButton17;
+    private javax.swing.JButton updateButton18;
+    private javax.swing.JButton updateButton19;
+    private javax.swing.JButton updateButton2;
+    private javax.swing.JButton updateButton20;
+    private javax.swing.JButton updateButton21;
+    private javax.swing.JButton updateButton22;
+    private javax.swing.JButton updateButton3;
+    private javax.swing.JButton updateButton4;
+    private javax.swing.JButton updateButton5;
+    private javax.swing.JButton updateButton6;
+    private javax.swing.JButton updateButton7;
+    private javax.swing.JButton updateButton8;
+    private javax.swing.JButton updateButton9;
     private javax.swing.JPanel veggieStrawsPanel;
-    private javax.swing.JTextField veggieStrawsPriceTextField;
-    private javax.swing.JButton veggieStrawsUpdateButton;
     // End of variables declaration//GEN-END:variables
 }

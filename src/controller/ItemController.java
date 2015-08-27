@@ -170,15 +170,19 @@ public class ItemController implements Mediator {
     }
     
     public void sendMessageToAll(Collegue sender, String type, String product, Integer index, Double value) {
+        System.out.println("size " + collegues.size());
         for (int i = 0; i < collegues.size(); ++i){
             Collegue c = collegues.get(i);
+            System.out.println("contrl0 " + c);
             if (c != sender){
+                System.out.println("contrl");
                 c.receiveMessage(type, product, index, value);
             }
         }
     }
     
     public void registerACollegue (Collegue c) {
+        System.out.println("reg" + c);
         collegues.add(c);
     }
     

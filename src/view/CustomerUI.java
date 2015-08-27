@@ -136,12 +136,16 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
     
     @Override
     public void receiveMessage(String type, String product, Integer index, Double value) {
+                    System.out.println("rec");
         if(type.equals("changeprice")) {
+            System.out.println("hello");
             if(product.equals("beverage")) {
                 beveragePanel.changePrice(index, value);
+                System.out.println("bev " + index);
             }
             if(product.equals("snack")) {
                 snackPanel.changePrice(index, value);
+                System.out.println("snacl " + index);
             }
         }
         if(type.equals("addtocount")) {

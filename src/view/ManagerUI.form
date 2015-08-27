@@ -51,11 +51,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="statisticsPanel" min="-2" max="-2" attributes="0"/>
-                  <Component id="itemsScrollPane" pref="0" max="32767" attributes="0"/>
+                  <Component id="itemsScrollPane" min="-2" pref="2726" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -645,35 +645,37 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="lycheeJuicePanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cornPanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="pretzelPanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="dietPepsiPanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="frappuccinoPanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="coconutWaterPanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="sparlkingWaterPanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="granolaShakePanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="gatoradePanel1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="orangePanel" alignment="0" max="32767" attributes="0"/>
                           <Component id="lemonadePanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="proteinSmoothiePanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="proteinShakePanel1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="chipsShakePanel" pref="0" max="32767" attributes="0"/>
-                          <Component id="nutsShakePanel" max="32767" attributes="0"/>
-                          <Component id="cookieShakePanel" max="32767" attributes="0"/>
-                          <Component id="driedFruitsPanel" max="32767" attributes="0"/>
-                          <Component id="popcornPanel" max="32767" attributes="0"/>
-                          <Component id="crackersPanel" max="32767" attributes="0"/>
-                          <Component id="veggieStrawsPanel" max="32767" attributes="0"/>
-                          <Component id="greekYogurtPanel" max="32767" attributes="0"/>
+                          <Component id="orangePanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="gatoradePanel1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="frappuccinoPanel" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="coconutWaterPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="proteinShakePanel1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="proteinSmoothiePanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="sparlkingWaterPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="chipsShakePanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="granolaShakePanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="nutsShakePanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cookieShakePanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="driedFruitsPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="popcornPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="crackersPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="veggieStrawsPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="greekYogurtPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cornPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pretzelPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="dietPepsiPanel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lycheeJuicePanel" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="330" max="32767" attributes="0"/>
+                      <EmptySpace pref="595" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cokePanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="331" max="32767" attributes="0"/>
+                          <EmptySpace pref="597" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -682,11 +684,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-                      <Component id="orangePanel" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="orangePanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lemonadePanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="gatoradePanel1" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="gatoradePanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="frappuccinoPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -715,21 +717,21 @@
                       <Component id="veggieStrawsPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="greekYogurtPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lycheeJuicePanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="dietPepsiPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="dietPepsiPanel" min="-2" pref="95" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="pretzelPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="cornPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="2905" max="32767" attributes="0"/>
+                      <EmptySpace pref="3576" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="cokePanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="5627" max="32767" attributes="0"/>
+                          <EmptySpace pref="5859" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -743,7 +745,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="frappuccinoImageLabel" pref="0" max="32767" attributes="0"/>
+                          <Component id="ImageLabel5" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="cokeInfoPanel1" min="-2" pref="143" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -757,17 +759,15 @@
                           <Component id="cokeInfoPanel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="frappuccinoImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel5" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="frappuccinoImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/frappuccino.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel5">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel5);"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cokeInfoPanel1">
 
@@ -778,9 +778,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="frappuccinoPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Component id="priceTextField5" min="-2" pref="56" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="frappuccinoUpdateButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="updateButton5" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -797,12 +797,12 @@
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="frappuccinoPriceTextField" min="-2" max="-2" attributes="0"/>
+                              <Component id="priceTextField5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="frappuccinoUpdateButton" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="updateButton5" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -814,18 +814,21 @@
                         <Property name="text" type="java.lang.String" value="Price"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="frappuccinoPriceTextField">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="frappuccinoPriceTextFieldActionPerformed"/>
-                      </Events>
+                    <Component class="javax.swing.JTextField" name="priceTextField5">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField5);"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="frappuccinoUpdateButton">
+                    <Component class="javax.swing.JButton" name="updateButton5">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="update"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="frappuccinoUpdateButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton5ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton5);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -837,8 +840,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="orangeImageLabel" min="-2" pref="69" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel2" min="-2" pref="69" max="-2" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
                           <Component id="cokeInfoPanel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -846,24 +850,25 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="orangeImageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cokeInfoPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="cokeInfoPanel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="ImageLabel2" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="orangeImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/orange.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel2">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel2);"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cokeInfoPanel2">
 
@@ -874,9 +879,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="orangePriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Component id="priceTextField2" min="-2" pref="56" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="orangeUpdateButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="updateButton2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -894,8 +899,8 @@
                               <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="orangePriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="orangeUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="priceTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -908,18 +913,24 @@
                         <Property name="text" type="java.lang.String" value="Price"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="orangePriceTextField">
+                    <Component class="javax.swing.JTextField" name="priceTextField2">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="orangePriceTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField2ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField2);"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="orangeUpdateButton">
+                    <Component class="javax.swing.JButton" name="updateButton2">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="update"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="orangeUpdateButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton2ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton2);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -932,7 +943,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lemonadeImageLabel1" min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="ImageLabel3" min="-2" pref="69" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="cokeInfoPanel3" min="-2" pref="144" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -947,8 +958,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="lemonadeImageLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel3" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -963,9 +974,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                      <Component id="lemonadePriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Component id="priceTextField3" min="-2" pref="56" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lemonadeUpdateButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="updateButton3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -986,8 +997,8 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lemonadeUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                                  <Component id="lemonadePriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="priceTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1000,27 +1011,31 @@
                         <Property name="text" type="java.lang.String" value="Price"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="lemonadePriceTextField">
+                    <Component class="javax.swing.JTextField" name="priceTextField3">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lemonadePriceTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField3ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField3);"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="lemonadeUpdateButton">
+                    <Component class="javax.swing.JButton" name="updateButton3">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="update"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lemonadeUpdateButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton3ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton3);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="lemonadeImageLabel1">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/lemonade.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel3">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel3);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1030,7 +1045,8 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="gatoradeImageLabel1" min="-2" pref="69" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel4" min="-2" pref="69" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="cokeInfoPanel4" min="-2" pref="142" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1042,21 +1058,22 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="gatoradeImageLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cokeInfoPanel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="cokeInfoPanel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="ImageLabel4" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="gatoradeImageLabel1">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/gatorade.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel4">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel4);"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cokeInfoPanel4">
 
@@ -1067,9 +1084,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="gatoradePriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Component id="priceTextField4" min="-2" pref="56" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="gatoradeUpdateButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="updateButton4" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -1086,12 +1103,12 @@
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="gatoradePriceTextField" min="-2" max="-2" attributes="0"/>
+                              <Component id="priceTextField4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="gatoradeUpdateButton" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="updateButton4" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1103,18 +1120,24 @@
                         <Property name="text" type="java.lang.String" value="Price"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="gatoradePriceTextField">
+                    <Component class="javax.swing.JTextField" name="priceTextField4">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gatoradePriceTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField4ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField4);"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="gatoradeUpdateButton">
+                    <Component class="javax.swing.JButton" name="updateButton4">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="update"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gatoradeUpdateButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton4ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton4);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1127,7 +1150,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="coconutWaterImageLabel" pref="0" max="32767" attributes="0"/>
+                          <Component id="ImageLabel6" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="cokeInfoPanel5" min="-2" pref="145" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1141,17 +1164,15 @@
                           <Component id="cokeInfoPanel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="coconutWaterImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel6" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="coconutWaterImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/coconutWater.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel6">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel6);"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cokeInfoPanel5">
 
@@ -1162,9 +1183,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="coconutWaterPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Component id="priceTextField6" min="-2" pref="56" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="coconutWaterUpdateButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="updateButton6" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -1181,12 +1202,12 @@
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="coconutWaterPriceTextField" min="-2" max="-2" attributes="0"/>
+                              <Component id="priceTextField6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="coconutWaterUpdateButton" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="updateButton6" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1198,18 +1219,24 @@
                         <Property name="text" type="java.lang.String" value="Price"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="coconutWaterPriceTextField">
+                    <Component class="javax.swing.JTextField" name="priceTextField6">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="coconutWaterPriceTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField6ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField6);"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="coconutWaterUpdateButton">
+                    <Component class="javax.swing.JButton" name="updateButton6">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="update"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="coconutWaterUpdateButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton6ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton6);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1222,7 +1249,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="sparklingWaterImageLabel" pref="0" max="32767" attributes="0"/>
+                          <Component id="ImageLabel7" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="cokeInfoPanel6" min="-2" pref="143" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1236,17 +1263,15 @@
                           <Component id="cokeInfoPanel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="sparklingWaterImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel7" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="sparklingWaterImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/sparklingWater.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel7">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel7);"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cokeInfoPanel6">
 
@@ -1257,9 +1282,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="sparklingWaterPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Component id="priceTextField7" min="-2" pref="56" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="sparklingWaterUpdateButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="updateButton7" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -1276,12 +1301,12 @@
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="sparklingWaterPriceTextField" min="-2" max="-2" attributes="0"/>
+                              <Component id="priceTextField7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="sparklingWaterUpdateButton" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="updateButton7" min="-2" pref="23" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1293,18 +1318,24 @@
                         <Property name="text" type="java.lang.String" value="Price"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="sparklingWaterPriceTextField">
+                    <Component class="javax.swing.JTextField" name="priceTextField7">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sparklingWaterPriceTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField7ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField7);"/>
+                      </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="sparklingWaterUpdateButton">
+                    <Component class="javax.swing.JButton" name="updateButton7">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="update"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sparklingWaterUpdateButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton7ActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton7);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1317,13 +1348,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="cokeImageLabel1" min="-2" pref="55" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" pref="50" max="32767" attributes="0"/>
+                          <Component id="ImageLabel1" min="-2" pref="71" max="-2" attributes="0"/>
+                          <EmptySpace pref="58" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="cokePriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField1" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="updateCokeButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1336,14 +1367,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cokeImageLabel1" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                              <Component id="ImageLabel1" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="updateCokeButton" min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Component id="cokePriceTextField" min="-2" max="-2" attributes="0"/>
+                                      <Component id="updateButton1" min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="priceTextField1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1358,25 +1389,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="cokePriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField1">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cokePriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField1ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField1);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="updateCokeButton">
+                <Component class="javax.swing.JButton" name="updateButton1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateCokeButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton1ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton1);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="cokeImageLabel1">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/coke.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel1">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel1);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1387,13 +1422,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="proteinSmoothieImageLabel" pref="0" max="32767" attributes="0"/>
+                          <Component id="ImageLabel8" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="proteinSmoothiePriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField8" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="updateProteinSmoothieButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton8" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1408,12 +1443,12 @@
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="proteinSmoothiePriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="updateProteinSmoothieButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton8" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="proteinSmoothieImageLabel" alignment="0" pref="105" max="32767" attributes="0"/>
+                      <Component id="ImageLabel8" alignment="0" pref="105" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1423,25 +1458,26 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="proteinSmoothiePriceTextField">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proteinSmoothiePriceTextFieldActionPerformed"/>
-                  </Events>
+                <Component class="javax.swing.JTextField" name="priceTextField8">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField8);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="updateProteinSmoothieButton">
+                <Component class="javax.swing.JButton" name="updateButton8">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateProteinSmoothieButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton8ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton8);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="proteinSmoothieImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/proteinSmoothie.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel8">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel8);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1452,13 +1488,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="granolaShakeImageLabel" max="32767" attributes="0"/>
+                          <Component id="ImageLabel10" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="granolaPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField10" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="granolaUpdateButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton10" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1468,17 +1504,16 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="granolaShakeImageLabel" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="granolaUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="granolaPriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton10" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="ImageLabel10" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1488,25 +1523,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="granolaPriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField10">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="granolaPriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField10ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField10);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="granolaUpdateButton">
+                <Component class="javax.swing.JButton" name="updateButton10">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="granolaUpdateButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton10ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton10);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="granolaShakeImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/granola.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel10">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel10);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1517,13 +1556,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="chipsImageLabel" max="32767" attributes="0"/>
+                          <Component id="ImageLabel11" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="chipsPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField11" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="chipsUpdateButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton11" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1538,12 +1577,11 @@
                           <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="chipsPriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="chipsUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton11" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="chipsImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel11" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1553,25 +1591,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="chipsPriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField11">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chipsPriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField11ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField11);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="chipsUpdateButton">
+                <Component class="javax.swing.JButton" name="updateButton11">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chipsUpdateButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton11ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton11);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="chipsImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/chips.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel11">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel11);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1582,13 +1624,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="nutsImageLabel" min="-2" pref="82" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ImageLabel12" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="nutsPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField12" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="nutsUpdateButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton12" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1603,12 +1645,11 @@
                           <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="nutsPriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="nutsUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton12" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="nutsImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel12" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1618,25 +1659,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="nutsPriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField12">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nutsPriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField12ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField12);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="nutsUpdateButton">
+                <Component class="javax.swing.JButton" name="updateButton12">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nutsUpdateButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton12ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton12);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="nutsImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/nuts.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel12">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel2);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1647,13 +1692,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="cookieImageLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="ImageLabel13" min="-2" pref="107" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="cookiePriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField13" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="cookieUpdateButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton13" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1668,12 +1713,11 @@
                           <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cookiePriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cookieUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton13" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="cookieImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel13" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1683,25 +1727,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="cookiePriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField13">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cookiePriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField13ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField13);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="cookieUpdateButton">
+                <Component class="javax.swing.JButton" name="updateButton13">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cookieUpdateButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton13ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton13);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="cookieImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/cookie.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel13">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel13);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1712,13 +1760,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="driedFruitsImageLabel" min="-2" pref="89" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ImageLabel14" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="driedFruitsPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField14" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="driedFruitsUpdateButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton14" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1733,12 +1781,15 @@
                           <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="driedFruitsPriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="driedFruitsUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton14" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="24" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="ImageLabel14" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="driedFruitsImageLabel" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1748,25 +1799,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="driedFruitsPriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField14">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="driedFruitsPriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField14ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField14);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="driedFruitsUpdateButton">
+                <Component class="javax.swing.JButton" name="updateButton14">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="driedFruitsUpdateButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton14ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton14);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="driedFruitsImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/driedFruits.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel14">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel14);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1777,13 +1832,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="popcornImageLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ImageLabel15" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="popcornPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField15" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="popcornUpdateButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton15" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1798,12 +1853,11 @@
                           <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="popcornPriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="popcornUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton15" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="popcornImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel15" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1813,25 +1867,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="popcornPriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField15">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="popcornPriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField15ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField15);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="popcornUpdateButton">
+                <Component class="javax.swing.JButton" name="updateButton15">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="popcornUpdateButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton15ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton15);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="popcornImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/popcorn.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel15">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel5);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1842,13 +1900,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="crackersImageLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ImageLabel16" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="crackersPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField16" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="crackersUpdateButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton16" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1863,12 +1921,11 @@
                           <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="crackersPriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="crackersUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton16" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="crackersImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel16" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1878,25 +1935,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="crackersPriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField16">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crackersPriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField16ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField16);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="crackersUpdateButton">
+                <Component class="javax.swing.JButton" name="updateButton16">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crackersUpdateButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton16ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton16);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="crackersImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/crackers.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel16">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel16);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1907,13 +1968,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="veggieStrawsImageLabel" min="-2" pref="88" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ImageLabel17" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="veggieStrawsPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="priceTextField17" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="veggieStrawsUpdateButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton17" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1928,12 +1989,11 @@
                           <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="veggieStrawsPriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="veggieStrawsUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton17" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="veggieStrawsImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel17" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1943,25 +2003,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="veggieStrawsPriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField17">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="veggieStrawsPriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField17ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField17);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="veggieStrawsUpdateButton">
+                <Component class="javax.swing.JButton" name="updateButton17">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="veggieStrawsUpdateButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton17ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton17);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="veggieStrawsImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/veggieStraws.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel17">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel17);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1971,14 +2035,14 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="greekYogurtImageLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel18" min="-2" pref="104" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="greekYogurtPriceTextField" min="-2" pref="56" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="greekYogurtUpdateButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="priceTextField18" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="updateButton18" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1988,17 +2052,20 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="greekYogurtPriceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="greekYogurtUpdateButton" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField18" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton18" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="greekYogurtImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel18" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -2008,25 +2075,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="greekYogurtPriceTextField">
+                <Component class="javax.swing.JTextField" name="priceTextField18">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtPriceTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField18ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField18);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="greekYogurtUpdateButton">
+                <Component class="javax.swing.JButton" name="updateButton18">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtUpdateButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton18ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton18);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="greekYogurtImageLabel">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/greekYogurt.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel18">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel18);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -2035,60 +2106,286 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel20" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="priceTextField20" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="updateButton20" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="271" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="updateButton20" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="ImageLabel20" min="-2" pref="88" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="ImageLabel20">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel20);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="priceTextField20">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField20ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField20);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel43">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Price"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="updateButton20">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="update"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton20ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton20);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="pretzelPanel">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel21" min="-2" pref="108" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="priceTextField21" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="updateButton21" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="154" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="priceTextField21" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton21" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel21" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="ImageLabel21">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel21);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="priceTextField21">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField21ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField21);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel44">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Price"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="updateButton21">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="update"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton21ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton21);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="cornPanel">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel22" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="priceTextField22" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="updateButton22" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="169" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="11" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="priceTextField22" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="updateButton22" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="ImageLabel22" alignment="1" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="ImageLabel22">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel22);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="priceTextField22">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField22ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField22);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel45">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Price"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="updateButton22">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="update"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton22ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton22);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="lycheeJuicePanel">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ImageLabel19" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="priceTextField19" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="updateButton19" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
+                      <Component id="ImageLabel19" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="11" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="updateButton19" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="ImageLabel19">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel19);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="priceTextField19">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField19ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField19);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel42">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Price"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="updateButton19">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="update"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton19ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton19);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="proteinShakePanel1">
 
@@ -2097,21 +2394,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="proteinShakeImageLabel1" min="-2" pref="68" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="ImageLabel9" min="-2" pref="111" max="-2" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Component id="proteinShakePriceTextField1" min="-2" pref="56" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="priceTextField9" min="-2" pref="56" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="proteinShakeUpdateButton1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Component id="updateButton9" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2122,12 +2415,12 @@
                           <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="proteinShakePriceTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="proteinShakeUpdateButton1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="updateButton9" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="priceTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="37" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="proteinShakeImageLabel1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ImageLabel9" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -2137,25 +2430,29 @@
                     <Property name="text" type="java.lang.String" value="Price"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="proteinShakePriceTextField1">
+                <Component class="javax.swing.JTextField" name="priceTextField9">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proteinShakePriceTextField1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="priceTextField9ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(priceTextField9);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="proteinShakeUpdateButton1">
+                <Component class="javax.swing.JButton" name="updateButton9">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proteinShakeUpdateButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton9ActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="itemButtons.add(updateButton9);"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="proteinShakeImageLabel1">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/proteinShake.jpg"/>
-                    </Property>
-                  </Properties>
+                <Component class="javax.swing.JLabel" name="ImageLabel9">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(ImageLabel9);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
