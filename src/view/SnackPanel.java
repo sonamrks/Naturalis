@@ -61,9 +61,8 @@ public class SnackPanel extends javax.swing.JPanel {
         setCount();
     }
     
-    public void changePrice(Integer index, Double value) {
-        priceList.set(index-9, value); 
-        setCodeLabel();
+    public void changePrice(Integer code, Double value) {
+        priceList.set(codeList.indexOf(code), value); 
         setPriceLabel();
     }
     

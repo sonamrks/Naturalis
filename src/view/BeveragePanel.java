@@ -63,6 +63,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     
     public void changePrice(Integer code, Double value) {
         priceList.set(codeList.indexOf(code), value); 
+        System.out.println("price" + value);
         setPriceLabel();        
     }
     
