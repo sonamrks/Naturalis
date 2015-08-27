@@ -428,11 +428,12 @@ public class Item {
         return nutritionalFacts;
     }
     
-    public void decreaseItemCount(Integer code){       
+    public void decreaseItemCount(Integer code, Integer machineID){       
         try {
-            String updateBalance = "UPDATE item SET count=count-1 where code=?";
+            String updateBalance = "UPDATE item SET count=count-1 where code=? and machineID=?";
             statement = connection.prepareStatement(updateBalance);
             statement.setInt(1,code);
+            statement.setInt(2,machineID);
             statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

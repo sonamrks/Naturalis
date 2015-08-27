@@ -692,55 +692,55 @@ public class BeveragePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void orangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(orangeJuiceCodeLabel.getText()));
+        itemsController.decreaseItemCount(Integer.valueOf(orangeJuiceCodeLabel.getText()),machineID);
         itemsCartController.addItem(orangeJuiceCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "beverage", 1, null);
     }//GEN-LAST:event_orangeButtonActionPerformed
 
     private void gatoradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(gatoradeCodeLabel.getText()));        
+        itemsController.decreaseItemCount(Integer.valueOf(gatoradeCodeLabel.getText()),machineID);        
         itemsCartController.addItem(gatoradeCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "beverage", 3, null);
     }//GEN-LAST:event_gatoradeButtonActionPerformed
 
     private void sparklingWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(sparklingWaterCodeLabel.getText()));
+        itemsController.decreaseItemCount(Integer.valueOf(sparklingWaterCodeLabel.getText()),machineID);
         itemsCartController.addItem(sparklingWaterCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "beverage", 6, null);
     }//GEN-LAST:event_sparklingWaterButtonActionPerformed
 
     private void proteinShakeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(proteinShakeCodeLabel.getText()));        
+        itemsController.decreaseItemCount(Integer.valueOf(proteinShakeCodeLabel.getText()),machineID);        
         itemsCartController.addItem(proteinShakeCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "beverage", 7, null);
     }//GEN-LAST:event_proteinShakeButtonActionPerformed
 
     private void cokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(cokeCodeLabel.getText()));        
+        itemsController.decreaseItemCount(Integer.valueOf(cokeCodeLabel.getText()),machineID);        
         itemsCartController.addItem(cokeCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "beverage", 0, null);
     }//GEN-LAST:event_cokeButtonActionPerformed
 
     private void lemonadeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(lemonadeCodeLabel.getText()));        
+        itemsController.decreaseItemCount(Integer.valueOf(lemonadeCodeLabel.getText()),machineID);        
         itemsCartController.addItem(lemonadeCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "beverage", 2, null);
     }//GEN-LAST:event_lemonadeButtonActionPerformed
 
     private void frappuccinoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(frappuccinoCodeLabel.getText()));        
+        itemsController.decreaseItemCount(Integer.valueOf(frappuccinoCodeLabel.getText()),machineID);        
         itemsCartController.addItem(frappuccinoCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "beverage", 4, null);
     }//GEN-LAST:event_frappuccinoButtonActionPerformed
 
     private void coconutWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(coconutWaterCodeLabel.getText()));        
+        itemsController.decreaseItemCount(Integer.valueOf(coconutWaterCodeLabel.getText()),machineID);        
         itemsCartController.addItem(coconutWaterCodeLabel.getText());  
         customerUI.sendMessage("addtocart", "beverage", 5, null);
     }//GEN-LAST:event_coconutWaterButtonActionPerformed
 
     private void proteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothieButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(proteinSmoothieCodeLabel.getText()));        
+        itemsController.decreaseItemCount(Integer.valueOf(proteinSmoothieCodeLabel.getText()),machineID);        
         itemsCartController.addItem(proteinSmoothieCodeLabel.getText());  
         customerUI.sendMessage("addtocart", "beverage", 7, null);
     }//GEN-LAST:event_proteinSmoothieButtonActionPerformed

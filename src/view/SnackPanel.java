@@ -651,55 +651,55 @@ public class SnackPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void granolaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(granolaCodeLabel.getText()));          
+        itemsController.decreaseItemCount(Integer.valueOf(granolaCodeLabel.getText()),machineID);          
         itemsCartController.addItem(granolaCodeLabel.getText());  
         customerUI.sendMessage("addtocart", "snack", 9, null);
     }//GEN-LAST:event_granolaButtonActionPerformed
 
     private void cookieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(cookieCodeLabel.getText()));          
+        itemsController.decreaseItemCount(Integer.valueOf(cookieCodeLabel.getText()),machineID);          
         itemsCartController.addItem(cookieCodeLabel.getText());  
         customerUI.sendMessage("addtocart", "snack", 12, null);
     }//GEN-LAST:event_cookieButtonActionPerformed
 
     private void veggieStrawsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(veggieStrawsCodeLabel.getText()));          
+        itemsController.decreaseItemCount(Integer.valueOf(veggieStrawsCodeLabel.getText()),machineID);          
         itemsCartController.addItem(veggieStrawsCodeLabel.getText());  
         customerUI.sendMessage("addtocart", "snack", 16, null);
     }//GEN-LAST:event_veggieStrawsButtonActionPerformed
 
     private void greekYogurtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(greekYogurtCodeLabel.getText()));          
+        itemsController.decreaseItemCount(Integer.valueOf(greekYogurtCodeLabel.getText()),machineID);          
         itemsCartController.addItem(greekYogurtCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "snack", 17, null);
     }//GEN-LAST:event_greekYogurtButtonActionPerformed
 
     private void nutsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(nutsCodeLabel.getText()));          
+        itemsController.decreaseItemCount(Integer.valueOf(nutsCodeLabel.getText()),machineID);          
         itemsCartController.addItem(nutsCodeLabel.getText());  
         customerUI.sendMessage("addtocart", "snack", 11, null);
     }//GEN-LAST:event_nutsButtonActionPerformed
 
     private void driedFruitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(driedFruitsCodeLabel.getText()));          
+        itemsController.decreaseItemCount(Integer.valueOf(driedFruitsCodeLabel.getText()),machineID);          
         itemsCartController.addItem(driedFruitsCodeLabel.getText()); 
         customerUI.sendMessage("addtocart", "snack", 13, null);
     }//GEN-LAST:event_driedFruitButtonActionPerformed
 
     private void popcornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(popcornCodeLabel.getText()));          
+        itemsController.decreaseItemCount(Integer.valueOf(popcornCodeLabel.getText()),machineID);          
         itemsCartController.addItem(popcornCodeLabel.getText());  
         customerUI.sendMessage("addtocart", "snack", 14, null);
     }//GEN-LAST:event_popcornButtonActionPerformed
 
     private void crackersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(crackersCodeLabel.getText()));          
+        itemsController.decreaseItemCount(Integer.valueOf(crackersCodeLabel.getText()),machineID);          
         itemsCartController.addItem(crackersCodeLabel.getText());  
         customerUI.sendMessage("addtocart", "snack", 15, null);
     }//GEN-LAST:event_crackersButtonActionPerformed
 
     private void chipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(chipsCodeLabel.getText()));          
+        itemsController.decreaseItemCount(Integer.valueOf(chipsCodeLabel.getText()),machineID);          
         itemsCartController.addItem(chipsCodeLabel.getText());  
         customerUI.sendMessage("addtocart", "snack", 10, null);
     }//GEN-LAST:event_chipsButtonActionPerformed
