@@ -9,6 +9,7 @@ package controller;
  *
  * @author Sonam
  */
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -24,15 +25,14 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
     private CartItemsTableModel cartItemsTableModel;
     private CustomerUI customerUI;
     private Iterator iterator;
+    private List<Observer> observers;
     
     public CartItemsController(CustomerUI customerUI) {
         this.customerUI = customerUI;
         cartItemsTableModel = new CartItemsTableModel();
         cartItemsTableModel.addTableModelListener(this);
         iterator = cartItemsTableModel.createIterator();
-                
-     //   itemsCartTableModel.attachObserver(cartItemsPanel);
-     //   itemsCartTableModel.attachObserver(paymentPanel);
+        observers = new ArrayList<Observer>();
     }
         
     public TableModel getTableModel() {
@@ -54,12 +54,13 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
             cartItemsTableModel = new CartItemsTableModel(cartItemsTableModel.getItemCodes(),cartItemsTableModel.getItemNames(),cartItemsTableModel.getItemPrices(),cartItemsTableModel.getPicturePath(),cartItemsTableModel.getItemTypes(),cartItemsTableModel.getCartItems(),cartItemsTableModel.getTotalPrice());
             cartItemsTableModel.addTableModelListener(this);
             // update the JTable with the data
-            customerUI.getCartItemsPanel().update();	 
-            customerUI.getPaymentPanel().update();
-    } catch(Exception exp) {
+            for(Observer observer : observers) {
+                observer.update();	 
+            }
+        } catch(Exception exp) {
             exp.getMessage();
             exp.printStackTrace();
-    }
+        }
     }
 
     public void addItem(String ID){
@@ -91,12 +92,15 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         return cartItemsTableModel.getType(code);
     }
     
-  /*  public double deductPrice(double price, double deductable){
-        double remainingPrice = price - deductable;
-        return remainingPrice;
-    }*/
     public List<String> getPicturePath(){
         return cartItemsTableModel.getPicturePath();
     }
 	
+    public void attachObserver(Observer observer) {
+        observers.add(observer);
+    }
+    
+    public void dettachObserver(Observer observer) {
+        observers.remove(observer);
+    }
 }

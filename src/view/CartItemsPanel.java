@@ -34,6 +34,7 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
         this.itemController = itemController;
         this.cartItemsController = cartItemsController;
         addCartTable();
+        cartItemsController.attachObserver(this);
     }
         
     public void addCartTable() {

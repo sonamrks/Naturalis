@@ -20,20 +20,21 @@ import javax.swing.JOptionPane;
 public class PaymentPanel extends javax.swing.JPanel implements Observer {
 
     private CustomerUI customerUI;
-    private static CartItemsController itemsCartController;
+    private static CartItemsController cartItemsController;
     private SmartCardController smartCardController;
     private static PaymentContext context;
     private double price;
     /**
      * Creates new form PaymentPanel
      */
-    public PaymentPanel(CustomerUI customerUI, CartItemsController itemsCartController) {
+    public PaymentPanel(CustomerUI customerUI, CartItemsController cartItemsController) {
         initComponents();   
         this.customerUI = customerUI;
-        this.itemsCartController = itemsCartController;
+        this.cartItemsController = cartItemsController;
         smartCardController = new SmartCardController(customerUI);
         insertCoinPanel.setVisible(false);
         insertCardPanel.setVisible(false);
+        cartItemsController.attachObserver(this);
     }
        
  /*   public void updatePrice(double price) {
@@ -42,7 +43,7 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         
     @Override
     public void update(){
-        priceTextField.setValue(itemsCartController.getTotalPrice());
+        priceTextField.setValue(cartItemsController.getTotalPrice());
     }
 
     /**
