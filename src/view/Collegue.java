@@ -12,9 +12,9 @@ import controller.Mediator;
  * @author Sonam
  */
 public interface Collegue {
-    public void sendMessage(String type, String product, Integer index, Double value);
-    public void receiveMessage(String type, String product, Integer index, Double value);
-  //  public void addMediator (Mediator mediator);
-  //  public String getId();
+    public void sendMessage(String type, String product, Integer code, Double value);
+    public void receiveMessage(String type, String product, Integer code, Double value);
+    public void addMediator (Mediator mediator);
+    public String getId();
 }
 

@@ -28,6 +28,7 @@ import javax.swing.Timer;
 public class CustomerUI extends javax.swing.JFrame implements Collegue {
     
     private Integer machineID;
+    private String collegueID;
  //   private PriceController priceController;
     private ItemController itemController;
     private CartItemsController cartItemsController;
@@ -48,10 +49,10 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
     /**
      * Creates new form CustomerUI
      */
-    public CustomerUI(Integer machineID) { 
+    public CustomerUI(Integer machineID, String collegueID) { 
         this.machineID= machineID;
         initComponents();    
- 
+        this.collegueID = collegueID;
         this.itemController = ItemController.getItemControllerInstance();
       //  priceController = new PriceController(this, machineID);
         cartItemsController = new CartItemsController(this);
@@ -154,7 +155,13 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
         }
     }
  
-
+    public void addMediator (Mediator mediator) {
+    }
+    
+    public String getId() {
+        return collegueID;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -6,6 +6,7 @@
 package view;
 
 import controller.ItemController;
+import controller.Mediator;
 import controller.UserLogController;
 import java.awt.Color;
 import java.awt.Font;
@@ -18,9 +19,11 @@ import main.Main;
  * @author AshitaRaghu
  */
 public class AdminUI extends javax.swing.JFrame implements Collegue {
+    
+    private Integer machineID;
+    private String collegueID;
     private ItemController itemController;
     private UserLogController userLogController;
-    Integer machineID;
     ArrayList<Integer> beverageCodeList;
     ArrayList<Integer> beverageCountList;
     ArrayList<String> beveragePictureList;
@@ -34,13 +37,14 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
     /**
      * Creates new form LimitedView
      */
-    public AdminUI(Integer machineID) {
+    public AdminUI(Integer machineID, String collegueID) {
         itemLabels = new ArrayList<JLabel>();
         itemTextFields = new ArrayList<JTextField>();
         itemButtons = new ArrayList<JButton>();
         initComponents();
         this.itemController = ItemController.getItemControllerInstance();
         this.machineID = machineID;
+        this.collegueID = collegueID;
         machineIDLabel.setText("Machine ID : "+machineID);
         userLogController = new UserLogController();
         itemController.registerACollegue(this);
@@ -56,31 +60,41 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         setCount();
     }
     
-    public void sendMessage(String type, String product, Integer index, Double value) {
-        itemController.sendMessageToAll(this, type, product, index, value);
+    public void sendMessage(String type, String product, Integer code, Double value) {
+        itemController.sendMessageToAll(this, type, product, code, value);
     }
     
-    public void receiveMessage(String type, String product, Integer index, Double value) {
+    public void receiveMessage(String type, String product, Integer code, Double value) {
+        int index;
         if(type.equals("addtocart")) {
             if(product.equals("beverage")) {
+                index = beverageCodeList.indexOf(code);
                 beverageCountList.set(index, beverageCountList.get(index)-1);
             }
             if(product.equals("snack")) {
+                index = snackCodeList.indexOf(code);
                 snackCountList.set(index, snackCountList.get(index)-1);
             }
         }
         if(type.equals("removefromcart")) {
             if(product.equals("beverage")) {
-                index = index-101;
+            index = beverageCodeList.indexOf(code);                
                 beverageCountList.set(index, beverageCountList.get(index)+1);
             }
             if(product.equals("snack")) {
-                index = index-201;
+            index = snackCodeList.indexOf(code);                
                 snackCountList.set(index, snackCountList.get(index)+1);
             }
         }   
         setCount(); 
     }
+
+    public void addMediator (Mediator mediator) {
+    }
+    
+    public String getId() {
+        return collegueID;
+    }    
     
     public void setPicture(){
        int i = 0, j;

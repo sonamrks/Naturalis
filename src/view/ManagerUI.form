@@ -649,25 +649,23 @@
                           <Component id="orangePanel" alignment="0" max="32767" attributes="0"/>
                           <Component id="gatoradePanel1" alignment="0" max="32767" attributes="0"/>
                           <Component id="frappuccinoPanel" alignment="0" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="coconutWaterPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="proteinShakePanel1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="proteinSmoothiePanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="sparlkingWaterPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="chipsShakePanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="granolaShakePanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="nutsShakePanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cookieShakePanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="driedFruitsPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="popcornPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="crackersPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="veggieStrawsPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="greekYogurtPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cornPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="pretzelPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="dietPepsiPanel" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lycheeJuicePanel" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="coconutWaterPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="proteinShakePanel1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="proteinSmoothiePanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="sparlkingWaterPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="chipsShakePanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="granolaShakePanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="nutsShakePanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cookieShakePanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="driedFruitsPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="popcornPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="crackersPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="veggieStrawsPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="greekYogurtPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cornPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pretzelPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="dietPepsiPanel" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lycheeJuicePanel" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="595" max="32767" attributes="0"/>
                   </Group>

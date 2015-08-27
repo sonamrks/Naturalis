@@ -159,7 +159,7 @@ public class NavigationPanel extends javax.swing.JPanel {
                 Person person = new Person();
                 person.setRole(managerRole);
                 person.filterView(); */
-                new ManagerUI().setVisible(true);
+                new ManagerUI("M").setVisible(true);
             }
             else {
                 loginPanel.setPassword();

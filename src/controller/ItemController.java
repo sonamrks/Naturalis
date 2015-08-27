@@ -102,9 +102,6 @@ public class ItemController implements Mediator {
             }
             return component.getSuggestionString();  
     }
-    
-    
-    
   
     public String getCalorieRangeSuggestions(int low,int high){
         return item.getCalorieRangeSuggestions(low,high);
@@ -165,11 +162,11 @@ public class ItemController implements Mediator {
         item.addNewItem(itemInfo);
     }
     
-    public void sendMessageToAll(Collegue sender, String type, String product, Integer index, Double value) {
+    public void sendMessageToAll(Collegue sender, String type, String product, Integer code, Double value) {
         for (int i = 0; i < collegues.size(); ++i){
             Collegue c = collegues.get(i);
             if (c != sender){
-                c.receiveMessage(type, product, index, value);
+                c.receiveMessage(type, product, code, value);
             }
         }
     }

@@ -6,6 +6,7 @@
 package view;
 
 import controller.ItemController;
+import controller.Mediator;
 import controller.UserLogController;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import main.Main;
  */
 public class ManagerUI extends javax.swing.JFrame implements Collegue {
 
+    private String collegueID;
     private ItemController itemController;
     private UserLogController userLogController;
     ArrayList<Integer> beverageCodeList;
@@ -37,11 +39,12 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     /**
      * Creates new form AdminUI
      */
-    public ManagerUI() {
+    public ManagerUI(String collegueID) {
         itemLabels = new ArrayList<JLabel>();
         itemTextFields = new ArrayList<JTextField>();
         itemButtons = new ArrayList<JButton>();
         initComponents();
+        this.collegueID = collegueID;
         this.itemController = ItemController.getItemControllerInstance();
         itemController.registerACollegue(this);
         userLogController = new UserLogController();
@@ -65,18 +68,18 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         setPrice();  
     }
     
-    public void sendMessage(String type, String product, Integer index, Double value) {
-        itemController.sendMessageToAll(this, type, product, index, value);
+    public void sendMessage(String type, String product, Integer code, Double value) {
+        itemController.sendMessageToAll(this, type, product, code, value);
     }
     
-    public void receiveMessage(String type, String product, Integer index, Double value) {
-     /*   if(type.equals("addtocart")) 
-            countList.set(index, countList.get(index)-1);
-        if(type.equals("removefromcart"))
-            countList.set(index, countList.get(index)+1);
-        if(type.equals("addtocount"))
-            countList.set(index, countList.get(index)+1);
-        */
+    public void receiveMessage(String type, String product, Integer code, Double value) {
+    }
+    
+    public void addMediator (Mediator mediator) {
+    }
+    
+    public String getId() {
+        return collegueID;
     }
     
     public void setPicture(){
