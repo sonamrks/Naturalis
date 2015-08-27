@@ -150,7 +150,7 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
         }
         if(type.equals("addtocount")) {
             if(product.equals("beverage")) {
-                beveragePanel.getCount();
+                beveragePanel.setCount();
             }
             if(product.equals("snack")) {
                 snackPanel.getCount();
