@@ -31,14 +31,17 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
     ArrayList<Integer> snackCountList;
     ArrayList<String> snackPictureList;   
     ArrayList<JLabel> itemLabels;
+    ArrayList<JLabel> itemCodeLabels;
     ArrayList<JTextField> itemTextFields;
     ArrayList<JButton> itemButtons;
+    int size;
     
     /**
      * Creates new form LimitedView
      */
     public AdminUI(Integer machineID, String collegueID) {
         itemLabels = new ArrayList<JLabel>();
+        itemCodeLabels = new ArrayList<JLabel>();
         itemTextFields = new ArrayList<JTextField>();
         itemButtons = new ArrayList<JButton>();
         initComponents();
@@ -52,10 +55,12 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         beverageCodeList = itemController.getCategoryCodeForMachine();
         beverageCountList = itemController.getCategoryCountForMachine();
         beveragePictureList = itemController.getCategoryPicturePathForMachine();
+        size = beverageCodeList.size();
         itemController.generateCategoryItemInfo(machineID, "snack");
         snackCountList = itemController.getCategoryCountForMachine();
         snackCodeList = itemController.getCategoryCodeForMachine();
         snackPictureList = itemController.getCategoryPicturePathForMachine();
+        setCode();
         setPicture();
         setCount();
     }
@@ -95,6 +100,18 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
     public String getId() {
         return collegueID;
     }    
+    
+    public void setCode(){
+       int i = 0, j;
+       for(j=0; j<beverageCodeList.size(); j++) {
+            itemCodeLabels.get(i).setText(Integer.toString(beverageCodeList.get(j)));
+            i+=1;
+        }
+        for(j=0; j<snackCodeList.size(); j++) {
+            itemCodeLabels.get(i).setText(Integer.toString(snackCodeList.get(j)));
+            i+=1;
+        }
+    }
     
     public void setPicture(){
        int i = 0, j;
@@ -151,102 +168,120 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         machineButtonGroup = new javax.swing.ButtonGroup();
         itemsScrollPanel = new javax.swing.JScrollPane();
         itemsPanel = new javax.swing.JPanel();
-        frappuccinoPanel = new javax.swing.JPanel();
-        frappuccinoImageLabel = new javax.swing.JLabel();
-        cokeInfoPanel1 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        frappuccinoCountTextField = new javax.swing.JTextField();
-        addFrappuccinoButton = new javax.swing.JButton();
+        cokeInfoPanel7 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        countTextField1 = new javax.swing.JTextField();
+        button1 = new javax.swing.JButton();
+        label1 = new javax.swing.JLabel();
+        codeLabel1 = new javax.swing.JLabel();
         orangePanel = new javax.swing.JPanel();
-        orangeImageLabel = new javax.swing.JLabel();
+        label2 = new javax.swing.JLabel();
         cokeInfoPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        orangeCountTextField = new javax.swing.JTextField();
-        addOrangeButton = new javax.swing.JButton();
+        countTextField2 = new javax.swing.JTextField();
+        button2 = new javax.swing.JButton();
+        codeLabel2 = new javax.swing.JLabel();
         lemonadePanel = new javax.swing.JPanel();
-        lemonadeImageLabel1 = new javax.swing.JLabel();
+        label3 = new javax.swing.JLabel();
         cokeInfoPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        lemonadeCountTextField = new javax.swing.JTextField();
-        addLemonadeButton = new javax.swing.JButton();
+        countTextField3 = new javax.swing.JTextField();
+        button3 = new javax.swing.JButton();
+        codeLabel3 = new javax.swing.JLabel();
         gatoradePanel1 = new javax.swing.JPanel();
-        gatoradeImageLabel1 = new javax.swing.JLabel();
+        label4 = new javax.swing.JLabel();
         cokeInfoPanel4 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        gatoradeCountTextField = new javax.swing.JTextField();
-        addGatoradeButton = new javax.swing.JButton();
+        countTextField4 = new javax.swing.JTextField();
+        button4 = new javax.swing.JButton();
+        codeLabel4 = new javax.swing.JLabel();
+        frappuccinoPanel = new javax.swing.JPanel();
+        labe5 = new javax.swing.JLabel();
+        cokeInfoPanel1 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        countTextField5 = new javax.swing.JTextField();
+        button5 = new javax.swing.JButton();
+        codeLabel5 = new javax.swing.JLabel();
         coconutWaterPanel = new javax.swing.JPanel();
-        coconutWaterImageLabel = new javax.swing.JLabel();
+        label6 = new javax.swing.JLabel();
         cokeInfoPanel5 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        coconutWaterCountTextField = new javax.swing.JTextField();
-        addCoconutWaterButton = new javax.swing.JButton();
+        countTextField6 = new javax.swing.JTextField();
+        button6 = new javax.swing.JButton();
+        codeLabel6 = new javax.swing.JLabel();
         sparlkingWaterPanel = new javax.swing.JPanel();
         cokeInfoPanel6 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
-        sparklingWaterCountTextField = new javax.swing.JTextField();
-        addSparklingWaterButton = new javax.swing.JButton();
-        sparklingWaterImageLabel = new javax.swing.JLabel();
-        cokeInfoPanel7 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        cokeCountTextField = new javax.swing.JTextField();
-        addCokeButton = new javax.swing.JButton();
-        cokeImageLabel1 = new javax.swing.JLabel();
+        countTextField7 = new javax.swing.JTextField();
+        button7 = new javax.swing.JButton();
+        codeLabel7 = new javax.swing.JLabel();
+        label7 = new javax.swing.JLabel();
         proteinSmoothiePanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        proteinSmoothieCountTextField = new javax.swing.JTextField();
-        addProteinSmoothieButton = new javax.swing.JButton();
-        proteinSmoothieImageLabel = new javax.swing.JLabel();
-        granolaShakePanel = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
-        granolaCountTextField = new javax.swing.JTextField();
-        granolaAddButton = new javax.swing.JButton();
-        granolaShakeImageLabel = new javax.swing.JLabel();
+        countTextField8 = new javax.swing.JTextField();
+        button8 = new javax.swing.JButton();
+        label8 = new javax.swing.JLabel();
+        codeLabel8 = new javax.swing.JLabel();
         proteinShakePanel1 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        proteinShakeCountTextField = new javax.swing.JTextField();
-        addproteinShakeButton1 = new javax.swing.JButton();
-        proteinShakeImageLabel1 = new javax.swing.JLabel();
+        countTextField9 = new javax.swing.JTextField();
+        button9 = new javax.swing.JButton();
+        label9 = new javax.swing.JLabel();
+        codeLabel9 = new javax.swing.JLabel();
+        granolaShakePanel = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        countTextField10 = new javax.swing.JTextField();
+        button10 = new javax.swing.JButton();
+        label10 = new javax.swing.JLabel();
+        codeLabel10 = new javax.swing.JLabel();
         chipsShakePanel = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
-        chipsCountTextField = new javax.swing.JTextField();
-        chipsAddButton = new javax.swing.JButton();
-        chipsImageLabel = new javax.swing.JLabel();
+        countTextField11 = new javax.swing.JTextField();
+        button11 = new javax.swing.JButton();
+        label11 = new javax.swing.JLabel();
+        codeLabel11 = new javax.swing.JLabel();
         nutsShakePanel = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
-        nutsCountTextField = new javax.swing.JTextField();
-        nutsAddButton = new javax.swing.JButton();
-        nutsImageLabel = new javax.swing.JLabel();
+        countTextField12 = new javax.swing.JTextField();
+        button12 = new javax.swing.JButton();
+        label12 = new javax.swing.JLabel();
+        codeLabel12 = new javax.swing.JLabel();
         cookieShakePanel = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
-        cookieCountTextField = new javax.swing.JTextField();
-        cookieAddButton = new javax.swing.JButton();
-        cookieImageLabel = new javax.swing.JLabel();
+        countTextField13 = new javax.swing.JTextField();
+        button13 = new javax.swing.JButton();
+        label13 = new javax.swing.JLabel();
+        codeLabel13 = new javax.swing.JLabel();
         driedFruitsPanel = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
-        driedFruitsCountTextField = new javax.swing.JTextField();
-        driedFruitsAddButton = new javax.swing.JButton();
-        driedFruitsImageLabel = new javax.swing.JLabel();
+        countTextField14 = new javax.swing.JTextField();
+        button14 = new javax.swing.JButton();
+        label14 = new javax.swing.JLabel();
+        codeLabel14 = new javax.swing.JLabel();
         popcornPanel = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
-        popcornCountTextField = new javax.swing.JTextField();
-        popcornAddButton = new javax.swing.JButton();
-        popcornImageLabel = new javax.swing.JLabel();
+        countTextField15 = new javax.swing.JTextField();
+        button15 = new javax.swing.JButton();
+        label15 = new javax.swing.JLabel();
+        codeLabel15 = new javax.swing.JLabel();
         crackersPanel = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
-        crackersCountTextField = new javax.swing.JTextField();
-        crackersAddButton = new javax.swing.JButton();
-        crackersImageLabel = new javax.swing.JLabel();
+        countTextField16 = new javax.swing.JTextField();
+        button16 = new javax.swing.JButton();
+        label16 = new javax.swing.JLabel();
+        codeLabel16 = new javax.swing.JLabel();
         veggieStrawsPanel = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
-        veggieStrawsCountTextField = new javax.swing.JTextField();
-        veggieStrawsAddButton = new javax.swing.JButton();
-        veggieStrawsImageLabel = new javax.swing.JLabel();
+        countTextField17 = new javax.swing.JTextField();
+        button17 = new javax.swing.JButton();
+        label17 = new javax.swing.JLabel();
+        codeLabel17 = new javax.swing.JLabel();
         greekYogurtPanel = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
-        greekYogurtCountTextField = new javax.swing.JTextField();
-        greekYogurtAddButton = new javax.swing.JButton();
-        greekYogurtImageLabel = new javax.swing.JLabel();
+        countTextField18 = new javax.swing.JTextField();
+        button18 = new javax.swing.JButton();
+        label18 = new javax.swing.JLabel();
+        codeLabel18 = new javax.swing.JLabel();
         machineIDLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -254,20 +289,23 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        label19 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
-        greekYogurtCountTextField1 = new javax.swing.JTextField();
-        greekYogurtAddButton1 = new javax.swing.JButton();
+        countTextField19 = new javax.swing.JTextField();
+        button19 = new javax.swing.JButton();
+        codeLabel19 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        label20 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        greekYogurtCountTextField2 = new javax.swing.JTextField();
-        greekYogurtAddButton2 = new javax.swing.JButton();
+        countTextField20 = new javax.swing.JTextField();
+        button20 = new javax.swing.JButton();
+        codeLabel20 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        label21 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
-        greekYogurtCountTextField3 = new javax.swing.JTextField();
-        greekYogurtAddButton3 = new javax.swing.JButton();
+        countTextField21 = new javax.swing.JTextField();
+        button21 = new javax.swing.JButton();
+        codeLabel21 = new javax.swing.JLabel();
         collectMoneyPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         machine1RadioButton = new javax.swing.JRadioButton();
@@ -292,109 +330,115 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
         itemsPanel.setBackground(new java.awt.Color(114, 148, 36));
 
-        itemLabels.add(frappuccinoImageLabel);
+        jLabel10.setText("Count");
 
-        jLabel12.setText("Count");
-
-        itemTextFields.add(frappuccinoCountTextField);
-        frappuccinoCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField1);
+        countTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frappuccinoCountTextFieldActionPerformed(evt);
+                countTextField1ActionPerformed(evt);
             }
         });
 
-        addFrappuccinoButton.setText("+");
-        addFrappuccinoButton.addActionListener(new java.awt.event.ActionListener() {
+        button1.setText("+");
+        button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addFrappuccinoButtonActionPerformed(evt);
+                button1ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout cokeInfoPanel1Layout = new javax.swing.GroupLayout(cokeInfoPanel1);
-        cokeInfoPanel1.setLayout(cokeInfoPanel1Layout);
-        cokeInfoPanel1Layout.setHorizontalGroup(
-            cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addGroup(cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
-                        .addComponent(frappuccinoCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addFrappuccinoButton))))
+        itemLabels.add(label1);
+
+        itemCodeLabels.add(codeLabel1);
+        codeLabel1.setText("jLabel9");
+
+        javax.swing.GroupLayout cokeInfoPanel7Layout = new javax.swing.GroupLayout(cokeInfoPanel7);
+        cokeInfoPanel7.setLayout(cokeInfoPanel7Layout);
+        cokeInfoPanel7Layout.setHorizontalGroup(
+            cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
+                                .addComponent(countTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(button1))
+                            .addComponent(jLabel10)))
+                    .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(codeLabel1)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        cokeInfoPanel1Layout.setVerticalGroup(
-            cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel1Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jLabel12)
+        cokeInfoPanel7Layout.setVerticalGroup(
+            cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(codeLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(frappuccinoCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addFrappuccinoButton))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout frappuccinoPanelLayout = new javax.swing.GroupLayout(frappuccinoPanel);
-        frappuccinoPanel.setLayout(frappuccinoPanelLayout);
-        frappuccinoPanelLayout.setHorizontalGroup(
-            frappuccinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(frappuccinoPanelLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(frappuccinoImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cokeInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(countTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button1))
+                .addGap(20, 20, 20))
+            .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        frappuccinoPanelLayout.setVerticalGroup(
-            frappuccinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(frappuccinoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cokeInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
-            .addComponent(frappuccinoImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
 
-        itemLabels.add(orangeImageLabel);
+        itemLabels.add(label2);
 
         jLabel14.setText("Count");
 
-        itemTextFields.add(orangeCountTextField);
-        orangeCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField2);
+        countTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orangeCountTextFieldActionPerformed(evt);
+                countTextField2ActionPerformed(evt);
             }
         });
 
-        addOrangeButton.setText("+");
-        addOrangeButton.addActionListener(new java.awt.event.ActionListener() {
+        button2.setText("+");
+        button2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addOrangeButtonActionPerformed(evt);
+                button2ActionPerformed(evt);
             }
         });
+
+        itemCodeLabels.add(codeLabel2);
+        codeLabel2.setText("jLabel9");
 
         javax.swing.GroupLayout cokeInfoPanel2Layout = new javax.swing.GroupLayout(cokeInfoPanel2);
         cokeInfoPanel2.setLayout(cokeInfoPanel2Layout);
         cokeInfoPanel2Layout.setHorizontalGroup(
             cokeInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokeInfoPanel2Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(cokeInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addGroup(cokeInfoPanel2Layout.createSequentialGroup()
-                        .addComponent(orangeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addOrangeButton))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel14)
+                        .addGroup(cokeInfoPanel2Layout.createSequentialGroup()
+                            .addComponent(countTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(button2)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel2Layout.createSequentialGroup()
+                        .addComponent(codeLabel2)
+                        .addGap(70, 70, 70))))
         );
         cokeInfoPanel2Layout.setVerticalGroup(
             cokeInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel2Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(codeLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cokeInfoPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(orangeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addOrangeButton))
+                    .addComponent(countTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button2))
                 .addContainerGap())
         );
 
@@ -404,7 +448,7 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             orangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(orangePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(orangeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addComponent(cokeInfoPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -415,50 +459,56 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
                 .addContainerGap()
                 .addGroup(orangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cokeInfoPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orangeImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(label2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        itemLabels.add(lemonadeImageLabel1);
+        itemLabels.add(label3);
 
         jLabel16.setText("Count");
 
-        itemTextFields.add(lemonadeCountTextField);
-        lemonadeCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField3);
+        countTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lemonadeCountTextFieldActionPerformed(evt);
+                countTextField3ActionPerformed(evt);
             }
         });
 
-        addLemonadeButton.setText("+");
-        addLemonadeButton.addActionListener(new java.awt.event.ActionListener() {
+        button3.setText("+");
+        button3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addLemonadeButtonActionPerformed(evt);
+                button3ActionPerformed(evt);
             }
         });
+
+        itemCodeLabels.add(codeLabel3);
+        codeLabel3.setText("jLabel9");
 
         javax.swing.GroupLayout cokeInfoPanel3Layout = new javax.swing.GroupLayout(cokeInfoPanel3);
         cokeInfoPanel3.setLayout(cokeInfoPanel3Layout);
         cokeInfoPanel3Layout.setHorizontalGroup(
             cokeInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cokeInfoPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel3Layout.createSequentialGroup()
                 .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(cokeInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codeLabel3)
                     .addComponent(jLabel16)
                     .addGroup(cokeInfoPanel3Layout.createSequentialGroup()
-                        .addComponent(lemonadeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addLemonadeButton))))
+                        .addComponent(button3))))
         );
         cokeInfoPanel3Layout.setVerticalGroup(
             cokeInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel3Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(codeLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cokeInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lemonadeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addLemonadeButton))
+                    .addComponent(countTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button3))
                 .addContainerGap())
         );
 
@@ -467,7 +517,7 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         lemonadePanelLayout.setHorizontalGroup(
             lemonadePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lemonadePanelLayout.createSequentialGroup()
-                .addComponent(lemonadeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cokeInfoPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
@@ -480,50 +530,61 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
                     .addGroup(lemonadePanelLayout.createSequentialGroup()
                         .addComponent(cokeInfoPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 8, Short.MAX_VALUE))
-                    .addComponent(lemonadeImageLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(label3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        itemLabels.add(gatoradeImageLabel1);
+        itemLabels.add(label4);
 
         jLabel18.setText("Count");
 
-        itemTextFields.add(gatoradeCountTextField);
-        gatoradeCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField4);
+        countTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gatoradeCountTextFieldActionPerformed(evt);
+                countTextField4ActionPerformed(evt);
             }
         });
 
-        addGatoradeButton.setText("+");
-        addGatoradeButton.addActionListener(new java.awt.event.ActionListener() {
+        button4.setText("+");
+        button4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addGatoradeButtonActionPerformed(evt);
+                button4ActionPerformed(evt);
             }
         });
+
+        itemCodeLabels.add(codeLabel4);
+        codeLabel4.setText("jLabel9");
 
         javax.swing.GroupLayout cokeInfoPanel4Layout = new javax.swing.GroupLayout(cokeInfoPanel4);
         cokeInfoPanel4.setLayout(cokeInfoPanel4Layout);
         cokeInfoPanel4Layout.setHorizontalGroup(
             cokeInfoPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(cokeInfoPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
                     .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
-                        .addComponent(gatoradeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addGatoradeButton))))
+                        .addGap(0, 11, Short.MAX_VALUE)
+                        .addGroup(cokeInfoPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
+                                .addComponent(countTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(button4))))
+                    .addGroup(cokeInfoPanel4Layout.createSequentialGroup()
+                        .addComponent(codeLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         cokeInfoPanel4Layout.setVerticalGroup(
             cokeInfoPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel4Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(codeLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cokeInfoPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gatoradeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addGatoradeButton))
+                    .addComponent(countTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button4))
                 .addContainerGap())
         );
 
@@ -533,7 +594,7 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             gatoradePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gatoradePanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(gatoradeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(cokeInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -546,50 +607,130 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
                     .addGroup(gatoradePanel1Layout.createSequentialGroup()
                         .addComponent(cokeInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 8, Short.MAX_VALUE))
-                    .addComponent(gatoradeImageLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(label4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        itemLabels.add(coconutWaterImageLabel);
+        itemLabels.add(labe5);
+
+        jLabel12.setText("Count");
+
+        itemTextFields.add(countTextField5);
+        countTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countTextField5ActionPerformed(evt);
+            }
+        });
+
+        button5.setText("+");
+        button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button5ActionPerformed(evt);
+            }
+        });
+
+        itemCodeLabels.add(codeLabel5);
+        codeLabel5.setText("jLabel9");
+
+        javax.swing.GroupLayout cokeInfoPanel1Layout = new javax.swing.GroupLayout(cokeInfoPanel1);
+        cokeInfoPanel1.setLayout(cokeInfoPanel1Layout);
+        cokeInfoPanel1Layout.setHorizontalGroup(
+            cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
+                        .addGap(0, 19, Short.MAX_VALUE)
+                        .addGroup(cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
+                                .addComponent(countTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(button5))))
+                    .addGroup(cokeInfoPanel1Layout.createSequentialGroup()
+                        .addComponent(codeLabel5)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        cokeInfoPanel1Layout.setVerticalGroup(
+            cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(codeLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cokeInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(countTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button5))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout frappuccinoPanelLayout = new javax.swing.GroupLayout(frappuccinoPanel);
+        frappuccinoPanel.setLayout(frappuccinoPanelLayout);
+        frappuccinoPanelLayout.setHorizontalGroup(
+            frappuccinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frappuccinoPanelLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(labe5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cokeInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        frappuccinoPanelLayout.setVerticalGroup(
+            frappuccinoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frappuccinoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cokeInfoPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+            .addComponent(labe5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        itemLabels.add(label6);
 
         jLabel20.setText("Count");
 
-        itemTextFields.add(coconutWaterCountTextField);
-        coconutWaterCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField6);
+        countTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coconutWaterCountTextFieldActionPerformed(evt);
+                countTextField6ActionPerformed(evt);
             }
         });
 
-        addCoconutWaterButton.setText("+");
-        addCoconutWaterButton.addActionListener(new java.awt.event.ActionListener() {
+        button6.setText("+");
+        button6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCoconutWaterButtonActionPerformed(evt);
+                button6ActionPerformed(evt);
             }
         });
+
+        itemCodeLabels.add(codeLabel6);
+        codeLabel6.setText("jLabel9");
 
         javax.swing.GroupLayout cokeInfoPanel5Layout = new javax.swing.GroupLayout(cokeInfoPanel5);
         cokeInfoPanel5.setLayout(cokeInfoPanel5Layout);
         cokeInfoPanel5Layout.setHorizontalGroup(
             cokeInfoPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cokeInfoPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel5Layout.createSequentialGroup()
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(cokeInfoPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codeLabel6)
                     .addComponent(jLabel20)
                     .addGroup(cokeInfoPanel5Layout.createSequentialGroup()
-                        .addComponent(coconutWaterCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addCoconutWaterButton))))
+                        .addComponent(button6))))
         );
         cokeInfoPanel5Layout.setVerticalGroup(
             cokeInfoPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel5Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(codeLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cokeInfoPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(coconutWaterCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addCoconutWaterButton))
+                    .addComponent(countTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button6))
                 .addContainerGap())
         );
 
@@ -599,7 +740,7 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             coconutWaterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(coconutWaterPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(coconutWaterImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cokeInfoPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -610,24 +751,27 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
                 .addContainerGap()
                 .addComponent(cokeInfoPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
-            .addComponent(coconutWaterImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(label6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel22.setText("Count");
 
-        itemTextFields.add(sparklingWaterCountTextField);
-        sparklingWaterCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField7);
+        countTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sparklingWaterCountTextFieldActionPerformed(evt);
+                countTextField7ActionPerformed(evt);
             }
         });
 
-        addSparklingWaterButton.setText("+");
-        addSparklingWaterButton.addActionListener(new java.awt.event.ActionListener() {
+        button7.setText("+");
+        button7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addSparklingWaterButtonActionPerformed(evt);
+                button7ActionPerformed(evt);
             }
         });
+
+        itemCodeLabels.add(codeLabel7);
+        codeLabel7.setText("jLabel9");
 
         javax.swing.GroupLayout cokeInfoPanel6Layout = new javax.swing.GroupLayout(cokeInfoPanel6);
         cokeInfoPanel6.setLayout(cokeInfoPanel6Layout);
@@ -638,23 +782,27 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
                 .addGroup(cokeInfoPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22)
                     .addGroup(cokeInfoPanel6Layout.createSequentialGroup()
-                        .addComponent(sparklingWaterCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(cokeInfoPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(codeLabel7)
+                            .addComponent(countTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addSparklingWaterButton))))
+                        .addComponent(button7))))
         );
         cokeInfoPanel6Layout.setVerticalGroup(
             cokeInfoPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cokeInfoPanel6Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(codeLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(cokeInfoPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sparklingWaterCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addSparklingWaterButton))
+                    .addComponent(countTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button7))
                 .addContainerGap())
         );
 
-        itemLabels.add(sparklingWaterImageLabel);
+        itemLabels.add(label7);
 
         javax.swing.GroupLayout sparlkingWaterPanelLayout = new javax.swing.GroupLayout(sparlkingWaterPanel);
         sparlkingWaterPanel.setLayout(sparlkingWaterPanelLayout);
@@ -662,7 +810,7 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             sparlkingWaterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sparlkingWaterPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sparklingWaterImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(cokeInfoPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -673,170 +821,84 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
                 .addContainerGap()
                 .addComponent(cokeInfoPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
-            .addComponent(sparklingWaterImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        jLabel10.setText("Count");
-
-        itemTextFields.add(cokeCountTextField);
-        cokeCountTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cokeCountTextFieldActionPerformed(evt);
-            }
-        });
-
-        addCokeButton.setText("+");
-        addCokeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCokeButtonActionPerformed(evt);
-            }
-        });
-
-        itemLabels.add(cokeImageLabel1);
-
-        javax.swing.GroupLayout cokeInfoPanel7Layout = new javax.swing.GroupLayout(cokeInfoPanel7);
-        cokeInfoPanel7.setLayout(cokeInfoPanel7Layout);
-        cokeInfoPanel7Layout.setHorizontalGroup(
-            cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cokeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
-                        .addComponent(cokeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addCokeButton))
-                    .addComponent(jLabel10))
-                .addGap(0, 23, Short.MAX_VALUE))
-        );
-        cokeInfoPanel7Layout.setVerticalGroup(
-            cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(cokeInfoPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cokeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addCokeButton))
-                .addGap(20, 20, 20))
-            .addGroup(cokeInfoPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cokeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(label7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel8.setText("Count");
 
-        itemTextFields.add(proteinSmoothieCountTextField);
-        proteinSmoothieCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField8);
+        countTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proteinSmoothieCountTextFieldActionPerformed(evt);
+                countTextField8ActionPerformed(evt);
             }
         });
 
-        addProteinSmoothieButton.setText("+");
-        addProteinSmoothieButton.addActionListener(new java.awt.event.ActionListener() {
+        button8.setText("+");
+        button8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addProteinSmoothieButtonActionPerformed(evt);
+                button8ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(proteinSmoothieImageLabel);
+        itemLabels.add(label8);
+
+        itemCodeLabels.add(codeLabel8);
+        codeLabel8.setText("jLabel9");
 
         javax.swing.GroupLayout proteinSmoothiePanelLayout = new javax.swing.GroupLayout(proteinSmoothiePanel);
         proteinSmoothiePanel.setLayout(proteinSmoothiePanelLayout);
         proteinSmoothiePanelLayout.setHorizontalGroup(
             proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(proteinSmoothiePanelLayout.createSequentialGroup()
-                .addComponent(proteinSmoothieImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addGroup(proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(proteinSmoothiePanelLayout.createSequentialGroup()
+                            .addComponent(countTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(button8))
+                        .addComponent(jLabel8))
                     .addGroup(proteinSmoothiePanelLayout.createSequentialGroup()
-                        .addComponent(proteinSmoothieCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addProteinSmoothieButton))
-                    .addComponent(jLabel8))
+                        .addComponent(codeLabel8)
+                        .addGap(70, 70, 70)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         proteinSmoothiePanelLayout.setVerticalGroup(
             proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(proteinSmoothiePanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(14, 14, 14)
+                .addComponent(codeLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addGap(8, 8, 8)
                 .addGroup(proteinSmoothiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(proteinSmoothieCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addProteinSmoothieButton))
+                    .addComponent(countTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button8))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(proteinSmoothieImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-        );
-
-        jLabel24.setText("Count");
-
-        itemTextFields.add(granolaCountTextField);
-        granolaCountTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                granolaCountTextFieldActionPerformed(evt);
-            }
-        });
-
-        granolaAddButton.setText("+");
-        granolaAddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                granolaAddButtonActionPerformed(evt);
-            }
-        });
-
-        itemLabels.add(granolaShakeImageLabel);
-
-        javax.swing.GroupLayout granolaShakePanelLayout = new javax.swing.GroupLayout(granolaShakePanel);
-        granolaShakePanel.setLayout(granolaShakePanelLayout);
-        granolaShakePanelLayout.setHorizontalGroup(
-            granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(granolaShakePanelLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(granolaShakeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(granolaShakePanelLayout.createSequentialGroup()
-                        .addComponent(granolaCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(granolaAddButton))
-                    .addComponent(jLabel24))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        granolaShakePanelLayout.setVerticalGroup(
-            granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(granolaShakeImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(granolaShakePanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(granolaAddButton)
-                    .addGroup(granolaShakePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(granolaCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 29, Short.MAX_VALUE))
+            .addComponent(label8, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
         );
 
         jLabel26.setText("Count");
 
-        itemTextFields.add(proteinShakeCountTextField);
-        proteinShakeCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField9);
+        countTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proteinShakeCountTextFieldActionPerformed(evt);
+                countTextField9ActionPerformed(evt);
             }
         });
 
-        addproteinShakeButton1.setText("+");
-        addproteinShakeButton1.addActionListener(new java.awt.event.ActionListener() {
+        button9.setText("+");
+        button9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addproteinShakeButton1ActionPerformed(evt);
+                button9ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(proteinShakeImageLabel1);
+        itemLabels.add(label9);
+
+        itemCodeLabels.add(codeLabel9);
+        codeLabel9.setText("jLabel9");
 
         javax.swing.GroupLayout proteinShakePanel1Layout = new javax.swing.GroupLayout(proteinShakePanel1);
         proteinShakePanel1.setLayout(proteinShakePanel1Layout);
@@ -844,49 +906,117 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(proteinShakePanel1Layout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(proteinShakeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addGroup(proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addGroup(proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(proteinShakePanel1Layout.createSequentialGroup()
+                            .addComponent(countTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(button9))
+                        .addComponent(jLabel26))
                     .addGroup(proteinShakePanel1Layout.createSequentialGroup()
-                        .addComponent(proteinShakeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addproteinShakeButton1))
-                    .addComponent(jLabel26))
-                .addGap(0, 39, Short.MAX_VALUE))
+                        .addComponent(codeLabel9)
+                        .addGap(70, 70, 70)))
+                .addGap(0, 65, Short.MAX_VALUE))
         );
         proteinShakePanel1Layout.setVerticalGroup(
             proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(proteinShakePanel1Layout.createSequentialGroup()
                 .addGroup(proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(proteinShakePanel1Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addContainerGap()
+                        .addComponent(codeLabel9)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(proteinShakePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(proteinShakeCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addproteinShakeButton1))
+                            .addComponent(countTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button9))
                         .addGap(0, 19, Short.MAX_VALUE))
-                    .addComponent(proteinShakeImageLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(label9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+        );
+
+        jLabel24.setText("Count");
+
+        itemTextFields.add(countTextField10);
+        countTextField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countTextField10ActionPerformed(evt);
+            }
+        });
+
+        button10.setText("+");
+        button10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button10ActionPerformed(evt);
+            }
+        });
+
+        itemLabels.add(label10);
+
+        itemCodeLabels.add(codeLabel10);
+        codeLabel10.setText("jLabel9");
+
+        javax.swing.GroupLayout granolaShakePanelLayout = new javax.swing.GroupLayout(granolaShakePanel);
+        granolaShakePanel.setLayout(granolaShakePanelLayout);
+        granolaShakePanelLayout.setHorizontalGroup(
+            granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(granolaShakePanelLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(granolaShakePanelLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(codeLabel10)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(granolaShakePanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addGroup(granolaShakePanelLayout.createSequentialGroup()
+                                .addComponent(countTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(button10)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        granolaShakePanelLayout.setVerticalGroup(
+            granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(label10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(granolaShakePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(codeLabel10)
+                .addGap(18, 18, 18)
+                .addGroup(granolaShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(granolaShakePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addGap(9, 9, 9)
+                        .addComponent(countTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(button10, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel28.setText("Count");
 
-        itemTextFields.add(chipsCountTextField);
-        chipsCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField11);
+        countTextField11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chipsCountTextFieldActionPerformed(evt);
+                countTextField11ActionPerformed(evt);
             }
         });
 
-        chipsAddButton.setText("+");
-        chipsAddButton.addActionListener(new java.awt.event.ActionListener() {
+        button11.setText("+");
+        button11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chipsAddButtonActionPerformed(evt);
+                button11ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(chipsImageLabel);
+        itemLabels.add(label11);
+
+        itemCodeLabels.add(codeLabel11);
+        codeLabel11.setText("jLabel9");
 
         javax.swing.GroupLayout chipsShakePanelLayout = new javax.swing.GroupLayout(chipsShakePanel);
         chipsShakePanel.setLayout(chipsShakePanelLayout);
@@ -894,46 +1024,52 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             chipsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(chipsShakePanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(chipsImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addGroup(chipsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(chipsShakePanelLayout.createSequentialGroup()
-                        .addComponent(chipsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chipsAddButton))
-                    .addComponent(jLabel28))
+                        .addComponent(button11))
+                    .addComponent(jLabel28)
+                    .addComponent(codeLabel11))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         chipsShakePanelLayout.setVerticalGroup(
             chipsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(chipsShakePanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
+                .addComponent(codeLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(chipsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chipsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chipsAddButton))
+                    .addComponent(countTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button11))
                 .addGap(0, 24, Short.MAX_VALUE))
-            .addComponent(chipsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(label11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel30.setText("Count");
 
-        itemTextFields.add(nutsCountTextField);
-        nutsCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField12);
+        countTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutsCountTextFieldActionPerformed(evt);
+                countTextField12ActionPerformed(evt);
             }
         });
 
-        nutsAddButton.setText("+");
-        nutsAddButton.addActionListener(new java.awt.event.ActionListener() {
+        button12.setText("+");
+        button12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutsAddButtonActionPerformed(evt);
+                button12ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(nutsImageLabel);
+        itemLabels.add(label12);
+
+        itemCodeLabels.add(codeLabel12);
+        codeLabel12.setText("jLabel9");
 
         javax.swing.GroupLayout nutsShakePanelLayout = new javax.swing.GroupLayout(nutsShakePanel);
         nutsShakePanel.setLayout(nutsShakePanelLayout);
@@ -941,46 +1077,55 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             nutsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nutsShakePanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(nutsImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(nutsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nutsShakePanelLayout.createSequentialGroup()
-                        .addComponent(nutsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nutsAddButton))
-                    .addComponent(jLabel30))
+                        .addGap(18, 18, 18)
+                        .addComponent(countTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addComponent(button12))
+                    .addGroup(nutsShakePanelLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(nutsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel30)
+                            .addComponent(codeLabel12))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         nutsShakePanelLayout.setVerticalGroup(
             nutsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nutsShakePanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
+                .addComponent(codeLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel30)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(nutsShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nutsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nutsAddButton))
+                    .addComponent(countTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button12))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(nutsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+            .addComponent(label12, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
         );
 
         jLabel32.setText("Count");
 
-        itemTextFields.add(cookieCountTextField);
-        cookieCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField13);
+        countTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cookieCountTextFieldActionPerformed(evt);
+                countTextField13ActionPerformed(evt);
             }
         });
 
-        cookieAddButton.setText("+");
-        cookieAddButton.addActionListener(new java.awt.event.ActionListener() {
+        button13.setText("+");
+        button13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cookieAddButtonActionPerformed(evt);
+                button13ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(cookieImageLabel);
+        itemLabels.add(label13);
+
+        itemCodeLabels.add(codeLabel13);
+        codeLabel13.setText("jLabel9");
 
         javax.swing.GroupLayout cookieShakePanelLayout = new javax.swing.GroupLayout(cookieShakePanel);
         cookieShakePanel.setLayout(cookieShakePanelLayout);
@@ -988,46 +1133,55 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             cookieShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cookieShakePanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(cookieImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(cookieShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cookieShakePanelLayout.createSequentialGroup()
-                        .addComponent(cookieCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cookieAddButton))
-                    .addComponent(jLabel32))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)
+                        .addComponent(countTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(button13))
+                    .addGroup(cookieShakePanelLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(cookieShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(codeLabel13)
+                            .addComponent(jLabel32))))
+                .addGap(0, 95, Short.MAX_VALUE))
         );
         cookieShakePanelLayout.setVerticalGroup(
             cookieShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cookieShakePanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
+                .addComponent(codeLabel13)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(cookieShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cookieCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cookieAddButton))
-                .addGap(0, 36, Short.MAX_VALUE))
-            .addComponent(cookieImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(cookieShakePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button13)
+                    .addComponent(countTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 27, Short.MAX_VALUE))
+            .addComponent(label13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel34.setText("Count");
 
-        itemTextFields.add(driedFruitsCountTextField);
-        driedFruitsCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField14);
+        countTextField14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                driedFruitsCountTextFieldActionPerformed(evt);
+                countTextField14ActionPerformed(evt);
             }
         });
 
-        driedFruitsAddButton.setText("+");
-        driedFruitsAddButton.addActionListener(new java.awt.event.ActionListener() {
+        button14.setText("+");
+        button14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                driedFruitsAddButtonActionPerformed(evt);
+                button14ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(driedFruitsImageLabel);
+        itemLabels.add(label14);
+
+        itemCodeLabels.add(codeLabel14);
+        codeLabel14.setText("jLabel9");
 
         javax.swing.GroupLayout driedFruitsPanelLayout = new javax.swing.GroupLayout(driedFruitsPanel);
         driedFruitsPanel.setLayout(driedFruitsPanelLayout);
@@ -1035,47 +1189,55 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             driedFruitsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(driedFruitsPanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(driedFruitsImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(driedFruitsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(label14, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(driedFruitsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(driedFruitsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(driedFruitsPanelLayout.createSequentialGroup()
+                            .addComponent(countTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(button14))
+                        .addComponent(jLabel34))
                     .addGroup(driedFruitsPanelLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(driedFruitsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(driedFruitsAddButton))
-                    .addComponent(jLabel34))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(codeLabel14)
+                        .addGap(66, 66, 66)))
+                .addGap(0, 86, Short.MAX_VALUE))
         );
         driedFruitsPanelLayout.setVerticalGroup(
             driedFruitsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(driedFruitsPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
+                .addComponent(codeLabel14)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel34)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(driedFruitsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(driedFruitsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(driedFruitsAddButton))
-                .addGap(0, 42, Short.MAX_VALUE))
-            .addComponent(driedFruitsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button14)
+                    .addComponent(countTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 33, Short.MAX_VALUE))
+            .addComponent(label14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel36.setText("Count");
 
-        itemTextFields.add(popcornCountTextField);
-        popcornCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField15);
+        countTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                popcornCountTextFieldActionPerformed(evt);
+                countTextField15ActionPerformed(evt);
             }
         });
 
-        popcornAddButton.setText("+");
-        popcornAddButton.addActionListener(new java.awt.event.ActionListener() {
+        button15.setText("+");
+        button15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                popcornAddButtonActionPerformed(evt);
+                button15ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(popcornImageLabel);
+        itemLabels.add(label15);
+
+        itemCodeLabels.add(codeLabel15);
+        codeLabel15.setText("jLabel9");
 
         javax.swing.GroupLayout popcornPanelLayout = new javax.swing.GroupLayout(popcornPanel);
         popcornPanel.setLayout(popcornPanelLayout);
@@ -1083,46 +1245,52 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popcornPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(popcornImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label15, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addGroup(popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(popcornPanelLayout.createSequentialGroup()
-                        .addComponent(popcornCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(popcornAddButton))
-                    .addComponent(jLabel36))
-                .addGap(0, 50, Short.MAX_VALUE))
+                        .addComponent(countTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button15))
+                    .addComponent(jLabel36)
+                    .addComponent(codeLabel15))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         popcornPanelLayout.setVerticalGroup(
             popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(popcornPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
+                .addComponent(codeLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel36)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(popcornCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(popcornAddButton))
-                .addGap(0, 48, Short.MAX_VALUE))
-            .addComponent(popcornImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(button15)
+                    .addComponent(countTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 39, Short.MAX_VALUE))
+            .addComponent(label15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel38.setText("Count");
 
-        itemTextFields.add(crackersCountTextField);
-        crackersCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField16);
+        countTextField16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crackersCountTextFieldActionPerformed(evt);
+                countTextField16ActionPerformed(evt);
             }
         });
 
-        crackersAddButton.setText("+");
-        crackersAddButton.addActionListener(new java.awt.event.ActionListener() {
+        button16.setText("+");
+        button16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crackersAddButtonActionPerformed(evt);
+                button16ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(crackersImageLabel);
+        itemLabels.add(label16);
+
+        itemCodeLabels.add(codeLabel16);
+        codeLabel16.setText("jLabel9");
 
         javax.swing.GroupLayout crackersPanelLayout = new javax.swing.GroupLayout(crackersPanel);
         crackersPanel.setLayout(crackersPanelLayout);
@@ -1130,46 +1298,53 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(crackersPanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(crackersImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label16, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addGroup(crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel38)
                     .addGroup(crackersPanelLayout.createSequentialGroup()
-                        .addComponent(crackersCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(codeLabel16)
+                            .addComponent(countTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(crackersAddButton))
-                    .addComponent(jLabel38))
-                .addGap(0, 56, Short.MAX_VALUE))
+                        .addComponent(button16)))
+                .addGap(0, 53, Short.MAX_VALUE))
         );
         crackersPanelLayout.setVerticalGroup(
             crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(crackersPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(codeLabel16)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel38)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(crackersCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(crackersAddButton))
-                .addGap(0, 28, Short.MAX_VALUE))
-            .addComponent(crackersImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(countTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button16))
+                .addContainerGap())
+            .addComponent(label16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel40.setText("Count");
 
-        itemTextFields.add(veggieStrawsCountTextField);
-        veggieStrawsCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField17);
+        countTextField17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                veggieStrawsCountTextFieldActionPerformed(evt);
+                countTextField17ActionPerformed(evt);
             }
         });
 
-        veggieStrawsAddButton.setText("+");
-        veggieStrawsAddButton.addActionListener(new java.awt.event.ActionListener() {
+        button17.setText("+");
+        button17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                veggieStrawsAddButtonActionPerformed(evt);
+                button17ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(veggieStrawsImageLabel);
+        itemLabels.add(label17);
+
+        itemCodeLabels.add(codeLabel17);
+        codeLabel17.setText("jLabel9");
 
         javax.swing.GroupLayout veggieStrawsPanelLayout = new javax.swing.GroupLayout(veggieStrawsPanel);
         veggieStrawsPanel.setLayout(veggieStrawsPanelLayout);
@@ -1177,46 +1352,55 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(veggieStrawsImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label17, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
-                        .addComponent(veggieStrawsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addGroup(veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(countTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel40))
                         .addGap(18, 18, 18)
-                        .addComponent(veggieStrawsAddButton))
-                    .addComponent(jLabel40))
+                        .addComponent(button17))
+                    .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(codeLabel17)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         veggieStrawsPanelLayout.setVerticalGroup(
             veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(codeLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel40)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(veggieStrawsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(veggieStrawsAddButton))
-                .addGap(0, 23, Short.MAX_VALUE))
-            .addComponent(veggieStrawsImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(countTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button17))
+                .addGap(27, 27, 27))
+            .addComponent(label17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jLabel42.setText("Count");
 
-        itemTextFields.add(greekYogurtCountTextField);
-        greekYogurtCountTextField.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField18);
+        countTextField18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtCountTextFieldActionPerformed(evt);
+                countTextField18ActionPerformed(evt);
             }
         });
 
-        greekYogurtAddButton.setText("+");
-        greekYogurtAddButton.addActionListener(new java.awt.event.ActionListener() {
+        button18.setText("+");
+        button18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtAddButtonActionPerformed(evt);
+                button18ActionPerformed(evt);
             }
         });
 
-        itemLabels.add(greekYogurtImageLabel);
+        itemLabels.add(label18);
+
+        itemCodeLabels.add(codeLabel18);
+        codeLabel18.setText("jLabel9");
 
         javax.swing.GroupLayout greekYogurtPanelLayout = new javax.swing.GroupLayout(greekYogurtPanel);
         greekYogurtPanel.setLayout(greekYogurtPanelLayout);
@@ -1224,27 +1408,30 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(greekYogurtPanelLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
-                .addComponent(greekYogurtImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label18, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel42)
                     .addGroup(greekYogurtPanelLayout.createSequentialGroup()
-                        .addComponent(greekYogurtCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(codeLabel18)
+                            .addComponent(countTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(greekYogurtAddButton))
-                    .addComponent(jLabel42))
-                .addGap(0, 62, Short.MAX_VALUE))
+                        .addComponent(button18)))
+                .addGap(0, 55, Short.MAX_VALUE))
         );
         greekYogurtPanelLayout.setVerticalGroup(
             greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(greekYogurtImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(label18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(greekYogurtPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(greekYogurtAddButton)
-                    .addGroup(greekYogurtPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel42)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(greekYogurtCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(codeLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(countTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button18))
                 .addGap(0, 31, Short.MAX_VALUE))
         );
 
@@ -1283,24 +1470,27 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        itemLabels.add(jLabel9);
-        jLabel9.setText("jLabel9");
+        itemLabels.add(label19);
+        label19.setText("jLabel9");
 
         jLabel43.setText("Count");
 
-        itemTextFields.add(greekYogurtCountTextField1);
-        greekYogurtCountTextField1.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField19);
+        countTextField19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtCountTextField1ActionPerformed(evt);
+                countTextField19ActionPerformed(evt);
             }
         });
 
-        greekYogurtAddButton1.setText("+");
-        greekYogurtAddButton1.addActionListener(new java.awt.event.ActionListener() {
+        button19.setText("+");
+        button19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtAddButton1ActionPerformed(evt);
+                button19ActionPerformed(evt);
             }
         });
+
+        itemCodeLabels.add(codeLabel19);
+        codeLabel19.setText("jLabel9");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1308,47 +1498,53 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(label19, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel43)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(greekYogurtCountTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(greekYogurtAddButton1)))
+                        .addComponent(countTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(button19))
+                    .addComponent(jLabel43)
+                    .addComponent(codeLabel19))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(label19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(codeLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel43)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(greekYogurtCountTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(greekYogurtAddButton1))
-                .addContainerGap(44, Short.MAX_VALUE))
+                    .addComponent(countTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button19))
+                .addGap(21, 21, 21))
         );
 
-        itemLabels.add(jLabel11);
-        jLabel11.setText("jLabel9");
+        itemLabels.add(label20);
+        label20.setText("jLabel9");
 
         jLabel44.setText("Count");
 
-        itemTextFields.add(greekYogurtCountTextField2);
-        greekYogurtCountTextField2.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField20);
+        countTextField20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtCountTextField2ActionPerformed(evt);
+                countTextField20ActionPerformed(evt);
             }
         });
 
-        greekYogurtAddButton2.setText("+");
-        greekYogurtAddButton2.addActionListener(new java.awt.event.ActionListener() {
+        button20.setText("+");
+        button20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtAddButton2ActionPerformed(evt);
+                button20ActionPerformed(evt);
             }
         });
+
+        itemCodeLabels.add(codeLabel20);
+        codeLabel20.setText("jLabel9");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1356,47 +1552,56 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel44)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(greekYogurtCountTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(greekYogurtAddButton2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addComponent(countTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(button20))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(codeLabel20)
+                            .addComponent(jLabel44))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(label20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(14, 14, 14)
+                .addComponent(codeLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel44)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(greekYogurtCountTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(greekYogurtAddButton2))
-                .addGap(38, 38, 38))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button20)
+                    .addComponent(countTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
         );
 
-        itemLabels.add(jLabel13);
-        jLabel13.setText("jLabel9");
+        itemLabels.add(label21);
+        label21.setText("jLabel9");
 
         jLabel45.setText("Count");
 
-        itemTextFields.add(greekYogurtCountTextField3);
-        greekYogurtCountTextField3.addActionListener(new java.awt.event.ActionListener() {
+        itemTextFields.add(countTextField21);
+        countTextField21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtCountTextField3ActionPerformed(evt);
+                countTextField21ActionPerformed(evt);
             }
         });
 
-        greekYogurtAddButton3.setText("+");
-        greekYogurtAddButton3.addActionListener(new java.awt.event.ActionListener() {
+        button21.setText("+");
+        button21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtAddButton3ActionPerformed(evt);
+                button21ActionPerformed(evt);
             }
         });
+
+        itemCodeLabels.add(codeLabel21);
+        codeLabel21.setText("jLabel9");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1404,27 +1609,30 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel45)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(greekYogurtCountTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(greekYogurtAddButton3)))
+                        .addComponent(countTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(button21))
+                    .addComponent(jLabel45)
+                    .addComponent(codeLabel21))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(label21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(14, 14, 14)
+                .addComponent(codeLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel45)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(greekYogurtCountTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(greekYogurtAddButton3))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button21)
+                    .addComponent(countTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout itemsPanelLayout = new javax.swing.GroupLayout(itemsPanel);
@@ -1460,11 +1668,10 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, itemsPanelLayout.createSequentialGroup()
                                 .addGroup(itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, itemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(chipsShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(granolaShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(proteinShakePanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(proteinSmoothiePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(chipsShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(granolaShakePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(proteinShakePanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(proteinSmoothiePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(crackersPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(237, 237, 237))
@@ -1692,36 +1899,50 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         // TODO add your handling code here:
     }//GEN-LAST:event_frappuccinoPriceTextFieldActionPerformed
 
-    private void frappuccinoCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoCountTextFieldActionPerformed
+    private void countTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_frappuccinoCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField5ActionPerformed
 
     private void frappuccinoUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frappuccinoUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(frappuccinoPriceTextField.getText());
-        //itemController.updatePrice(price,105);
     }//GEN-LAST:event_frappuccinoUpdateButtonActionPerformed
 
-    private void addFrappuccinoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFrappuccinoButtonActionPerformed
+    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(frappuccinoCountTextField.getText());
+        int count = Integer.valueOf(countTextField5.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(4), machineID);
-        frappuccinoCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            frappuccinoCountTextField.setBackground(Color.white);
-            frappuccinoCountTextField.setForeground(Color.black);
+        countTextField5.setText(Integer.toString(count));
+        if(count==0){
+            countTextField5.setBackground(Color.red);
+            countTextField5.setForeground(Color.black);
         }
-        sendMessage("addtocount", "beverage", 4, null);
-    }//GEN-LAST:event_addFrappuccinoButtonActionPerformed
+        if(count>0){
+            countTextField5.setBackground(Color.blue);
+            countTextField5.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField5.setBackground(Color.white);
+            countTextField5.setForeground(Color.black);
+        }
+        if(size > 4) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(4), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(4), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(4), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(4), null);
+        } 
+    }//GEN-LAST:event_button5ActionPerformed
 
     private void orangePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangePriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_orangePriceTextFieldActionPerformed
 
-    private void orangeCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeCountTextFieldActionPerformed
+    private void countTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_orangeCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField2ActionPerformed
 
     private void orangeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -1729,26 +1950,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,102);
     }//GEN-LAST:event_orangeUpdateButtonActionPerformed
 
-    private void addOrangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrangeButtonActionPerformed
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(orangeCountTextField.getText());
+        int count = Integer.valueOf(countTextField2.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(1), machineID);
-        if(count>2){            
-            orangeCountTextField.setBackground(Color.white);
-            orangeCountTextField.setForeground(Color.black);
+        countTextField2.setText(Integer.toString(count));
+        if(count==0){
+            countTextField2.setBackground(Color.red);
+            countTextField2.setForeground(Color.black);
         }
-        orangeCountTextField.setText(Integer.toString(count));
-        sendMessage("addtocount", "beverage", 1, null);
-    }//GEN-LAST:event_addOrangeButtonActionPerformed
+        if(count>0){
+            countTextField2.setBackground(Color.blue);
+            countTextField2.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField2.setBackground(Color.white);
+            countTextField2.setForeground(Color.black);
+        }
+        if(size > 1) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(1), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(1), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(1), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(1), null);
+        } 
+    }//GEN-LAST:event_button2ActionPerformed
 
     private void lemonadePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadePriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lemonadePriceTextFieldActionPerformed
 
-    private void lemonadeCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeCountTextFieldActionPerformed
+    private void countTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lemonadeCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField3ActionPerformed
 
     private void lemonadeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -1757,26 +1994,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,103);
     }//GEN-LAST:event_lemonadeUpdateButtonActionPerformed
 
-    private void addLemonadeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLemonadeButtonActionPerformed
+    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(lemonadeCountTextField.getText());
+        int count = Integer.valueOf(countTextField3.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(2), machineID);
-        lemonadeCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            lemonadeCountTextField.setBackground(Color.white);
-            lemonadeCountTextField.setForeground(Color.black);
+        countTextField3.setText(Integer.toString(count));
+        if(count==0){
+            countTextField3.setBackground(Color.red);
+            countTextField3.setForeground(Color.black);
         }
-        sendMessage("addtocount", "beverage", 2, null);
-    }//GEN-LAST:event_addLemonadeButtonActionPerformed
+        if(count>0){
+            countTextField3.setBackground(Color.blue);
+            countTextField3.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField3.setBackground(Color.white);
+            countTextField3.setForeground(Color.black);
+        }
+        if(size > 2) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(2), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(2), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(2), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(2), null);
+        } 
+    }//GEN-LAST:event_button3ActionPerformed
 
     private void gatoradePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradePriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_gatoradePriceTextFieldActionPerformed
 
-    private void gatoradeCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeCountTextFieldActionPerformed
+    private void countTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_gatoradeCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField4ActionPerformed
 
     private void gatoradeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -1784,26 +2037,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,104);
     }//GEN-LAST:event_gatoradeUpdateButtonActionPerformed
 
-    private void addGatoradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGatoradeButtonActionPerformed
+    private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(gatoradeCountTextField.getText());
+        int count = Integer.valueOf(countTextField4.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(3), machineID);
-        gatoradeCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            gatoradeCountTextField.setBackground(Color.white);
-            gatoradeCountTextField.setForeground(Color.black);
+        countTextField4.setText(Integer.toString(count));
+        if(count==0){
+            countTextField4.setBackground(Color.red);
+            countTextField4.setForeground(Color.black);
         }
-        sendMessage("addtocount", "beverage", 3, null);
-    }//GEN-LAST:event_addGatoradeButtonActionPerformed
+        if(count>0){
+            countTextField4.setBackground(Color.blue);
+            countTextField4.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField4.setBackground(Color.white);
+            countTextField4.setForeground(Color.black);
+        }
+        if(size > 3) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(3), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(3), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(3), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(3), null);
+        } 
+    }//GEN-LAST:event_button4ActionPerformed
 
     private void coconutWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_coconutWaterPriceTextFieldActionPerformed
 
-    private void coconutWaterCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterCountTextFieldActionPerformed
+    private void countTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_coconutWaterCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField6ActionPerformed
 
     private void coconutWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -1811,27 +2080,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,106);
     }//GEN-LAST:event_coconutWaterUpdateButtonActionPerformed
 
-    private void addCoconutWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCoconutWaterButtonActionPerformed
+    private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(coconutWaterCountTextField.getText());
+        int count = Integer.valueOf(countTextField6.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(5), machineID);
-        System.out.println(count);
-        coconutWaterCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            coconutWaterCountTextField.setBackground(Color.white);
-            coconutWaterCountTextField.setForeground(Color.black);
+        countTextField6.setText(Integer.toString(count));
+        if(count==0){
+            countTextField6.setBackground(Color.red);
+            countTextField6.setForeground(Color.black);
         }
-        sendMessage("addtocount", "beverage", 5, null);
-    }//GEN-LAST:event_addCoconutWaterButtonActionPerformed
+        if(count>0){
+            countTextField6.setBackground(Color.blue);
+            countTextField6.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField6.setBackground(Color.white);
+            countTextField6.setForeground(Color.black);
+        }
+        if(size > 5) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(5), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(5), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(5), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(5), null);
+        } 
+    }//GEN-LAST:event_button6ActionPerformed
 
     private void sparklingWaterPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sparklingWaterPriceTextFieldActionPerformed
 
-    private void sparklingWaterCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterCountTextFieldActionPerformed
+    private void countTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sparklingWaterCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField7ActionPerformed
 
     private void sparklingWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -1839,26 +2123,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,107);
     }//GEN-LAST:event_sparklingWaterUpdateButtonActionPerformed
 
-    private void addSparklingWaterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSparklingWaterButtonActionPerformed
+    private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(sparklingWaterCountTextField.getText());
+        int count = Integer.valueOf(countTextField7.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(6), machineID);
-        sparklingWaterCountTextField.setText(Integer.toString(count));
-         if(count>2){
-            sparklingWaterCountTextField.setBackground(Color.white);
-            sparklingWaterCountTextField.setForeground(Color.black);
+        countTextField7.setText(Integer.toString(count));
+        if(count==0){
+            countTextField7.setBackground(Color.red);
+            countTextField7.setForeground(Color.black);
         }
-        sendMessage("addtocount", "beverage", 6, null);
-    }//GEN-LAST:event_addSparklingWaterButtonActionPerformed
+        if(count>0){
+            countTextField7.setBackground(Color.blue);
+            countTextField7.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField7.setBackground(Color.white);
+            countTextField7.setForeground(Color.black);
+        }
+        if(size > 6) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(6), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(6), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(6), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(6), null);
+        } 
+    }//GEN-LAST:event_button7ActionPerformed
 
     private void cokePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokePriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cokePriceTextFieldActionPerformed
 
-    private void cokeCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeCountTextFieldActionPerformed
+    private void countTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cokeCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField1ActionPerformed
 
     private void updateCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCokeButtonActionPerformed
         // TODO add your handling code here:
@@ -1866,26 +2166,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,101);
     }//GEN-LAST:event_updateCokeButtonActionPerformed
 
-    private void addCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCokeButtonActionPerformed
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(cokeCountTextField.getText());
+        int count = Integer.valueOf(countTextField1.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(0), machineID);
-        if(count>2){
-            cokeCountTextField.setBackground(Color.white);
-            cokeCountTextField.setForeground(Color.black);
+        countTextField1.setText(Integer.toString(count));
+        if(count==0){
+            countTextField1.setBackground(Color.red);
+            countTextField1.setForeground(Color.black);
         }
-        cokeCountTextField.setText(Integer.toString(count));
-        sendMessage("addtocount", "beverage", 0, null);
-    }//GEN-LAST:event_addCokeButtonActionPerformed
+        if(count>0){
+            countTextField1.setBackground(Color.blue);
+            countTextField1.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField1.setBackground(Color.white);
+            countTextField1.setForeground(Color.black);
+        }
+        if(size > 2) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(0), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(0), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(0), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(0), null);
+        } 
+    }//GEN-LAST:event_button1ActionPerformed
 
     private void proteinSmoothiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothiePriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_proteinSmoothiePriceTextFieldActionPerformed
 
-    private void proteinSmoothieCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinSmoothieCountTextFieldActionPerformed
+    private void countTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_proteinSmoothieCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField8ActionPerformed
 
     private void updateProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProteinSmoothieButtonActionPerformed
         // TODO add your handling code here:
@@ -1893,26 +2209,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,108);
     }//GEN-LAST:event_updateProteinSmoothieButtonActionPerformed
 
-    private void addProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProteinSmoothieButtonActionPerformed
+    private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(proteinSmoothieCountTextField.getText());
+        int count = Integer.valueOf(countTextField8.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(7), machineID);;
-        proteinSmoothieCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            proteinSmoothieCountTextField.setBackground(Color.white);
-            proteinSmoothieCountTextField.setForeground(Color.black);
+        countTextField8.setText(Integer.toString(count));
+        if(count==0){
+            countTextField8.setBackground(Color.red);
+            countTextField8.setForeground(Color.black);
         }
-        sendMessage("addtocount", "beverage", 7, null);
-    }//GEN-LAST:event_addProteinSmoothieButtonActionPerformed
+        if(count>0){
+            countTextField8.setBackground(Color.blue);
+            countTextField8.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField8.setBackground(Color.white);
+            countTextField8.setForeground(Color.black);
+        }
+        if(size > 7) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(7), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(7), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(7), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(7), null);
+        } 
+    }//GEN-LAST:event_button8ActionPerformed
 
     private void granolaPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_granolaPriceTextFieldActionPerformed
 
-    private void granolaCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaCountTextFieldActionPerformed
+    private void countTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_granolaCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField10ActionPerformed
 
     private void granolaUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -1920,26 +2252,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,201);
     }//GEN-LAST:event_granolaUpdateButtonActionPerformed
 
-    private void granolaAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaAddButtonActionPerformed
+    private void button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button10ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(granolaCountTextField.getText());
+        int count = Integer.valueOf(countTextField10.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(0), machineID);
-        granolaCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            granolaCountTextField.setBackground(Color.white);
-            granolaCountTextField.setForeground(Color.black);
+        countTextField10.setText(Integer.toString(count));
+        if(count==0){
+            countTextField10.setBackground(Color.red);
+            countTextField10.setForeground(Color.black);
         }
-        sendMessage("addtocount", "snack", 9, null);
-    }//GEN-LAST:event_granolaAddButtonActionPerformed
+        if(count>0){
+            countTextField10.setBackground(Color.blue);
+            countTextField10.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField10.setBackground(Color.white);
+            countTextField10.setForeground(Color.black);
+        }
+        if(size > 9) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(9), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(9), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(9), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(9), null);
+        } 
+    }//GEN-LAST:event_button10ActionPerformed
 
     private void proteinShakePriceTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakePriceTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_proteinShakePriceTextField1ActionPerformed
 
-    private void proteinShakeCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeCountTextFieldActionPerformed
+    private void countTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_proteinShakeCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField9ActionPerformed
 
     private void proteinShakeUpdateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeUpdateButton1ActionPerformed
         // TODO add your handling code here:
@@ -1947,26 +2295,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,109);
     }//GEN-LAST:event_proteinShakeUpdateButton1ActionPerformed
 
-    private void addproteinShakeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addproteinShakeButton1ActionPerformed
+    private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(proteinShakeCountTextField.getText());
+        int count = Integer.valueOf(countTextField9.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(8), machineID);
-        proteinShakeCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            proteinShakeCountTextField.setBackground(Color.white);
-            proteinShakeCountTextField.setForeground(Color.black);
+        countTextField9.setText(Integer.toString(count));
+        if(count==0){
+            countTextField9.setBackground(Color.red);
+            countTextField9.setForeground(Color.black);
         }
-        sendMessage("addtocount", "beverage", 8, null);
-    }//GEN-LAST:event_addproteinShakeButton1ActionPerformed
+        if(count>0){
+            countTextField9.setBackground(Color.blue);
+            countTextField9.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField9.setBackground(Color.white);
+            countTextField9.setForeground(Color.black);
+        }
+        if(size > 8) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(8), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(8), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(8), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(8), null);
+        } 
+    }//GEN-LAST:event_button9ActionPerformed
 
     private void chipsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chipsPriceTextFieldActionPerformed
 
-    private void chipsCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsCountTextFieldActionPerformed
+    private void countTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField11ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chipsCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField11ActionPerformed
 
     private void chipsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -1974,26 +2338,41 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,202);
     }//GEN-LAST:event_chipsUpdateButtonActionPerformed
 
-    private void chipsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsAddButtonActionPerformed
-        // TODO add your handling code here:
-        int count = Integer.valueOf(chipsCountTextField.getText());
+    private void button11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button11ActionPerformed
+        int count = Integer.valueOf(countTextField11.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(1), machineID);
-        chipsCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            chipsCountTextField.setBackground(Color.white);
-            chipsCountTextField.setForeground(Color.black);
+        countTextField11.setText(Integer.toString(count));
+        if(count==0){
+            countTextField11.setBackground(Color.red);
+            countTextField11.setForeground(Color.black);
         }
-        sendMessage("addtocount", "snack", 10, null);
-    }//GEN-LAST:event_chipsAddButtonActionPerformed
+        if(count>0){
+            countTextField11.setBackground(Color.blue);
+            countTextField11.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField11.setBackground(Color.white);
+            countTextField11.setForeground(Color.black);
+        }
+        if(size > 10) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(10), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(10), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(10), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(10), null);
+        } 
+    }//GEN-LAST:event_button11ActionPerformed
 
     private void nutsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nutsPriceTextFieldActionPerformed
 
-    private void nutsCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsCountTextFieldActionPerformed
+    private void countTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nutsCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField12ActionPerformed
 
     private void nutsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -2001,26 +2380,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,203);
     }//GEN-LAST:event_nutsUpdateButtonActionPerformed
 
-    private void nutsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsAddButtonActionPerformed
+    private void button12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button12ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(nutsCountTextField.getText());
+        int count = Integer.valueOf(countTextField12.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(2), machineID);
-        nutsCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            nutsCountTextField.setBackground(Color.white);
-            nutsCountTextField.setForeground(Color.black);
+        countTextField12.setText(Integer.toString(count));
+        if(count==0){
+            countTextField12.setBackground(Color.red);
+            countTextField12.setForeground(Color.black);
         }
-        sendMessage("addtocount", "snack", 11, null);
-    }//GEN-LAST:event_nutsAddButtonActionPerformed
+        if(count>0){
+            countTextField12.setBackground(Color.blue);
+            countTextField12.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField12.setBackground(Color.white);
+            countTextField12.setForeground(Color.black);
+        }
+        if(size > 11) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(11), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(11), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(11), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(11), null);
+        } 
+    }//GEN-LAST:event_button12ActionPerformed
 
     private void cookiePriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookiePriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cookiePriceTextFieldActionPerformed
 
-    private void cookieCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieCountTextFieldActionPerformed
+    private void countTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField13ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cookieCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField13ActionPerformed
 
     private void cookieUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -2028,26 +2423,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,204);
     }//GEN-LAST:event_cookieUpdateButtonActionPerformed
 
-    private void cookieAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieAddButtonActionPerformed
+    private void button13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button13ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(cookieCountTextField.getText());
+        int count = Integer.valueOf(countTextField13.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(3), machineID);
-        if(count>2){
-            cookieCountTextField.setBackground(Color.white);
-            cookieCountTextField.setForeground(Color.black);
+        countTextField13.setText(Integer.toString(count));
+        if(count==0){
+            countTextField13.setBackground(Color.red);
+            countTextField13.setForeground(Color.black);
         }
-        cookieCountTextField.setText(Integer.toString(count));
-        sendMessage("addtocount", "snack", 12, null);
-    }//GEN-LAST:event_cookieAddButtonActionPerformed
+        if(count>0){
+            countTextField13.setBackground(Color.blue);
+            countTextField13.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField13.setBackground(Color.white);
+            countTextField13.setForeground(Color.black);
+        }
+        if(size > 12) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(12), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(12), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(12), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(12), null);
+        } 
+    }//GEN-LAST:event_button13ActionPerformed
 
     private void driedFruitsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_driedFruitsPriceTextFieldActionPerformed
 
-    private void driedFruitsCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsCountTextFieldActionPerformed
+    private void countTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField14ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_driedFruitsCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField14ActionPerformed
 
     private void driedFruitsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -2055,26 +2466,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,205);
     }//GEN-LAST:event_driedFruitsUpdateButtonActionPerformed
 
-    private void driedFruitsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsAddButtonActionPerformed
+    private void button14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button14ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(driedFruitsCountTextField.getText());
+        int count = Integer.valueOf(countTextField14.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(4), machineID);
-        if(count>2){
-            driedFruitsCountTextField.setBackground(Color.white);
-            driedFruitsCountTextField.setForeground(Color.black);
+        countTextField14.setText(Integer.toString(count));
+        if(count==0){
+            countTextField14.setBackground(Color.red);
+            countTextField14.setForeground(Color.black);
         }
-        driedFruitsCountTextField.setText(Integer.toString(count));
-        sendMessage("addtocount", "snack", 13, null);
-    }//GEN-LAST:event_driedFruitsAddButtonActionPerformed
+        if(count>0){
+            countTextField14.setBackground(Color.blue);
+            countTextField14.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField14.setBackground(Color.white);
+            countTextField14.setForeground(Color.black);
+        }
+        if(size > 13) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(13), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(13), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(13), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(13), null);
+        } 
+    }//GEN-LAST:event_button14ActionPerformed
 
     private void popcornPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_popcornPriceTextFieldActionPerformed
 
-    private void popcornCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornCountTextFieldActionPerformed
+    private void countTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField15ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_popcornCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField15ActionPerformed
 
     private void popcornUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -2082,26 +2509,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,206);
     }//GEN-LAST:event_popcornUpdateButtonActionPerformed
 
-    private void popcornAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornAddButtonActionPerformed
+    private void button15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button15ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(popcornCountTextField.getText());
+        int count = Integer.valueOf(countTextField15.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(5), machineID);
-        popcornCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            popcornCountTextField.setBackground(Color.white);
-            popcornCountTextField.setForeground(Color.black);
+        countTextField15.setText(Integer.toString(count));
+        if(count==0){
+            countTextField15.setBackground(Color.red);
+            countTextField15.setForeground(Color.black);
         }
-        sendMessage("addtocount", "snack", 14, null);
-    }//GEN-LAST:event_popcornAddButtonActionPerformed
+        if(count>0){
+            countTextField4.setBackground(Color.blue);
+            countTextField4.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField4.setBackground(Color.white);
+            countTextField4.setForeground(Color.black);
+        }
+        if(size > 14) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(14), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(14), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(14), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(14), null);
+        } 
+    }//GEN-LAST:event_button15ActionPerformed
 
     private void crackersPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_crackersPriceTextFieldActionPerformed
 
-    private void crackersCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersCountTextFieldActionPerformed
+    private void countTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField16ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_crackersCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField16ActionPerformed
 
     private void crackersUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -2109,26 +2552,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,207);
     }//GEN-LAST:event_crackersUpdateButtonActionPerformed
 
-    private void crackersAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersAddButtonActionPerformed
+    private void button16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button16ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(crackersCountTextField.getText());
+        int count = Integer.valueOf(countTextField16.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(6), machineID);
-        crackersCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            crackersCountTextField.setBackground(Color.white);
-            crackersCountTextField.setForeground(Color.black);
+        countTextField16.setText(Integer.toString(count));
+        if(count==0){
+            countTextField16.setBackground(Color.red);
+            countTextField16.setForeground(Color.black);
         }
-        sendMessage("addtocount", "snack", 15, null);
-    }//GEN-LAST:event_crackersAddButtonActionPerformed
+        if(count>0){
+            countTextField16.setBackground(Color.blue);
+            countTextField16.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField16.setBackground(Color.white);
+            countTextField16.setForeground(Color.black);
+        }
+        if(size > 15) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(15), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(15), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(15), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(15), null);
+        } 
+    }//GEN-LAST:event_button16ActionPerformed
 
     private void veggieStrawsPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_veggieStrawsPriceTextFieldActionPerformed
 
-    private void veggieStrawsCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsCountTextFieldActionPerformed
+    private void countTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField17ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_veggieStrawsCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField17ActionPerformed
 
     private void veggieStrawsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -2136,26 +2595,42 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,208);
     }//GEN-LAST:event_veggieStrawsUpdateButtonActionPerformed
 
-    private void veggieStrawsAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsAddButtonActionPerformed
+    private void button17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button17ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(veggieStrawsCountTextField.getText());
+        int count = Integer.valueOf(countTextField17.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(7), machineID);
-        veggieStrawsCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            veggieStrawsCountTextField.setBackground(Color.white);
-            veggieStrawsCountTextField.setForeground(Color.black);
+        countTextField17.setText(Integer.toString(count));
+        if(count==0){
+            countTextField17.setBackground(Color.red);
+            countTextField4.setForeground(Color.black);
         }
-        sendMessage("addtocount", "snack", 16, null);
-    }//GEN-LAST:event_veggieStrawsAddButtonActionPerformed
+        if(count>0){
+            countTextField17.setBackground(Color.blue);
+            countTextField17.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField17.setBackground(Color.white);
+            countTextField17.setForeground(Color.black);
+        }
+        if(size > 16) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(16), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(16), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(16), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(16), null);
+        } 
+    }//GEN-LAST:event_button17ActionPerformed
 
     private void greekYogurtPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtPriceTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_greekYogurtPriceTextFieldActionPerformed
 
-    private void greekYogurtCountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtCountTextFieldActionPerformed
+    private void countTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField18ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_greekYogurtCountTextFieldActionPerformed
+    }//GEN-LAST:event_countTextField18ActionPerformed
 
     private void greekYogurtUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtUpdateButtonActionPerformed
         // TODO add your handling code here:
@@ -2163,18 +2638,34 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         //itemController.updatePrice(price,209);
     }//GEN-LAST:event_greekYogurtUpdateButtonActionPerformed
 
-    private void greekYogurtAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtAddButtonActionPerformed
+    private void button18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button18ActionPerformed
         // TODO add your handling code here:
-        int count = Integer.valueOf(greekYogurtCountTextField.getText());
+        int count = Integer.valueOf(countTextField18.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(8), machineID);
-        greekYogurtCountTextField.setText(Integer.toString(count));
-        if(count>2){
-            greekYogurtCountTextField.setBackground(Color.white);
-            greekYogurtCountTextField.setForeground(Color.black);
+        countTextField18.setText(Integer.toString(count));
+        if(count==0){
+            countTextField18.setBackground(Color.red);
+            countTextField18.setForeground(Color.black);
         }
-        sendMessage("addtocount", "snack", 17, null);
-    }//GEN-LAST:event_greekYogurtAddButtonActionPerformed
+        if(count>0){
+            countTextField18.setBackground(Color.blue);
+            countTextField18.setForeground(Color.white);
+        }
+        if(count>2){
+            countTextField18.setBackground(Color.white);
+            countTextField18.setForeground(Color.black);
+        }
+        if(size > 17) {
+            beverageCountList.set(4, count);
+            itemController.increaseItemCount(beverageCodeList.get(17), machineID);
+            sendMessage("addtocount", "beverage", beverageCodeList.get(17), null);
+        }
+        else {
+            snackCountList.set(4, count);
+            itemController.increaseItemCount(snackCodeList.get(17), machineID);
+            sendMessage("addtocount", "snack", snackCodeList.get(17), null);
+        } 
+    }//GEN-LAST:event_button18ActionPerformed
 
     private void collectMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_collectMoneyButtonActionPerformed
         // TODO add your handling code here:
@@ -2227,29 +2718,29 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         }
     }//GEN-LAST:event_formWindowClosing
 
-    private void greekYogurtCountTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtCountTextField1ActionPerformed
+    private void countTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField19ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_greekYogurtCountTextField1ActionPerformed
+    }//GEN-LAST:event_countTextField19ActionPerformed
 
-    private void greekYogurtAddButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtAddButton1ActionPerformed
+    private void button19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button19ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_greekYogurtAddButton1ActionPerformed
+    }//GEN-LAST:event_button19ActionPerformed
 
-    private void greekYogurtCountTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtCountTextField2ActionPerformed
+    private void countTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField20ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_greekYogurtCountTextField2ActionPerformed
+    }//GEN-LAST:event_countTextField20ActionPerformed
 
-    private void greekYogurtAddButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtAddButton2ActionPerformed
+    private void button20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button20ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_greekYogurtAddButton2ActionPerformed
+    }//GEN-LAST:event_button20ActionPerformed
 
-    private void greekYogurtCountTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtCountTextField3ActionPerformed
+    private void countTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countTextField21ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_greekYogurtCountTextField3ActionPerformed
+    }//GEN-LAST:event_countTextField21ActionPerformed
 
-    private void greekYogurtAddButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtAddButton3ActionPerformed
+    private void button21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button21ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_greekYogurtAddButton3ActionPerformed
+    }//GEN-LAST:event_button21ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2257,25 +2748,51 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
  
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addCoconutWaterButton;
-    private javax.swing.JButton addCokeButton;
-    private javax.swing.JButton addFrappuccinoButton;
-    private javax.swing.JButton addGatoradeButton;
-    private javax.swing.JButton addLemonadeButton;
-    private javax.swing.JButton addOrangeButton;
-    private javax.swing.JButton addProteinSmoothieButton;
-    private javax.swing.JButton addSparklingWaterButton;
-    private javax.swing.JButton addproteinShakeButton1;
     private javax.swing.JTextField amountToBeCollectedTextField;
-    private javax.swing.JButton chipsAddButton;
-    private javax.swing.JTextField chipsCountTextField;
-    private javax.swing.JLabel chipsImageLabel;
+    private javax.swing.JButton button1;
+    private javax.swing.JButton button10;
+    private javax.swing.JButton button11;
+    private javax.swing.JButton button12;
+    private javax.swing.JButton button13;
+    private javax.swing.JButton button14;
+    private javax.swing.JButton button15;
+    private javax.swing.JButton button16;
+    private javax.swing.JButton button17;
+    private javax.swing.JButton button18;
+    private javax.swing.JButton button19;
+    private javax.swing.JButton button2;
+    private javax.swing.JButton button20;
+    private javax.swing.JButton button21;
+    private javax.swing.JButton button3;
+    private javax.swing.JButton button4;
+    private javax.swing.JButton button5;
+    private javax.swing.JButton button6;
+    private javax.swing.JButton button7;
+    private javax.swing.JButton button8;
+    private javax.swing.JButton button9;
     private javax.swing.JPanel chipsShakePanel;
-    private javax.swing.JTextField coconutWaterCountTextField;
-    private javax.swing.JLabel coconutWaterImageLabel;
     private javax.swing.JPanel coconutWaterPanel;
-    private javax.swing.JTextField cokeCountTextField;
-    private javax.swing.JLabel cokeImageLabel1;
+    private javax.swing.JLabel codeLabel1;
+    private javax.swing.JLabel codeLabel10;
+    private javax.swing.JLabel codeLabel11;
+    private javax.swing.JLabel codeLabel12;
+    private javax.swing.JLabel codeLabel13;
+    private javax.swing.JLabel codeLabel14;
+    private javax.swing.JLabel codeLabel15;
+    private javax.swing.JLabel codeLabel16;
+    private javax.swing.JLabel codeLabel17;
+    private javax.swing.JLabel codeLabel18;
+    private javax.swing.JLabel codeLabel19;
+    private javax.swing.JLabel codeLabel2;
+    private javax.swing.JLabel codeLabel20;
+    private javax.swing.JLabel codeLabel21;
+    private javax.swing.JLabel codeLabel3;
+    private javax.swing.JLabel codeLabel4;
+    private javax.swing.JLabel codeLabel5;
+    private javax.swing.JLabel codeLabel6;
+    private javax.swing.JLabel codeLabel7;
+    private javax.swing.JLabel codeLabel8;
+    private javax.swing.JLabel codeLabel9;
     private javax.swing.JPanel cokeInfoPanel1;
     private javax.swing.JPanel cokeInfoPanel2;
     private javax.swing.JPanel cokeInfoPanel3;
@@ -2286,45 +2803,39 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
     private javax.swing.JButton collectMoneyButton;
     private javax.swing.JPanel collectMoneyPanel;
     private javax.swing.JTextField collectMoneyTextField;
-    private javax.swing.JButton cookieAddButton;
-    private javax.swing.JTextField cookieCountTextField;
-    private javax.swing.JLabel cookieImageLabel;
     private javax.swing.JPanel cookieShakePanel;
-    private javax.swing.JButton crackersAddButton;
-    private javax.swing.JTextField crackersCountTextField;
-    private javax.swing.JLabel crackersImageLabel;
+    private javax.swing.JTextField countTextField1;
+    private javax.swing.JTextField countTextField10;
+    private javax.swing.JTextField countTextField11;
+    private javax.swing.JTextField countTextField12;
+    private javax.swing.JTextField countTextField13;
+    private javax.swing.JTextField countTextField14;
+    private javax.swing.JTextField countTextField15;
+    private javax.swing.JTextField countTextField16;
+    private javax.swing.JTextField countTextField17;
+    private javax.swing.JTextField countTextField18;
+    private javax.swing.JTextField countTextField19;
+    private javax.swing.JTextField countTextField2;
+    private javax.swing.JTextField countTextField20;
+    private javax.swing.JTextField countTextField21;
+    private javax.swing.JTextField countTextField3;
+    private javax.swing.JTextField countTextField4;
+    private javax.swing.JTextField countTextField5;
+    private javax.swing.JTextField countTextField6;
+    private javax.swing.JTextField countTextField7;
+    private javax.swing.JTextField countTextField8;
+    private javax.swing.JTextField countTextField9;
     private javax.swing.JPanel crackersPanel;
-    private javax.swing.JButton driedFruitsAddButton;
-    private javax.swing.JTextField driedFruitsCountTextField;
-    private javax.swing.JLabel driedFruitsImageLabel;
     private javax.swing.JPanel driedFruitsPanel;
-    private javax.swing.JTextField frappuccinoCountTextField;
-    private javax.swing.JLabel frappuccinoImageLabel;
     private javax.swing.JPanel frappuccinoPanel;
-    private javax.swing.JTextField gatoradeCountTextField;
-    private javax.swing.JLabel gatoradeImageLabel1;
     private javax.swing.JPanel gatoradePanel1;
-    private javax.swing.JButton granolaAddButton;
-    private javax.swing.JTextField granolaCountTextField;
-    private javax.swing.JLabel granolaShakeImageLabel;
     private javax.swing.JPanel granolaShakePanel;
-    private javax.swing.JButton greekYogurtAddButton;
-    private javax.swing.JButton greekYogurtAddButton1;
-    private javax.swing.JButton greekYogurtAddButton2;
-    private javax.swing.JButton greekYogurtAddButton3;
-    private javax.swing.JTextField greekYogurtCountTextField;
-    private javax.swing.JTextField greekYogurtCountTextField1;
-    private javax.swing.JTextField greekYogurtCountTextField2;
-    private javax.swing.JTextField greekYogurtCountTextField3;
-    private javax.swing.JLabel greekYogurtImageLabel;
     private javax.swing.JPanel greekYogurtPanel;
     private javax.swing.JPanel itemsPanel;
     private javax.swing.JScrollPane itemsScrollPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
@@ -2350,15 +2861,33 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField lemonadeCountTextField;
-    private javax.swing.JLabel lemonadeImageLabel1;
+    private javax.swing.JLabel labe5;
+    private javax.swing.JLabel label1;
+    private javax.swing.JLabel label10;
+    private javax.swing.JLabel label11;
+    private javax.swing.JLabel label12;
+    private javax.swing.JLabel label13;
+    private javax.swing.JLabel label14;
+    private javax.swing.JLabel label15;
+    private javax.swing.JLabel label16;
+    private javax.swing.JLabel label17;
+    private javax.swing.JLabel label18;
+    private javax.swing.JLabel label19;
+    private javax.swing.JLabel label2;
+    private javax.swing.JLabel label20;
+    private javax.swing.JLabel label21;
+    private javax.swing.JLabel label3;
+    private javax.swing.JLabel label4;
+    private javax.swing.JLabel label6;
+    private javax.swing.JLabel label7;
+    private javax.swing.JLabel label8;
+    private javax.swing.JLabel label9;
     private javax.swing.JPanel lemonadePanel;
     private javax.swing.JButton logOutButton;
     private javax.swing.JRadioButton machine1RadioButton;
@@ -2366,29 +2895,12 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
     private javax.swing.ButtonGroup machineButtonGroup;
     private javax.swing.JLabel machineIDLabel;
     private javax.swing.JTextField moneyTextField;
-    private javax.swing.JButton nutsAddButton;
-    private javax.swing.JTextField nutsCountTextField;
-    private javax.swing.JLabel nutsImageLabel;
     private javax.swing.JPanel nutsShakePanel;
-    private javax.swing.JTextField orangeCountTextField;
-    private javax.swing.JLabel orangeImageLabel;
     private javax.swing.JPanel orangePanel;
-    private javax.swing.JButton popcornAddButton;
-    private javax.swing.JTextField popcornCountTextField;
-    private javax.swing.JLabel popcornImageLabel;
     private javax.swing.JPanel popcornPanel;
-    private javax.swing.JTextField proteinShakeCountTextField;
-    private javax.swing.JLabel proteinShakeImageLabel1;
     private javax.swing.JPanel proteinShakePanel1;
-    private javax.swing.JTextField proteinSmoothieCountTextField;
-    private javax.swing.JLabel proteinSmoothieImageLabel;
     private javax.swing.JPanel proteinSmoothiePanel;
-    private javax.swing.JTextField sparklingWaterCountTextField;
-    private javax.swing.JLabel sparklingWaterImageLabel;
     private javax.swing.JPanel sparlkingWaterPanel;
-    private javax.swing.JButton veggieStrawsAddButton;
-    private javax.swing.JTextField veggieStrawsCountTextField;
-    private javax.swing.JLabel veggieStrawsImageLabel;
     private javax.swing.JPanel veggieStrawsPanel;
     // End of variables declaration//GEN-END:variables
 }

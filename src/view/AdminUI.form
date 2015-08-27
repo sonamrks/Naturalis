@@ -182,94 +182,92 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="frappuccinoPanel">
+            <Container class="javax.swing.JPanel" name="cokeInfoPanel7">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="frappuccinoImageLabel" min="-2" pref="77" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="cokeInfoPanel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label1" min="-2" pref="71" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="countTextField1" min="-2" pref="48" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="button1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="codeLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="codeLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cokeInfoPanel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="countTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="frappuccinoImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label1" min="-2" pref="78" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="frappuccinoImageLabel">
+                <Component class="javax.swing.JLabel" name="jLabel10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Count"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="countTextField1">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField1ActionPerformed"/>
+                  </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(frappuccinoImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField1);"/>
                   </AuxValues>
                 </Component>
-                <Container class="javax.swing.JPanel" name="cokeInfoPanel1">
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="29" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="frappuccinoCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="addFrappuccinoButton" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="frappuccinoCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addFrappuccinoButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLabel12">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Count"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="frappuccinoCountTextField">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="frappuccinoCountTextFieldActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(frappuccinoCountTextField);"/>
-                      </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="addFrappuccinoButton">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="+"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addFrappuccinoButtonActionPerformed"/>
-                      </Events>
-                    </Component>
-                  </SubComponents>
-                </Container>
+                <Component class="javax.swing.JButton" name="button1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="+"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="label1">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label1);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel1);"/>
+                  </AuxValues>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="orangePanel">
@@ -279,7 +277,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="orangeImageLabel" min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="label2" min="-2" pref="69" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="cokeInfoPanel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -292,7 +290,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="cokeInfoPanel2" max="32767" attributes="0"/>
-                              <Component id="orangeImageLabel" max="32767" attributes="0"/>
+                              <Component id="label2" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
@@ -300,9 +298,9 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="orangeImageLabel">
+                <Component class="javax.swing.JLabel" name="label2">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(orangeImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label2);"/>
                   </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cokeInfoPanel2">
@@ -310,14 +308,20 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace pref="23" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="orangeCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="addOrangeButton" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="countTextField2" min="-2" pref="48" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="button2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="codeLabel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -326,12 +330,14 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="codeLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="orangeCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addOrangeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -344,21 +350,29 @@
                         <Property name="text" type="java.lang.String" value="Count"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="orangeCountTextField">
+                    <Component class="javax.swing.JTextField" name="countTextField2">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="orangeCountTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField2ActionPerformed"/>
                       </Events>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(orangeCountTextField);"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField2);"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="addOrangeButton">
+                    <Component class="javax.swing.JButton" name="button2">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="+"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addOrangeButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button2ActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="codeLabel2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jLabel9"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel2);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -370,7 +384,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lemonadeImageLabel1" min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="label3" min="-2" pref="69" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cokeInfoPanel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="47" max="32767" attributes="0"/>
@@ -386,7 +400,7 @@
                                   <Component id="cokeInfoPanel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="lemonadeImageLabel1" max="32767" attributes="0"/>
+                              <Component id="label3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -394,9 +408,9 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="lemonadeImageLabel1">
+                <Component class="javax.swing.JLabel" name="label3">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(lemonadeImageLabel1);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label3);"/>
                   </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cokeInfoPanel3">
@@ -404,14 +418,15 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="34" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="codeLabel3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="lemonadeCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
+                                      <Component id="countTextField3" min="-2" pref="48" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="addLemonadeButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="button3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -420,12 +435,14 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="codeLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lemonadeCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addLemonadeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -438,21 +455,29 @@
                         <Property name="text" type="java.lang.String" value="Count"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="lemonadeCountTextField">
+                    <Component class="javax.swing.JTextField" name="countTextField3">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lemonadeCountTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField3ActionPerformed"/>
                       </Events>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(lemonadeCountTextField);"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField3);"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="addLemonadeButton">
+                    <Component class="javax.swing.JButton" name="button3">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="+"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addLemonadeButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button3ActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="codeLabel3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jLabel9"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel3);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -465,7 +490,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="gatoradeImageLabel1" min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="label4" min="-2" pref="69" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="cokeInfoPanel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="34" max="32767" attributes="0"/>
@@ -481,7 +506,7 @@
                                   <Component id="cokeInfoPanel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="gatoradeImageLabel1" max="32767" attributes="0"/>
+                              <Component id="label4" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -489,9 +514,9 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="gatoradeImageLabel1">
+                <Component class="javax.swing.JLabel" name="label4">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(gatoradeImageLabel1);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label4);"/>
                   </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cokeInfoPanel4">
@@ -499,14 +524,23 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="gatoradeCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="addGatoradeButton" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="countTextField4" min="-2" pref="48" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="button4" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="codeLabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -515,12 +549,14 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="codeLabel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="gatoradeCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addGatoradeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button4" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -533,21 +569,138 @@
                         <Property name="text" type="java.lang.String" value="Count"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="gatoradeCountTextField">
+                    <Component class="javax.swing.JTextField" name="countTextField4">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gatoradeCountTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField4ActionPerformed"/>
                       </Events>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(gatoradeCountTextField);"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField4);"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="addGatoradeButton">
+                    <Component class="javax.swing.JButton" name="button4">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="+"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addGatoradeButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button4ActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="codeLabel4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jLabel9"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel4);"/>
+                      </AuxValues>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="frappuccinoPanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="labe5" min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="cokeInfoPanel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cokeInfoPanel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="labe5" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="labe5">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(labe5);"/>
+                  </AuxValues>
+                </Component>
+                <Container class="javax.swing.JPanel" name="cokeInfoPanel1">
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="countTextField5" min="-2" pref="48" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="button5" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="codeLabel5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="codeLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="countTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="jLabel12">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Count"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="countTextField5">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField5ActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField5);"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="button5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="+"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button5ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="codeLabel5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jLabel9"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel5);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -560,7 +713,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="coconutWaterImageLabel" min="-2" pref="77" max="-2" attributes="0"/>
+                          <Component id="label6" min="-2" pref="77" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cokeInfoPanel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -574,14 +727,14 @@
                           <Component id="cokeInfoPanel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="coconutWaterImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="label6" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="coconutWaterImageLabel">
+                <Component class="javax.swing.JLabel" name="label6">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(coconutWaterImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label6);"/>
                   </AuxValues>
                 </Component>
                 <Container class="javax.swing.JPanel" name="cokeInfoPanel5">
@@ -589,14 +742,15 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="37" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="codeLabel6" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Component id="coconutWaterCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
+                                      <Component id="countTextField6" min="-2" pref="48" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="addCoconutWaterButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="button6" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -605,12 +759,14 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="codeLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="coconutWaterCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addCoconutWaterButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button6" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -623,21 +779,29 @@
                         <Property name="text" type="java.lang.String" value="Count"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="coconutWaterCountTextField">
+                    <Component class="javax.swing.JTextField" name="countTextField6">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="coconutWaterCountTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField6ActionPerformed"/>
                       </Events>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(coconutWaterCountTextField);"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField6);"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="addCoconutWaterButton">
+                    <Component class="javax.swing.JButton" name="button6">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="+"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCoconutWaterButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button6ActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="codeLabel6">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jLabel9"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel6);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -650,7 +814,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="sparklingWaterImageLabel" min="-2" pref="74" max="-2" attributes="0"/>
+                          <Component id="label7" min="-2" pref="74" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="cokeInfoPanel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -664,7 +828,7 @@
                           <Component id="cokeInfoPanel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="sparklingWaterImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="label7" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -678,10 +842,13 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="sparklingWaterCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="codeLabel7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="countTextField7" min="-2" pref="48" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="addSparklingWaterButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="button7" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -690,12 +857,14 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="28" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="codeLabel7" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="sparklingWaterCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addSparklingWaterButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button7" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -708,97 +877,35 @@
                         <Property name="text" type="java.lang.String" value="Count"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="sparklingWaterCountTextField">
+                    <Component class="javax.swing.JTextField" name="countTextField7">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sparklingWaterCountTextFieldActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField7ActionPerformed"/>
                       </Events>
                       <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(sparklingWaterCountTextField);"/>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField7);"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JButton" name="addSparklingWaterButton">
+                    <Component class="javax.swing.JButton" name="button7">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="+"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addSparklingWaterButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button7ActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="codeLabel7">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="jLabel9"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel7);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="sparklingWaterImageLabel">
+                <Component class="javax.swing.JLabel" name="label7">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(sparklingWaterImageLabel);"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="cokeInfoPanel7">
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cokeImageLabel1" min="-2" pref="71" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="cokeCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="addCokeButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cokeCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="addCokeButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cokeImageLabel1" min="-2" pref="78" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel10">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Count"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="cokeCountTextField">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cokeCountTextFieldActionPerformed"/>
-                  </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(cokeCountTextField);"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="addCokeButton">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="+"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCokeButtonActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="cokeImageLabel1">
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(cokeImageLabel1);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label7);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -809,15 +916,21 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="proteinSmoothieImageLabel" min="-2" pref="77" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="proteinSmoothieCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="addProteinSmoothieButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="label8" min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="countTextField8" min="-2" pref="48" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="button8" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="codeLabel8" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -826,16 +939,18 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="codeLabel8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="proteinSmoothieCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="addProteinSmoothieButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="proteinSmoothieImageLabel" alignment="0" pref="105" max="32767" attributes="0"/>
+                      <Component id="label8" alignment="0" pref="105" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -845,93 +960,33 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="proteinSmoothieCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField8">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proteinSmoothieCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField8ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(proteinSmoothieCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField8);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="addProteinSmoothieButton">
+                <Component class="javax.swing.JButton" name="button8">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addProteinSmoothieButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button8ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="proteinSmoothieImageLabel">
+                <Component class="javax.swing.JLabel" name="label8">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(proteinSmoothieImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label8);"/>
                   </AuxValues>
                 </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="granolaShakePanel">
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="granolaShakeImageLabel" min="-2" pref="85" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="granolaCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="granolaAddButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="granolaShakeImageLabel" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="granolaAddButton" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="granolaCountTextField" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel24">
+                <Component class="javax.swing.JLabel" name="codeLabel8">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Count"/>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="granolaCountTextField">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="granolaCountTextFieldActionPerformed"/>
-                  </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(granolaCountTextField);"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="granolaAddButton">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="+"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="granolaAddButtonActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="granolaShakeImageLabel">
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(granolaShakeImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel8);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -943,17 +998,23 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="proteinShakeImageLabel1" min="-2" pref="73" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="proteinShakeCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="addproteinShakeButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="label9" min="-2" pref="73" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="countTextField9" min="-2" pref="48" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="button9" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="codeLabel9" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="65" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -962,16 +1023,18 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="codeLabel9" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="proteinShakeCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="addproteinShakeButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="countTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="button9" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="proteinShakeImageLabel1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="label9" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -984,25 +1047,120 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="proteinShakeCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField9">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proteinShakeCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField9ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(proteinShakeCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField9);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="addproteinShakeButton1">
+                <Component class="javax.swing.JButton" name="button9">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addproteinShakeButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button9ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="proteinShakeImageLabel1">
+                <Component class="javax.swing.JLabel" name="label9">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(proteinShakeImageLabel1);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label9);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel9);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="granolaShakePanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                          <Component id="label10" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="codeLabel10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="countTextField10" min="-2" pref="48" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="button10" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="label10" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="codeLabel10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  <Component id="countTextField10" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="button10" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="26" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel24">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Count"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="countTextField10">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField10ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField10);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="button10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="+"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button10ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="label10">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label10);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel10">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel10);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1014,15 +1172,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="chipsImageLabel" min="-2" pref="82" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label11" min="-2" pref="82" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="chipsCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Component id="countTextField11" min="-2" pref="48" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="chipsAddButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button11" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
+                              <Component id="codeLabel11" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -1031,16 +1190,18 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="codeLabel11" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="chipsCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="chipsAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button11" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="chipsImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="label11" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1050,25 +1211,33 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="chipsCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField11">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chipsCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField11ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(chipsCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField11);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="chipsAddButton">
+                <Component class="javax.swing.JButton" name="button11">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chipsAddButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button11ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="chipsImageLabel">
+                <Component class="javax.swing.JLabel" name="label11">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(chipsImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label11);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel11">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel11);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1080,15 +1249,21 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="nutsImageLabel" min="-2" pref="89" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label12" min="-2" pref="89" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="nutsCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="nutsAddButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="countTextField12" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                  <Component id="button12" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                      <Component id="codeLabel12" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -1097,16 +1272,18 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="codeLabel12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="nutsCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="nutsAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="nutsImageLabel" alignment="0" pref="111" max="32767" attributes="0"/>
+                      <Component id="label12" alignment="0" pref="111" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1116,25 +1293,33 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="nutsCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField12">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nutsCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField12ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(nutsCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField12);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="nutsAddButton">
+                <Component class="javax.swing.JButton" name="button12">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nutsAddButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button12ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="nutsImageLabel">
+                <Component class="javax.swing.JLabel" name="label12">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(nutsImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label12);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel12">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel12);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1146,33 +1331,41 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="cookieImageLabel" min="-2" pref="90" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label13" min="-2" pref="90" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="cookieCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="cookieAddButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="countTextField13" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="button13" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="codeLabel13" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cookieCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cookieAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="codeLabel13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="button13" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField13" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="cookieImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="label13" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1182,25 +1375,33 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="cookieCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField13">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cookieCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField13ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(cookieCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField13);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="cookieAddButton">
+                <Component class="javax.swing.JButton" name="button13">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cookieAddButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button13ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="cookieImageLabel">
+                <Component class="javax.swing.JLabel" name="label13">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(cookieImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label13);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel13">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel13);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1212,34 +1413,41 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="driedFruitsImageLabel" min="-2" pref="90" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                  <Component id="driedFruitsCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="driedFruitsAddButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="label14" min="-2" pref="90" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="countTextField14" min="-2" pref="48" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="button14" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="codeLabel14" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="86" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="codeLabel14" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="driedFruitsCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="driedFruitsAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="driedFruitsImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="label14" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1249,25 +1457,33 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="driedFruitsCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField14">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="driedFruitsCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField14ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(driedFruitsCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField14);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="driedFruitsAddButton">
+                <Component class="javax.swing.JButton" name="button14">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="driedFruitsAddButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button14ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="driedFruitsImageLabel">
+                <Component class="javax.swing.JLabel" name="label14">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(driedFruitsImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label14);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel14">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel14);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1279,33 +1495,36 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="popcornImageLabel" min="-2" pref="94" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label15" min="-2" pref="94" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="popcornCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="popcornAddButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countTextField15" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="button15" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
+                              <Component id="codeLabel15" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="codeLabel15" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="popcornCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="popcornAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="popcornImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="label15" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1315,25 +1534,33 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="popcornCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField15">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="popcornCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField15ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(popcornCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField15);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="popcornAddButton">
+                <Component class="javax.swing.JButton" name="button15">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="popcornAddButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button15ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="popcornImageLabel">
+                <Component class="javax.swing.JLabel" name="label15">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(popcornImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label15);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel15">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel15);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1345,33 +1572,38 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="crackersImageLabel" min="-2" pref="89" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label16" min="-2" pref="89" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="crackersCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="crackersAddButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="codeLabel16" min="-2" max="-2" attributes="0"/>
+                                      <Component id="countTextField16" min="-2" pref="48" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="button16" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="56" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                          <Component id="codeLabel16" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="crackersCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="crackersAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button16" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Component id="crackersImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="label16" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1381,25 +1613,33 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="crackersCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField16">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crackersCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField16ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(crackersCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField16);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="crackersAddButton">
+                <Component class="javax.swing.JButton" name="button16">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crackersAddButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button16ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="crackersImageLabel">
+                <Component class="javax.swing.JLabel" name="label16">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(crackersImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label16);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel16">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel16);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1411,15 +1651,21 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="veggieStrawsImageLabel" min="-2" pref="85" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label17" min="-2" pref="85" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="veggieStrawsCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="countTextField17" min="-2" pref="48" max="-2" attributes="0"/>
+                                      <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="veggieStrawsAddButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button17" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                  <Component id="codeLabel17" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -1428,16 +1674,18 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <Component id="codeLabel17" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="veggieStrawsCountTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="veggieStrawsAddButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button17" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="veggieStrawsImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="label17" alignment="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1447,25 +1695,33 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="veggieStrawsCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField17">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="veggieStrawsCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField17ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(veggieStrawsCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField17);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="veggieStrawsAddButton">
+                <Component class="javax.swing.JButton" name="button17">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="veggieStrawsAddButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button17ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="veggieStrawsImageLabel">
+                <Component class="javax.swing.JLabel" name="label17">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(veggieStrawsImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label17);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel17">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel17);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1477,32 +1733,35 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                          <Component id="greekYogurtImageLabel" min="-2" pref="83" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="label18" min="-2" pref="83" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="greekYogurtCountTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="greekYogurtAddButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="codeLabel18" min="-2" max="-2" attributes="0"/>
+                                      <Component id="countTextField18" min="-2" pref="48" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="button18" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="62" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="55" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="greekYogurtImageLabel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="label18" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="greekYogurtAddButton" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="greekYogurtCountTextField" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="codeLabel18" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="countTextField18" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button18" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
                       </Group>
@@ -1515,25 +1774,33 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="greekYogurtCountTextField">
+                <Component class="javax.swing.JTextField" name="countTextField18">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtCountTextFieldActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField18ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(greekYogurtCountTextField);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField18);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="greekYogurtAddButton">
+                <Component class="javax.swing.JButton" name="button18">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtAddButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button18ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="greekYogurtImageLabel">
+                <Component class="javax.swing.JLabel" name="label18">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(greekYogurtImageLabel);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label18);"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel18">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel18);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -1607,15 +1874,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" pref="101" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="label19" min="-2" pref="101" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="greekYogurtCountTextField1" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="greekYogurtAddButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="countTextField19" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="button19" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                              <Component id="codeLabel19" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -1623,27 +1891,29 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel9" alignment="1" max="32767" attributes="0"/>
+                      <Component id="label19" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
+                          <Component id="codeLabel19" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="greekYogurtCountTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="greekYogurtAddButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="button19" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="44" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel9">
+                <Component class="javax.swing.JLabel" name="label19">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabel9"/>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(jLabel9);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label19);"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel43">
@@ -1651,21 +1921,29 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="greekYogurtCountTextField1">
+                <Component class="javax.swing.JTextField" name="countTextField19">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtCountTextField1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField19ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(greekYogurtCountTextField1);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField19);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="greekYogurtAddButton1">
+                <Component class="javax.swing.JButton" name="button19">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtAddButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button19ActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel19">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel19);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1676,43 +1954,51 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel11" min="-2" pref="101" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="label20" min="-2" pref="101" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="countTextField20" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="button20" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="greekYogurtCountTextField2" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="greekYogurtAddButton2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="codeLabel20" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="57" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel11" max="32767" attributes="0"/>
+                      <Component id="label20" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="codeLabel20" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="greekYogurtCountTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="greekYogurtAddButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="button20" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField20" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel11">
+                <Component class="javax.swing.JLabel" name="label20">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabel9"/>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(jLabel11);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label20);"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel44">
@@ -1720,21 +2006,29 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="greekYogurtCountTextField2">
+                <Component class="javax.swing.JTextField" name="countTextField20">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtCountTextField2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField20ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(greekYogurtCountTextField2);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField20);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="greekYogurtAddButton2">
+                <Component class="javax.swing.JButton" name="button20">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtAddButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button20ActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel20">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel20);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1745,15 +2039,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel13" min="-2" pref="101" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="label21" min="-2" pref="101" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel45" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="greekYogurtCountTextField3" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="greekYogurtAddButton3" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="countTextField21" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="button21" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                              <Component id="codeLabel21" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -1761,27 +2056,29 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel13" alignment="1" max="32767" attributes="0"/>
+                      <Component id="label21" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="codeLabel21" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="greekYogurtCountTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="greekYogurtAddButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="button21" min="-2" max="-2" attributes="0"/>
+                              <Component id="countTextField21" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel13">
+                <Component class="javax.swing.JLabel" name="label21">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabel9"/>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(jLabel13);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemLabels.add(label21);"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel45">
@@ -1789,21 +2086,29 @@
                     <Property name="text" type="java.lang.String" value="Count"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="greekYogurtCountTextField3">
+                <Component class="javax.swing.JTextField" name="countTextField21">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtCountTextField3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countTextField21ActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(greekYogurtCountTextField3);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemTextFields.add(countTextField21);"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="greekYogurtAddButton3">
+                <Component class="javax.swing.JButton" name="button21">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="+"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="greekYogurtAddButton3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button21ActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="codeLabel21">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel9"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="itemCodeLabels.add(codeLabel21);"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

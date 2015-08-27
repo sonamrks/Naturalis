@@ -61,17 +61,20 @@ public class BeveragePanel extends javax.swing.JPanel {
         setCount();
     }
     
-    public void changePrice(Integer index, Double value) {
-        priceList.set(index, value); 
+    public void changePrice(Integer code, Double value) {
+        priceList.set(codeList.indexOf(code), value); 
         setPriceLabel();        
     }
     
-    public void increaseCount(Integer index) {
-       
+    public void increaseCount(Integer code) {
+        System.out.println("code");
+        countList.set(codeList.indexOf(code), countList.get(codeList.indexOf(code))+1); 
+        setCount();
     }
     
-    public void decreaseCount(Integer index) {
-        
+    public void decreaseCount(Integer code) {
+        countList.set(codeList.indexOf(code), countList.get(codeList.indexOf(code))-1); 
+        setCount();     
     }
     
     public void setCodeLabel(){       
@@ -944,6 +947,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+       // decreaseCount(Integer.valueOf(codeLabel2.getText()));
         itemController.decreaseItemCount(Integer.valueOf(codeLabel2.getText()),machineID);
         itemsCartController.addItem(codeLabel2.getText()); 
         customerUI.sendMessage("addtocart", "beverage", Integer.valueOf(codeLabel2.getText()), null);
@@ -968,6 +972,7 @@ public class BeveragePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_button9ActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+    //    decreaseCount(Integer.valueOf(codeLabel1.getText()));
         itemController.decreaseItemCount(Integer.valueOf(codeLabel1.getText()),machineID);        
         itemsCartController.addItem(codeLabel1.getText()); 
         customerUI.sendMessage("addtocart", "beverage", Integer.valueOf(codeLabel1.getText()), null);

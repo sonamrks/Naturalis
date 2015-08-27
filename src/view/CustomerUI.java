@@ -131,26 +131,26 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
    }
     
     @Override
-    public void sendMessage(String type, String product, Integer index, Double value) {
-        itemController.sendMessageToAll(this, type, product, index, value);
+    public void sendMessage(String type, String product, Integer code, Double value) {
+        itemController.sendMessageToAll(this, type, product, code, value);
     }
     
     @Override
-    public void receiveMessage(String type, String product, Integer index, Double value) {
+    public void receiveMessage(String type, String product, Integer code, Double value) {
         if(type.equals("changeprice")) {
             if(product.equals("beverage")) {
-                beveragePanel.changePrice(index, value);
+                beveragePanel.changePrice(code, value);
             }
             if(product.equals("snack")) {
-                snackPanel.changePrice(index, value);
+                snackPanel.changePrice(code, value);
             }
         }
         if(type.equals("addtocount")) {
             if(product.equals("beverage")) {
-                beveragePanel.setCount();
+                beveragePanel.increaseCount(code);
             }
             if(product.equals("snack")) {
-                snackPanel.setCount();
+                snackPanel.increaseCount(code);
             }
         }
     }
