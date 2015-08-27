@@ -84,8 +84,6 @@ public class ItemController implements Mediator {
     }
     public String getSuggestionList(Boolean[] checkedList){
             component = new SuggestionsComponent(item);
-           
-            System.out.println("before Size: " + component.getSize());
             
             if(checkedList[0] == true) {
                 decorator = new LowCalorieDecorator(component);
@@ -102,7 +100,6 @@ public class ItemController implements Mediator {
             if(checkedList[0] == false && checkedList[1] == false && checkedList[2] == false) {
                 return null; 
             }
-            System.out.println("after Size: " + component.getSize());
             return component.getSuggestionString();  
     }
     

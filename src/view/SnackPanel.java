@@ -13,6 +13,10 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -22,24 +26,39 @@ public class SnackPanel extends javax.swing.JPanel {
 
     private Integer machineID;
     private CustomerUI customerUI;
-    private ItemController itemsController;
+    private ItemController itemController;
     private CartItemsController itemsCartController;
+    ArrayList<Integer> codeList;
     ArrayList<Double> priceList;
-    ArrayList<Integer> count;
+    ArrayList<String> pictureList;
+    ArrayList<Integer> countList;
+    ArrayList<JButton> itemButtons;
+    ArrayList<JLabel> itemCodeTextFields;
+    ArrayList<JLabel> itemPriceTextFields;
+    ArrayList<JPanel> itemPanels;
     
     /**
      * Creates new form SnackPanel
      */
     public SnackPanel(CustomerUI customerUI, Integer machineID) {
+        itemButtons = new ArrayList<JButton>();
+        itemCodeTextFields = new ArrayList<JLabel>();
+        itemPriceTextFields = new ArrayList<JLabel>();
+        itemPanels= new ArrayList<JPanel>();
         initComponents();
         this.machineID = machineID;
         this.customerUI = customerUI;
-        itemsController = customerUI.getItemController();
+        itemController = customerUI.getItemController();
         itemsCartController = customerUI.getCartItemsController();
-        itemsController.generateCategoryItemInfo(machineID, "snack");
+        itemController.generateCategoryItemInfo(machineID, "snack");
+        codeList = itemController.getCategoryCodeForMachine();
+        priceList = itemController.getCategoryPriceForMachine();
+        pictureList = itemController.getCategoryPicturePathForMachine();
+        countList = itemController.getCategoryCountForMachine();        
         setCodeLabel();
         setPriceLabel();
-        getCount();
+        setPictureButton();
+        setCount();
     }
     
     public void changePrice(Integer index, Double value) {
@@ -47,56 +66,46 @@ public class SnackPanel extends javax.swing.JPanel {
         setCodeLabel();
         setPriceLabel();
     }
+    
+    public void increaseCount(Integer index) {
+       
+    }
+    
+    public void decreaseCount(Integer index) {
+        
+    }
 
     public void setCodeLabel(){       
-        ArrayList<Integer> codeList = itemsController.getCategoryCodeForMachine();
-
-        granolaCodeLabel.setText(Integer.toString(codeList.get(0)));
-        chipsCodeLabel.setText(Integer.toString(codeList.get(1)));
-        nutsCodeLabel.setText(Integer.toString(codeList.get(2)));
-        cookieCodeLabel.setText(Integer.toString(codeList.get(3)));
-        driedFruitsCodeLabel.setText(Integer.toString(codeList.get(4)));
-        popcornCodeLabel.setText(Integer.toString(codeList.get(5)));
-        crackersCodeLabel.setText(Integer.toString(codeList.get(6)));
-        veggieStrawsCodeLabel.setText(Integer.toString(codeList.get(7)));
-        greekYogurtCodeLabel.setText(Integer.toString(codeList.get(8)));  
+        int i = 0, j;
+        for(j=0; j<codeList.size(); j++) {
+            itemCodeTextFields.get(i).setText(Integer.toString(codeList.get(j)));
+            i+=1;
+        }   
     }
     
     public void setPriceLabel(){    
-        priceList = itemsController.getCategoryPriceForMachine();
-        
-        granolaPriceLabel.setText(Double.toString(priceList.get(0)));
-        chipsPriceLabel.setText(Double.toString(priceList.get(1)));
-        nutsPriceLabel.setText(Double.toString(priceList.get(2)));
-        cookiePriceLabel.setText(Double.toString(priceList.get(3)));
-        driedFruitsPriceLabel.setText(Double.toString(priceList.get(4)));
-         popcornPriceLabel.setText(Double.toString(priceList.get(5)));
-        crackersPriceLabel.setText(Double.toString(priceList.get(6)));
-        veggieStrawsPriceLabel.setText(Double.toString(priceList.get(7)));
-         greekYogurtPriceLabel.setText(Double.toString(priceList.get(8)));
+        int i = 0, j;
+        for(j=0; j<priceList.size(); j++) {
+            itemPriceTextFields.get(i).setText(Double.toString(priceList.get(j)));
+            i+=1;
+        }
     }
-     
-    public void getCount(){
-        count = itemsController.getCategoryCountForMachine();
-     //   System.out.println(count[0]);
-        if(count.get(0)==0)
-            granolaPanel.setBackground(new Color(212,204,209));
-        if(count.get(1)==0)
-            chipsPanel.setBackground(new Color(212,204,209));
-        if(count.get(2)==0)
-            nutsPanel.setBackground(new Color(212,204,209));
-        if(count.get(3)==0)
-            cookiePanel.setBackground(new Color(212,204,209));
-        if(count.get(4)==0)
-            driedFruitPanel.setBackground(new Color(212,204,209));
-        if(count.get(5)==0)
-            popcornPanel.setBackground(new Color(212,204,209));
-        if(count.get(6)==0)
-            crackersPanel.setBackground(new Color(212,204,209));
-        if(count.get(7)==0)
-            veggieStrawsPanel.setBackground(new Color(212,204,209));
-        if(count.get(8)==0)
-            greekYogurtPanel.setBackground(new Color(212,204,209));
+
+    public void setPictureButton(){       
+        int i = 0, j;
+        for(j=0; j<pictureList.size(); j++) {
+            itemButtons.get(i).setIcon(new ImageIcon(this.getClass().getResource(pictureList.get(j))));
+            i+=1;
+        }        
+    }
+    
+    public void setCount(){
+        int i = 0, j;
+        for(j=0; j<countList.size(); j++) {
+            if(countList.get(j)==0)
+                itemPanels.get(i).setBackground(new Color(212,204,209));
+            i+=1;
+        }
     }
 
     /**
@@ -111,109 +120,85 @@ public class SnackPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         SnackPanel = new javax.swing.JPanel();
-        nutsPanel = new javax.swing.JPanel();
-        nutsButton = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        nutsCodeLabel = new javax.swing.JLabel();
-        nutsPriceLabel = new javax.swing.JLabel();
-        granolaPanel = new javax.swing.JPanel();
-        granolaButton = new javax.swing.JButton();
+        panel1 = new javax.swing.JPanel();
+        button1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        granolaCodeLabel = new javax.swing.JLabel();
-        granolaPriceLabel = new javax.swing.JLabel();
-        chipsPanel = new javax.swing.JPanel();
-        chipsButton = new javax.swing.JButton();
+        codeLabel1 = new javax.swing.JLabel();
+        priceLabel1 = new javax.swing.JLabel();
+        panel2 = new javax.swing.JPanel();
+        button2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        chipsCodeLabel = new javax.swing.JLabel();
-        chipsPriceLabel = new javax.swing.JLabel();
-        cookiePanel = new javax.swing.JPanel();
-        cookieButton = new javax.swing.JButton();
+        codeLabel2 = new javax.swing.JLabel();
+        priceLabel2 = new javax.swing.JLabel();
+        panel3 = new javax.swing.JPanel();
+        button3 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        codeLabel3 = new javax.swing.JLabel();
+        priceLabel3 = new javax.swing.JLabel();
+        panel4 = new javax.swing.JPanel();
+        button4 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        cookieCodeLabel = new javax.swing.JLabel();
-        cookiePriceLabel = new javax.swing.JLabel();
-        driedFruitPanel = new javax.swing.JPanel();
-        driedFruitButton = new javax.swing.JButton();
+        codeLabel4 = new javax.swing.JLabel();
+        priceLabel4 = new javax.swing.JLabel();
+        panel5 = new javax.swing.JPanel();
+        button5 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        driedFruitsCodeLabel = new javax.swing.JLabel();
-        driedFruitsPriceLabel = new javax.swing.JLabel();
-        popcornPanel = new javax.swing.JPanel();
-        popcornButton = new javax.swing.JButton();
+        codeLabel5 = new javax.swing.JLabel();
+        priceLabel5 = new javax.swing.JLabel();
+        panel6 = new javax.swing.JPanel();
+        button6 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        popcornCodeLabel = new javax.swing.JLabel();
-        popcornPriceLabel = new javax.swing.JLabel();
-        crackersPanel = new javax.swing.JPanel();
-        crackersButton = new javax.swing.JButton();
+        codeLabel6 = new javax.swing.JLabel();
+        priceLabel6 = new javax.swing.JLabel();
+        panel7 = new javax.swing.JPanel();
+        button7 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        crackersCodeLabel = new javax.swing.JLabel();
-        crackersPriceLabel = new javax.swing.JLabel();
-        veggieStrawsPanel = new javax.swing.JPanel();
-        veggieStrawsButton = new javax.swing.JButton();
+        codeLabel7 = new javax.swing.JLabel();
+        priceLabel7 = new javax.swing.JLabel();
+        panel8 = new javax.swing.JPanel();
+        button8 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        veggieStrawsCodeLabel = new javax.swing.JLabel();
-        veggieStrawsPriceLabel = new javax.swing.JLabel();
-        greekYogurtPanel = new javax.swing.JPanel();
-        greekYogurtButton = new javax.swing.JButton();
+        codeLabel8 = new javax.swing.JLabel();
+        priceLabel8 = new javax.swing.JLabel();
+        panel9 = new javax.swing.JPanel();
+        button9 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        greekYogurtCodeLabel = new javax.swing.JLabel();
-        greekYogurtPriceLabel = new javax.swing.JLabel();
+        codeLabel9 = new javax.swing.JLabel();
+        priceLabel9 = new javax.swing.JLabel();
+        panel10 = new javax.swing.JPanel();
+        button10 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        codeLabel10 = new javax.swing.JLabel();
+        priceLabel10 = new javax.swing.JLabel();
+        panel11 = new javax.swing.JPanel();
+        button11 = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        codeLabel11 = new javax.swing.JLabel();
+        priceLabel11 = new javax.swing.JLabel();
+        panel12 = new javax.swing.JPanel();
+        button12 = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        codeLabel12 = new javax.swing.JLabel();
+        priceLabel12 = new javax.swing.JLabel();
 
-        nutsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nuts.jpg"))); // NOI18N
-        nutsButton.addActionListener(new java.awt.event.ActionListener() {
+        itemPanels.add(panel1);
+
+        itemButtons.add(button1);
+        button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutsButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("Code :");
-
-        jLabel10.setText("Price :");
-
-        javax.swing.GroupLayout nutsPanelLayout = new javax.swing.GroupLayout(nutsPanel);
-        nutsPanel.setLayout(nutsPanelLayout);
-        nutsPanelLayout.setHorizontalGroup(
-            nutsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nutsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(nutsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nutsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(nutsPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nutsCodeLabel))
-                    .addGroup(nutsPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nutsPriceLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        nutsPanelLayout.setVerticalGroup(
-            nutsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nutsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(nutsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(nutsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(nutsCodeLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(nutsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(nutsPriceLabel)))
-        );
-
-        granolaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/granola.jpg"))); // NOI18N
-        granolaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                granolaButtonActionPerformed(evt);
+                button1ActionPerformed(evt);
             }
         });
 
@@ -221,47 +206,53 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Price :");
 
-        javax.swing.GroupLayout granolaPanelLayout = new javax.swing.GroupLayout(granolaPanel);
-        granolaPanel.setLayout(granolaPanelLayout);
-        granolaPanelLayout.setHorizontalGroup(
-            granolaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(granolaPanelLayout.createSequentialGroup()
+        itemCodeTextFields.add(codeLabel1);
+
+        itemPriceTextFields.add(priceLabel1);
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(granolaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(granolaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(granolaPanelLayout.createSequentialGroup()
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addGroup(granolaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(granolaPanelLayout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(granolaPriceLabel))
-                            .addGroup(granolaPanelLayout.createSequentialGroup()
+                                .addComponent(priceLabel1))
+                            .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(granolaCodeLabel)))))
+                                .addComponent(codeLabel1)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        granolaPanelLayout.setVerticalGroup(
-            granolaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(granolaPanelLayout.createSequentialGroup()
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(granolaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(granolaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(granolaCodeLabel)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codeLabel1)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(granolaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(granolaPriceLabel))
+                    .addComponent(priceLabel1))
                 .addContainerGap())
         );
 
-        chipsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chips.jpg"))); // NOI18N
-        chipsButton.addActionListener(new java.awt.event.ActionListener() {
+        itemPanels.add(panel2);
+
+        itemButtons.add(button2);
+        button2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chipsButtonActionPerformed(evt);
+                button2ActionPerformed(evt);
             }
         });
 
@@ -269,45 +260,101 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel6.setText("Price :");
 
-        javax.swing.GroupLayout chipsPanelLayout = new javax.swing.GroupLayout(chipsPanel);
-        chipsPanel.setLayout(chipsPanelLayout);
-        chipsPanelLayout.setHorizontalGroup(
-            chipsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(chipsPanelLayout.createSequentialGroup()
+        itemCodeTextFields.add(codeLabel2);
+
+        itemPriceTextFields.add(priceLabel2);
+
+        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(panel2Layout);
+        panel2Layout.setHorizontalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(chipsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chipsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(chipsPanelLayout.createSequentialGroup()
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(chipsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(chipsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chipsPriceLabel)
-                            .addComponent(chipsCodeLabel))))
+                        .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(priceLabel2)
+                            .addComponent(codeLabel2))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        chipsPanelLayout.setVerticalGroup(
-            chipsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(chipsPanelLayout.createSequentialGroup()
+        panel2Layout.setVerticalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(chipsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(chipsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(chipsCodeLabel))
+                    .addComponent(codeLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(chipsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(chipsPriceLabel))
+                    .addComponent(priceLabel2))
                 .addContainerGap())
         );
 
-        cookieButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cookie.jpg"))); // NOI18N
-        cookieButton.addActionListener(new java.awt.event.ActionListener() {
+        itemPanels.add(panel3);
+
+        itemButtons.add(button3);
+        button3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cookieButtonActionPerformed(evt);
+                button3ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Code :");
+
+        jLabel10.setText("Price :");
+
+        itemCodeTextFields.add(codeLabel3);
+
+        itemPriceTextFields.add(priceLabel3);
+
+        javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
+        panel3.setLayout(panel3Layout);
+        panel3Layout.setHorizontalGroup(
+            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel3Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(codeLabel3))
+                    .addGroup(panel3Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(priceLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panel3Layout.setVerticalGroup(
+            panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(codeLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(priceLabel3)))
+        );
+
+        itemPanels.add(panel4);
+
+        itemButtons.add(button4);
+        button4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button4ActionPerformed(evt);
             }
         });
 
@@ -315,45 +362,51 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel14.setText("Price :");
 
-        javax.swing.GroupLayout cookiePanelLayout = new javax.swing.GroupLayout(cookiePanel);
-        cookiePanel.setLayout(cookiePanelLayout);
-        cookiePanelLayout.setHorizontalGroup(
-            cookiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cookiePanelLayout.createSequentialGroup()
-                .addComponent(cookieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+        itemCodeTextFields.add(codeLabel4);
+
+        itemPriceTextFields.add(priceLabel4);
+
+        javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
+        panel4.setLayout(panel4Layout);
+        panel4Layout.setHorizontalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel4Layout.createSequentialGroup()
+                .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 10, Short.MAX_VALUE))
-            .addGroup(cookiePanelLayout.createSequentialGroup()
+            .addGroup(panel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(cookiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cookiePanelLayout.createSequentialGroup()
+                .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel4Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cookieCodeLabel))
-                    .addGroup(cookiePanelLayout.createSequentialGroup()
+                        .addComponent(codeLabel4))
+                    .addGroup(panel4Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cookiePriceLabel)))
+                        .addComponent(priceLabel4)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        cookiePanelLayout.setVerticalGroup(
-            cookiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cookiePanelLayout.createSequentialGroup()
-                .addComponent(cookieButton)
-                .addGap(18, 18, 18)
-                .addGroup(cookiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cookieCodeLabel)
+        panel4Layout.setVerticalGroup(
+            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel4Layout.createSequentialGroup()
+                .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codeLabel4)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(cookiePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cookiePriceLabel)
+                .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceLabel4)
                     .addComponent(jLabel14)))
         );
 
-        driedFruitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/driedFruits.jpg"))); // NOI18N
-        driedFruitButton.addActionListener(new java.awt.event.ActionListener() {
+        itemPanels.add(panel5);
+
+        itemButtons.add(button5);
+        button5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                driedFruitButtonActionPerformed(evt);
+                button5ActionPerformed(evt);
             }
         });
 
@@ -361,43 +414,49 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel18.setText("Price :");
 
-        javax.swing.GroupLayout driedFruitPanelLayout = new javax.swing.GroupLayout(driedFruitPanel);
-        driedFruitPanel.setLayout(driedFruitPanelLayout);
-        driedFruitPanelLayout.setHorizontalGroup(
-            driedFruitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(driedFruitPanelLayout.createSequentialGroup()
+        itemCodeTextFields.add(codeLabel5);
+
+        itemPriceTextFields.add(priceLabel5);
+
+        javax.swing.GroupLayout panel5Layout = new javax.swing.GroupLayout(panel5);
+        panel5.setLayout(panel5Layout);
+        panel5Layout.setHorizontalGroup(
+            panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(driedFruitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(driedFruitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(driedFruitPanelLayout.createSequentialGroup()
+                .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel5Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(driedFruitsCodeLabel))
-                    .addGroup(driedFruitPanelLayout.createSequentialGroup()
+                        .addComponent(codeLabel5))
+                    .addGroup(panel5Layout.createSequentialGroup()
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(driedFruitsPriceLabel)))
+                        .addComponent(priceLabel5)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        driedFruitPanelLayout.setVerticalGroup(
-            driedFruitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(driedFruitPanelLayout.createSequentialGroup()
+        panel5Layout.setVerticalGroup(
+            panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(driedFruitButton)
+                .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(driedFruitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(driedFruitsCodeLabel))
+                    .addComponent(codeLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addGroup(driedFruitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(driedFruitsPriceLabel)))
+                    .addComponent(priceLabel5)))
         );
 
-        popcornButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/popcorn.jpg"))); // NOI18N
-        popcornButton.addActionListener(new java.awt.event.ActionListener() {
+        itemPanels.add(panel6);
+
+        itemButtons.add(button6);
+        button6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                popcornButtonActionPerformed(evt);
+                button6ActionPerformed(evt);
             }
         });
 
@@ -405,46 +464,52 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel22.setText("Price :");
 
-        javax.swing.GroupLayout popcornPanelLayout = new javax.swing.GroupLayout(popcornPanel);
-        popcornPanel.setLayout(popcornPanelLayout);
-        popcornPanelLayout.setHorizontalGroup(
-            popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(popcornPanelLayout.createSequentialGroup()
+        itemCodeTextFields.add(codeLabel6);
+
+        itemPriceTextFields.add(priceLabel6);
+
+        javax.swing.GroupLayout panel6Layout = new javax.swing.GroupLayout(panel6);
+        panel6.setLayout(panel6Layout);
+        panel6Layout.setHorizontalGroup(
+            panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popcornPanelLayout.createSequentialGroup()
-                        .addGroup(popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(popcornPanelLayout.createSequentialGroup()
+                .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel6Layout.createSequentialGroup()
+                        .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel6Layout.createSequentialGroup()
                                 .addComponent(jLabel22)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(popcornPriceLabel))
-                            .addGroup(popcornPanelLayout.createSequentialGroup()
+                                .addComponent(priceLabel6))
+                            .addGroup(panel6Layout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(popcornCodeLabel)))
+                                .addComponent(codeLabel6)))
                         .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, popcornPanelLayout.createSequentialGroup()
-                        .addComponent(popcornButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel6Layout.createSequentialGroup()
+                        .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
-        popcornPanelLayout.setVerticalGroup(
-            popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(popcornPanelLayout.createSequentialGroup()
-                .addComponent(popcornButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        panel6Layout.setVerticalGroup(
+            panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel6Layout.createSequentialGroup()
+                .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(popcornCodeLabel))
+                    .addComponent(codeLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(popcornPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(popcornPriceLabel)))
+                    .addComponent(priceLabel6)))
         );
 
-        crackersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/crackers.jpg"))); // NOI18N
-        crackersButton.addActionListener(new java.awt.event.ActionListener() {
+        itemPanels.add(panel7);
+
+        itemButtons.add(button7);
+        button7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crackersButtonActionPerformed(evt);
+                button7ActionPerformed(evt);
             }
         });
 
@@ -452,44 +517,49 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel26.setText("Price :");
 
-        javax.swing.GroupLayout crackersPanelLayout = new javax.swing.GroupLayout(crackersPanel);
-        crackersPanel.setLayout(crackersPanelLayout);
-        crackersPanelLayout.setHorizontalGroup(
-            crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(crackersPanelLayout.createSequentialGroup()
+        itemCodeTextFields.add(codeLabel7);
+
+        itemPriceTextFields.add(priceLabel7);
+
+        javax.swing.GroupLayout panel7Layout = new javax.swing.GroupLayout(panel7);
+        panel7.setLayout(panel7Layout);
+        panel7Layout.setHorizontalGroup(
+            panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(crackersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(crackersPanelLayout.createSequentialGroup()
+                .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel7Layout.createSequentialGroup()
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(crackersCodeLabel))
-                    .addGroup(crackersPanelLayout.createSequentialGroup()
+                        .addComponent(codeLabel7))
+                    .addGroup(panel7Layout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(crackersPriceLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(priceLabel7)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
-        crackersPanelLayout.setVerticalGroup(
-            crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(crackersPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(crackersButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(crackersCodeLabel))
+        panel7Layout.setVerticalGroup(
+            panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button7, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(crackersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(codeLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26)
-                    .addComponent(crackersPriceLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(priceLabel7)))
         );
 
-        veggieStrawsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/veggieStraws.jpg"))); // NOI18N
-        veggieStrawsButton.addActionListener(new java.awt.event.ActionListener() {
+        itemPanels.add(panel8);
+
+        itemButtons.add(button8);
+        button8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                veggieStrawsButtonActionPerformed(evt);
+                button8ActionPerformed(evt);
             }
         });
 
@@ -497,47 +567,52 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel30.setText("Price :");
 
-        javax.swing.GroupLayout veggieStrawsPanelLayout = new javax.swing.GroupLayout(veggieStrawsPanel);
-        veggieStrawsPanel.setLayout(veggieStrawsPanelLayout);
-        veggieStrawsPanelLayout.setHorizontalGroup(
-            veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
+        itemCodeTextFields.add(codeLabel8);
+
+        itemPriceTextFields.add(priceLabel8);
+
+        javax.swing.GroupLayout panel8Layout = new javax.swing.GroupLayout(panel8);
+        panel8.setLayout(panel8Layout);
+        panel8Layout.setHorizontalGroup(
+            panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(veggieStrawsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
+                .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel8Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addGroup(veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
+                        .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel8Layout.createSequentialGroup()
                                 .addComponent(jLabel29)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(veggieStrawsCodeLabel))
-                            .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
+                                .addComponent(codeLabel8))
+                            .addGroup(panel8Layout.createSequentialGroup()
                                 .addComponent(jLabel30)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(veggieStrawsPriceLabel)))))
+                                .addComponent(priceLabel8)))))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
-        veggieStrawsPanelLayout.setVerticalGroup(
-            veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(veggieStrawsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(veggieStrawsButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(veggieStrawsCodeLabel))
+        panel8Layout.setVerticalGroup(
+            panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button8, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(veggieStrawsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(codeLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(veggieStrawsPriceLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(priceLabel8)))
         );
 
-        greekYogurtButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greekYogurt.jpg"))); // NOI18N
-        greekYogurtButton.addActionListener(new java.awt.event.ActionListener() {
+        itemPanels.add(panel9);
+
+        itemButtons.add(button9);
+        button9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                greekYogurtButtonActionPerformed(evt);
+                button9ActionPerformed(evt);
             }
         });
 
@@ -545,42 +620,196 @@ public class SnackPanel extends javax.swing.JPanel {
 
         jLabel34.setText("Price :");
 
-        javax.swing.GroupLayout greekYogurtPanelLayout = new javax.swing.GroupLayout(greekYogurtPanel);
-        greekYogurtPanel.setLayout(greekYogurtPanelLayout);
-        greekYogurtPanelLayout.setHorizontalGroup(
-            greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(greekYogurtPanelLayout.createSequentialGroup()
-                .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(greekYogurtPanelLayout.createSequentialGroup()
+        itemCodeTextFields.add(codeLabel9);
+
+        itemPriceTextFields.add(priceLabel9);
+
+        javax.swing.GroupLayout panel9Layout = new javax.swing.GroupLayout(panel9);
+        panel9.setLayout(panel9Layout);
+        panel9Layout.setHorizontalGroup(
+            panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel9Layout.createSequentialGroup()
+                .addGroup(panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel9Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(greekYogurtButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(greekYogurtPanelLayout.createSequentialGroup()
+                        .addComponent(button9, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel9Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(greekYogurtPanelLayout.createSequentialGroup()
+                        .addGroup(panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel9Layout.createSequentialGroup()
                                 .addComponent(jLabel34)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(greekYogurtPriceLabel))
-                            .addGroup(greekYogurtPanelLayout.createSequentialGroup()
+                                .addComponent(priceLabel9))
+                            .addGroup(panel9Layout.createSequentialGroup()
                                 .addComponent(jLabel33)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(greekYogurtCodeLabel)))))
+                                .addComponent(codeLabel9)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        greekYogurtPanelLayout.setVerticalGroup(
-            greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(greekYogurtPanelLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(greekYogurtButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel33)
-                    .addComponent(greekYogurtCodeLabel))
+        panel9Layout.setVerticalGroup(
+            panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel9Layout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(button9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(greekYogurtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(codeLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
-                    .addComponent(greekYogurtPriceLabel))
+                    .addComponent(priceLabel9))
                 .addContainerGap())
+        );
+
+        itemPanels.add(panel7);
+
+        itemButtons.add(button10);
+        button10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button10ActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("Code :");
+
+        jLabel28.setText("Price :");
+
+        itemCodeTextFields.add(codeLabel10);
+
+        itemPriceTextFields.add(priceLabel10);
+
+        javax.swing.GroupLayout panel10Layout = new javax.swing.GroupLayout(panel10);
+        panel10.setLayout(panel10Layout);
+        panel10Layout.setHorizontalGroup(
+            panel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel10Layout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(codeLabel10))
+                    .addGroup(panel10Layout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceLabel10)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        panel10Layout.setVerticalGroup(
+            panel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel10Layout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(button10, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(codeLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(priceLabel10)))
+        );
+
+        itemPanels.add(panel7);
+
+        itemButtons.add(button11);
+        button11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button11ActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setText("Code :");
+
+        jLabel32.setText("Price :");
+
+        itemCodeTextFields.add(codeLabel11);
+
+        itemPriceTextFields.add(priceLabel1);
+
+        javax.swing.GroupLayout panel11Layout = new javax.swing.GroupLayout(panel11);
+        panel11.setLayout(panel11Layout);
+        panel11Layout.setHorizontalGroup(
+            panel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel11Layout.createSequentialGroup()
+                        .addComponent(jLabel31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(codeLabel11))
+                    .addGroup(panel11Layout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceLabel11)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        panel11Layout.setVerticalGroup(
+            panel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel11Layout.createSequentialGroup()
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(button11, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(codeLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(priceLabel11)))
+        );
+
+        itemPanels.add(panel7);
+
+        itemButtons.add(button12);
+        button12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button12ActionPerformed(evt);
+            }
+        });
+
+        jLabel35.setText("Code :");
+
+        jLabel36.setText("Price :");
+
+        itemCodeTextFields.add(codeLabel12);
+
+        itemPriceTextFields.add(priceLabel12);
+
+        javax.swing.GroupLayout panel12Layout = new javax.swing.GroupLayout(panel12);
+        panel12.setLayout(panel12Layout);
+        panel12Layout.setHorizontalGroup(
+            panel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel12Layout.createSequentialGroup()
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(codeLabel12))
+                    .addGroup(panel12Layout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceLabel12)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panel12Layout.setVerticalGroup(
+            panel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel12Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button12, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(codeLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(priceLabel12)))
         );
 
         javax.swing.GroupLayout SnackPanelLayout = new javax.swing.GroupLayout(SnackPanel);
@@ -589,24 +818,32 @@ public class SnackPanel extends javax.swing.JPanel {
             SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SnackPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SnackPanelLayout.createSequentialGroup()
-                        .addComponent(crackersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(SnackPanelLayout.createSequentialGroup()
+                                .addComponent(panel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(SnackPanelLayout.createSequentialGroup()
+                                .addComponent(panel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(SnackPanelLayout.createSequentialGroup()
+                                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(SnackPanelLayout.createSequentialGroup()
-                        .addComponent(cookiePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(driedFruitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SnackPanelLayout.createSequentialGroup()
-                        .addComponent(granolaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chipsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nutsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(popcornPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(greekYogurtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(panel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         SnackPanelLayout.setVerticalGroup(
@@ -614,23 +851,26 @@ public class SnackPanel extends javax.swing.JPanel {
             .addGroup(SnackPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nutsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(chipsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(granolaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cookiePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(driedFruitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(popcornPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SnackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SnackPanelLayout.createSequentialGroup()
-                        .addComponent(greekYogurtPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(veggieStrawsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(crackersPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(panel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(81, 81, 81))
         );
 
         jScrollPane2.setViewportView(SnackPanel);
@@ -646,91 +886,103 @@ public class SnackPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void granolaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(granolaCodeLabel.getText()),machineID);          
-        itemsCartController.addItem(granolaCodeLabel.getText());  
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        itemController.decreaseItemCount(Integer.valueOf(codeLabel1.getText()),machineID);          
+        itemsCartController.addItem(codeLabel1.getText());  
         customerUI.sendMessage("addtocart", "snack", 9, null);
-    }//GEN-LAST:event_granolaButtonActionPerformed
+    }//GEN-LAST:event_button1ActionPerformed
 
-    private void cookieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(cookieCodeLabel.getText()),machineID);          
-        itemsCartController.addItem(cookieCodeLabel.getText());  
+    private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
+        itemController.decreaseItemCount(Integer.valueOf(codeLabel4.getText()),machineID);          
+        itemsCartController.addItem(codeLabel4.getText());  
         customerUI.sendMessage("addtocart", "snack", 12, null);
-    }//GEN-LAST:event_cookieButtonActionPerformed
+    }//GEN-LAST:event_button4ActionPerformed
 
-    private void veggieStrawsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(veggieStrawsCodeLabel.getText()),machineID);          
-        itemsCartController.addItem(veggieStrawsCodeLabel.getText());  
+    private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
+        itemController.decreaseItemCount(Integer.valueOf(codeLabel8.getText()),machineID);          
+        itemsCartController.addItem(codeLabel8.getText());  
         customerUI.sendMessage("addtocart", "snack", 16, null);
-    }//GEN-LAST:event_veggieStrawsButtonActionPerformed
+    }//GEN-LAST:event_button8ActionPerformed
 
-    private void greekYogurtButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(greekYogurtCodeLabel.getText()),machineID);          
-        itemsCartController.addItem(greekYogurtCodeLabel.getText()); 
+    private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
+        itemController.decreaseItemCount(Integer.valueOf(codeLabel9.getText()),machineID);          
+        itemsCartController.addItem(codeLabel9.getText()); 
         customerUI.sendMessage("addtocart", "snack", 17, null);
-    }//GEN-LAST:event_greekYogurtButtonActionPerformed
+    }//GEN-LAST:event_button9ActionPerformed
 
-    private void nutsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(nutsCodeLabel.getText()),machineID);          
-        itemsCartController.addItem(nutsCodeLabel.getText());  
+    private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
+        itemController.decreaseItemCount(Integer.valueOf(codeLabel3.getText()),machineID);          
+        itemsCartController.addItem(codeLabel3.getText());  
         customerUI.sendMessage("addtocart", "snack", 11, null);
-    }//GEN-LAST:event_nutsButtonActionPerformed
+    }//GEN-LAST:event_button3ActionPerformed
 
-    private void driedFruitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(driedFruitsCodeLabel.getText()),machineID);          
-        itemsCartController.addItem(driedFruitsCodeLabel.getText()); 
+    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
+        itemController.decreaseItemCount(Integer.valueOf(codeLabel5.getText()),machineID);          
+        itemsCartController.addItem(codeLabel5.getText()); 
         customerUI.sendMessage("addtocart", "snack", 13, null);
-    }//GEN-LAST:event_driedFruitButtonActionPerformed
+    }//GEN-LAST:event_button5ActionPerformed
 
-    private void popcornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(popcornCodeLabel.getText()),machineID);          
-        itemsCartController.addItem(popcornCodeLabel.getText());  
+    private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
+        itemController.decreaseItemCount(Integer.valueOf(codeLabel6.getText()),machineID);          
+        itemsCartController.addItem(codeLabel6.getText());  
         customerUI.sendMessage("addtocart", "snack", 14, null);
-    }//GEN-LAST:event_popcornButtonActionPerformed
+    }//GEN-LAST:event_button6ActionPerformed
 
-    private void crackersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(crackersCodeLabel.getText()),machineID);          
-        itemsCartController.addItem(crackersCodeLabel.getText());  
+    private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
+        itemController.decreaseItemCount(Integer.valueOf(codeLabel7.getText()),machineID);          
+        itemsCartController.addItem(codeLabel7.getText());  
         customerUI.sendMessage("addtocart", "snack", 15, null);
-    }//GEN-LAST:event_crackersButtonActionPerformed
+    }//GEN-LAST:event_button7ActionPerformed
 
-    private void chipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsButtonActionPerformed
-        itemsController.decreaseItemCount(Integer.valueOf(chipsCodeLabel.getText()),machineID);          
-        itemsCartController.addItem(chipsCodeLabel.getText());  
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+        itemController.decreaseItemCount(Integer.valueOf(codeLabel2.getText()),machineID);          
+        itemsCartController.addItem(codeLabel2.getText());  
         customerUI.sendMessage("addtocart", "snack", 10, null);
-    }//GEN-LAST:event_chipsButtonActionPerformed
+    }//GEN-LAST:event_button2ActionPerformed
+
+    private void button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button10ActionPerformed
+
+    private void button11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button11ActionPerformed
+
+    private void button12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button12ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel SnackPanel;
-    private javax.swing.JButton chipsButton;
-    private javax.swing.JLabel chipsCodeLabel;
-    private javax.swing.JPanel chipsPanel;
-    private javax.swing.JLabel chipsPriceLabel;
-    private javax.swing.JButton cookieButton;
-    private javax.swing.JLabel cookieCodeLabel;
-    private javax.swing.JPanel cookiePanel;
-    private javax.swing.JLabel cookiePriceLabel;
-    private javax.swing.JButton crackersButton;
-    private javax.swing.JLabel crackersCodeLabel;
-    private javax.swing.JPanel crackersPanel;
-    private javax.swing.JLabel crackersPriceLabel;
-    private javax.swing.JButton driedFruitButton;
-    private javax.swing.JPanel driedFruitPanel;
-    private javax.swing.JLabel driedFruitsCodeLabel;
-    private javax.swing.JLabel driedFruitsPriceLabel;
-    private javax.swing.JButton granolaButton;
-    private javax.swing.JLabel granolaCodeLabel;
-    private javax.swing.JPanel granolaPanel;
-    private javax.swing.JLabel granolaPriceLabel;
-    private javax.swing.JButton greekYogurtButton;
-    private javax.swing.JLabel greekYogurtCodeLabel;
-    private javax.swing.JPanel greekYogurtPanel;
-    private javax.swing.JLabel greekYogurtPriceLabel;
+    private javax.swing.JButton button1;
+    private javax.swing.JButton button10;
+    private javax.swing.JButton button11;
+    private javax.swing.JButton button12;
+    private javax.swing.JButton button2;
+    private javax.swing.JButton button3;
+    private javax.swing.JButton button4;
+    private javax.swing.JButton button5;
+    private javax.swing.JButton button6;
+    private javax.swing.JButton button7;
+    private javax.swing.JButton button8;
+    private javax.swing.JButton button9;
+    private javax.swing.JLabel codeLabel1;
+    private javax.swing.JLabel codeLabel10;
+    private javax.swing.JLabel codeLabel11;
+    private javax.swing.JLabel codeLabel12;
+    private javax.swing.JLabel codeLabel2;
+    private javax.swing.JLabel codeLabel3;
+    private javax.swing.JLabel codeLabel4;
+    private javax.swing.JLabel codeLabel5;
+    private javax.swing.JLabel codeLabel6;
+    private javax.swing.JLabel codeLabel7;
+    private javax.swing.JLabel codeLabel8;
+    private javax.swing.JLabel codeLabel9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -742,26 +994,44 @@ public class SnackPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton nutsButton;
-    private javax.swing.JLabel nutsCodeLabel;
-    private javax.swing.JPanel nutsPanel;
-    private javax.swing.JLabel nutsPriceLabel;
-    private javax.swing.JButton popcornButton;
-    private javax.swing.JLabel popcornCodeLabel;
-    private javax.swing.JPanel popcornPanel;
-    private javax.swing.JLabel popcornPriceLabel;
-    private javax.swing.JButton veggieStrawsButton;
-    private javax.swing.JLabel veggieStrawsCodeLabel;
-    private javax.swing.JPanel veggieStrawsPanel;
-    private javax.swing.JLabel veggieStrawsPriceLabel;
+    private javax.swing.JPanel panel1;
+    private javax.swing.JPanel panel10;
+    private javax.swing.JPanel panel11;
+    private javax.swing.JPanel panel12;
+    private javax.swing.JPanel panel2;
+    private javax.swing.JPanel panel3;
+    private javax.swing.JPanel panel4;
+    private javax.swing.JPanel panel5;
+    private javax.swing.JPanel panel6;
+    private javax.swing.JPanel panel7;
+    private javax.swing.JPanel panel8;
+    private javax.swing.JPanel panel9;
+    private javax.swing.JLabel priceLabel1;
+    private javax.swing.JLabel priceLabel10;
+    private javax.swing.JLabel priceLabel11;
+    private javax.swing.JLabel priceLabel12;
+    private javax.swing.JLabel priceLabel2;
+    private javax.swing.JLabel priceLabel3;
+    private javax.swing.JLabel priceLabel4;
+    private javax.swing.JLabel priceLabel5;
+    private javax.swing.JLabel priceLabel6;
+    private javax.swing.JLabel priceLabel7;
+    private javax.swing.JLabel priceLabel8;
+    private javax.swing.JLabel priceLabel9;
     // End of variables declaration//GEN-END:variables
 }

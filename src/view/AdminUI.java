@@ -61,7 +61,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
     }
     
     public void receiveMessage(String type, String product, Integer index, Double value) {
-                    System.out.println("rec admin");
         if(type.equals("addtocart")) {
             if(product.equals("beverage")) {
                 beverageCountList.set(index, beverageCountList.get(index)-1);
