@@ -20,7 +20,7 @@ import view.CustomerUI;
  */
 public class ItemController implements Mediator {
     
-    private static ItemController itemControllerInstance;
+    private static ItemController itemControllerInstance = new ItemController();
     private Item item;
     private Component component;
     private Decorator decorator;
@@ -40,7 +40,6 @@ public class ItemController implements Mediator {
     }
     
     public static ItemController getItemControllerInstance(){
-        itemControllerInstance = new ItemController();
         return itemControllerInstance;
     }
     
