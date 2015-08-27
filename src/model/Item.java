@@ -154,27 +154,7 @@ public class Item {
         return countList;
     }
     
-  /*  public void getItemInfo(){
-        try {
-            String getInfo;
-                getInfo = "SELECT code,name,protein,sugars,calories FROM item where machineID = " + Integer.toString(machineID);
-            PreparedStatement statement = connection.prepareStatement(getInfo);
-            ResultSet result = statement.executeQuery();
-            
-            while(result.next())
-            {
-                codeList.add(result.getInt("code"));
-                nameList.add(result.getString("name"));
-                proteinList.add(result.getInt("protein"));
-                sugarsList.add(result.getInt("sugars"));
-                caloriesList.add(result.getInt("calories"));
-            }
-        } catch (SQLException ex) {
-           System.out.println(ex.getMessage());
-        }
-    }
-    */
-    
+ 
     public int getCategorySoldCount(String category){
         int soldCount=0;
         try {
@@ -299,7 +279,6 @@ public class Item {
                 
                 highProteinCount[i]=result.getInt("soldCount");
                 highProteinNames[i]=result.getString("name");
-                //System.out.println(highProteinNames[i]);
                 i++;
             }
             sale = 0;
@@ -320,7 +299,6 @@ public class Item {
                 
                 lowSugarsCount[i]=result.getInt("soldCount");
                 lowSugarsNames[i]=result.getString("name");
-                //System.out.println(lowSugarsNames[i]);
                 i++;
             }
             sale = 0;

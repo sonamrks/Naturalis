@@ -95,7 +95,6 @@ public class Coke implements Beverage{
 	}
         @Override
 	public int getCalories(){
-        //    System.out.println("hello");
 		return calories;
 	}
 	public void setCalories(int calories){

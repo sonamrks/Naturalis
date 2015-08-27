@@ -18,9 +18,6 @@ public class AdminControlPanel extends javax.swing.JPanel {
     private ItemController itemController;
     private UserLogController userLogController;
     Integer machineID;
-    /**
-     * Creates new form adminControlPanel
-     */
     public AdminControlPanel(ItemController itemController, Integer machineID) {
         this.itemController = itemController;
         userLogController = new UserLogController();
