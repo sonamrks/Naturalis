@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class SingleAccessLog {
     
-   private static SingleAccessLog singleAccessLog;
+   private static SingleAccessLog singleAccessLog = new SingleAccessLog();
    
    DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
     Connection connection = dbConnection.getConnection();
@@ -29,9 +29,8 @@ public class SingleAccessLog {
     ResultSet result;
    
    public static SingleAccessLog getInstance(){
-        singleAccessLog = new SingleAccessLog();
-    return singleAccessLog;
-    }
+        return singleAccessLog;
+   }
    private SingleAccessLog() {
   
     }	

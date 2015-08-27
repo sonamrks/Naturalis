@@ -13,10 +13,9 @@ import model.Snack;
  * @author Sonam
  */
 public class SnackFactory implements ItemFactory {
-    private static ItemFactory snackFactory;
+    private static ItemFactory snackFactory = new SnackFactory();
     
     public static ItemFactory getSnackFactoryInstance(){
-        snackFactory = new SnackFactory();
         return snackFactory;
     }
     private SnackFactory(){

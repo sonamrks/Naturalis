@@ -14,10 +14,9 @@ import model.DatabaseConnection;
  */
 public class BeverageFactory implements ItemFactory {
     
-    private static ItemFactory beverageFactory;
+    private static ItemFactory beverageFactory = new BeverageFactory();
     
     public static ItemFactory getBeverageFactoryInstance(){
-        beverageFactory = new BeverageFactory();
         return beverageFactory;
     }
     private BeverageFactory(){
