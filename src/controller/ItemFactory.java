@@ -12,17 +12,6 @@ import model.Product;
  * @author Sonam
  */
 public interface ItemFactory {
-   /* public Item createItem(String name){
-            Item beverage = null;
-
-            try {
-                beverage = (Item) Class.forName(name).newInstance();
-            }
-            catch (Exception e) {
-                    System.out.println(e.getMessage());
-            }
-
-            return beverage;
-    }*/
+   
     public Product createItem(String name);
 }

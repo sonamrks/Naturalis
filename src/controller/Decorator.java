@@ -49,8 +49,5 @@ public class Decorator implements Component {
     public String getSuggestionString() {
         return null;
     }
-    /*public SuggestionsComponent getSuggestionsComponent() {
-//        return suggestionsComponent;
-    }*/
     
 }

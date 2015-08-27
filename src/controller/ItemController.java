@@ -135,9 +135,6 @@ public class ItemController implements Mediator {
         lowSugarsCount = item.getLowSugarsCount();
         lowSugarsNames = item.getLowSugarsNames();
         
-       // for(int i=0;i<5;i++)
-         //   System.out.println(lowCalNames[i]);
-        
         return nutritionalCount;
     }
     

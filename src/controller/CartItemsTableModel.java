@@ -22,7 +22,6 @@ import model.Product;
 
 
 public class CartItemsTableModel extends AbstractTableModel implements AbstractList, Observable {
- //   private Map<Integer,Item> cartItems;
     private List<Product> cartItems;
     private List<Integer> itemCodes;
     private List<String> itemNames;
@@ -33,8 +32,6 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private double totalPrice;
     private String name;
     private Product item;
- //   private int soldCount,count;
- //   private Set<Observer> observers;
     
     ItemFactory beverageFactory = BeverageFactory.getBeverageFactoryInstance();
     ItemFactory snackFactory = SnackFactory.getSnackFactoryInstance();
@@ -46,14 +43,12 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     ResultSet result;
     
     public CartItemsTableModel() {
-  //   cartItems = new HashMap<Integer,Item>();
      itemCodes = new ArrayList<Integer>();
      itemNames = new ArrayList<String>();
      itemPrices = new ArrayList<Double>();
      itemPicturePaths = new ArrayList<String>();
      itemTypes = new ArrayList<String>();
      cartItems = new ArrayList<Product>();
-//     observers = new HashSet<Observer>();
      numrows = itemCodes.size();
      numcols = 2;    
     }
@@ -92,8 +87,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
             itemPicturePaths.add(item.getPicturePath());
             itemTypes.add(item.getType());
             itemPrices.add(item.getPrice());
-            cartItems.add(item);            
-        //    addPrice(item.getPrice());
+            cartItems.add(item);  
             numrows++;  
             notifyObservers();
         }
@@ -136,41 +130,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
         
         fireTableRowsDeleted(itemCodes.size(), numcols-1);
     }
-  /*        
-    public void addPrice(double price) {       
-        totalPrice += price;
-    }
-    
-    public void subtractPrice(double price) {
-        System.out.println("Price total: " + totalPrice);
-        totalPrice -= price;
-        System.out.println("Price total: " + totalPrice);
-    }*/
-    
-  /*  public void removeItem(Integer code) {
-        try {
-            itemCodes.remove(code);
-            itemNames.remove("name");
-            String getPrice = "SELECT price FROM item WHERE code=?";
-            statement = connection.prepareStatement(getPrice);
-            statement.setInt(1,code);
-            result = statement.executeQuery();
-
-            while(result.next()){
-            price = result.getDouble("price");
-            }
-            
-            subtractPrice(price);
-            cartItems.remove(item);
-            fireTableRowsDeleted(itemCodes.size(), numcols-1);  
-        }
-        catch(Exception err)
-        {
-         System.out.println(err.getMessage());
-         err.printStackTrace();
-        }
-    }*/
-    
+  
     @Override
     public int getColumnCount() {
     // TODO Auto-generated method stub
