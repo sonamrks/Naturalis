@@ -362,7 +362,7 @@ public class Item {
             DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
     Connection connection = dbConnection.getConnection();
             String getInfo;
-            getInfo = "INSERT into item VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            getInfo = "INSERT into item VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
             statement = connection.prepareStatement(getInfo);
             statement.setInt(1,Integer.valueOf(itemInfo[0]));
             statement.setString(2,itemInfo[1]);
@@ -376,6 +376,7 @@ public class Item {
             statement.setString(10,itemInfo[8]);
             statement.setInt(11,0);
             statement.setInt(12,Integer.valueOf(itemInfo[9]));
+            statement.setDouble(13,Integer.valueOf(itemInfo[6])* Double.valueOf(itemInfo[7]));
             
             statement.executeUpdate();
         } catch (SQLException ex) {
