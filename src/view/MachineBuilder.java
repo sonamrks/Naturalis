@@ -5,22 +5,29 @@
  */
 package view;
 
+import controller.ItemController;
+import java.util.ArrayList;
+
 /**
  *
  * @author Sonam
  */
 public class MachineBuilder {
     private MachineManagerPanel machineManager;
+    private ItemController itemController;
+    private ArrayList<Integer> machineIDs;
     
     public MachineBuilder(MachineManagerPanel machineManager) {
-        this.machineManager = machineManager;        
+        this.machineManager = machineManager;
+        itemController = ItemController.getItemControllerInstance();
     }
     
     public void loadMachines() {
-        Machine machine1 = new Machine(4201);
-        Machine machine2 = new Machine(4202);
-        machineManager.loadMachine(machine1);
-        machineManager.loadMachine(machine2);
+        machineIDs = itemController.getMachines();
+        for(Integer id : machineIDs) {
+            Machine machine1 = new Machine(id);
+            machineManager.loadMachine(machine1);
+        }
         machineManager.generateMachines();
     }
         
