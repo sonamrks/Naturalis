@@ -82,7 +82,11 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
         checkedList[1] = false;
         checkedList[2] = false;
     }
-    
+  
+    public Integer getMachineID() { 
+        return machineID;
+    }
+        
     public ItemController getItemController() { 
         return itemController;
     }
