@@ -372,7 +372,7 @@ public class Item {
             statement.setInt(6,Integer.valueOf(itemInfo[5]));
             statement.setInt(7,Integer.valueOf(itemInfo[6]));
             statement.setDouble(8,Double.valueOf(itemInfo[7]));
-            statement.setString(9,null);
+            statement.setString(9,"/images/"+itemInfo[1]+".jpg");
             statement.setString(10,itemInfo[8]);
             statement.setInt(11,0);
             statement.setInt(12,Integer.valueOf(itemInfo[9]));
