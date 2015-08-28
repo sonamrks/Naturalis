@@ -563,11 +563,11 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
             JOptionPane.showMessageDialog(paymentPanel,"Enter a valid card number");
         }
         double remainingBalance = context.pay(price,cardNumber);
-        //double remainingBalance = smartCardController.payUsingCard(price,cardNumber);
+        
         if(remainingBalance>=0)
         insertCardMessageTextField.setText("Your remaining balance is : "+Double.toString(remainingBalance));
         else
-        insertCardMessageTextField.setText("Sorry! you do not have enough balance");
+        insertCardMessageTextField.setText("Sorry! you do not have enough balance. Please reload your card");
     }//GEN-LAST:event_payCardButtonActionPerformed
 
     private void dollar5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar5ButtonActionPerformed
@@ -662,14 +662,23 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
 
     private void dollar10Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar10Button1ActionPerformed
         // TODO add your handling code here:
+        String name = cardNumberTextField.getText();
+        Integer cardNumber = smartCardController.addNewCard(name, 10);
+        JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your balance now is "+10);
     }//GEN-LAST:event_dollar10Button1ActionPerformed
 
     private void dollar20Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar20Button1ActionPerformed
         // TODO add your handling code here:
+        String name = cardNumberTextField.getText();
+        Integer cardNumber = smartCardController.addNewCard(name, 20);
+        JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your balance now is "+20);
     }//GEN-LAST:event_dollar20Button1ActionPerformed
 
     private void dollar50Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar50Button1ActionPerformed
         // TODO add your handling code here:
+        String name = cardNumberTextField.getText();
+        Integer cardNumber = smartCardController.addNewCard(name, 50);
+        JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your balance now is "+50);
     }//GEN-LAST:event_dollar50Button1ActionPerformed
 
     private void reloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reloadButtonActionPerformed
