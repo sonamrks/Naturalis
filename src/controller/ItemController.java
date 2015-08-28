@@ -162,6 +162,14 @@ public class ItemController implements Mediator {
         item.addNewItem(itemInfo);
     }
     
+    public void addNewMachine(Integer machineID) {
+        item.addNewMachine(machineID);
+    }
+    
+    public ArrayList<Integer> getMachines() {
+        return item.getMachines();
+    }
+    
     public void sendMessageToAll(Collegue sender, String type, String product, Integer code, Double value) {
         for (int i = 0; i < collegues.size(); ++i){
             Collegue c = collegues.get(i);

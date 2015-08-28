@@ -8,7 +8,8 @@ package main;
 import controller.ItemController;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-import view.MachinesPanel;
+import view.MachineBuilder;
+import view.MachineManagerPanel;
 import view.NavigationPanel;
 
 /**
@@ -20,7 +21,8 @@ public class Main extends javax.swing.JFrame {
     static private CardLayout cardLayout;
     static private JPanel cards;
     private NavigationPanel navigationPanel;
-    private MachinesPanel machinesPanel;
+    private MachineManagerPanel machinesPanel;
+    private MachineBuilder machineBuilder;
     static int activityType=1; // Customer is default activity
     /**
      * Creates new form Main
@@ -30,7 +32,9 @@ public class Main extends javax.swing.JFrame {
         cardLayout = new CardLayout();
         cards = new JPanel(cardLayout);
         navigationPanel = new NavigationPanel();
-        machinesPanel = new MachinesPanel();
+        machinesPanel = new MachineManagerPanel();
+        machineBuilder = new MachineBuilder(machinesPanel);
+        machineBuilder.loadMachines();
         cards.add(navigationPanel, "Navigation");
         cards.add(machinesPanel,"Machines");
         

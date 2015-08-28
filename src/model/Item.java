@@ -383,6 +383,48 @@ public class Item {
             System.out.println(ex.getMessage());
         }
     }
+    
+    public void addNewMachine(Integer machineID ){
+        try {
+            DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
+    Connection connection = dbConnection.getConnection();
+            String getInfo;
+            getInfo = "CREATE TEMPORARY TABLE tmp SELECT * FROM item where machineID = 4201";
+            statement = connection.prepareStatement(getInfo);
+            statement.executeUpdate();
+            getInfo = "UPDATE tmp SET machineID=?";
+            statement = connection.prepareStatement(getInfo);
+            statement.setInt(1, machineID);
+            statement.executeUpdate();
+            getInfo = "UPDATE tmp SET count=10";
+            statement = connection.prepareStatement(getInfo);
+            statement.executeUpdate();
+            getInfo = "INSERT INTO item SELECT * FROM tmp";
+            statement = connection.prepareStatement(getInfo);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+    public ArrayList<Integer> getMachines() {
+        ArrayList<Integer> machineIDs = new ArrayList<Integer>();
+        try {
+            DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
+            Connection connection = dbConnection.getConnection();
+            String getInfo;
+            getInfo = "SELECT DISTINCT(machineID) FROM item";
+            statement = connection.prepareStatement(getInfo);
+            result = statement.executeQuery();
+            while(result.next()){
+                machineIDs.add(result.getInt("machineID"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return machineIDs;
+    }
+    
     public double collectMoney(Integer machineID){
         double totalSales = 0;
         try {

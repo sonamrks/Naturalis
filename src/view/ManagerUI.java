@@ -26,20 +26,21 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private String collegueID;
     private ItemController itemController;
     private UserLogController userLogController;
-    ArrayList<Integer> beverageCodeList;
-    ArrayList<Double> beveragePriceList;
-    ArrayList<String> beveragePictureList;
-    ArrayList<Integer> snackCodeList;
-    ArrayList<Double> snackPriceList; 
-    ArrayList<String> snackPictureList; 
-    ArrayList<JLabel> itemLabels;
-    ArrayList<JTextField> itemTextFields;
-    ArrayList<JButton> itemButtons;
+    private MachineManagerPanel machineManager;
+    private MachineBuilder machineBuilder;
+    
+    private ArrayList<Integer> beverageCodeList;
+    private ArrayList<Double> beveragePriceList;
+    private ArrayList<String> beveragePictureList;
+    private ArrayList<Integer> snackCodeList;
+    private ArrayList<Double> snackPriceList; 
+    private ArrayList<String> snackPictureList; 
+    private ArrayList<JLabel> itemLabels;
+    private ArrayList<JTextField> itemTextFields;
+    private ArrayList<JButton> itemButtons;
     int size;    
     
-    /**
-     * Creates new form AdminUI
-     */
+// planbuilder
     public ManagerUI(String collegueID) {
         itemLabels = new ArrayList<JLabel>();
         itemTextFields = new ArrayList<JTextField>();
@@ -49,6 +50,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         this.itemController = ItemController.getItemControllerInstance();
         itemController.registerACollegue(this);
         userLogController = new UserLogController();
+        machineManager = new MachineManagerPanel();
+        machineBuilder = new MachineBuilder(machineManager);  
+        machineBuilder.loadMachines();
         
         itemController.generateCategoryItemInfo(4201, "beverage");
         beverageCodeList = itemController.getCategoryCodeForMachine();
@@ -165,6 +169,9 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         machineIDTextField = new javax.swing.JTextField();
         addItemButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        machineID = new javax.swing.JTextField();
+        machineAddButton = new javax.swing.JButton();
         itemsScrollPane = new javax.swing.JScrollPane();
         itemsPanel = new javax.swing.JPanel();
         cokePanel = new javax.swing.JPanel();
@@ -629,6 +636,21 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             }
         });
 
+        jLabel2.setText("Install a new machine: ");
+
+        machineID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machineIDActionPerformed(evt);
+            }
+        });
+
+        machineAddButton.setText("Add");
+        machineAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machineAddButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout statisticsPanelLayout = new javax.swing.GroupLayout(statisticsPanel);
         statisticsPanel.setLayout(statisticsPanelLayout);
         statisticsPanelLayout.setHorizontalGroup(
@@ -640,7 +662,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
                     .addComponent(nutritionalStatisticsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statisticsPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(machineID, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(machineAddButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(logOutButton))
                     .addComponent(BevSnacksStatisticsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -650,7 +678,11 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
             statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(statisticsPanelLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(logOutButton)
+                .addGroup(statisticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(logOutButton)
+                    .addComponent(jLabel2)
+                    .addComponent(machineID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(machineAddButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addNewItemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
@@ -2486,6 +2518,16 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private void updateButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton22ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_updateButton22ActionPerformed
+
+    private void machineIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machineIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_machineIDActionPerformed
+
+    private void machineAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_machineAddButtonActionPerformed
+        // TODO add your handling code here:
+        Integer id = Integer.valueOf(machineID.getText());      
+        machineBuilder.addNewMachine(id);
+    }//GEN-LAST:event_machineAddButtonActionPerformed
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2560,6 +2602,7 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
@@ -2588,6 +2631,8 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private javax.swing.JPanel lycheeJuicePanel;
     private javax.swing.JRadioButton machine1RadioButton;
     private javax.swing.JRadioButton machine2RadioButton;
+    private javax.swing.JButton machineAddButton;
+    private javax.swing.JTextField machineID;
     private javax.swing.JLabel machineIDLabel;
     private javax.swing.JTextField machineIDTextField;
     private javax.swing.JLabel nameLabel;
