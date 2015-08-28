@@ -29,11 +29,9 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
     
     private Integer machineID;
     private String collegueID;
- //   private PriceController priceController;
     private ItemController itemController;
     private CartItemsController cartItemsController;
     private SmartCardController smartCardController;
-  //  private double price;
     private CartItemsPanel cartItemsPanel;
     private PaymentPanel paymentPanel;
     private static CardLayout cardLayout;
@@ -42,8 +40,6 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
     private SnackPanel snackPanel;
     private Timer timer;
     private int index=0;
-    
-  //  private static PaymentController paymentController;
     private Boolean[] checkedList = new Boolean[3];
     
     /**
@@ -54,9 +50,7 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
         initComponents();    
         this.collegueID = collegueID;
         this.itemController = ItemController.getItemControllerInstance();
-      //  priceController = new PriceController(this, machineID);
         cartItemsController = new CartItemsController(this);
-      //  itemController = new ItemController(machineID);
         smartCardController = new SmartCardController(this);
         
         cartItemsPanel = new CartItemsPanel(this, cartItemsController, itemController, machineID);
@@ -76,8 +70,6 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
         itemsPanel.add(snackPanel,"Snacks");
 
         itemController.registerACollegue(this);
-        
-    //    paymentController = new PaymentController(this);
         checkedList[0] = false;
         checkedList[1] = false;
         checkedList[2] = false;

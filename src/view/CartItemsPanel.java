@@ -44,10 +44,7 @@ public class CartItemsPanel extends javax.swing.JPanel implements Observer {
         cartItemsPanel.setLayout(new BorderLayout());
         cartItemsPanel.add(cartScrollPane, BorderLayout.CENTER);       
     }
-    
-   /* public void updateCartTable() {    
-    }*/
-       
+   
     public void update(){
         cartTable.setModel(cartItemsController.getTableModel());
     }

@@ -1946,8 +1946,7 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void orangeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(orangePriceTextField.getText());
-        //itemController.updatePrice(price,102);
+        
     }//GEN-LAST:event_orangeUpdateButtonActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
@@ -1989,9 +1988,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void lemonadeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonadeUpdateButtonActionPerformed
         // TODO add your handling code here:
-
-        //double price = Double.valueOf(lemonadePriceTextField.getText());
-        //itemController.updatePrice(price,103);
     }//GEN-LAST:event_lemonadeUpdateButtonActionPerformed
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
@@ -2033,8 +2029,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void gatoradeUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gatoradeUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(gatoradePriceTextField.getText());
-        //itemController.updatePrice(price,104);
     }//GEN-LAST:event_gatoradeUpdateButtonActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
@@ -2076,8 +2070,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void coconutWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(coconutWaterPriceTextField.getText());
-        //itemController.updatePrice(price,106);
     }//GEN-LAST:event_coconutWaterUpdateButtonActionPerformed
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
@@ -2119,8 +2111,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void sparklingWaterUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparklingWaterUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(sparklingWaterPriceTextField.getText());
-        //itemController.updatePrice(price,107);
     }//GEN-LAST:event_sparklingWaterUpdateButtonActionPerformed
 
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
@@ -2162,8 +2152,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void updateCokeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCokeButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(cokePriceTextField.getText());
-        //itemController.updatePrice(price,101);
     }//GEN-LAST:event_updateCokeButtonActionPerformed
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
@@ -2205,8 +2193,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void updateProteinSmoothieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProteinSmoothieButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(proteinSmoothiePriceTextField.getText());
-        //itemController.updatePrice(price,108);
     }//GEN-LAST:event_updateProteinSmoothieButtonActionPerformed
 
     private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
@@ -2248,8 +2234,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void granolaUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_granolaUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(granolaPriceTextField.getText());
-        //itemController.updatePrice(price,201);
     }//GEN-LAST:event_granolaUpdateButtonActionPerformed
 
     private void button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button10ActionPerformed
@@ -2291,8 +2275,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void proteinShakeUpdateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proteinShakeUpdateButton1ActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(proteinShakePriceTextField1.getText());
-        //itemController.updatePrice(price,109);
     }//GEN-LAST:event_proteinShakeUpdateButton1ActionPerformed
 
     private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
@@ -2334,8 +2316,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void chipsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipsUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(chipsPriceTextField.getText());
-        //itemController.updatePrice(price,202);
     }//GEN-LAST:event_chipsUpdateButtonActionPerformed
 
     private void button11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button11ActionPerformed
@@ -2376,8 +2356,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void nutsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(nutsPriceTextField.getText());
-        //itemController.updatePrice(price,203);
     }//GEN-LAST:event_nutsUpdateButtonActionPerformed
 
     private void button12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button12ActionPerformed
@@ -2419,8 +2397,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void cookieUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookieUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(cookiePriceTextField.getText());
-        //itemController.updatePrice(price,204);
     }//GEN-LAST:event_cookieUpdateButtonActionPerformed
 
     private void button13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button13ActionPerformed
@@ -2462,8 +2438,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void driedFruitsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_driedFruitsUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(driedFruitsPriceTextField.getText());
-        //itemController.updatePrice(price,205);
     }//GEN-LAST:event_driedFruitsUpdateButtonActionPerformed
 
     private void button14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button14ActionPerformed
@@ -2505,8 +2479,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void popcornUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(popcornPriceTextField.getText());
-        //itemController.updatePrice(price,206);
     }//GEN-LAST:event_popcornUpdateButtonActionPerformed
 
     private void button15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button15ActionPerformed
@@ -2548,8 +2520,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void crackersUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crackersUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(crackersPriceTextField.getText());
-        //itemController.updatePrice(price,207);
     }//GEN-LAST:event_crackersUpdateButtonActionPerformed
 
     private void button16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button16ActionPerformed
@@ -2591,8 +2561,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void veggieStrawsUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieStrawsUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(veggieStrawsPriceTextField.getText());
-        //itemController.updatePrice(price,208);
     }//GEN-LAST:event_veggieStrawsUpdateButtonActionPerformed
 
     private void button17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button17ActionPerformed
@@ -2634,8 +2602,6 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
 
     private void greekYogurtUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greekYogurtUpdateButtonActionPerformed
         // TODO add your handling code here:
-        //double price = Double.valueOf(greekYogurtPriceTextField.getText());
-        //itemController.updatePrice(price,209);
     }//GEN-LAST:event_greekYogurtUpdateButtonActionPerformed
 
     private void button18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button18ActionPerformed
@@ -2707,8 +2673,7 @@ public class AdminUI extends javax.swing.JFrame implements Collegue {
         // TODO add your handling code here:
         this.dispose();
         Main.getCardLayout().show(Main.getCards(),"Navigation");
-      //  NavigationPanel nav = new NavigationPanel(itemController);
-      //  userLogController.addLogOutEntry(nav.getUserName(),"admin");
+      
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
