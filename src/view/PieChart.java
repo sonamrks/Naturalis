@@ -105,7 +105,6 @@ public class PieChart extends JFrame {
         beverageItemsChartPanel.setPreferredSize(new java.awt.Dimension(400, 300));
         snackItemsChartPanel.setPreferredSize(new java.awt.Dimension(400, 300));
         setContentPane(chartPanel);
-       // setContentPane(snackItemsChartPanel);
     }
     
 
@@ -125,7 +124,6 @@ public class PieChart extends JFrame {
         DefaultCategoryDataset lowCaloriesItemsDataset = new DefaultCategoryDataset();
 
         for(int i=0 ;lowCalCount[i]!=0; i++){
-            //System.out.println(lowCalNames[i]);
             lowCaloriesItemsDataset.setValue(lowCalCount[i],"Count sold", lowCalNames[i]);
         }
         
