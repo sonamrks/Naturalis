@@ -3,8 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package model;
 
+import controller.AbstractList;
+import controller.BeverageFactory;
+import controller.CartIterator;
+import controller.ItemFactory;
+import controller.Iterator;
+import view.Observer;
+import controller.SnackFactory;
 /**
  *
  * @author Sonam

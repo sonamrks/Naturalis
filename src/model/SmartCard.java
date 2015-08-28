@@ -80,7 +80,7 @@ public class SmartCard {
             statement = connection.prepareStatement(getCardQuery);
             statement.setInt(1, cardNumber);
 
-            ResultSet result = statement.executeQuery();
+            result = statement.executeQuery();
 
             while(result.next()){
                 this.cardNumber = result.getInt("number");
@@ -108,7 +108,7 @@ public class SmartCard {
         statement = connection.prepareStatement(getCardNumber);
         statement.setString(1, name);
 
-        ResultSet result = statement.executeQuery();
+        result = statement.executeQuery();
 
         while(result.next()){
             cardNumber = result.getInt("number");

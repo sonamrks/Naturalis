@@ -5,6 +5,7 @@
  */
 package controller;
 
+import model.CartItemsTableModel;
 import java.util.ArrayList;
 import java.util.List;
 import model.Product;

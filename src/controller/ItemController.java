@@ -6,13 +6,8 @@
 package controller;
 
 import model.Item;
-import java.sql.SQLException;
 import view.Collegue;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
-import model.Product;
-import view.CustomerUI;
 
 /**
  *
@@ -169,6 +164,7 @@ public class ItemController implements Mediator {
         return item.getMachines();
     }
     
+    @Override
     public void sendMessageToAll(Collegue sender, String type, String product, Integer code, Double value) {
         for (int i = 0; i < collegues.size(); ++i){
             Collegue c = collegues.get(i);
@@ -178,6 +174,7 @@ public class ItemController implements Mediator {
         }
     }
     
+    @Override
     public void registerACollegue (Collegue c) {
         collegues.add(c);
     }

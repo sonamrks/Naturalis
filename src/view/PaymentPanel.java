@@ -6,7 +6,6 @@
 package view;
 
 import controller.CartItemsController;
-import controller.Observer;
 import controller.PayCard;
 import controller.PayCash;
 import controller.PaymentContext;

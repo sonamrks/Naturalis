@@ -6,9 +6,8 @@
 package view;
 
 import controller.CartItemsController;
-import controller.Observable;
+import model.Observable;
 import controller.ItemController;
-import controller.Observer;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;

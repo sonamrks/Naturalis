@@ -5,10 +5,9 @@
  */
 package view;
 
-import controller.Observable;
+import model.Observable;
 import controller.CartItemsController;
 import controller.ItemController;
-import controller.Observer;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashSet;

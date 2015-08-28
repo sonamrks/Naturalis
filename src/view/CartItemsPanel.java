@@ -7,7 +7,6 @@ package view;
 
 import controller.CartItemsController;
 import controller.ItemController;
-import controller.Observer;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
