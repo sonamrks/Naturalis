@@ -148,6 +148,22 @@ public class SmartCard {
         }
         return balance;
     }
-    
+    public double checkBalance(int cardNumber){
+        double balance=0;
+        try {
+            String getBalance = "SELECT balance from card where number=?";
+            PreparedStatement statement = connection.prepareStatement(getBalance);
+            statement.setInt(1,cardNumber);
+            result = statement.executeQuery();
+            
+            while(result.next()){
+                balance = result.getDouble("balance");
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return balance;
+    }
     
 }
