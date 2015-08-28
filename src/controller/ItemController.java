@@ -77,22 +77,22 @@ public class ItemController implements Mediator {
     public ArrayList<String> getCategoryPicturePathForMachine(){
         return item.getCategoryPicturePathForMachine();
     }
-    public String getSuggestionList(Boolean[] checkedList){
+    public String getSuggestionList(ArrayList<Boolean> checkedList){
             component = new SuggestionsComponent(item);
             
-            if(checkedList[0] == true) {
+            if(checkedList.get((0)) == true) {
                 decorator = new LowCalorieDecorator(component);
                 decorator.filter();
             }
-            if(checkedList[1] == true){ 
+            if(checkedList.get(1) == true){ 
                 decorator = new HighProteinDecorator(component);
                 decorator.filter();
             }
-            if(checkedList[2] == true){  
+            if(checkedList.get(2) == true){  
                 decorator = new LowSugarsDecorator(component);
                 decorator.filter();
             }
-            if(checkedList[0] == false && checkedList[1] == false && checkedList[2] == false) {
+            if(checkedList.get(0) == false && checkedList.get(1) == false && checkedList.get(2) == false) {
                 return null; 
             }
             return component.getSuggestionString();  
