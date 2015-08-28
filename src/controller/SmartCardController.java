@@ -53,5 +53,9 @@ public class SmartCardController {
         return balance;
     }
     
+    public double reload(int cardNumber, double amount){
+        return smartCard.reload(cardNumber,amount);
+    }
+    
 }
 

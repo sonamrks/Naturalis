@@ -77,18 +77,25 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         cashRadioButton = new javax.swing.JRadioButton();
         cardRadioButton = new javax.swing.JRadioButton();
         buyCardPanel = new javax.swing.JPanel();
-        buyCardLabel = new javax.swing.JLabel();
-        dollar10Button = new javax.swing.JButton();
-        dollar20Button = new javax.swing.JButton();
-        dollar50Button = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        nameTextField = new javax.swing.JTextField();
+        amoutTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        cartNumber1TextField = new javax.swing.JTextField();
+        reloadButton = new javax.swing.JButton();
         insertCardPanel = new javax.swing.JPanel();
         payCardButton = new javax.swing.JButton();
         insertCardMessageTextField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         cardNumberTextField = new javax.swing.JTextField();
+        buyCardPanel1 = new javax.swing.JPanel();
+        buyCardLabel1 = new javax.swing.JLabel();
+        dollar10Button1 = new javax.swing.JButton();
+        dollar20Button1 = new javax.swing.JButton();
+        dollar50Button1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        nameTextField1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         insertCoinLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/insertCoin.jpg"))); // NOI18N
 
@@ -247,77 +254,61 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
                 .addComponent(insertCoinPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        buyCardLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card.jpg"))); // NOI18N
-
-        dollar10Button.setText("$10");
-        dollar10Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dollar10ButtonActionPerformed(evt);
-            }
-        });
-
-        dollar20Button.setText("$20");
-        dollar20Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dollar20ButtonActionPerformed(evt);
-            }
-        });
-
-        dollar50Button.setText("$50");
-        dollar50Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dollar50ButtonActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("Buy SmartCal Card");
+        jLabel4.setText("Reload Smart Card");
 
-        jLabel5.setText("Enter your name :");
+        jLabel5.setText("Enter your card number:");
+
+        jLabel9.setText("Enter amout to reload :");
+
+        reloadButton.setText("Reload");
+        reloadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reloadButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout buyCardPanelLayout = new javax.swing.GroupLayout(buyCardPanel);
         buyCardPanel.setLayout(buyCardPanelLayout);
         buyCardPanelLayout.setHorizontalGroup(
             buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buyCardPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(buyCardPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameTextField))
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel4))
                     .addGroup(buyCardPanelLayout.createSequentialGroup()
-                        .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(buyCardPanelLayout.createSequentialGroup()
-                                .addComponent(buyCardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dollar50Button)
-                                    .addComponent(dollar20Button)
-                                    .addComponent(dollar10Button)))
-                            .addGroup(buyCardPanelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)))
-                        .addGap(0, 10, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cartNumber1TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(buyCardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(amoutTextField)
+                .addGap(21, 21, 21))
+            .addGroup(buyCardPanelLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(reloadButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         buyCardPanelLayout.setVerticalGroup(
             buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buyCardPanelLayout.createSequentialGroup()
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
+                .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cartNumber1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(buyCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buyCardLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buyCardPanelLayout.createSequentialGroup()
-                        .addComponent(dollar10Button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dollar20Button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dollar50Button))))
+                    .addComponent(amoutTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(reloadButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         payCardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/insertCard.png"))); // NOI18N
@@ -372,6 +363,79 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        buyCardLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/card.jpg"))); // NOI18N
+
+        dollar10Button1.setText("$10");
+        dollar10Button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dollar10Button1ActionPerformed(evt);
+            }
+        });
+
+        dollar20Button1.setText("$20");
+        dollar20Button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dollar20Button1ActionPerformed(evt);
+            }
+        });
+
+        dollar50Button1.setText("$50");
+        dollar50Button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dollar50Button1ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setText("Buy SmartCal Card");
+
+        jLabel7.setText("Enter your name :");
+
+        javax.swing.GroupLayout buyCardPanel1Layout = new javax.swing.GroupLayout(buyCardPanel1);
+        buyCardPanel1.setLayout(buyCardPanel1Layout);
+        buyCardPanel1Layout.setHorizontalGroup(
+            buyCardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buyCardPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(buyCardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buyCardPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameTextField1))
+                    .addGroup(buyCardPanel1Layout.createSequentialGroup()
+                        .addGroup(buyCardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(buyCardPanel1Layout.createSequentialGroup()
+                                .addComponent(buyCardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(buyCardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dollar50Button1)
+                                    .addComponent(dollar20Button1)
+                                    .addComponent(dollar10Button1)))
+                            .addGroup(buyCardPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)))
+                        .addGap(0, 10, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        buyCardPanel1Layout.setVerticalGroup(
+            buyCardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buyCardPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addGroup(buyCardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(buyCardPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buyCardLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buyCardPanel1Layout.createSequentialGroup()
+                        .addComponent(dollar10Button1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dollar20Button1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dollar50Button1))))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -379,11 +443,13 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buyCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(paymentPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(insertCardPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(insertCardPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buyCardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buyCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -393,8 +459,10 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(insertCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buyCardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(buyCardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buyCardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -538,54 +606,44 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         }
     }//GEN-LAST:event_cent10ButtonActionPerformed
 
-    private void dollar10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar10ButtonActionPerformed
+    private void dollar10Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar10Button1ActionPerformed
         // TODO add your handling code here:
-        String name = nameTextField.getText();
-        if(name.equals(""))
-            JOptionPane.showMessageDialog(paymentPanel,"Please enter a name");
+    }//GEN-LAST:event_dollar10Button1ActionPerformed
 
-        Integer cardNumber = smartCardController.addNewCard(name, 10);
-         System.out.println(cardNumber);
-         
-        JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your current balance is $10");
-        nameTextField.setText("");
-
-    }//GEN-LAST:event_dollar10ButtonActionPerformed
-
-    private void dollar20ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar20ButtonActionPerformed
+    private void dollar20Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar20Button1ActionPerformed
         // TODO add your handling code here:
-        String name = nameTextField.getText();
-         if(name.equals(""))
-            JOptionPane.showMessageDialog(paymentPanel,"Please enter a name");
-        Integer cardNumber = smartCardController.addNewCard(name, 20);
-        JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your current balance is $20");
-        nameTextField.setText("");
-    }//GEN-LAST:event_dollar20ButtonActionPerformed
+    }//GEN-LAST:event_dollar20Button1ActionPerformed
 
-    private void dollar50ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar50ButtonActionPerformed
+    private void dollar50Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dollar50Button1ActionPerformed
         // TODO add your handling code here:
-        String name = nameTextField.getText();
-         if(name.equals(""))
-            JOptionPane.showMessageDialog(paymentPanel,"Please enter a name");
-        Integer cardNumber = smartCardController.addNewCard(name, 50);
-        JOptionPane.showMessageDialog(paymentPanel,"Your card number is "+cardNumber+". Your current balance is $50");
-    }//GEN-LAST:event_dollar50ButtonActionPerformed
+    }//GEN-LAST:event_dollar50Button1ActionPerformed
+
+    private void reloadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reloadButtonActionPerformed
+        // TODO add your handling code here:
+        int cardNumber = Integer.valueOf(cartNumber1TextField.getText());
+        double amount = Integer.valueOf(amoutTextField.getText());
+        double balance = smartCardController.reload(cardNumber,amount);
+        JOptionPane.showMessageDialog(paymentPanel,"Your card has been reloaded. Your balance now is "+balance);
+    }//GEN-LAST:event_reloadButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel amoutPanel;
-    private javax.swing.JLabel buyCardLabel;
+    private javax.swing.JTextField amoutTextField;
+    private javax.swing.JLabel buyCardLabel1;
     private javax.swing.JPanel buyCardPanel;
+    private javax.swing.JPanel buyCardPanel1;
     private javax.swing.JTextField cardNumberTextField;
     private javax.swing.JRadioButton cardRadioButton;
+    private javax.swing.JTextField cartNumber1TextField;
     private javax.swing.JRadioButton cashRadioButton;
     private javax.swing.JButton cent10Button;
     private javax.swing.JButton cent25Button;
     private javax.swing.JButton cent50Button;
-    private javax.swing.JButton dollar10Button;
+    private javax.swing.JButton dollar10Button1;
     private javax.swing.JButton dollar1Button;
-    private javax.swing.JButton dollar20Button;
-    private javax.swing.JButton dollar50Button;
+    private javax.swing.JButton dollar20Button1;
+    private javax.swing.JButton dollar50Button1;
     private javax.swing.JButton dollar5Button;
     private javax.swing.JTextField insertCardMessageTextField;
     private javax.swing.JPanel insertCardPanel;
@@ -594,12 +652,16 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
     private javax.swing.JLabel insertNoteLabel;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField nameTextField;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField nameTextField1;
     private javax.swing.JButton payCardButton;
     private javax.swing.ButtonGroup paymentButtonGroup;
     private javax.swing.JPanel paymentPanel;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JFormattedTextField priceTextField;
+    private javax.swing.JButton reloadButton;
     // End of variables declaration//GEN-END:variables
 }

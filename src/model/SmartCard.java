@@ -22,6 +22,7 @@ public class SmartCard {
     DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
     Connection connection = dbConnection.getConnection();
     PreparedStatement statement;
+    ResultSet result;
   
     public SmartCard() {
     }
@@ -123,4 +124,30 @@ public class SmartCard {
     public void deleteCard(int num) {
         
     }
+    public double reload(int cardNumber, double amount){
+        double balance=0;
+        try {
+            String getBalance = "SELECT balance from card where number=?";
+            PreparedStatement statement = connection.prepareStatement(getBalance);
+            statement.setInt(1,cardNumber);
+            result = statement.executeQuery();
+            
+            while(result.next()){
+                balance = result.getDouble("balance");
+            }
+            System.out.println(balance);
+            balance = balance+amount;
+            
+            String updateBalance = "UPDATE card SET balance=? where number=?";
+            statement = connection.prepareStatement(updateBalance);
+            statement.setDouble(1,balance);
+            statement.setInt(2,cardNumber);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return balance;
+    }
+    
+    
 }
