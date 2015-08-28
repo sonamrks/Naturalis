@@ -41,7 +41,7 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
     private SnackPanel snackPanel;
     private Timer timer;
     private int index=0;
-    private Boolean[] checkedList = new Boolean[3];
+    private ArrayList<Boolean> checkedList;
     
     /**
      * Creates new form CustomerUI
@@ -71,9 +71,10 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
         itemsPanel.add(snackPanel,"Snacks");
 
         itemController.registerACollegue(this);
-        checkedList[0] = false;
-        checkedList[1] = false;
-        checkedList[2] = false;
+        checkedList = new ArrayList<Boolean>();
+        checkedList.add(false);
+        checkedList.add(false);
+        checkedList.add(false);
     }
   
     public Integer getMachineID() { 
@@ -735,30 +736,30 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
 
     private void lowCaloriesCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lowCaloriesCheckBoxItemStateChanged
         if(lowCaloriesCheckBox.isSelected()){
-            checkedList[0] = true;
+            checkedList.set(0,true);
         }
         else{
-            checkedList[0] = false;
+            checkedList.set(0,false);
         }
         suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
     }//GEN-LAST:event_lowCaloriesCheckBoxItemStateChanged
 
     private void highProteinCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_highProteinCheckBoxItemStateChanged
         if(highProteinCheckBox.isSelected()){
-            checkedList[1] = true;
+            checkedList.set(1,true);
         }
         else{
-            checkedList[1] = false;
+            checkedList.set(1,false);
         }
         suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
     }//GEN-LAST:event_highProteinCheckBoxItemStateChanged
 
     private void lowSugarsCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_lowSugarsCheckBoxItemStateChanged
         if(lowSugarsCheckBox.isSelected()){
-            checkedList[2] = true;
+            checkedList.set(2,true);
         }
         else{
-            checkedList[2] = false;
+            checkedList.set(2,false);
         }
         suggestionsTextArea.setText(itemController.getSuggestionList(checkedList));
     }//GEN-LAST:event_lowSugarsCheckBoxItemStateChanged
