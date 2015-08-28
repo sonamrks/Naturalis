@@ -20,34 +20,42 @@ public class DatabaseConnection {
     private static final String PASS = "sonam123";
     private static DatabaseConnection dbConnectionInstance = new DatabaseConnection();
     private static Connection connection;
-/*
-public static DatabaseConnection getDatabaseConnectionInstance(){
-    dbConnectionInstance = new DatabaseConnection();
-    return dbConnectionInstance;
-} */
 
-public static DatabaseConnection getDatabaseConnectionInstance(){
-    return dbConnectionInstance;
-}
+    public static DatabaseConnection getDatabaseConnectionInstance(){
+        return dbConnectionInstance;
+    }
 
-public Connection getConnection(){
-    return connection;
-} 
+    public Connection getConnection(){
+        return connection;
+    } 
 
-private DatabaseConnection() {
-   try{
-
-       Class.forName("com.mysql.jdbc.Driver");
-       System.out.println("Connecting to database");
-       connection = DriverManager.getConnection(DB_URL,USER,PASS);
-   }
-   catch(SQLException se){
-       System.out.println("JDBC errors");
-       se.printStackTrace();
-   }catch(Exception err){
-       System.out.println("Errors in Class.forName");
-       err.printStackTrace();
-  }
-  
-}	
+    private DatabaseConnection() {
+       try{
+           Class.forName("com.mysql.jdbc.Driver");
+           System.out.println("Connecting to database");
+           connection = DriverManager.getConnection(DB_URL,USER,PASS);
+       }
+       catch(SQLException se){
+           System.out.println("JDBC errors");
+           se.printStackTrace();
+       }catch(Exception err){
+           System.out.println("Errors in Class.forName");
+           err.printStackTrace();
+       } 
+    }	
+    
+    public void closeConnection() {
+        try{
+           Class.forName("com.mysql.jdbc.Driver");
+           System.out.println("Closing the database connection");
+           connection.close();
+        }
+        catch(SQLException se){
+           System.out.println("JDBC errors");
+           se.printStackTrace();
+        }catch(Exception err){
+           System.out.println("Errors in Class.forName");
+           err.printStackTrace();
+        } 
+    }
 }

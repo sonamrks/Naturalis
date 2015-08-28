@@ -12,10 +12,7 @@ package controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import model.DatabaseConnection;
 import model.Product;
@@ -109,7 +106,6 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     @Override
     public Iterator createIterator() {
       return new CartIterator(this);
-     //   return null;
     }
          
     public double getTotalPrice() {
@@ -133,13 +129,11 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
   
     @Override
     public int getColumnCount() {
-    // TODO Auto-generated method stub
 	return numcols;
     }
 
     @Override
     public int getRowCount() {
-	// TODO Auto-generated method stub
 	return numrows;
     }
     

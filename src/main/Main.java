@@ -7,7 +7,9 @@ package main;
 
 import controller.ItemController;
 import java.awt.CardLayout;
+import java.sql.Connection;
 import javax.swing.JPanel;
+import model.DatabaseConnection;
 import view.MachineBuilder;
 import view.MachineManagerPanel;
 import view.NavigationPanel;
@@ -51,6 +53,11 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,6 +72,10 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        DatabaseConnection.getDatabaseConnectionInstance().closeConnection();
+    }//GEN-LAST:event_formWindowClosing
     
     static public JPanel getCards() {
         return cards;
