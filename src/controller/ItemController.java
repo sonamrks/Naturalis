@@ -26,13 +26,13 @@ public class ItemController implements Mediator {
     private Decorator decorator;
     private ArrayList <Collegue> collegues;
     
-    private int[] nutritionalCount = new int[100];
-    private int[] lowCalCount = new int[100];
-    private String[] lowCalNames = new String[100];
-    private int[] highProteinCount = new int[100];
-    private String[] highProteinNames = new String[100];
-    private int[] lowSugarsCount = new int[100];
-    private String[] lowSugarsNames = new String[100];
+    private ArrayList<Integer> nutritionalCount = new ArrayList<Integer>();
+    private ArrayList<Integer> lowCalCount = new ArrayList<Integer>();
+    private ArrayList<String> lowCalNames = new ArrayList<String>();
+    private ArrayList<Integer> highProteinCount = new ArrayList<Integer>();
+    private ArrayList<String> highProteinNames = new ArrayList<String>();
+    private ArrayList<Integer> lowSugarsCount = new ArrayList<Integer>();
+    private ArrayList<String> lowSugarsNames = new ArrayList<String>();
     
     protected ItemController() {
        item = new Item();
@@ -115,12 +115,11 @@ public class ItemController implements Mediator {
         return item.getCategorySoldCount(category,machineID);
     }
     
-    public ArrayList<Integer> getItemSoldCount(String machine){
-        ArrayList<Integer> soldCount =  new ArrayList<Integer>();
-        soldCount =  item.getItemSoldCount(machine);
-        return soldCount;
+    public ArrayList<Integer> getItemSoldCount(Integer machine){
+        return item.getItemSoldCount(machine);
     }
-    public int[] getNutritionalItemSoldCount(String machine){
+    
+    public ArrayList<Integer> getNutritionalItemSoldCount(Integer machine){
         
         nutritionalCount = item.getNutritionalItemSoldCount(machine);
         
@@ -134,27 +133,27 @@ public class ItemController implements Mediator {
         return nutritionalCount;
     }
     
-    public int[] getLowCalCount() {
+    public ArrayList<Integer> getLowCalCount() {
         return lowCalCount;
     }
 
-    public String[] getLowCalNames() {
+    public ArrayList<String> getLowCalNames() {
         return lowCalNames;
     }
 
-    public int[] getHighProteinCount() {
+    public ArrayList<Integer> getHighProteinCount() {
         return highProteinCount;
     }
 
-    public String[] getHighProteinNames() {
+    public ArrayList<String> getHighProteinNames() {
         return highProteinNames;
     }
 
-    public int[] getLowSugarsCount() {
+    public ArrayList<Integer> getLowSugarsCount() {
         return lowSugarsCount;
     }
 
-    public String[] getLowSugarsNames() {
+    public ArrayList<String> getLowSugarsNames() {
         return lowSugarsNames;
     }
        
@@ -187,9 +186,8 @@ public class ItemController implements Mediator {
         return item.collectMoney(machineID);
     }
   
-    public int[] getInfo(String ID){
-        int[] nutritionalFacts = item.getInfo(Integer.valueOf(ID));
-        return nutritionalFacts;
+    public ArrayList<Integer> getInfo(String ID){
+        return item.getInfo(Integer.valueOf(ID));
     }
      
     public void decreaseItemCount(Integer code, Integer machineID){

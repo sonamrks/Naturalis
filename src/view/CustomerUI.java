@@ -13,6 +13,7 @@ import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -707,11 +708,11 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
 
     private void getInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getInfoButtonActionPerformed
         // TODO add your handling code here:
-        int[] nutritionalFacts = itemController.getInfo(itemCodeTextField.getText());
-        proteinTextField.setText(Integer.toString(nutritionalFacts[0]));
-        sugarsTextField.setText(Integer.toString(nutritionalFacts[1]));
-        carbohydratesTextField.setText(Integer.toString(nutritionalFacts[2]));
-        caloriesTextField.setText(Integer.toString(nutritionalFacts[3]));
+        ArrayList<Integer> nutritionalFacts = itemController.getInfo(itemCodeTextField.getText());
+        proteinTextField.setText(Integer.toString(nutritionalFacts.get(0)));
+        sugarsTextField.setText(Integer.toString(nutritionalFacts.get(1)));
+        carbohydratesTextField.setText(Integer.toString(nutritionalFacts.get(2)));
+        caloriesTextField.setText(Integer.toString(nutritionalFacts.get(3)));
 
         proteinTextField.setEditable(false);
         sugarsTextField.setEditable(false);

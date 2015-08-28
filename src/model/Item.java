@@ -20,26 +20,25 @@ import model.DatabaseConnection;
  */
 public class Item {
     
-    ArrayList<Integer> codeList;
-    ArrayList<String> nameList;
-    ArrayList<Double> priceList;
-    ArrayList<Integer> proteinList;
-    ArrayList<Integer> sugarsList;
-    ArrayList<Integer> carbohydratesList;
-    ArrayList<Integer> caloriesList;
-    ArrayList<Integer> countList;
-    ArrayList<String> picturePathList;
-    ArrayList<Integer> soldCountList;
+    private ArrayList<Integer> codeList;
+    private ArrayList<String> nameList;
+    private ArrayList<Double> priceList;
+    private ArrayList<Integer> proteinList;
+    private ArrayList<Integer> sugarsList;
+    private ArrayList<Integer> carbohydratesList;
+    private ArrayList<Integer> caloriesList;
+    private ArrayList<Integer> countList;
+    private ArrayList<String> picturePathList;
+    private ArrayList<Integer> soldCountList;
     
-    private String getSoldCount;
-    private int[] soldCount = new int[100];
-    private int machineId;
-    private int[] lowCalCount = new int[100];
-    private int[] highProteinCount = new int[100];
-    private int[] lowSugarsCount = new int[100];
-    private String[] lowCalNames = new String[100];
-    private String[] highProteinNames = new String[100];
-    private String[] lowSugarsNames = new String[100];
+    private ArrayList<Integer> soldCount;
+    private ArrayList<Integer> lowCalCount;
+    private ArrayList<Integer> highProteinCount;
+    private ArrayList<Integer> lowSugarsCount;
+    private ArrayList<String> lowCalNames;
+    private ArrayList<String> highProteinNames;
+    private ArrayList<String> lowSugarsNames;
+    private ArrayList<Integer> nutritionalFacts;
     private double sales;
     
     DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
@@ -59,22 +58,29 @@ public class Item {
         countList = new ArrayList<Integer>();
         picturePathList = new ArrayList<String>();
         soldCountList = new ArrayList<Integer>();
+        soldCount = new ArrayList<Integer>();
+        lowCalCount = new ArrayList<Integer>();
+        highProteinCount = new ArrayList<Integer>();
+        lowSugarsCount = new ArrayList<Integer>();
+        lowCalNames = new ArrayList<String>();
+        highProteinNames = new ArrayList<String>();
+        lowSugarsNames = new ArrayList<String>();
+        nutritionalFacts = new ArrayList<Integer>();
     }    
      
-    public void generateItemInfo(Integer machineId) {
+    public void generateItemInfo(Integer machineID) {
         codeList = new ArrayList<Integer>();
         nameList = new ArrayList<String>();
         proteinList = new ArrayList<Integer>();
         sugarsList= new ArrayList<Integer>();
         caloriesList = new ArrayList<Integer>();
-        
-        this.machineId = machineId;
+
         try {
             String getInfo;
             getInfo = "SELECT code,name,protein,sugars,calories FROM item where machineID = ?";
-            PreparedStatement statement = connection.prepareStatement(getInfo);
-            statement.setInt(1, machineId);
-            ResultSet result = statement.executeQuery();
+            statement = connection.prepareStatement(getInfo);
+            statement.setInt(1, machineID);
+            result = statement.executeQuery();
             
             while(result.next())
             {
@@ -129,10 +135,10 @@ public class Item {
         
         try {         
             String getInfo = "SELECT code, price, count, picturePath FROM item where category=? and machineID =?";
-            PreparedStatement statement = connection.prepareStatement(getInfo);
+            statement = connection.prepareStatement(getInfo);
             statement.setString(1, category);
             statement.setInt(2, machineID);
-            ResultSet result = statement.executeQuery();
+            result = statement.executeQuery();
             
             while(result.next()){
                 codeList.add(result.getInt("code"));
@@ -166,9 +172,9 @@ public class Item {
         int soldCount=0;
         try {
             String getBeverageSold = "SELECT soldCount FROM item where category=?";
-            PreparedStatement statement = connection.prepareStatement(getBeverageSold);
+            statement = connection.prepareStatement(getBeverageSold);
             statement.setString(1,category);
-            ResultSet result = statement.executeQuery();
+            result = statement.executeQuery();
             
             while(result.next()){
                 soldCount+= result.getInt("soldCount");
@@ -182,11 +188,11 @@ public class Item {
     public int getCategorySoldCount(String category,Integer machineID){
         int soldCount=0;
         try {
-            getSoldCount = "SELECT soldCount FROM item where category=? and machineID=?";   
-            PreparedStatement statement = connection.prepareStatement(getSoldCount);
+            String getSoldCount = "SELECT soldCount FROM item where category=? and machineID=?";   
+            statement = connection.prepareStatement(getSoldCount);
             statement.setString(1,category);
             statement.setInt(2,machineID);
-            ResultSet result = statement.executeQuery();
+            result = statement.executeQuery();
             
             while(result.next()){
                 soldCount+= result.getInt("soldCount");
@@ -197,31 +203,13 @@ public class Item {
         return soldCount;
     }
     
-    public ArrayList<Integer> getItemSoldCount(String machine){
+    public ArrayList<Integer> getItemSoldCount(Integer machine){
         ArrayList<Integer> machine1List = new ArrayList<Integer>();
         ArrayList<Integer> machine2List = new ArrayList<Integer>();
-        
-        int sale=0;
+        String getSoldCount;
         
         try {
-            if(machine.equals("machine1")){
-                getSoldCount = "SELECT soldCount FROM item where machineID=4201";
-                statement = connection.prepareStatement(getSoldCount);
-                result = statement.executeQuery();
-                while(result.next()){
-                    soldCountList.add(result.getInt("soldCount"));
-                }
-            }
-                
-            else if(machine.equals("machine2")){
-                getSoldCount = "SELECT soldCount FROM item where machineID=4202";
-                statement = connection.prepareStatement(getSoldCount);
-                result = statement.executeQuery();
-                while(result.next()){
-                    soldCountList.add(result.getInt("soldCount"));
-                }
-            }
-            else{
+            if(machine == 0 ){
                 getSoldCount = "SELECT soldCount FROM item where machineID=4201";
                 statement = connection.prepareStatement(getSoldCount);
                 result = statement.executeQuery();
@@ -239,6 +227,15 @@ public class Item {
                     soldCountList.add(machine1List.get(i) + machine2List.get(i));
                     i++;
                 }
+            } 
+            else{
+                getSoldCount = "SELECT soldCount FROM item where machineID=?";
+                statement = connection.prepareStatement(getSoldCount);
+                statement.setInt(1,machine);
+                result = statement.executeQuery();
+                while(result.next()){
+                    soldCountList.add(result.getInt("soldCount"));
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
@@ -246,67 +243,65 @@ public class Item {
         return soldCountList;
     }
 
-    public int[] getNutritionalItemSoldCount(String machine) {
+    public ArrayList<Integer> getNutritionalItemSoldCount(Integer machine) {
         int sale=0;
         String getHighProteinSold,getLowCaloriesSold,getLowSugarsSold;
         try {
-            if(machine.equals("machine1"))
-                getLowCaloriesSold = "SELECT name,soldCount FROM item where calories<120 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getLowCaloriesSold = "SELECT name,soldCount FROM item where calories<120 and machineID=4202";
-            else
+            if(machine == 0) {
                 getLowCaloriesSold = "SELECT name,soldCount FROM item where calories<120";
-
-            statement = connection.prepareStatement(getLowCaloriesSold);
+                statement = connection.prepareStatement(getLowCaloriesSold);
+            }
+            else {
+                getLowCaloriesSold = "SELECT name,soldCount FROM item where calories<120 and machineID=?";   
+                statement = connection.prepareStatement(getLowCaloriesSold);
+                statement.setInt(1,machine);
+            }
+            
             result = statement.executeQuery();
-            int i=0;
             while(result.next()){
                 sale+= result.getInt("soldCount");
-                soldCount[0]=sale;
-                lowCalCount[i]=result.getInt("soldCount");
-                lowCalNames[i]=result.getString("name");
-                //System.out.println(lowCalNames[i]);
-                i++;
+                soldCount.add(sale);
+                lowCalCount.add(result.getInt("soldCount"));
+                lowCalNames.add(result.getString("name"));
             }
             sale = 0;
             
-            if(machine.equals("machine1"))
-                getHighProteinSold = "SELECT name,soldCount FROM item where protein>4 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getHighProteinSold = "SELECT name,soldCount FROM item where protein>4 and machineID=4202";
-            else
+            if(machine == 0) {
                 getHighProteinSold = "SELECT name,soldCount FROM item where protein>4";
-            statement = connection.prepareStatement(getHighProteinSold);
+                statement = connection.prepareStatement(getHighProteinSold);
+            }
+            else {
+                getHighProteinSold = "SELECT name,soldCount FROM item where protein>4 and machineID=?";
+                statement = connection.prepareStatement(getHighProteinSold);
+                statement.setInt(1,machine);
+            }    
             result = statement.executeQuery();
             
-            i = 0;
             while(result.next()){
                 sale+= result.getInt("soldCount");
-                soldCount[1]=sale;
+                soldCount.add(sale);
                 
-                highProteinCount[i]=result.getInt("soldCount");
-                highProteinNames[i]=result.getString("name");
-                i++;
+                highProteinCount.add(result.getInt("soldCount"));
+                highProteinNames.add(result.getString("name"));
             }
             sale = 0;
             
-            if(machine.equals("machine1"))
-                getLowSugarsSold = "SELECT name,soldCount FROM item where sugars<20 and machineID=4201";
-            else if(machine.equals("machine2"))
-                getLowSugarsSold = "SELECT name,soldCount FROM item where sugars<20 and machineID=4202";
-            else
+            if(machine == 0) {
                 getLowSugarsSold = "SELECT name,soldCount FROM item where sugars<20";
-            statement = connection.prepareStatement(getLowSugarsSold);
+                statement = connection.prepareStatement(getLowSugarsSold);
+            }
+            else {
+                getLowSugarsSold = "SELECT name,soldCount FROM item where sugars<20 and machineID=?";
+                statement = connection.prepareStatement(getLowSugarsSold);
+                statement.setInt(1,machine);
+            }    
             result = statement.executeQuery();
             
-            i = 0;
             while(result.next()){
                 sale+= result.getInt("soldCount");
-                soldCount[2]=sale;
-                
-                lowSugarsCount[i]=result.getInt("soldCount");
-                lowSugarsNames[i]=result.getString("name");
-                i++;
+                soldCount.add(sale);               
+                lowSugarsCount.add(result.getInt("soldCount"));
+                lowSugarsNames.add(result.getString("name"));
             }
             sale = 0;
         }
@@ -320,10 +315,10 @@ public class Item {
         String suggestions="";
         try {
             String getSuggestions = "SELECT code,name,protein,sugars,calories FROM item where calories>? and calories<? and machineID=4201";
-            PreparedStatement statement = connection.prepareStatement(getSuggestions);
+            statement = connection.prepareStatement(getSuggestions);
             statement.setInt(1, low);
             statement.setInt(2, high);
-            ResultSet result = statement.executeQuery();
+            result = statement.executeQuery();
             
             while(result.next())
             {
@@ -339,28 +334,26 @@ public class Item {
         }
         return suggestions;
     }
-    public int[] getLowCalCount(){
+    public ArrayList<Integer> getLowCalCount(){
         return lowCalCount;
     }
-    public String[] getLowCalNames(){
+    public ArrayList<String> getLowCalNames(){
         return lowCalNames;
     }
-    public int[] getHighProteinCount(){
+    public ArrayList<Integer> getHighProteinCount(){
         return highProteinCount;
     }
-    public String[] getHighProteinNames(){
+    public ArrayList<String> getHighProteinNames(){
         return highProteinNames;
     }
-    public int[] getLowSugarsCount(){
+    public ArrayList<Integer> getLowSugarsCount(){
         return lowSugarsCount;
     }
-    public String[] getLowSugarsNames(){
+    public ArrayList<String> getLowSugarsNames(){
         return lowSugarsNames;
     }
     public void addNewItem(String[] itemInfo){
         try {
-            DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
-    Connection connection = dbConnection.getConnection();
             String getInfo;
             getInfo = "INSERT into item VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
             statement = connection.prepareStatement(getInfo);
@@ -386,8 +379,6 @@ public class Item {
     
     public void addNewMachine(Integer machineID ){
         try {
-            DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
-    Connection connection = dbConnection.getConnection();
             String getInfo;
             getInfo = "CREATE TEMPORARY TABLE tmp SELECT * FROM item where machineID = 4201";
             statement = connection.prepareStatement(getInfo);
@@ -410,8 +401,6 @@ public class Item {
     public ArrayList<Integer> getMachines() {
         ArrayList<Integer> machineIDs = new ArrayList<Integer>();
         try {
-            DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
-            Connection connection = dbConnection.getConnection();
             String getInfo;
             getInfo = "SELECT DISTINCT(machineID) FROM item";
             statement = connection.prepareStatement(getInfo);
@@ -443,26 +432,20 @@ public class Item {
         }
         return totalSales;
     }
-
-    int[] nutritionalFacts;
     
-    public int[] getInfo(Integer ID) {
-        nutritionalFacts = new int[4];
-        try {
-          
-            DatabaseConnection dbConnection = DatabaseConnection.getDatabaseConnectionInstance();
-            Connection connection = dbConnection.getConnection();
+    public ArrayList<Integer> getInfo(Integer ID) {
+        try {         
             String getName = "SELECT protein,sugars,carbohydrates,calories FROM item WHERE code=?";
 
-            PreparedStatement statement = connection.prepareStatement(getName);
+            statement = connection.prepareStatement(getName);
             statement.setInt(1,ID);
-            ResultSet result = statement.executeQuery();
+            result = statement.executeQuery();
 
             while(result.next()){
-               nutritionalFacts[0] = result.getInt("protein");
-               nutritionalFacts[1] = result.getInt("sugars");
-               nutritionalFacts[2] = result.getInt("carbohydrates");
-               nutritionalFacts[3] = result.getInt("calories");
+               nutritionalFacts.add(result.getInt("protein"));
+               nutritionalFacts.add(result.getInt("sugars"));
+               nutritionalFacts.add(result.getInt("carbohydrates"));
+               nutritionalFacts.add(result.getInt("calories"));
             }
         }catch(Exception err){
             System.out.println(err.getMessage());

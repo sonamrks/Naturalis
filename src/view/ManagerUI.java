@@ -2314,11 +2314,11 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         }
         ArrayList<Integer> itemsSoldCount = new ArrayList<Integer>();
         if(machine1RadioButton.isSelected())
-            itemsSoldCount = itemController.getItemSoldCount("machine1");
+            itemsSoldCount = itemController.getItemSoldCount(4201);
         else if(machine1RadioButton.isSelected())
-            itemsSoldCount = itemController.getItemSoldCount("machine2");
+            itemsSoldCount = itemController.getItemSoldCount(4202);
         else
-           itemsSoldCount = itemController.getItemSoldCount("allMachines"); 
+           itemsSoldCount = itemController.getItemSoldCount(0); 
         
         BarChart barChart = new BarChart();
         barChart.itemSoldBarChart("Bar Chart","Items Sold Comparison",itemsSoldCount);
@@ -2333,11 +2333,11 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         }
         ArrayList<Integer> itemsSoldCount = new ArrayList<Integer>();
         if(machine1RadioButton.isSelected())
-            itemsSoldCount = itemController.getItemSoldCount("machine1");
+            itemsSoldCount = itemController.getItemSoldCount(4201);
         else if(machine1RadioButton.isSelected())
-            itemsSoldCount = itemController.getItemSoldCount("machine2");
+            itemsSoldCount = itemController.getItemSoldCount(4202);
         else
-           itemsSoldCount = itemController.getItemSoldCount("allMachines");
+           itemsSoldCount = itemController.getItemSoldCount(0);
          
         PieChart pieChart = new PieChart();
         pieChart.itemSoldPieChart("Pie Chart","Items Sold Comparison",itemsSoldCount);
@@ -2350,13 +2350,13 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         if(machine1RadioButton.isSelected()==false && machine2RadioButton.isSelected()==false && allMachinesRadioButton.isSelected()==false){
              JOptionPane.showMessageDialog(statisticsPanel,"Please select a machine");
         }
-        int[] nutritionalItemsSoldCount = new int[100];
+        ArrayList<Integer> nutritionalItemsSoldCount = new ArrayList<Integer>();
         if(machine1RadioButton.isSelected())
-            nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("machine1");
+            nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount(4201);
         else if(machine2RadioButton.isSelected())
-            nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("machine2");
+            nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount(4202);
         else
-           nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("allMachines"); 
+           nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount(0); 
         
         
         PieChart pieChart = new PieChart();

@@ -2741,7 +2741,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(frappuccinoCountTextField.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(4));
+        itemController.increaseItemCount(beverageCodeList.get(4),machineID);
         frappuccinoCountTextField.setText(Integer.toString(count));
         if(count>2){
             frappuccinoCountTextField.setBackground(Color.white);
@@ -2758,7 +2758,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(orangeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(1));
+        itemController.increaseItemCount(beverageCodeList.get(1),machineID);
         if(count>2){
             orangeCountTextField.setBackground(Color.white);
             orangeCountTextField.setForeground(Color.black);
@@ -2775,7 +2775,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(lemonadeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(2));
+        itemController.increaseItemCount(beverageCodeList.get(2),machineID);
         lemonadeCountTextField.setText(Integer.toString(count));
         if(count>2){
             lemonadeCountTextField.setBackground(Color.white);
@@ -2792,7 +2792,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(gatoradeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(3));
+        itemController.increaseItemCount(beverageCodeList.get(3),machineID);
         gatoradeCountTextField.setText(Integer.toString(count));
         if(count>2){
             gatoradeCountTextField.setBackground(Color.white);
@@ -2809,7 +2809,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(coconutWaterCountTextField.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(5));
+        itemController.increaseItemCount(beverageCodeList.get(5),machineID);
         System.out.println(count);
         coconutWaterCountTextField.setText(Integer.toString(count));
         if(count>2){
@@ -2827,7 +2827,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(sparklingWaterCountTextField.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(6));
+        itemController.increaseItemCount(beverageCodeList.get(6),machineID);
         sparklingWaterCountTextField.setText(Integer.toString(count));
         if(count>2){
             sparklingWaterCountTextField.setBackground(Color.white);
@@ -2844,7 +2844,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(cokeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(0));
+        itemController.increaseItemCount(beverageCodeList.get(0),machineID);
         if(count>2){
             cokeCountTextField.setBackground(Color.white);
             cokeCountTextField.setForeground(Color.black);
@@ -2861,7 +2861,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(proteinSmoothieCountTextField.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(7));
+        itemController.increaseItemCount(beverageCodeList.get(7),machineID);
         proteinSmoothieCountTextField.setText(Integer.toString(count));
         if(count>2){
             proteinSmoothieCountTextField.setBackground(Color.white);
@@ -2878,7 +2878,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(granolaCountTextField.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(0));
+        itemController.increaseItemCount(snackCodeList.get(0),machineID);
         granolaCountTextField.setText(Integer.toString(count));
         if(count>2){
             granolaCountTextField.setBackground(Color.white);
@@ -2895,7 +2895,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(proteinShakeCountTextField.getText());
         count++;
-        itemController.increaseItemCount(beverageCodeList.get(8));
+        itemController.increaseItemCount(beverageCodeList.get(8),machineID);
         proteinShakeCountTextField.setText(Integer.toString(count));
         if(count>2){
             proteinShakeCountTextField.setBackground(Color.white);
@@ -2912,7 +2912,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(chipsCountTextField.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(1));
+        itemController.increaseItemCount(snackCodeList.get(1),machineID);
         chipsCountTextField.setText(Integer.toString(count));
         if(count>2){
             chipsCountTextField.setBackground(Color.white);
@@ -2929,7 +2929,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(nutsCountTextField.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(2));
+        itemController.increaseItemCount(snackCodeList.get(2),machineID);
         nutsCountTextField.setText(Integer.toString(count));
         if(count>2){
             nutsCountTextField.setBackground(Color.white);
@@ -2946,7 +2946,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(cookieCountTextField.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(3));
+        itemController.increaseItemCount(snackCodeList.get(3),machineID);
         if(count>2){
             cookieCountTextField.setBackground(Color.white);
             cookieCountTextField.setForeground(Color.black);
@@ -2963,7 +2963,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(driedFruitsCountTextField.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(4));
+        itemController.increaseItemCount(snackCodeList.get(4),machineID);
         if(count>2){
             driedFruitsCountTextField.setBackground(Color.white);
             driedFruitsCountTextField.setForeground(Color.black);
@@ -2980,7 +2980,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(popcornCountTextField.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(5));
+        itemController.increaseItemCount(snackCodeList.get(5),machineID);
         popcornCountTextField.setText(Integer.toString(count));
         if(count>2){
             popcornCountTextField.setBackground(Color.white);
@@ -2997,7 +2997,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(crackersCountTextField.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(6));
+        itemController.increaseItemCount(snackCodeList.get(6),machineID);
         crackersCountTextField.setText(Integer.toString(count));
         if(count>2){
             crackersCountTextField.setBackground(Color.white);
@@ -3014,7 +3014,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(veggieStrawsCountTextField.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(7));
+        itemController.increaseItemCount(snackCodeList.get(7),machineID);
         veggieStrawsCountTextField.setText(Integer.toString(count));
         if(count>2){
             veggieStrawsCountTextField.setBackground(Color.white);
@@ -3031,7 +3031,7 @@ public class AdminManagerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int count = Integer.valueOf(greekYogurtCountTextField.getText());
         count++;
-        itemController.increaseItemCount(snackCodeList.get(8));
+        itemController.increaseItemCount(snackCodeList.get(8),machineID);
         greekYogurtCountTextField.setText(Integer.toString(count));
         if(count>2){
             greekYogurtCountTextField.setBackground(Color.white);

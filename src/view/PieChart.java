@@ -108,11 +108,11 @@ public class PieChart extends JFrame {
     }
     
 
-    void nutritionalItemsSoldPieChart(String pie_Chart, String chartTitle, int[] nutritionalItemsSoldCount,int[] lowCalCount, String[] lowCalNames,int[] highProteinCount, String[] highProteinNames,int[] lowSugarsCount, String[] lowSugarsNames) {
+    void nutritionalItemsSoldPieChart(String pie_Chart, String chartTitle, ArrayList<Integer> nutritionalItemsSoldCount,ArrayList<Integer> lowCalCount, ArrayList<String> lowCalNames,ArrayList<Integer> highProteinCount, ArrayList<String> highProteinNames,ArrayList<Integer> lowSugarsCount, ArrayList<String> lowSugarsNames) {
        DefaultPieDataset itemsDataset = new DefaultPieDataset();
-        itemsDataset.setValue("Low Calories", nutritionalItemsSoldCount[0]);
-        itemsDataset.setValue("High Protein", nutritionalItemsSoldCount[1]);
-        itemsDataset.setValue("Low Sugars", nutritionalItemsSoldCount[2]);
+        itemsDataset.setValue("Low Calories", nutritionalItemsSoldCount.get(0));
+        itemsDataset.setValue("High Protein", nutritionalItemsSoldCount.get(1));
+        itemsDataset.setValue("Low Sugars", nutritionalItemsSoldCount.get(2));
         
         JFreeChart itemsChart = ChartFactory.createPieChart3D(chartTitle, itemsDataset, true, true, false);
         PiePlot3D plot = (PiePlot3D)itemsChart.getPlot(); 
@@ -123,8 +123,8 @@ public class PieChart extends JFrame {
       
         DefaultCategoryDataset lowCaloriesItemsDataset = new DefaultCategoryDataset();
 
-        for(int i=0 ;lowCalCount[i]!=0; i++){
-            lowCaloriesItemsDataset.setValue(lowCalCount[i],"Count sold", lowCalNames[i]);
+        for(int i=0 ;i<lowCalCount.size(); i++){
+            lowCaloriesItemsDataset.setValue(lowCalCount.get(i),"Count sold", lowCalNames.get(i));
         }
         
         JFreeChart lowCaloriesItemschart = ChartFactory.createBarChart3D("Low Calories", "Category", "Count sold", lowCaloriesItemsDataset, PlotOrientation.VERTICAL, true, true, false);
@@ -132,8 +132,8 @@ public class PieChart extends JFrame {
         lowCalPlot.setRangeGridlinePaint(Color.black);
         
         DefaultCategoryDataset highProteinItemsDataset = new DefaultCategoryDataset();
-        for(int i=0; highProteinCount[i]!=0; i++){
-            highProteinItemsDataset.setValue(highProteinCount[i],"Count sold", highProteinNames[i]);
+        for(int i=0; i<highProteinCount.size(); i++){
+            highProteinItemsDataset.setValue(highProteinCount.get(i),"Count sold", highProteinNames.get(i));
         }
         
         JFreeChart highProteinItemschart = ChartFactory.createBarChart3D("High Protein", "Category", "Count sold", highProteinItemsDataset, PlotOrientation.VERTICAL, true, true, false);
@@ -141,8 +141,8 @@ public class PieChart extends JFrame {
         highProteinPlot.setRangeGridlinePaint(Color.black);
         
         DefaultCategoryDataset lowSugarsItemsDataset = new DefaultCategoryDataset();
-        for(int i=0; lowSugarsCount[i]!=0; i++){
-            lowSugarsItemsDataset.setValue(lowSugarsCount[i],"Count sold", lowSugarsNames[i]);
+        for(int i=0; i<lowSugarsCount.size(); i++){
+            lowSugarsItemsDataset.setValue(lowSugarsCount.get(i),"Count sold", lowSugarsNames.get(i));
         }
         
         JFreeChart lowSugarsItemschart = ChartFactory.createBarChart3D("Low Sugars", "Category", "Count sold", lowSugarsItemsDataset, PlotOrientation.VERTICAL, true, true, false);
