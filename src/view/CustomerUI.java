@@ -16,10 +16,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.Timer;
 
 /**
@@ -76,11 +73,7 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
         checkedList.add(false);
         checkedList.add(false);
     }
-  
-    public Integer getMachineID() { 
-        return machineID;
-    }
-        
+    
     public ItemController getItemController() { 
         return itemController;
     }
