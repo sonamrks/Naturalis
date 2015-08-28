@@ -36,11 +36,6 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         insertCardPanel.setVisible(false);
         cartItemsController.attachObserver(this);
     }
-       
- /*   public void updatePrice(double price) {
-        priceTextField.setValue(price);
-    }*/
-        
     @Override
     public void update(){
         priceTextField.setValue(cartItemsController.getTotalPrice());
@@ -581,7 +576,6 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         }
         else{
             priceTextField.setText("0");
-            //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
             customerUI.dispense();
         }
@@ -599,7 +593,6 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         }
         else{
             priceTextField.setText("0");
-            //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
             customerUI.dispense();
         }
@@ -617,7 +610,6 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         }
         else{
             priceTextField.setText("0");
-            //  changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
             customerUI.dispense();
         }
@@ -635,7 +627,6 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         }
         else{
             priceTextField.setText("0");
-            //   changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
             customerUI.dispense();
         }
@@ -654,7 +645,6 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
         }
         else{
             priceTextField.setText("0");
-            //    changeTextField.setText(Double.toString(Math.abs(remainingPrice)));
             customerUI.giveChange(Double.toString(Math.abs(remainingPrice)));
             customerUI.dispense();
         }

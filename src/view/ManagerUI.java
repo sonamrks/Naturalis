@@ -50,7 +50,6 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         itemController.registerACollegue(this);
         userLogController = new UserLogController();
         
-        // Information about price in any machine is the same. Hence can be obtained from any machine.
         itemController.generateCategoryItemInfo(4201, "beverage");
         beverageCodeList = itemController.getCategoryCodeForMachine();
         beveragePriceList = itemController.getCategoryPriceForMachine();
@@ -2329,8 +2328,6 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         
         
         PieChart pieChart = new PieChart();
-        //for(int i=0;i<15;i++)
-            //System.out.println(managerController.lowCalNames[i]);
         pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount,itemController.getLowCalCount(),itemController.getLowCalNames(),itemController.getHighProteinCount(),itemController.getHighProteinNames(),itemController.getLowSugarsCount(),itemController.getLowSugarsNames());
         pieChart.pack();
         pieChart.setVisible(true);
@@ -2449,8 +2446,6 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
         // TODO add your handling code here:
        this.dispose();
        Main.getCardLayout().show(Main.getCards(),"Navigation");
-      // NavigationPanel nav = new NavigationPanel(itemController);
-     //  userLogController.addLogOutEntry(nav.getUserName(),"manager");
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

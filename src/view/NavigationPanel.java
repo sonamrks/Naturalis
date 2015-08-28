@@ -25,7 +25,6 @@ public class NavigationPanel extends javax.swing.JPanel {
     private LoginPanel loginPanel;
     private static String username;
     private String password;
-   // private ItemController itemController;
     private AccessUserController accessUserController;
     private UserLogController userLogController;
     private MultipleLoginAttempts multipleLoginAttempts;
@@ -33,8 +32,7 @@ public class NavigationPanel extends javax.swing.JPanel {
     /**
      * Creates new form NavigationPage
      */
-    public NavigationPanel() {
-     //   this.itemController = itemController;        
+    public NavigationPanel() {     
         initComponents();
         loginPanel = new LoginPanel();
         accessUserController = new AccessUserController();
@@ -155,10 +153,6 @@ public class NavigationPanel extends javax.swing.JPanel {
                 loginPanel.setPassword();
                 userLogController.addLogInEntry(username,"manager");
                 Main.setActivityType(2);
-            /*    Role managerRole = new ManagerRole(itemController);
-                Person person = new Person();
-                person.setRole(managerRole);
-                person.filterView(); */
                 new ManagerUI("M").setVisible(true);
             }
             else {

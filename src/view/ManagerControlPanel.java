@@ -572,8 +572,6 @@ public class ManagerControlPanel extends javax.swing.JPanel {
         nutritionalItemsSoldCount = itemController.getNutritionalItemSoldCount("allMachines");
 
         PieChart pieChart = new PieChart();
-        //for(int i=0;i<15;i++)
-        //System.out.println(managerController.lowCalNames[i]);
         pieChart.nutritionalItemsSoldPieChart("Pie Chart","Items Sold Comparison",nutritionalItemsSoldCount,itemController.getLowCalCount(),itemController.getLowCalNames(),itemController.getHighProteinCount(),itemController.getHighProteinNames(),itemController.getLowSugarsCount(),itemController.getLowSugarsNames());
         pieChart.pack();
         pieChart.setVisible(true);
@@ -625,9 +623,7 @@ public class ManagerControlPanel extends javax.swing.JPanel {
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
         // TODO add your handling code here:
     //    this.dispose();
-       Main.getCardLayout().show(Main.getCards(),"Navigation");        
-     //   NavigationPanel nav = new NavigationPanel();
-     //   userLogController.addLogOutEntry(nav.getUserName(),"manager");
+       Main.getCardLayout().show(Main.getCards(),"Navigation");  
     }//GEN-LAST:event_logOutButtonActionPerformed
 
 
