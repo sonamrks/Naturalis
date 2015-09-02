@@ -20,7 +20,7 @@ public class MachineBuilder {
     public MachineBuilder(MachineManagerPanel machineManager) {
         this.machineManager = machineManager;
         itemController = ItemController.getItemControllerInstance();
-    }
+    }   
     
     public void loadMachines() {
         machineIDs = itemController.getMachines();
@@ -33,6 +33,7 @@ public class MachineBuilder {
         
     public void addNewMachine(Integer id) {
         Machine newMachine = new Machine(id);
+        itemController.addNewMachine(id);
         machineManager.registerMachine(newMachine);
         machineManager.generateMachines();
     }

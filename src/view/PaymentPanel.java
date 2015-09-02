@@ -517,7 +517,7 @@ public class PaymentPanel extends javax.swing.JPanel implements Observer {
     private void cardRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardRadioButtonActionPerformed
         // TODO add your handling code here:
         context = new PaymentContext();
-        context.setPaymentStrategy(new PayCard());
+        context.setPaymentStrategy(new PayCard(smartCardController));
 
         insertCoinPanel.setVisible(false);
         insertCardPanel.setVisible(true);

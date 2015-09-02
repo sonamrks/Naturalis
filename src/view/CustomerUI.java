@@ -29,7 +29,6 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
     private String collegueID;
     private ItemController itemController;
     private CartItemsController cartItemsController;
-    private SmartCardController smartCardController;
     private CartItemsPanel cartItemsPanel;
     private PaymentPanel paymentPanel;
     private static CardLayout cardLayout;
@@ -49,7 +48,6 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
         this.collegueID = collegueID;
         this.itemController = ItemController.getItemControllerInstance();
         cartItemsController = new CartItemsController(this);
-        smartCardController = new SmartCardController(this);
         
         cartItemsPanel = new CartItemsPanel(this, cartItemsController, machineID);
         paymentPanel = new PaymentPanel(this, cartItemsController);

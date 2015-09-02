@@ -24,7 +24,6 @@ public class SmartCardController {
         smartCard = new SmartCard();
     }
     
-    
     public Integer addNewCard(String name,Integer cost){
         return smartCard.createNewCard(name,cost);
     }
@@ -36,8 +35,21 @@ public class SmartCardController {
     public double reload(int cardNumber, double amount){
         return smartCard.reload(cardNumber,amount);
     }
+    
     public double checkBalance(int cardNumber){
         return smartCard.checkBalance(cardNumber);
+    }
+    
+    public void retrieveCardDetails(Integer cardNumber){
+        smartCard.retrieveCardDetails(cardNumber);
+    }
+    
+    public Double getBalance() {
+        return smartCard.getBalance();
+    }
+    
+    public void setBalance(Double balance) {
+        smartCard.setBalance(balance);
     }
 }
 

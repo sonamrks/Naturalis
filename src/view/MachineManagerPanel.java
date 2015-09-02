@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 public class MachineManagerPanel extends javax.swing.JPanel {
 
     private ArrayList<Machine> machines;
-    private ItemController itemController;
+ //   private ItemController itemController;
     private ImageIcon image;
     private Image bg;
     /**
@@ -30,7 +30,7 @@ public class MachineManagerPanel extends javax.swing.JPanel {
      */
     public MachineManagerPanel() {
         machines = new ArrayList<Machine>();
-        itemController = ItemController.getItemControllerInstance();
+   //     itemController = ItemController.getItemControllerInstance();
         initComponents();
     }
     
@@ -40,7 +40,7 @@ public class MachineManagerPanel extends javax.swing.JPanel {
     
     public void registerMachine(Machine machine) {
         machines.add(machine);
-        itemController.addNewMachine(machine.getId());
+    //    itemController.addNewMachine(machine.getId());
     }
     
     public Machine getMachine(int id) {

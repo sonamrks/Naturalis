@@ -5,20 +5,22 @@
  */
 package controller;
 
-import model.SmartCard;
-
 /**
  *
  * @author AshitaRaghu
  */
 public class PayCard implements PaymentStrategy{
-    private SmartCard smartCard = new SmartCard();
+    private SmartCardController smartCardController;
     double balance=0;
     
-     public double pay(double price,double number){
-        smartCard.retrieveCardDetails((int)number);
+    public PayCard(SmartCardController smartCardController) {
+        this.smartCardController = smartCardController;
+    }
+    
+    public double pay(double price,double number){
+        smartCardController.retrieveCardDetails((int)number);
         boolean balance_ok=false;
-        balance = smartCard.getBalance();
+        balance = smartCardController.getBalance();
 
             if(balance>=price){
                 balance_ok = true;
@@ -26,7 +28,7 @@ public class PayCard implements PaymentStrategy{
             }
 
             if(balance_ok==true){
-                smartCard.setBalance(price);
+                smartCardController.setBalance(price);
             }
             else 
                 balance = 0.0;
