@@ -21,9 +21,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.*;
 import javax.swing.table.AbstractTableModel;
-import model.DatabaseConnection;
-import model.Product;
-
 
 public class CartItemsTableModel extends AbstractTableModel implements AbstractList, Observable {
     private List<Product> cartItems;
@@ -35,7 +32,6 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     private int numcols, numrows;
     private double totalPrice;
     private String name;
-    private Product item;
     
     ItemFactory beverageFactory = BeverageFactory.getBeverageFactoryInstance();
     ItemFactory snackFactory = SnackFactory.getSnackFactoryInstance();
@@ -70,6 +66,7 @@ public class CartItemsTableModel extends AbstractTableModel implements AbstractL
     }
     
     public void addItem(Integer code) {
+        Product item = null;
         try {
             String getName = "SELECT name FROM item WHERE code=?";
             

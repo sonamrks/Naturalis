@@ -12,7 +12,6 @@ import model.Item;
  * @author AshitaRaghu
  */
 public class PayCash implements PaymentStrategy{
-    Item itemTableModel = new Item();
     
     public double pay(double price,double deductable){
        double remainingPrice = price - deductable;

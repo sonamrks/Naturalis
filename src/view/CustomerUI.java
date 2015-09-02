@@ -51,7 +51,7 @@ public class CustomerUI extends javax.swing.JFrame implements Collegue {
         cartItemsController = new CartItemsController(this);
         smartCardController = new SmartCardController(this);
         
-        cartItemsPanel = new CartItemsPanel(this, cartItemsController, itemController, machineID);
+        cartItemsPanel = new CartItemsPanel(this, cartItemsController, machineID);
         paymentPanel = new PaymentPanel(this, cartItemsController);
         cartPanel.setLayout(new FlowLayout());
         cartPanel.add(cartItemsPanel);

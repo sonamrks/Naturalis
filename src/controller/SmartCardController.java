@@ -32,26 +32,6 @@ public class SmartCardController {
     public void removeCard(Integer num){
         smartCard.deleteCard(num);
     }
-   
-    public Double payUsingCard(Double price, Integer cardNumber){
-        
-        smartCard.retrieveCardDetails(cardNumber);
-        boolean balance_ok=false;
-        balance = smartCard.getBalance();
-
-            if(balance>=price){
-                balance_ok = true;
-                balance-= price;
-            }
-
-            if(balance_ok==true){
-                smartCard.setBalance(price);
-            }
-            else 
-                balance = 0.0;
-
-        return balance;
-    }
     
     public double reload(int cardNumber, double amount){
         return smartCard.reload(cardNumber,amount);

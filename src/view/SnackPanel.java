@@ -25,8 +25,6 @@ public class SnackPanel extends javax.swing.JPanel {
 
     private Integer machineID;
     private CustomerUI customerUI;
-    private ItemController itemController;
-    private CartItemsController itemsCartController;
     ArrayList<Integer> codeList;
     ArrayList<Double> priceList;
     ArrayList<String> pictureList;
@@ -47,13 +45,11 @@ public class SnackPanel extends javax.swing.JPanel {
         initComponents();
         this.machineID = machineID;
         this.customerUI = customerUI;
-        itemController = customerUI.getItemController();
-        itemsCartController = customerUI.getCartItemsController();
-        itemController.generateCategoryItemInfo(machineID, "snack");
-        codeList = itemController.getCategoryCodeForMachine();
-        priceList = itemController.getCategoryPriceForMachine();
-        pictureList = itemController.getCategoryPicturePathForMachine();
-        countList = itemController.getCategoryCountForMachine();        
+        customerUI.getItemController().generateCategoryItemInfo(machineID, "snack");
+        codeList = customerUI.getItemController().getCategoryCodeForMachine();
+        priceList = customerUI.getItemController().getCategoryPriceForMachine();
+        pictureList = customerUI.getItemController().getCategoryPicturePathForMachine();
+        countList = customerUI.getItemController().getCategoryCountForMachine();        
         setCodeLabel();
         setPriceLabel();
         setPictureButton();
@@ -889,56 +885,56 @@ public class SnackPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        itemController.decreaseItemCount(Integer.valueOf(codeLabel1.getText()),machineID);          
-        itemsCartController.addItem(codeLabel1.getText());  
+        customerUI.getItemController().decreaseItemCount(Integer.valueOf(codeLabel1.getText()),machineID);          
+        customerUI.getCartItemsController().addItem(codeLabel1.getText());  
         customerUI.sendMessage("addtocart", "snack", Integer.valueOf(codeLabel1.getText()), null);
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
-        itemController.decreaseItemCount(Integer.valueOf(codeLabel4.getText()),machineID);          
-        itemsCartController.addItem(codeLabel4.getText());  
+        customerUI.getItemController().decreaseItemCount(Integer.valueOf(codeLabel4.getText()),machineID);          
+        customerUI.getCartItemsController().addItem(codeLabel4.getText());  
         customerUI.sendMessage("addtocart", "snack", Integer.valueOf(codeLabel4.getText()), null);
     }//GEN-LAST:event_button4ActionPerformed
 
     private void button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button8ActionPerformed
-        itemController.decreaseItemCount(Integer.valueOf(codeLabel8.getText()),machineID);          
-        itemsCartController.addItem(codeLabel8.getText());  
+        customerUI.getItemController().decreaseItemCount(Integer.valueOf(codeLabel8.getText()),machineID);          
+        customerUI.getCartItemsController().addItem(codeLabel8.getText());  
         customerUI.sendMessage("addtocart", "snack", Integer.valueOf(codeLabel8.getText()), null);
     }//GEN-LAST:event_button8ActionPerformed
 
     private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
-        itemController.decreaseItemCount(Integer.valueOf(codeLabel9.getText()),machineID);          
-        itemsCartController.addItem(codeLabel9.getText()); 
+        customerUI.getItemController().decreaseItemCount(Integer.valueOf(codeLabel9.getText()),machineID);          
+        customerUI.getCartItemsController().addItem(codeLabel9.getText()); 
         customerUI.sendMessage("addtocart", "snack", Integer.valueOf(codeLabel9.getText()), null);
     }//GEN-LAST:event_button9ActionPerformed
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
-        itemController.decreaseItemCount(Integer.valueOf(codeLabel3.getText()),machineID);          
-        itemsCartController.addItem(codeLabel3.getText());  
+        customerUI.getItemController().decreaseItemCount(Integer.valueOf(codeLabel3.getText()),machineID);          
+        customerUI.getCartItemsController().addItem(codeLabel3.getText());  
         customerUI.sendMessage("addtocart", "snack", Integer.valueOf(codeLabel3.getText()), null);
     }//GEN-LAST:event_button3ActionPerformed
 
     private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
-        itemController.decreaseItemCount(Integer.valueOf(codeLabel5.getText()),machineID);          
-        itemsCartController.addItem(codeLabel5.getText()); 
+        customerUI.getItemController().decreaseItemCount(Integer.valueOf(codeLabel5.getText()),machineID);          
+        customerUI.getCartItemsController().addItem(codeLabel5.getText()); 
         customerUI.sendMessage("addtocart", "snack", Integer.valueOf(codeLabel5.getText()), null);
     }//GEN-LAST:event_button5ActionPerformed
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
-        itemController.decreaseItemCount(Integer.valueOf(codeLabel6.getText()),machineID);          
-        itemsCartController.addItem(codeLabel6.getText());  
+        customerUI.getItemController().decreaseItemCount(Integer.valueOf(codeLabel6.getText()),machineID);          
+        customerUI.getCartItemsController().addItem(codeLabel6.getText());  
         customerUI.sendMessage("addtocart", "snack", Integer.valueOf(codeLabel6.getText()), null);
     }//GEN-LAST:event_button6ActionPerformed
 
     private void button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button7ActionPerformed
-        itemController.decreaseItemCount(Integer.valueOf(codeLabel7.getText()),machineID);          
-        itemsCartController.addItem(codeLabel7.getText());  
+        customerUI.getItemController().decreaseItemCount(Integer.valueOf(codeLabel7.getText()),machineID);          
+        customerUI.getCartItemsController().addItem(codeLabel7.getText());  
         customerUI.sendMessage("addtocart", "snack", Integer.valueOf(codeLabel7.getText()), null);
     }//GEN-LAST:event_button7ActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
-        itemController.decreaseItemCount(Integer.valueOf(codeLabel2.getText()),machineID);          
-        itemsCartController.addItem(codeLabel2.getText());  
+        customerUI.getItemController().decreaseItemCount(Integer.valueOf(codeLabel2.getText()),machineID);          
+        customerUI.getCartItemsController().addItem(codeLabel2.getText());  
         customerUI.sendMessage("addtocart", "snack", Integer.valueOf(codeLabel2.getText()), null);
     }//GEN-LAST:event_button2ActionPerformed
 
