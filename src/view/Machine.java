@@ -23,12 +23,17 @@ public class Machine extends javax.swing.JPanel implements Cloneable {
         initComponents();
     }
     
+    @Override
     public Object clone() throws CloneNotSupportedException {
-        return this; 
+        return new Machine(id); 
     }
     
     public Integer getId() {
         return id;
+    }
+    
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**

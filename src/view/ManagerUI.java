@@ -40,7 +40,6 @@ public class ManagerUI extends javax.swing.JFrame implements Collegue {
     private ArrayList<JButton> itemButtons;
     int size;    
     
-// planbuilder
     public ManagerUI(String collegueID) {
         itemLabels = new ArrayList<JLabel>();
         itemTextFields = new ArrayList<JTextField>();

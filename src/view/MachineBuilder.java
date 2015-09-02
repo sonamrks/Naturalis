@@ -32,8 +32,9 @@ public class MachineBuilder {
     }
         
     public void addNewMachine(Integer id) {
-        Machine newMachine = new Machine(id);
-        itemController.addNewMachine(id);
+        Machine newMachine = machineManager.getMachine(4201);
+        newMachine.setId(id);
+        itemController.addNewMachine(newMachine.getId());
         machineManager.registerMachine(newMachine);
         machineManager.generateMachines();
     }
