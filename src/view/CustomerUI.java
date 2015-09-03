@@ -8,7 +8,6 @@ package view;
 import controller.CartItemsController;
 import controller.ItemController;
 import controller.Mediator;
-import controller.SmartCardController;
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;

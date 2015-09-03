@@ -10,7 +10,6 @@ import java.awt.CardLayout;
 import java.sql.Connection;
 import javax.swing.JPanel;
 import model.DatabaseConnection;
-import view.MachineBuilder;
 import view.MachineManagerPanel;
 import view.NavigationPanel;
 
@@ -24,7 +23,6 @@ public class Main extends javax.swing.JFrame {
     static private JPanel cards;
     private NavigationPanel navigationPanel;
     private MachineManagerPanel machinesPanel;
-    private MachineBuilder machineBuilder;
     static int activityType=1; // Customer is default activity
     /**
      * Creates new form Main
@@ -35,8 +33,6 @@ public class Main extends javax.swing.JFrame {
         cards = new JPanel(cardLayout);
         navigationPanel = new NavigationPanel();
         machinesPanel = new MachineManagerPanel();
-        machineBuilder = new MachineBuilder(machinesPanel);
-        machineBuilder.loadMachines();
         cards.add(navigationPanel, "Navigation");
         cards.add(machinesPanel,"Machines");
         

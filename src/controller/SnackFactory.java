@@ -18,17 +18,16 @@ public class SnackFactory implements ItemFactory {
     public static ItemFactory getSnackFactoryInstance(){
         return snackFactory;
     }
-    private SnackFactory(){
-        
+    private SnackFactory(){        
     }
     public Product createItem(String name){
 		Snack snack = null;
 		
 		try {
-			snack = (Snack) Class.forName(name).newInstance();
+                    snack = (Snack) Class.forName(name).newInstance();
 		}
 		catch (Exception e) {
-			System.out.println(e.getMessage());
+                    System.out.println(e.getMessage());
 		}
 
 		return snack;

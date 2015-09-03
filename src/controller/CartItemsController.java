@@ -20,8 +20,6 @@ import javax.swing.event.TableModelListener;
 import view.CustomerUI;
 import javax.swing.table.TableModel;
 import javax.swing.event.*;
-import view.CartItemsPanel;
-import view.PaymentPanel;
 
 public class CartItemsController implements ListSelectionListener, TableModelListener {
     private CartItemsTableModel cartItemsTableModel;
@@ -65,20 +63,15 @@ public class CartItemsController implements ListSelectionListener, TableModelLis
         }
     }
 
-    public void addItem(String ID){
-     //   itemsCartTableModel.addRow(Integer.valueOf(ID));	
+    public void addItem(String ID){	
         cartItemsTableModel.addItem(Integer.valueOf(ID));
-      //  cartItemsTableModel.updateSoldCount(Integer.valueOf(ID),"add");
     }
 
     public void removeItem(String ID){
         if (ID.equals("")) {
             JOptionPane.showMessageDialog(null,"Please select an item to delete","No items selected",JOptionPane.ERROR_MESSAGE);
         } else {
-         //   itemsCartTableModel.deleteRow(Integer.valueOf(ID));
             iterator.removeItem(Integer.valueOf(ID));
-     //       itemsCartTableModel.removeItem(Integer.valueOf(ID));
-         //   cartItemsTableModel.updateSoldCount(Integer.valueOf(ID),"remove");
         }
     }	
     

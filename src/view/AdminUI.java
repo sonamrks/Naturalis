@@ -9,7 +9,6 @@ import controller.ItemController;
 import controller.Mediator;
 import controller.UserLogController;
 import java.awt.Color;
-import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.*;
 import main.Main;

@@ -6,8 +6,6 @@
 package view;
 
 import main.Main;
-import controller.ItemController;
-import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
