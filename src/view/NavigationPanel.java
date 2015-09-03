@@ -9,7 +9,10 @@ import main.Main;
 import controller.AccessUserController;
 import controller.ItemController;
 import controller.LoginStrategy;
+import controller.ManagerRole;
 import controller.MultipleLoginAttempts;
+import controller.Person;
+import controller.Role;
 import controller.UserLogController;
 import javax.swing.JOptionPane;
 
